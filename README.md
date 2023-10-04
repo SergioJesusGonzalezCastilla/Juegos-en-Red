@@ -4,14 +4,13 @@ Repositorio creado por estudiantes, para la asignatura de Juegos en Red del Grad
 
 # Ideas principales del juego (GDD Básico)
 
-  - Género del título : batallas historicas
-  - Nombre del título : pim pam PUM !
-  - Tipo de juego : arcade disparo 1v1
-  - Posición de la cámara : desde arriba (top-down)
-  - Mecánicas principales : pelea disparos 1v1
-  - Equipo desarrollador : M
-  - Inspirado en :
-  - Público al que va dirigido :
-  - nombre del equipo : Merche
-  - logo :
-  - slogan :
+  - Nombre del título : Pim Pam PUM !
+  - Género del juego y ambientación: Arcade de disparos 1 vs 1
+  - Ambientación del título : Enfrentamientos ambientados en diferentes puntos históricos
+  - Posición de la cámara : Desde arriba (Top-Down)
+  - Mecánicas principales : Pelea de disparos 1 vs 1
+  - Inspirado en : Pong
+  - Público al que va dirigido : Todos los públicos
+  - Equipo desarrollador : Merche Mojo Dojo Casa House
+  - Logo :
+  - Slogan :
