@@ -9,6 +9,8 @@ Repositorio creado por estudiantes, para la asignatura de Juegos en Red del Grad
   - Nombre del título : Pim Pam PUM !
   - Género del juego: Arcade de disparos 1 vs 1
   - Ambientación del título : Enfrentamientos ambientados en diferentes puntos históricos
+        -Viejo Oeste
+        -Piratas
   - Posición de la cámara : Desde arriba (Top-Down)
   - Mecánicas principales : Pelea de disparos 1 vs 1
   - Inspirado en : Pong
