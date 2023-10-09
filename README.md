@@ -1,8 +1,10 @@
-# Juegos-en-Red
+## Juegos-en-Red
+
 Repositorio creado por estudiantes, para la asignatura de Juegos en Red del Grado en Diseño y Desarrollo de Videojuegos de la URJC (Móstoles))
 
 
 # Ideas principales del juego (GDD Básico)
+## pim pam PUM!
 
   - Nombre del título : Pim Pam PUM !
   - Género del juego: Arcade de disparos 1 vs 1
