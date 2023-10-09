@@ -3,8 +3,8 @@
 Repositorio creado por estudiantes, para la asignatura de Juegos en Red del Grado en Diseño y Desarrollo de Videojuegos de la URJC (Móstoles))
 
 
-# Ideas principales del juego (GDD Básico)
-## pim pam PUM!
+# Ficha del juego (GDD Básico)
+## Pim Pam PUM!
 
   - Nombre del título : Pim Pam PUM !
   - Género del juego: Arcade de disparos 1 vs 1
@@ -14,5 +14,4 @@ Repositorio creado por estudiantes, para la asignatura de Juegos en Red del Grad
   - Inspirado en : Pong
   - Público al que va dirigido : Todos los públicos
   - Equipo desarrollador : Merche Mojo Dojo Casa House
-  - Logo :
   - Slogan : Disparando por la red
