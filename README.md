@@ -23,4 +23,4 @@ Repositorio creado por estudiantes, para la asignatura de Juegos en Red del Grad
   - Slogan : Disparando por la red
 
 ## Enlace del GDD
-https://urjc-my.sharepoint.com/:w:/r/personal/sj_gonzalez_2020_alumnos_urjc_es/Documents/Juegos%20en%20Red/Docs/GDD%20Juegos%20en%20Red.docx?d=w91727ba550bf411193f32ce84e8df43b&csf=1&web=1&e=P69mmB
+https://onx.la/82e83
