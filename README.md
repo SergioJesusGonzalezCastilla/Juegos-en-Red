@@ -17,7 +17,7 @@ Repositorio creado por estudiantes, para la asignatura de Juegos en Red del Grad
   - Ambientación del título : Enfrentamientos ambientados en diferentes puntos históricos: Salvaje Oeste, Edad de Oro de la Piratería, Edad Media y Era Espacial 
   - Posición de la cámara : Desde arriba (Top-Down)
   - Mecánicas principales : Pelea de disparos 1 vs 1
-  - Inspirado en : Pong
+  - Inspirado en : Pong, Space Invaders, Brawl Stars
   - Público al que va dirigido : Todos los públicos
   - Equipo desarrollador : Merche Mojo Dojo Casa House
   - Slogan : Disparando por la red
