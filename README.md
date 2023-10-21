@@ -19,6 +19,7 @@ Repositorio creado por estudiantes, para la asignatura de Juegos en Red del Grad
   - Mecánicas principales : Pelea de disparos 1 vs 1
   - Inspirado en : Pong, Space Invaders, Brawler Stars
   - Público al que va dirigido : Todos los públicos
+  - Plataformas: PC
   - Equipo desarrollador : Merche Mojo Dojo Casa House
   - Slogan : Disparando por la red
 
