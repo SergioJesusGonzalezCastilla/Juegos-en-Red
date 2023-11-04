@@ -35,6 +35,11 @@ Repositorio creado por estudiantes, para la asignatura de Juegos en Red del Grad
   <br><br>
 </p>
 
+ **Realizado por MM House: **
+ - Javier Miguel Martín Ullán 
+ - Sergio Jesús González Castilla 
+ - Andrés Ruíz Oliván 
+ - Raúl Somavilla González 
 
  
 
