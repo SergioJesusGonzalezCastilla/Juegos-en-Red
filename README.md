@@ -22,6 +22,17 @@ Repositorio creado por estudiantes, para la asignatura de Juegos en Red del Grad
   - Plataformas: PC
   - Equipo desarrollador : Merche Mojo Dojo Casa House
   - Slogan : Disparando por la red
+ ## GDD
+ A continuación, se mostrará el contenido completo del GDD, que irá actualizándose a medida que se agregen, determinen o eliminen elementos al juego.
+**- FASE 1 -**
+**GDD: Pim Pam PUM!**
+<p align="center">
+  <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Pim%20pam%20pum.png">
+  <br><br>
+  <b>Ilustración 1. Logo del juego</b>
+  <br><br>
+</p>
 
-## Enlace del GDD
-https://onx.la/82e83
+
+ 
+
