@@ -1,9 +1,13 @@
 <!doctype html> 
 <html lang="en"> 
+
 <head> 
     <meta charset="UTF-8" />
-    <title>PIM PAM PUM!</title>  
+    <meta name=" PimPamPUM!"/>
+    <title>PIM PAM PUM!</title>
+
     <script src="//cdn.jsdelivr.net/npm/phaser@3.11.0/dist/phaser.js"></script>
+    
     
     <style type="text/css">
 
@@ -14,7 +18,6 @@
             padding: 0;
             width: 100%;
 	        height: 100vh;
-            background-image: url(resources/FondoPorvisional.png);
 	        background-position: center;
 	        background-repeat: no-repeat;
 	        background-size: cover;
@@ -36,8 +39,9 @@
 
     var config = {
         type: Phaser.AUTO,
-        width:800,
-        height:600,
+        width:2048,
+        height:1152,
+
         scene: {
             preload: preload,
             create: create,
@@ -49,13 +53,13 @@
 
     function preload ()
     {
-        this.load.image('Desierto', 'resources/FondoProvisional.png');
+        this.load.image('Desierto', 'resources/Fondo1.png');
     
     }
 
     function create ()
     {
-        this.add.image(0, 0, 'Desierto').SetOrigin(0, 0)
+        this.add.image(1023, 576, 'Desierto').SetOrigin(0, 0)
     }
 
     function update ()
