@@ -6,8 +6,8 @@ Repositorio creado por estudiantes, para la asignatura de Juegos en Red del Grad
 
   - Sergio Jesús González Castilla. Correo: sj.gonzalez.2020@alumnos.urjc.es Github: SergioJesusGonzalezCastilla
   - Javier Miguel Martín Ullán. Correo: jm.martinu.2017@alumnos.urjc.es Github: Javier169
-  - Andrés Ruiz Oliván. Correo: r.somavilla.2021@alumnos.urjc.es Github: MrTheory4
-  - Raúl Somavilla González. Correo: a.ruizo.2021@alumnos.urjc.es Github: raulsg0108
+  - Andrés Ruiz Oliván. Correo: a.ruizo.2021@alumnos.urjc.es Github: MrTheory4
+  - Raúl Somavilla González. Correo:  r.somavilla.2021@alumnos.urjc.es Github: raulsg0108
 
 # Ficha del juego (GDD Básico)
 ## Pim Pam PUM!
