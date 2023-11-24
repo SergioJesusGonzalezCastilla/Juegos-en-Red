@@ -13,6 +13,9 @@ var vida = 3;
 const WIDTH = 1280;
 const HEIGHT = 720;
 
+var life1=100;
+var life2=100;
+
 var config = {
     type: Phaser.AUTO,
     width:WIDTH,
@@ -38,18 +41,18 @@ var game = new Phaser.Game(config);
 function preload ()
 {
     //FONDO
-    this.load.image('Desierto', 'resources/Fondo Desierto.png');    
+    this.load.image('Desierto', 'resources/FondoDesierto.png');    
     
     //ELEMENTOS DEL MUNDO
-    this.load.image('Vías','resources/Vias de Tren.png');
-    this.load.image('Tanque','resources/Agüita.png');
-    this.load.image('Carreta1','resources/Carreta derecha.png');
-    this.load.image('Carreta2','resources/Carreta izquierda.png');
-    this.load.image('Mesa','resources/Mesa.png');
+    this.load.image('Vías','resources/ViasTren.png');
+    this.load.image('Tanque','resources/Agua.png');
+    this.load.image('Carreta1','resources/CarretaDerecha.png');
+    this.load.image('Carreta2','resources/CarretaIzquierda.png');
+    this.load.image('Mesa','resources/MesaDerecha.png');
 
     //PLAYERS
-    this.load.image('vaquero', 'resources/vaquero.png');
-    this.load.image('vaquero_2', 'resources/vaquero_2.png');
+    this.load.image('vaquero', 'resources/Vaquero derecha.png');
+    this.load.image('vaquero_2', 'resources/Vaquero2 izquierda.png');
 
 
 }
@@ -82,16 +85,45 @@ function create ()
     vaquero_2 = this.physics.add.sprite(3*WIDTH/4,3*HEIGHT/4,'vaquero_2');
     player.setCollideWorldBounds(true);
 
-    //Texto
-    texto = this.add.text(16, 16, 'vida:', {
+    //Textos
+    texto1 = this.add.text(16, 16, 'Vida P1:'+life1, {
+        fontSize: '200px',
+        fill: '#fff'
+    }).setScale(1/5.8);
+    //Textos
+    texto1 = this.add.text(WIDTH-250, 16, 'Vida P2:'+life2, {
         fontSize: '200px',
         fill: '#000'
-    })
+    }).setScale(1/5.8);
     
 
 }
 
 function update ()
 {
-    
+    //Movimiento del vaquero 1
+    if (cursors.left.isDown)
+    {
+    player.setVelocityX(-160);
+
+    player.anims.play('left', true);
+    }
+    else if (cursors.right.isDown)
+    {
+    player.setVelocityX(160);
+
+    player.anims.play('right', true);
+    }
+    if (cursors.down.isDown)
+    {
+    player.setVelocityY(-160);
+
+    player.anims.play('down', true);
+    }
+    else if (cursors.up.isDown)
+    {
+    player.setVelocityY(160);
+
+    player.anims.play('up', true);
+    }
 }
