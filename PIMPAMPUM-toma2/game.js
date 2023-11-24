@@ -1,9 +1,12 @@
 var vias;
 
+const WIDTH = 1280;
+const HEIGHT = 720;
+
 var config = {
     type: Phaser.AUTO,
-    width:2048,
-    height:1152,
+    width:WIDTH,
+    height:HEIGHT,
     
 physics: {
         default: 'arcade',
@@ -26,17 +29,16 @@ function preload ()
 {
     this.load.image('Desierto', 'resources/Fondo1.png');
     
-    this.load.image('Vías', 'resources/tren.png');
+    this.load.image('Vias', 'resources/tren.png');
 }
 
 function create ()
 {
-    this.add.image(1023, 576, 'Desierto').SetOrigin(0, 0)
+     this.add.image(WIDTH/2, HEIGHT/2, 'Desierto');
     
-    this.add.image(800, 400, 'Vías').SetOrigin(0, 0);
+    //this.add.image(0, 0, 'Vías').SetOrigin(0, 0);
     vias = this.physics.add.staticGroup();
-
-    platforms.create(300,300, 'vias');
+    vias.create(WIDTH/2, HEIGHT/2, "Vias");
     
 
 }
