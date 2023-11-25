@@ -83,47 +83,77 @@ function create ()
     //Agregamos los vaqueros
     vaquero_1 = this.physics.add.sprite(WIDTH/4, HEIGHT/4,'vaquero');
     vaquero_2 = this.physics.add.sprite(3*WIDTH/4,3*HEIGHT/4,'vaquero_2');
-    player.setCollideWorldBounds(true);
+    
+    vaquero_1.setBounce(0.1);
+    vaquero_1.setCollideWorldBounds(false);
+    vaquero_1.body.setGravityY(0);
+
+
+    vaquero_2.setBounce(0.1);
+    vaquero_2.setCollideWorldBounds(true);
+    vaquero_2.body.setGravityY(0);
 
     //Textos
     texto1 = this.add.text(16, 16, 'Vida P1:'+life1, {
         fontSize: '200px',
         fill: '#fff'
     }).setScale(1/5.8);
+    
     //Textos
     texto1 = this.add.text(WIDTH-250, 16, 'Vida P2:'+life2, {
         fontSize: '200px',
         fill: '#000'
     }).setScale(1/5.8);
-    
+
+    //Efecto sombra
+    //vaquero_1.setInteractive();
+    //const fxShadow = phaserVia.preFX.addShadow(80, -90, 0.006, 2, 0x333333, 10);
+
+    cursors = this.input.keyboard.createCursorKeys();
+        const keyCodes= Phaser.Input.Keyboard.KeyCodes;
+        this.teclaA= this.input.keyboard.addKey(keyCodes.A);
+        this.teclaD= this.input.keyboard.addKey(keyCodes.D);
+        this.teclaW= this.input.keyboard.addKey(keyCodes.W);
+        this.teclaJ= this.input.keyboard.addKey(keyCodes.S);
+
 
 }
 
 function update ()
 {
-    //Movimiento del vaquero 1
-    if (cursors.left.isDown)
+    
+//Movimiento del vaquero 1
+    if (this.teclaD.isDown)
     {
-    player.setVelocityX(-160);
-
-    player.anims.play('left', true);
+        vaquero_1.setVelocityX(160);
     }
+   
     else if (cursors.right.isDown)
     {
-    player.setVelocityX(160);
+        vaquero_1.setVelocityX(160);
 
-    player.anims.play('right', true);
     }
-    if (cursors.down.isDown)
+
+    if (this.teclaA.isDown)
     {
-    player.setVelocityY(-160);
-
-    player.anims.play('down', true);
+        vaquero_1.setVelocityX(-160);
     }
+
     else if (cursors.up.isDown)
     {
-    player.setVelocityY(160);
-
-    player.anims.play('up', true);
+        vaquero_1.setVelocityY(160);
     }
+    
+    
+    if (this.teclaW.isDown)
+    {
+        vaquero_1.setVelocityY(-160);
+    }
+   
+    else if (cursors.right.isDown)
+    {
+        vaquero_1.setVelocityX(160);
+
+    }
+
 }
