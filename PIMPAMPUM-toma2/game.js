@@ -1,21 +1,26 @@
-var vias;
-var tanque;
-var carreta1;
-var carreta2;
-var mesa;
+// Elementos del mundo
+    var vias;
+    var tanque;
+    var carreta1;
+    var carreta2;
+    var mesa;
 
-var player;
+//Jugador
+    var player;
 
+//Vida del jugador
+    var texto;
+    var vida = 3;
 
-var texto;
-var vida = 3;
+//Tamaño de la pantalla
+    const WIDTH = 1280;
+    const HEIGHT = 720;
 
-const WIDTH = 1280;
-const HEIGHT = 720;
+//Vida de cada Jugador
+    var life1=100;
+    var life2=100;
 
-var life1=100;
-var life2=100;
-
+//configuración del archivo
 var config = {
     type: Phaser.AUTO,
     width:WIDTH,
@@ -38,6 +43,7 @@ physics: {
 
 var game = new Phaser.Game(config);
 
+//PRELOAD
 function preload ()
 {
     //FONDO
@@ -57,6 +63,7 @@ function preload ()
 
 }
 
+//CREATE
 function create ()
 {
     
@@ -85,7 +92,7 @@ function create ()
     vaquero_2 = this.physics.add.sprite(3*WIDTH/4,3*HEIGHT/4,'vaquero_2');
     
     vaquero_1.setBounce(0.1);
-    vaquero_1.setCollideWorldBounds(false);
+    vaquero_1.setCollideWorldBounds(true);
     vaquero_1.body.setGravityY(0);
 
 
@@ -93,13 +100,13 @@ function create ()
     vaquero_2.setCollideWorldBounds(true);
     vaquero_2.body.setGravityY(0);
 
-    //Textos
+    //Texto vida jugador 1
     texto1 = this.add.text(16, 16, 'Vida P1:'+life1, {
         fontSize: '200px',
         fill: '#fff'
     }).setScale(1/5.8);
     
-    //Textos
+    //Texto vida jugador 2
     texto1 = this.add.text(WIDTH-250, 16, 'Vida P2:'+life2, {
         fontSize: '200px',
         fill: '#000'
@@ -115,14 +122,14 @@ function create ()
         this.teclaD= this.input.keyboard.addKey(keyCodes.D);
         this.teclaW= this.input.keyboard.addKey(keyCodes.W);
         this.teclaJ= this.input.keyboard.addKey(keyCodes.S);
-
-
 }
 
+//UPDATE
 function update ()
 {
     
 //Movimiento del vaquero 1
+    //derecha
     if (this.teclaD.isDown)
     {
         vaquero_1.setVelocityX(160);
@@ -133,7 +140,7 @@ function update ()
         vaquero_1.setVelocityX(160);
 
     }
-
+    //izquierda
     if (this.teclaA.isDown)
     {
         vaquero_1.setVelocityX(-160);
@@ -144,7 +151,7 @@ function update ()
         vaquero_1.setVelocityY(160);
     }
     
-    
+    //arriba
     if (this.teclaW.isDown)
     {
         vaquero_1.setVelocityY(-160);
@@ -155,5 +162,12 @@ function update ()
         vaquero_1.setVelocityX(160);
 
     }
+
+    //abajo
+    if (this.teclaS.isDown)
+    {
+        vaquero_1.setVelocityY(160);
+    }
+        
 
 }
