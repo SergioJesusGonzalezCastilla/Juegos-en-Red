@@ -60,6 +60,9 @@ function preload ()
     this.load.image('vaquero', 'resources/Vaquero derecha.png');
     this.load.image('vaquero_2', 'resources/Vaquero2 izquierda.png');
 
+    //AUDIO
+    this.load.audio('sonidoFondo','sounds/BackgroundFightSound.mp3')
+    this.load.audio('sonidoDisparo','sounds/disparoSound.mp3')
 
 }
 
@@ -100,6 +103,9 @@ function create ()
     vaquero_2.setCollideWorldBounds(true);
     vaquero_2.body.setGravityY(0);
 
+    this.physics.add.collider(vaquero_1,vias);
+    this.physics.add.collider(vaquero_1, vaquero_2);
+
     //Texto vida jugador 1
     texto1 = this.add.text(16, 16, 'Vida P1:'+life1, {
         fontSize: '200px',
@@ -123,69 +129,94 @@ function create ()
         this.teclaD= this.input.keyboard.addKey(keyCodes.D);
         this.teclaW= this.input.keyboard.addKey(keyCodes.W);
         this.teclaS= this.input.keyboard.addKey(keyCodes.S);
+        this.teclaF= this.input.keyboard.addKey(keyCodes.H);
+
         //VAQUERO 2
         this.teclaJ= this.input.keyboard.addKey(keyCodes.J);
         this.teclaL= this.input.keyboard.addKey(keyCodes.L);
         this.teclaI= this.input.keyboard.addKey(keyCodes.I);
         this.teclaK= this.input.keyboard.addKey(keyCodes.K);
+        this.teclaH= this.input.keyboard.addKey(keyCodes.H);
 
+
+    
+//Sonido Fondo
+sonidoFondo = this.sound.add('sonidoFondo');
+sonidoDisparo = this.sound.add('sonidoDisparo');
+sonidoFondo.play();
+    
 }
 
 //UPDATE
 function update ()
 {
-    
-//Movimiento del vaquero 1
-    //derecha
+
+  //Movimiento del vaquero 1
     if (this.teclaD.isDown)
-    {
-        vaquero_1.setVelocityX(160);
-    }
-   
-    else if (cursors.right.isDown)
     {
         vaquero_1.setVelocityX(160);
 
     }
-    //izquierda
+   
+    else if (cursors.right.isUp)
+    {
+        vaquero_1.setVelocityX(0);
+
+    }
+
     if (this.teclaA.isDown)
     {
         vaquero_1.setVelocityX(-160);
     }
 
-    else if (cursors.up.isDown)
+    else if (cursors.left.isDown)
+    {
+        vaquero_1.setVelocityX(0);
+    }
+    
+    //no va la W
+    if (this.teclaW.isDown)
     {
         vaquero_1.setVelocityY(160);
     }
-    
-    //arriba
-    if (this.teclaW.isDown)
-    {
-        vaquero_1.setVelocityY(-160);
-    }
    
-    else if (cursors.right.isDown)
+    else if (cursors.up.isUp)
     {
-        vaquero_1.setVelocityX(160);
+        vaquero_1.setVelocityY(0);
 
     }
 
-    //abajo
     if (this.teclaS.isDown)
     {
         vaquero_1.setVelocityY(160);
     }
+   
+    else if (cursors.down.isUp)
+    {
+        vaquero_1.setVelocityY(0);
 
-     //MOVIMIENTO VAQUERO 2
+    }
+
+    if (this.teclaF.isDown)
+    {
+        sonidoDisparo.play();
+    }
+   
+    else if (cursors.right.isDown)
+    {
+
+    }
+
+    //MOVIMIENTO VAQUERO 2
 
     if (this.teclaL.isDown)
     {
         vaquero_2.setVelocityX(160);
     }
    
-    else if (cursors.right.isDown)
+    else if (cursors.right.isUp)
     {
-        vaquero_2.setVelocityX(160);
+        vaquero_2.setVelocityX(0);
 
     }
 
@@ -194,9 +225,9 @@ function update ()
         vaquero_2.setVelocityX(-160);
     }
 
-    else if (cursors.up.isDown)
+    else if (cursors.left.isUp)
     {
-        vaquero_2.setVelocityY(160);
+        vaquero_2.setVelocityX(0);
     }
     
     
@@ -205,9 +236,9 @@ function update ()
         vaquero_2.setVelocityY(-160);
     }
    
-    else if (cursors.right.isDown)
+    else if (cursors.up.isUp)
     {
-        vaquero_2.setVelocityX(160);
+        vaquero_2.setVelocityY(0);
 
     }
 
@@ -216,10 +247,11 @@ function update ()
         vaquero_2.setVelocityY(160);
     }
    
-    else if (cursors.right.isDown)
+    else if (cursors.down.isUp)
     {
-        vaquero_2.setVelocityX(160);
+        vaquero_2.setVelocityY(0);
 
     }
 
+    
 }
