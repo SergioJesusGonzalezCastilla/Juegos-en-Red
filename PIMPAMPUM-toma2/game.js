@@ -118,10 +118,17 @@ function create ()
 
     cursors = this.input.keyboard.createCursorKeys();
         const keyCodes= Phaser.Input.Keyboard.KeyCodes;
+        //VAQUERO 1
         this.teclaA= this.input.keyboard.addKey(keyCodes.A);
         this.teclaD= this.input.keyboard.addKey(keyCodes.D);
         this.teclaW= this.input.keyboard.addKey(keyCodes.W);
-        this.teclaJ= this.input.keyboard.addKey(keyCodes.S);
+        this.teclaS= this.input.keyboard.addKey(keyCodes.S);
+        //VAQUERO 2
+        this.teclaJ= this.input.keyboard.addKey(keyCodes.J);
+        this.teclaL= this.input.keyboard.addKey(keyCodes.L);
+        this.teclaI= this.input.keyboard.addKey(keyCodes.I);
+        this.teclaK= this.input.keyboard.addKey(keyCodes.K);
+
 }
 
 //UPDATE
@@ -168,6 +175,51 @@ function update ()
     {
         vaquero_1.setVelocityY(160);
     }
-        
+
+     //MOVIMIENTO VAQUERO 2
+
+    if (this.teclaL.isDown)
+    {
+        vaquero_2.setVelocityX(160);
+    }
+   
+    else if (cursors.right.isDown)
+    {
+        vaquero_2.setVelocityX(160);
+
+    }
+
+    if (this.teclaJ.isDown)
+    {
+        vaquero_2.setVelocityX(-160);
+    }
+
+    else if (cursors.up.isDown)
+    {
+        vaquero_2.setVelocityY(160);
+    }
+    
+    
+    if (this.teclaI.isDown)
+    {
+        vaquero_2.setVelocityY(-160);
+    }
+   
+    else if (cursors.right.isDown)
+    {
+        vaquero_2.setVelocityX(160);
+
+    }
+
+    if (this.teclaK.isDown)
+    {
+        vaquero_2.setVelocityY(160);
+    }
+   
+    else if (cursors.right.isDown)
+    {
+        vaquero_2.setVelocityX(160);
+
+    }
 
 }
