@@ -1,0 +1,28 @@
+body {
+
+    background-image: url(resources/FondoDesierto.png);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#menu {
+    text-align: center;
+}
+
+button {
+
+    height: 500px;
+    width: 190px;
+    border: 5px solid #6495ED;
+    background-color: #bcd2ee77;
+    border-radius: 15px;
+    margin: auto;
+    text-align: center;
+}
+
+button:hover {
+    background-color: rgb(175, 168, 76);
+    color: white;
+}
