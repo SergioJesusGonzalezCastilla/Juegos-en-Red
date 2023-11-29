@@ -155,42 +155,34 @@ function update ()
 if (this.teclaD.isDown)
 {
     vaquero_1.setVelocityX(80);
+    vaquero_1.setVelocityY(0);
     vaquero_1.x++;
     
 
 }
-else if (cursors.right.isUp)
-{
-    vaquero_1.setVelocityX(0);
-
-}
-if (this.teclaA.isDown)
+else if (this.teclaA.isDown)
 {
     vaquero_1.setVelocityX(-80);
+    vaquero_1.setVelocitY(0);
     vaquero_1.x--;
 }
 
-else if (cursors.left.isDown)
+else if (this.teclaW.isDown)
 {
-    vaquero_1.setVelocityX(0);
-}
-
-if (this.teclaW.isDown)
-{
+    vquero_1.setVelocityX(0);
     vaquero_1.setVelocityY(-80);
     vaquero_1.y--;
 }
-
-else if (cursors.up.isUp)
+else if (this.teclaS.isDown)
 {
-    vaquero_1.setVelocityY(0);
-
-}
-
-if (this.teclaS.isDown)
-{
+    vaquero_1.setVelocityX(0);
     vaquero_1.setVelocityY(80);
     vaquero_1.y++;
+}
+else
+{
+    vaquero_1.setVelocityX(0);
+    vaquero_1.setVelocityY(0);
 }
 //Sonido disparo
 if (this.teclaF.isDown)
@@ -205,36 +197,35 @@ if (this.teclaF.isDown)
 if (this.teclaL.isDown)
 {
     vaquero_2.setVelocityX(80);
+    vaquero_2.setVelocityY(0);
     vaquero_2.x++;
 }
 
-else if (cursors.right.isUp)
-{
-    vaquero_2.setVelocityX(0);
-
-}
-
-if (this.teclaJ.isDown)
+else if (this.teclaJ.isDown)
 {
     vaquero_2.setVelocityX(-80);
+    vaquero_2.setVelocityY(0);
     vaquero_2.x--;
 }
 
-if (this.teclaI.isDown)
+else if (this.teclaI.isDown)
 {
+    vaquero_2.setVelocityX(0);
     vaquero_2.setVelocityY(-80);
     vaquero_2.y--;
 }
-else if (cursors.up.isUp)
-{
-    vaquero_2.setVelocityY(0);
 
-}
 
-if (this.teclaK.isDown)
+else if (this.teclaK.isDown)
 {
+    vaquero_2.setVelocityX(0);
     vaquero_2.setVelocityY(80);
     vaquero_2.y++;
 }
+else
+{
+    vaquero_2.setVelocityX(0);
+    vaquero_2.setVelocityY(0);
 
+}
 }
