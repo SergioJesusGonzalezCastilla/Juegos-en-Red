@@ -6,10 +6,11 @@
     var mesa;
 
 //Jugador
-    var player;
+var vaquero_1;
+var vaquero_2;
 
 //Vida del jugador
-    var texto;
+   var texto1;
     var vida = 3;
 
 //Tamaño de la pantalla
@@ -20,31 +21,16 @@
     var life1=100;
     var life2=100;
 
-//configuración del archivo
-var config = {
-    type: Phaser.AUTO,
-    width:WIDTH,
-    height:HEIGHT,
-    
-physics: {
-        default: 'arcade',
-        arcade: {
-            gravity: { y: 0 },
-            debug: false
-        }
-    },
-    scene: {
-        preload: preload,
-        create: create,
-        update: update
+export class Game extends Phaser.Scene{
+
+    constructor(){
+        super({key:'game'});
     }
-};
+ 
 
-
-var game = new Phaser.Game(config);
-
+    
 //PRELOAD
-function preload ()
+preload ()
 {
     //FONDO
     this.load.image('Desierto', 'resources/FondoDesierto.png');    
@@ -67,7 +53,7 @@ function preload ()
 }
 
 //CREATE
-function create ()
+create ()
 {
     
 //FONDO
@@ -141,14 +127,14 @@ function create ()
 
     
 //Sonido Fondo
-sonidoFondo = this.sound.add('sonidoFondo');
-sonidoDisparo = this.sound.add('sonidoDisparo');
+var sonidoFondo = this.sound.add('sonidoFondo');
+var sonidoDisparo = this.sound.add('sonidoDisparo');
 sonidoFondo.play();
     
 }
 
 //UPDATE
-function update ()
+update ()
 {
 
 //Movimiento del vaquero 1
@@ -217,4 +203,5 @@ function update ()
         vaquero_2.setVelocityX(0);
         vaquero_2.setVelocityY(0);
     }
+}
 }
