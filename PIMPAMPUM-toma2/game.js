@@ -152,80 +152,69 @@ function update ()
 {
 
 //Movimiento del vaquero 1
-if (this.teclaD.isDown)
-{
-    vaquero_1.setVelocityX(80);
-    vaquero_1.setVelocityY(0);
-    vaquero_1.x++;
-    
+    if (this.teclaD.isDown)
+    {
+        vaquero_1.setVelocityX(80);
+        vaquero_1.setVelocityY(0);
+        vaquero_1.x++;
+    }
+    else if (this.teclaA.isDown)
+    {
+        vaquero_1.setVelocityX(-80);
+        vaquero_1.setVelocityY(0);
+        vaquero_1.x--;
+    }
+    else if (this.teclaW.isDown)
+    {
+        vaquero_1.setVelocityX(0);
+        vaquero_1.setVelocityY(-80);
+        vaquero_1.y--;
+    }
+    else if (this.teclaS.isDown)
+    {
+        vaquero_1.setVelocityX(0);
+        vaquero_1.setVelocityY(80);
+        vaquero_1.y++;
+    }
+    else
+    {
+        vaquero_1.setVelocityX(0);
+        vaquero_1.setVelocityY(0);
+    }
+    //Sonido disparo
+    if (this.teclaF.isDown)
+    {
+        sonidoDisparo.play();
+    }
+    //MOVIMIENTO VAQUERO 2
 
-}
-else if (this.teclaA.isDown)
-{
-    vaquero_1.setVelocityX(-80);
-    vaquero_1.setVelocitY(0);
-    vaquero_1.x--;
-}
-
-else if (this.teclaW.isDown)
-{
-    vquero_1.setVelocityX(0);
-    vaquero_1.setVelocityY(-80);
-    vaquero_1.y--;
-}
-else if (this.teclaS.isDown)
-{
-    vaquero_1.setVelocityX(0);
-    vaquero_1.setVelocityY(80);
-    vaquero_1.y++;
-}
-else
-{
-    vaquero_1.setVelocityX(0);
-    vaquero_1.setVelocityY(0);
-}
-//Sonido disparo
-if (this.teclaF.isDown)
-{
-    sonidoDisparo.play();
-}
-
-
-
-//MOVIMIENTO VAQUERO 2
-
-if (this.teclaL.isDown)
-{
-    vaquero_2.setVelocityX(80);
-    vaquero_2.setVelocityY(0);
-    vaquero_2.x++;
-}
-
-else if (this.teclaJ.isDown)
-{
-    vaquero_2.setVelocityX(-80);
-    vaquero_2.setVelocityY(0);
-    vaquero_2.x--;
-}
-
-else if (this.teclaI.isDown)
-{
-    vaquero_2.setVelocityX(0);
-    vaquero_2.setVelocityY(-80);
-    vaquero_2.y--;
-}
-
-
-else if (this.teclaK.isDown)
-{
-    vaquero_2.setVelocityX(0);
-    vaquero_2.setVelocityY(80);
-    vaquero_2.y++;
-}
-else
-{
-    vaquero_2.setVelocityX(0);
-    vaquero_2.setVelocityY(0);
-
-}
+    if (this.teclaL.isDown)
+    {
+        vaquero_2.setVelocityX(80);
+        vaquero_2.setVelocityY(0);
+        vaquero_2.x++;
+    }
+    else if (this.teclaJ.isDown)
+    {
+        vaquero_2.setVelocityX(-80);
+        vaquero_2.setVelocityY(0);
+        vaquero_2.x--;
+    }
+    else if (this.teclaI.isDown)
+    {
+        vaquero_2.setVelocityX(0);
+        vaquero_2.setVelocityY(-80);
+        vaquero_2.y--;
+    }
+    else if (this.teclaK.isDown)
+    {
+        vaquero_2.setVelocityX(0);
+        vaquero_2.setVelocityY(80);
+        vaquero_2.y++;
+    }
+    else
+    {
+        vaquero_2.setVelocityX(0);
+        vaquero_2.setVelocityY(0);
+    }
 }
