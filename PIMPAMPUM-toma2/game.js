@@ -305,5 +305,27 @@ update ()
    {
     posibilidad_2=true;
    }
+    //Se comprueba si las balas del primer vaquero salen del mundo, porque no han impactado con ningún objeto ni jugador
+        balas_vaquero_1.children.iterate(function (child) {
+            if(child!=null)
+            {
+                if(child.x>=WIDTH)
+                {
+                    child.destroy();
+                    num_balas_1++;
+                }
+            }
+        });
+        //Se comprueba si las balas del segundo vaquero salen del mundo, porque no han impactado con ningún objeto ni jugador
+        balas_vaquero_2.children.iterate(function (child) {
+            if(child!=null)
+            {
+                if(child.x>=WIDTH)
+                {
+                    child.destroy();
+                    num_balas_2++;
+                }
+            }
+        });
 }
 }
