@@ -110,6 +110,8 @@ create ()
         this.teclaW= this.input.keyboard.addKey(keyCodes.W);
         this.teclaS= this.input.keyboard.addKey(keyCodes.S);
         this.teclaF= this.input.keyboard.addKey(keyCodes.H);
+        this.teclaZ= this.input.keyboard.addKey(keyCodes.Z);
+
 
         //VAQUERO 2
         this.teclaJ= this.input.keyboard.addKey(keyCodes.J);
@@ -156,6 +158,11 @@ update ()
         vaquero_1.setVelocityY(80);
         vaquero_1.y++;
     }
+    else if (this.teclaZ.isDown)
+   {
+    this.scene.start('gameover');
+
+   }
     else
     {
         vaquero_1.setVelocityX(0);
