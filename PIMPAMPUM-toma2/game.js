@@ -1,3 +1,4 @@
+
 // Elementos del mundo
 var vias;
 var tanque;
@@ -14,8 +15,8 @@ var balas_vaquero_1;
 var balas_vaquero_2;
 
 //Tamaño de la pantalla
-    const WIDTH = 1280;
-    const HEIGHT = 720;
+var WIDTH = 1280;
+var HEIGHT = 720;
 
 //Textos
 var texto1;
@@ -42,132 +43,129 @@ var sonidoFondo ;
 var sonidoDisparo;
 
 export class Game extends Phaser.Scene{
-
     constructor(){
         super({key:'game'});
     }
- 
-
     
-//PRELOAD
-preload ()
-{
+    preload ()
+    {
+        //FONDO
+        this.load.image('Desierto', 'resources/FondoDesierto.png');    
+        
+        
+        //ELEMENTOS DEL MUNDO
+        this.load.image('Vías','resources/ViasTren.png');
+        this.load.image('Tanque','resources/Agua.png');
+        this.load.image('Carreta1','resources/CarretaDerecha.png');
+        this.load.image('Carreta2','resources/CarretaIzquierda.png');
+        this.load.image('Mesa','resources/MesaDerecha.png');
+
+
+        //PLAYERS
+        this.load.image('vaquero', 'resources/Vaquero derecha.png');
+        this.load.image('vaquero_2', 'resources/Vaquero2 izquierda.png');
+
+        //BALAS
+        this.load.image('bala_vaquero_1','resources/Bala_Derecha.png')
+        this.load.image('bala_vaquero_2','resources/Bala_Izquierda.png')
+        
+        //AUDIO
+        this.load.audio('sonidoFondo','sounds/BackgroundFightSound.mp3')
+        this.load.audio('sonidoDisparo','sounds/disparoSound.mp3')
+    }
+    create ()
+    {
+        
     //FONDO
-    this.load.image('Desierto', 'resources/FondoDesierto.png');    
-    
-    //ELEMENTOS DEL MUNDO
-    this.load.image('Vías','resources/ViasTren.png');
-    this.load.image('Tanque','resources/Agua.png');
-    this.load.image('Carreta1','resources/CarretaDerecha.png');
-    this.load.image('Carreta2','resources/CarretaIzquierda.png');
-    this.load.image('Mesa','resources/MesaDerecha.png');
+        //this.physics.world.setCollideWorldBounds(true,true,true,false);
+        this.add.image(1280/2, 720/2, 'Desierto');   
+        
+        //ELEMENTOS DEL MUNDO    
+        vias = this.physics.add.staticGroup();
+        vias.create(WIDTH/2, HEIGHT/2, 'Vías');
+        
+        tanque = this.physics.add.staticGroup();
+        tanque.create(WIDTH/3.2, HEIGHT/15, 'Tanque');
 
-    //PLAYERS
-    this.load.image('vaquero', 'resources/Vaquero derecha.png');
-    this.load.image('vaquero_2', 'resources/Vaquero2 izquierda.png');
+        carreta1 = this.physics.add.staticGroup();
+        carreta1.create(WIDTH/1.3, 100, 'Carreta1');
 
-    /BALAS
-    this.load.image('bala_vaquero_1','resources/Bala_Derecha.png')
-    this.load.image('bala_vaquero_2','resources/Bala_Izquierda.png')
-    
-    //AUDIO
-    this.load.audio('sonidoFondo','sounds/BackgroundFightSound.mp3')
-    this.load.audio('sonidoDisparo','sounds/disparoSound.mp3')
+        carreta2 = this.physics.add.staticGroup();
+        carreta2.create(WIDTH/4.5, HEIGHT-90, 'Carreta2');
 
-}
+        mesa = this.physics.add.staticGroup();
+        mesa.create(1.8*WIDTH/3, HEIGHT/1.2, 'Mesa');
 
-//CREATE
-create ()
-{
-    
-//FONDO
-    this.add.image(WIDTH/2, HEIGHT/2, 'Desierto');   
-    
-    //ELEMENTOS DEL MUNDO    
-    vias = this.physics.add.staticGroup();
-    vias.create(WIDTH/2, HEIGHT/2, 'Vías');
-    
-    tanque = this.physics.add.staticGroup();
-    tanque.create(WIDTH/3.2, HEIGHT/15, 'Tanque');
+        //Agregamos los vaqueros
+        vaquero_1 = this.physics.add.sprite(100, HEIGHT/4,'vaquero').setScale(7/8);
+        vaquero_1.setCollideWorldBounds(true);
 
-    carreta1 = this.physics.add.staticGroup();
-    carreta1.create(WIDTH/1.3, 100, 'Carreta1');
+        vaquero_2 = this.physics.add.sprite(WIDTH-100,3*HEIGHT/4,'vaquero_2').setScale(7/8);
+        vaquero_2.setCollideWorldBounds(true);
 
-    carreta2 = this.physics.add.staticGroup();
-    carreta2.create(WIDTH/4.5, HEIGHT-90, 'Carreta2');
+        //Agregamos colsiones de los vaqueros con el escenario
+        this.physics.add.collider(vaquero_1,vias);
+        this.physics.add.collider(vaquero_2,vias);
+        this.physics.add.collider(vaquero_1,tanque);
+        this.physics.add.collider(vaquero_2,carreta1);
+        this.physics.add.collider(vaquero_1,carreta2);
+        this.physics.add.collider(vaquero_2,mesa);
 
-    mesa = this.physics.add.staticGroup();
-    mesa.create(1.8*WIDTH/3, HEIGHT/1.2, 'Mesa');
+        // Agregamos las balas
+        balas_vaquero_1 = this.physics.add.group();
+        balas_vaquero_2 = this.physics.add.group();
 
-    //Agregamos los vaqueros
-    vaquero_1 = this.physics.add.sprite(100, HEIGHT/4,'vaquero').setScale(7/8);
-    vaquero_1.setCollideWorldBounds(true);
+        //Inicialización de variables
+        life1=100;
+        life2=100;
 
-    vaquero_2 = this.physics.add.sprite(WIDTH-100,3*HEIGHT/4,'vaquero_2').setScale(7/8);
-    vaquero_2.setCollideWorldBounds(true);
+        num_balas_1=3;
+        num_balas_2=3;
 
-    //Agregamos colsiones de los vaqueros con el escenario
-    this.physics.add.collider(vaquero_1,vias);
-    this.physics.add.collider(vaquero_2,vias);
-    this.physics.add.collider(vaquero_1,tanque);
-    this.physics.add.collider(vaquero_2,carreta1);
-    this.physics.add.collider(vaquero_1,carreta2);
-    this.physics.add.collider(vaquero_2,mesa);
+        posibilidad_1=true;
+        posibilidad_2=true;
 
-    // Agregamos las balas
-    balas_vaquero_1 = this.physics.add.group();
-    balas_vaquero_2 = this.physics.add.group();
-    
-    //Inicialización de variables
-    life1=100;
-    life2=100;
+        daño_1=10;
+        daño_2=10;
 
-    num_balas_1=3;
-    num_balas_2=3;
+        //Textos
+        texto1 = this.add.text(16, 16, 'Vida P1:'+life1, {
+            fontSize: '200px',
+            fill: '#fff'
+        }).setScale(1/5.8);
 
-    posibilidad_1=true;
-    posibilidad_2=true;
+        //Textos
+        texto2 = this.add.text(WIDTH-250, 16, 'Vida P2:'+life2, {
+            fontSize: '200px',
+            fill: '#000'
+        }).setScale(1/5.8);
+        
+        //Efecto sombra
+        //vaquero_1.setInteractive();
+        //const fxShadow = phaserVia.preFX.addShadow(80, -90, 0.006, 2, 0x333333, 10);
 
-    //Texto vida jugador 1
-    texto1 = this.add.text(16, 16, 'Vida P1:'+life1, {
-        fontSize: '200px',
-        fill: '#fff'
-    }).setScale(1/5.8);
-    
-    //Texto vida jugador 2
-    texto1 = this.add.text(WIDTH-250, 16, 'Vida P2:'+life2, {
-        fontSize: '200px',
-        fill: '#000'
-    }).setScale(1/5.8);
+        //Teclas
+        var cursors = this.input.keyboard.createCursorKeys();
+            const keyCodes= Phaser.Input.Keyboard.KeyCodes;
+            //VAQUERO 1
+            this.teclaA= this.input.keyboard.addKey(keyCodes.A);
+            this.teclaD= this.input.keyboard.addKey(keyCodes.D);
+            this.teclaW= this.input.keyboard.addKey(keyCodes.W);
+            this.teclaS= this.input.keyboard.addKey(keyCodes.S);
+            this.teclaF= this.input.keyboard.addKey(keyCodes.F);
 
-    //Efecto sombra
-    //vaquero_1.setInteractive();
-    //const fxShadow = phaserVia.preFX.addShadow(80, -90, 0.006, 2, 0x333333, 10);
+            //VAQUERO 2
+            this.teclaJ= this.input.keyboard.addKey(keyCodes.J);
+            this.teclaL= this.input.keyboard.addKey(keyCodes.L);
+            this.teclaI= this.input.keyboard.addKey(keyCodes.I);
+            this.teclaK= this.input.keyboard.addKey(keyCodes.K);
+            this.teclaH= this.input.keyboard.addKey(keyCodes.H);
 
-    cursors = this.input.keyboard.createCursorKeys();
-        const keyCodes= Phaser.Input.Keyboard.KeyCodes;
-        //VAQUERO 1
-        this.teclaA= this.input.keyboard.addKey(keyCodes.A);
-        this.teclaD= this.input.keyboard.addKey(keyCodes.D);
-        this.teclaW= this.input.keyboard.addKey(keyCodes.W);
-        this.teclaS= this.input.keyboard.addKey(keyCodes.S);
-        this.teclaF= this.input.keyboard.addKey(keyCodes.H);
-        this.teclaZ= this.input.keyboard.addKey(keyCodes.Z);
-
-
-        //VAQUERO 2
-        this.teclaJ= this.input.keyboard.addKey(keyCodes.J);
-        this.teclaL= this.input.keyboard.addKey(keyCodes.L);
-        this.teclaI= this.input.keyboard.addKey(keyCodes.I);
-        this.teclaK= this.input.keyboard.addKey(keyCodes.K);
-        this.teclaH= this.input.keyboard.addKey(keyCodes.H);
-
-    //Sonidos
-    sonidoFondo = this.sound.add('sonidoFondo');
-    sonidoDisparo = this.sound.add('sonidoDisparo');
-    sonidoFondo.play();
-
-    // Función con las acciones que se llevan a cabo en caso de que el jugador 1 sea golpeado
+        //Sonidos
+        sonidoFondo = this.sound.add('sonidoFondo');
+        sonidoDisparo = this.sound.add('sonidoDisparo');
+        sonidoFondo.play();
+        // Función con las acciones que se llevan a cabo en caso de que el jugador 1 sea golpeado
         function herido_vaquero_1(vaquero_1,bala)
         {
             bala.destroy();
@@ -197,115 +195,108 @@ create ()
         this.physics.add.overlap(vaquero_1, balas_vaquero_2, herido_vaquero_1, null, this);
         this.physics.add.collider(vaquero_2, balas_vaquero_1, herido_vaquero_2, null, this);
 
-}
+    }
 
-//UPDATE
-update ()
-{
+    update ()
+    {
+        //Movimiento del vaquero 1
+        if (this.teclaD.isDown)
+        {
+            vaquero_1.setVelocityX(80);
+            vaquero_1.setVelocityY(0);
+            vaquero_1.x++;
+        }
+        else if (this.teclaA.isDown)
+        {
+            vaquero_1.setVelocityX(-80);
+            vaquero_1.setVelocityY(0);
+            vaquero_1.x--;
+        }
+        else if (this.teclaW.isDown)
+        {
+            vaquero_1.setVelocityX(0);
+            vaquero_1.setVelocityY(-80);
+            vaquero_1.y--;
+        }
+        else if (this.teclaS.isDown)
+        {
+            vaquero_1.setVelocityX(0);
+            vaquero_1.setVelocityY(80);
+            vaquero_1.y++;
+        }
+        else
+        {
+            vaquero_1.setVelocityX(0);
+            vaquero_1.setVelocityY(0);
+        }
+        //Gestión del disparo para el jugador 1
+        if (this.teclaF.isDown)
+        {
+            if(num_balas_1>0 && posibilidad_1===true)
+            {
+                var bala=balas_vaquero_1.create(vaquero_1.x,vaquero_1.y,'bala_vaquero_1').setScale(1/2);
+                //bala.setCollideWorldBounds(true);
+                bala.setVelocity(300, 0);
+                posibilidad_1=false;
+                num_balas_1--;
+                sonidoDisparo.play();
+            }
+        }
+        // Vuelve a darse la posibilidad de disparar una vez se deja de pulsar la F
+        if (this.teclaF.isUp)
+        {
+            posibilidad_1=true;
+        }
+        //MOVIMIENTO VAQUERO 2
 
-//Movimiento del vaquero 1
-    if (this.teclaD.isDown)
-    {
-        vaquero_1.setVelocityX(80);
-        vaquero_1.setVelocityY(0);
-        vaquero_1.x++;
-    }
-    else if (this.teclaA.isDown)
-    {
-        vaquero_1.setVelocityX(-80);
-        vaquero_1.setVelocityY(0);
-        vaquero_1.x--;
-    }
-    else if (this.teclaW.isDown)
-    {
-        vaquero_1.setVelocityX(0);
-        vaquero_1.setVelocityY(-80);
-        vaquero_1.y--;
-    }
-    else if (this.teclaS.isDown)
-    {
-        vaquero_1.setVelocityX(0);
-        vaquero_1.setVelocityY(80);
-        vaquero_1.y++;
-    }
-    else if (this.teclaZ.isDown)
-   {
-    this.scene.start('gameover');
-
-   }
-    else
-    {
-        vaquero_1.setVelocityX(0);
-        vaquero_1.setVelocityY(0);
-    }
- //Gestión del disparo para el jugador 1
-   if (this.teclaF.isDown)
-   {
-    if(num_balas_1>0 && posibilidad_1===true)
-    {
-        var bala=balas_vaquero_1.create(vaquero_1.x,vaquero_1.y,'bala_vaquero_1').setScale(1/2);
-        bala.setCollideWorldBounds(true);
-        bala.setVelocity(300, 0);
-        posibilidad_1=false;
-        num_balas_1--;
-        sonidoDisparo.play();
-    }
-   }
-   // Vuelve a darse la posibilidad de disparar una vez se deja de pulsar la F
-   if (this.teclaF.isUp)
-   {
-    posibilidad_1=true;
-   }
-    //MOVIMIENTO VAQUERO 2
-
-    if (this.teclaL.isDown)
-    {
-        vaquero_2.setVelocityX(80);
-        vaquero_2.setVelocityY(0);
-        vaquero_2.x++;
-    }
-    else if (this.teclaJ.isDown)
-    {
-        vaquero_2.setVelocityX(-80);
-        vaquero_2.setVelocityY(0);
-        vaquero_2.x--;
-    }
-    else if (this.teclaI.isDown)
-    {
-        vaquero_2.setVelocityX(0);
-        vaquero_2.setVelocityY(-80);
-        vaquero_2.y--;
-    }
-    else if (this.teclaK.isDown)
-    {
-        vaquero_2.setVelocityX(0);
-        vaquero_2.setVelocityY(80);
-        vaquero_2.y++;
-    }
-    else
-    {
-        vaquero_2.setVelocityX(0);
-        vaquero_2.setVelocityY(0);
-    }
-    //Gestión del disparo para el jugador 2
-   if (this.teclaH.isDown)
-   {
-    if(num_balas_2>0 && posibilidad_2===true)
-    {
-        var bala=balas_vaquero_2.create(vaquero_2.x,vaquero_2.y,'bala_vaquero_2').setScale(1/2);
-        bala.setCollideWorldBounds(true);
-        bala.setVelocity(-300, 0);
-        posibilidad_2=false;
-        num_balas_2--;
-        sonidoDisparo.play();
-    }
-   }
-   // Vuelve a darse la posibilidad de disparar una vez se deja de pulsar la H
-   if (this.teclaH.isUp)
-   {
-    posibilidad_2=true;
-   }
-    //Se comprueba si las balas del primer vaquero salen del mundo, porque no han impactado con ningún objeto ni jugador
+        if (this.teclaL.isDown)
+        {
+            vaquero_2.setVelocityX(80);
+            vaquero_2.setVelocityY(0);
+            vaquero_2.x++;
+        }
+        else if (this.teclaJ.isDown)
+        {
+            vaquero_2.setVelocityX(-80);
+            vaquero_2.setVelocityY(0);
+            vaquero_2.x--;
+        }
+        else if (this.teclaI.isDown)
+        {
+            vaquero_2.setVelocityX(0);
+            vaquero_2.setVelocityY(-80);
+            vaquero_2.y--;
+        }
+        else if (this.teclaK.isDown)
+        {
+            vaquero_2.setVelocityX(0);
+            vaquero_2.setVelocityY(80);
+            vaquero_2.y++;
+        }
+        else
+        {
+            vaquero_2.setVelocityX(0);
+            vaquero_2.setVelocityY(0);
+        }
+        //Gestión del disparo para el jugador 2
+        if (this.teclaH.isDown)
+        {
+            if(num_balas_2>0 && posibilidad_2===true)
+            {
+                var bala=balas_vaquero_2.create(vaquero_2.x,vaquero_2.y,'bala_vaquero_2').setScale(1/2);
+                //bala.setCollideWorldBounds(true);
+                bala.setVelocity(-300, 0);
+                posibilidad_2=false;
+                num_balas_2--;
+                sonidoDisparo.play();
+            }
+        }
+        // Vuelve a darse la posibilidad de disparar una vez se deja de pulsar la H
+        if (this.teclaH.isUp)
+        {
+            posibilidad_2=true;
+        }
+        //Se comprueba si las balas del primer vaquero salen del mundo, porque no han impactado con ningún objeto ni jugador
         balas_vaquero_1.children.iterate(function (child) {
             if(child!=null)
             {
@@ -320,12 +311,13 @@ update ()
         balas_vaquero_2.children.iterate(function (child) {
             if(child!=null)
             {
-                if(child.x>=WIDTH)
+                if(child.x<=0)
                 {
                     child.destroy();
                     num_balas_2++;
                 }
             }
         });
-}
+    }
+
 }
