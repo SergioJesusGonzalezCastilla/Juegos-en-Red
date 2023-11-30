@@ -1,25 +1,37 @@
 // Elementos del mundo
-    var vias;
-    var tanque;
-    var carreta1;
-    var carreta2;
-    var mesa;
+var vias;
+var tanque;
+var carreta1;
+var carreta2;
+var mesa;
 
 //Jugador
 var vaquero_1;
 var vaquero_2;
 
-//Vida del jugador
-   var texto1;
-    var vida = 3;
+/ Balas
+var balas_vaquero_1;
+var balas_vaquero_2;
 
 //Tamaño de la pantalla
     const WIDTH = 1280;
     const HEIGHT = 720;
 
+//Textos
+var texto1;
+var texto2;
+
 //Vida de cada Jugador
-    var life1=100;
-    var life2=100;
+var life1;
+var life2;
+
+//Contador de balas por lanzar simultáneamente para cada jugador
+var num_balas_1;
+var num_balas_2;
+
+//Booleano para comporbar que se pueda disparar
+var posibilidad_1;
+var posibilidad_2;
 
 export class Game extends Phaser.Scene{
 
@@ -46,6 +58,10 @@ preload ()
     this.load.image('vaquero', 'resources/Vaquero derecha.png');
     this.load.image('vaquero_2', 'resources/Vaquero2 izquierda.png');
 
+    /BALAS
+    this.load.image('bala_vaquero_1','resources/Bala_Derecha.png')
+    this.load.image('bala_vaquero_2','resources/Bala_Derecha.png')
+    
     //AUDIO
     this.load.audio('sonidoFondo','sounds/BackgroundFightSound.mp3')
     this.load.audio('sonidoDisparo','sounds/disparoSound.mp3')
@@ -90,6 +106,20 @@ create ()
     this.physics.add.collider(vaquero_1,carreta2);
     this.physics.add.collider(vaquero_2,mesa);
 
+    // Agregamos las balas
+    balas_vaquero_1 = this.physics.add.group();
+    balas_vaquero_2 = this.physics.add.group();
+    
+    //Inicialización de variables
+    life1=100;
+    life2=100;
+
+    num_balas_1=3;
+    num_balas_2=3;
+
+    posibilidad_1=true;
+    posibilidad_2=true;
+
     //Texto vida jugador 1
     texto1 = this.add.text(16, 16, 'Vida P1:'+life1, {
         fontSize: '200px',
@@ -126,10 +156,10 @@ create ()
 
 
     
-//Sonido Fondo
-var sonidoFondo = this.sound.add('sonidoFondo');
-var sonidoDisparo = this.sound.add('sonidoDisparo');
-sonidoFondo.play();
+    //Sonido Fondo
+    var sonidoFondo = this.sound.add('sonidoFondo');
+    var sonidoDisparo = this.sound.add('sonidoDisparo');
+    sonidoFondo.play();
     
 }
 
@@ -172,11 +202,23 @@ update ()
         vaquero_1.setVelocityX(0);
         vaquero_1.setVelocityY(0);
     }
-    //Sonido disparo
-    if (this.teclaF.isDown)
+ //Gestión del disparo para el jugador 1
+   if (this.teclaF.isDown)
+   {
+    if(num_balas_1>0 && posibilidad_1===true)
     {
-        sonidoDisparo.play();
+        var bala=balas_vaquero_1.create(vaquero_1.x,vaquero_1.y,'bala_vaquero_1').setScale(1/2);
+        bala.setCollideWorldBounds(true);
+        bala.setVelocity(300, 0);
+        posibilidad_1=false;
+        num_balas_1--;
     }
+   }
+   // Vuelve a darse la posibilidad de disparar una vez se deja de pulsar la F
+   if (this.teclaF.isUp)
+   {
+    posibilidad_1=true;
+   }
     //MOVIMIENTO VAQUERO 2
 
     if (this.teclaL.isDown)
