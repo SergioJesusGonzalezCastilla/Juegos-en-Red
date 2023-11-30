@@ -59,38 +59,32 @@ create ()
 //FONDO
     this.add.image(WIDTH/2, HEIGHT/2, 'Desierto');   
     
-    //ELEMENTOS DEL MUNDO
+    //ELEMENTOS DEL MUNDO    
     vias = this.physics.add.staticGroup();
-    this.add.image(WIDTH/2, HEIGHT/2, 'Vías').setScale(1/2);
+    vias.create(WIDTH/2, HEIGHT/2, 'Vías');
     
     tanque = this.physics.add.staticGroup();
-    this.add.image(WIDTH/2, HEIGHT/2, 'Tanque').setScale(1/2);
+    tanque.create(WIDTH/2, HEIGHT/2, 'Tanque');
 
     carreta1 = this.physics.add.staticGroup();
-    this.add.image(WIDTH/2, HEIGHT/2, 'Carreta1').setScale(1/2);
+    carreta1.create(WIDTH/2, HEIGHT/2, 'Carreta1');
 
     carreta2 = this.physics.add.staticGroup();
-    this.add.image(WIDTH/2, HEIGHT/2, 'Carreta2').setScale(1/2);
+    carreta2.create(WIDTH/2, HEIGHT/2, 'Carreta2');
 
     mesa = this.physics.add.staticGroup();
-    this.add.image(WIDTH/2, HEIGHT/2, 'Mesa').setScale(1/2);
-
+    mesa.create(WIDTH/2, HEIGHT/2, 'Mesa');
 
     //Agregamos los vaqueros
     vaquero_1 = this.physics.add.sprite(WIDTH/4, HEIGHT/4,'vaquero');
-    vaquero_2 = this.physics.add.sprite(3*WIDTH/4,3*HEIGHT/4,'vaquero_2');
-    
-    vaquero_1.setBounce(0.1);
     vaquero_1.setCollideWorldBounds(true);
-    vaquero_1.body.setGravityY(0);
 
-
-    vaquero_2.setBounce(0.1);
+    vaquero_2 = this.physics.add.sprite(3*WIDTH/4,3*HEIGHT/4,'vaquero_2');
     vaquero_2.setCollideWorldBounds(true);
-    vaquero_2.body.setGravityY(0);
 
+    //Agregamos colsiones de los vaqueros
     this.physics.add.collider(vaquero_1,vias);
-    this.physics.add.collider(vaquero_1, vaquero_2);
+    this.physics.add.collider(vaquero_2,vias);
 
     //Texto vida jugador 1
     texto1 = this.add.text(16, 16, 'Vida P1:'+life1, {
