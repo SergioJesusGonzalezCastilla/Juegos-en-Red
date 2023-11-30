@@ -9,7 +9,7 @@ var mesa;
 var vaquero_1;
 var vaquero_2;
 
-/ Balas
+// Balas
 var balas_vaquero_1;
 var balas_vaquero_2;
 
