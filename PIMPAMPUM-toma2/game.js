@@ -64,7 +64,7 @@ preload ()
 
     /BALAS
     this.load.image('bala_vaquero_1','resources/Bala_Derecha.png')
-    this.load.image('bala_vaquero_2','resources/Bala_Derecha.png')
+    this.load.image('bala_vaquero_2','resources/Bala_Izquierda.png')
     
     //AUDIO
     this.load.audio('sonidoFondo','sounds/BackgroundFightSound.mp3')
@@ -253,5 +253,23 @@ update ()
         vaquero_2.setVelocityX(0);
         vaquero_2.setVelocityY(0);
     }
+    //Gestión del disparo para el jugador 2
+   if (this.teclaH.isDown)
+   {
+    if(num_balas_2>0 && posibilidad_2===true)
+    {
+        var bala=balas_vaquero_2.create(vaquero_2.x,vaquero_2.y,'bala_vaquero_2').setScale(1/2);
+        bala.setCollideWorldBounds(true);
+        bala.setVelocity(-300, 0);
+        posibilidad_2=false;
+        num_balas_2--;
+        sonidoDisparo.play();
+    }
+   }
+   // Vuelve a darse la posibilidad de disparar una vez se deja de pulsar la H
+   if (this.teclaH.isUp)
+   {
+    posibilidad_2=true;
+   }
 }
 }
