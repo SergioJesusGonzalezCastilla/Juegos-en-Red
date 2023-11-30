@@ -35,8 +35,8 @@ var posibilidad_1;
 var posibilidad_2;
 
 //Daño por disparo
-var daño_1;
-var daño_2;
+var damage_1;
+var damage_2;
 
 //Variables para los sonidos
 var sonidoFondo ;
@@ -125,17 +125,21 @@ export class Game extends Phaser.Scene{
         posibilidad_1=true;
         posibilidad_2=true;
 
-        daño_1=10;
-        daño_2=10;
+        damage_1=10;
+        damage_2=10;
 
+        //Asignamos vidas a los vaqueros
+        vaquero_1.life=life1;
+        vaquero_2.life=life2;
+        
         //Textos
-        texto1 = this.add.text(16, 16, 'Vida P1:'+life1, {
+        texto1 = this.add.text(16, 16, 'Vida P1:'+vaquero_1.life, {
             fontSize: '200px',
             fill: '#fff'
         }).setScale(1/5.8);
 
         //Textos
-        texto2 = this.add.text(WIDTH-250, 16, 'Vida P2:'+life2, {
+        texto2 = this.add.text(WIDTH-250, 16, 'Vida P2:'+vaquero_2.life, {
             fontSize: '200px',
             fill: '#000'
         }).setScale(1/5.8);
@@ -170,9 +174,9 @@ export class Game extends Phaser.Scene{
         {
             bala.destroy();
             num_balas_2++;
-            life1-=daño_2;
-            texto1.setText('Vida P1:'+life1);
-            if(life1<=0)
+            vaquero_1.life-=bala.damage;
+            texto1.setText('Vida P1:'+vaquero_1.life);
+            if(vaquero_1.life<=0)
             {
                 vaquero_1.setTint(0xff0000);
                 //gameOver=true;
@@ -183,9 +187,9 @@ export class Game extends Phaser.Scene{
         {
             bala.destroy();
             num_balas_1++;
-            life2-=daño_1;
-            texto2.setText('Vida P1:'+life2);
-            if (life2<=0)
+            vaquero_2.life-=bala.damage;
+            texto2.setText('Vida P1:'+vaquero_2.life);
+            if (vaquero_2.life<=0)
             {
                 vaquero_2.setTint(0xff0000);
                 //gameOver=true;
@@ -235,7 +239,7 @@ export class Game extends Phaser.Scene{
             if(num_balas_1>0 && posibilidad_1===true)
             {
                 var bala=balas_vaquero_1.create(vaquero_1.x,vaquero_1.y,'bala_vaquero_1').setScale(1/2);
-                //bala.setCollideWorldBounds(true);
+                bala.damage=damage_1;
                 bala.setVelocity(300, 0);
                 posibilidad_1=false;
                 num_balas_1--;
@@ -284,7 +288,7 @@ export class Game extends Phaser.Scene{
             if(num_balas_2>0 && posibilidad_2===true)
             {
                 var bala=balas_vaquero_2.create(vaquero_2.x,vaquero_2.y,'bala_vaquero_2').setScale(1/2);
-                //bala.setCollideWorldBounds(true);
+                bala.damage=damage_2;
                 bala.setVelocity(-300, 0);
                 posibilidad_2=false;
                 num_balas_2--;
