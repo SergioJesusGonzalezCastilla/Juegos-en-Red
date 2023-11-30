@@ -33,6 +33,10 @@ var num_balas_2;
 var posibilidad_1;
 var posibilidad_2;
 
+//Daño por disparo
+var daño_1;
+var daño_2;
+
 //Variables para los sonidos
 var sonidoFondo ;
 var sonidoDisparo;
@@ -162,7 +166,37 @@ create ()
     sonidoFondo = this.sound.add('sonidoFondo');
     sonidoDisparo = this.sound.add('sonidoDisparo');
     sonidoFondo.play();
-    
+
+    // Función con las acciones que se llevan a cabo en caso de que el jugador 1 sea golpeado
+        function herido_vaquero_1(vaquero_1,bala)
+        {
+            bala.disableBody(true, true);
+            num_balas_2++;
+            life1-=daño_2;
+            texto1.setText('Vida P1:'+life1);
+            if(life1<=0)
+            {
+                vaquero_1.setTint(0xff0000);
+                //gameOver=true;
+            }
+        }
+        // Función con las acciones que se llevan a cabo en caso de que el jugador 1 sea golpeado
+        function herido_vaquero_2(vaquero_2,bala)
+        {
+            bala.disableBody(true, true);
+            num_balas_1++;
+            life2-=daño_1;
+            texto2.setText('Vida P1:'+life2);
+            if (life2<=0)
+            {
+                vaquero_2.setTint(0xff0000);
+                //gameOver=true;
+            }
+        }
+        //Colisiones de los personajes y las balas
+        this.physics.add.overlap(vaquero_1, balas_vaquero_2, herido_vaquero_1, null, this);
+        this.physics.add.collider(vaquero_2, balas_vaquero_1, herido_vaquero_2, null, this);
+
 }
 
 //UPDATE
