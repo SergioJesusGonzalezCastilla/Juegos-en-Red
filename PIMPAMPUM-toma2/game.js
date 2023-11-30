@@ -64,27 +64,31 @@ create ()
     vias.create(WIDTH/2, HEIGHT/2, 'Vías');
     
     tanque = this.physics.add.staticGroup();
-    tanque.create(WIDTH/2, HEIGHT/2, 'Tanque');
+    tanque.create(WIDTH/3.2, HEIGHT/15, 'Tanque');
 
     carreta1 = this.physics.add.staticGroup();
-    carreta1.create(WIDTH/2, HEIGHT/2, 'Carreta1');
+    carreta1.create(WIDTH/1.3, 100, 'Carreta1');
 
     carreta2 = this.physics.add.staticGroup();
-    carreta2.create(WIDTH/2, HEIGHT/2, 'Carreta2');
+    carreta2.create(WIDTH/4.5, HEIGHT-90, 'Carreta2');
 
     mesa = this.physics.add.staticGroup();
-    mesa.create(WIDTH/2, HEIGHT/2, 'Mesa');
+    mesa.create(1.8*WIDTH/3, HEIGHT/1.2, 'Mesa');
 
     //Agregamos los vaqueros
-    vaquero_1 = this.physics.add.sprite(WIDTH/4, HEIGHT/4,'vaquero');
+    vaquero_1 = this.physics.add.sprite(100, HEIGHT/4,'vaquero').setScale(7/8);
     vaquero_1.setCollideWorldBounds(true);
 
-    vaquero_2 = this.physics.add.sprite(3*WIDTH/4,3*HEIGHT/4,'vaquero_2');
+    vaquero_2 = this.physics.add.sprite(WIDTH-100,3*HEIGHT/4,'vaquero_2').setScale(7/8);
     vaquero_2.setCollideWorldBounds(true);
 
-    //Agregamos colsiones de los vaqueros
+    //Agregamos colsiones de los vaqueros con el escenario
     this.physics.add.collider(vaquero_1,vias);
     this.physics.add.collider(vaquero_2,vias);
+    this.physics.add.collider(vaquero_1,tanque);
+    this.physics.add.collider(vaquero_2,carreta1);
+    this.physics.add.collider(vaquero_1,carreta2);
+    this.physics.add.collider(vaquero_2,mesa);
 
     //Texto vida jugador 1
     texto1 = this.add.text(16, 16, 'Vida P1:'+life1, {
