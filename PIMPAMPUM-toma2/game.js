@@ -170,7 +170,7 @@ create ()
     // Función con las acciones que se llevan a cabo en caso de que el jugador 1 sea golpeado
         function herido_vaquero_1(vaquero_1,bala)
         {
-            bala.disableBody(true, true);
+            bala.destroy();
             num_balas_2++;
             life1-=daño_2;
             texto1.setText('Vida P1:'+life1);
@@ -183,7 +183,7 @@ create ()
         // Función con las acciones que se llevan a cabo en caso de que el jugador 1 sea golpeado
         function herido_vaquero_2(vaquero_2,bala)
         {
-            bala.disableBody(true, true);
+            bala.destroy();
             num_balas_1++;
             life2-=daño_1;
             texto2.setText('Vida P1:'+life2);
