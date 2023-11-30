@@ -33,6 +33,10 @@ var num_balas_2;
 var posibilidad_1;
 var posibilidad_2;
 
+//Variables para los sonidos
+var sonidoFondo ;
+var sonidoDisparo;
+
 export class Game extends Phaser.Scene{
 
     constructor(){
@@ -154,11 +158,9 @@ create ()
         this.teclaK= this.input.keyboard.addKey(keyCodes.K);
         this.teclaH= this.input.keyboard.addKey(keyCodes.H);
 
-
-    
-    //Sonido Fondo
-    var sonidoFondo = this.sound.add('sonidoFondo');
-    var sonidoDisparo = this.sound.add('sonidoDisparo');
+    //Sonidos
+    sonidoFondo = this.sound.add('sonidoFondo');
+    sonidoDisparo = this.sound.add('sonidoDisparo');
     sonidoFondo.play();
     
 }
@@ -212,6 +214,7 @@ update ()
         bala.setVelocity(300, 0);
         posibilidad_1=false;
         num_balas_1--;
+        sonidoDisparo.play();
     }
    }
    // Vuelve a darse la posibilidad de disparar una vez se deja de pulsar la F
