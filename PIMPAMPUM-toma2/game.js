@@ -60,6 +60,7 @@ export class Game extends Phaser.Scene{
         this.load.image('Mesa','resources/MesaDerecha.png');
 
         //ELEMENTOS DEL MUNDO DESTRUIDOS
+        this.load.image('Tanque_Roto','resources/Agua Rota.png');
         this.load.image('Carreta1_Rota','resources/Carreta derecha rota.png');
         this.load.image('Carreta2_Rota','resources/Carreta izq rota.png');
         this.load.image('Mesa_Rota','resources/Mesa Rota.png');
@@ -86,7 +87,8 @@ export class Game extends Phaser.Scene{
         //this.physics.world.setCollideWorldBounds(true,true,true,false);
         this.add.image(1280/2, 720/2, 'Desierto');   
 
-        //ELEMENTOS DESTRUIDOS
+        //ELEMENTOS DEL MUNDO DESTRUIDOS
+        this.add.image(WIDTH/3.2, HEIGHT/15, 'Tanque_Roto');
         this.add.image(WIDTH/1.3, 100, 'Carreta1_Rota');
         this.add.image(WIDTH/4.4, HEIGHT-90, 'Carreta2_Rota');
         this.add.image(1.8*WIDTH/3,HEIGHT/1.2, 'Mesa_Rota');
