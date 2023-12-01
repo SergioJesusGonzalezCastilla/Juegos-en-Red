@@ -1,4 +1,5 @@
-
+var sonidoFondo;
+var sonidoDisparo;
 export class Creditos extends Phaser.Scene{
 
     constructor(){
@@ -9,13 +10,17 @@ export class Creditos extends Phaser.Scene{
 
         this.load.image('Creditos', 'resources/FondoCreditos.png')
         .spritesheet('botonVolver','resources/botones/Volver.png',{ frameWidth: 286, frameHeight: 102 })   
-
+        this.load.audio('sonidoFondo','sounds/BackgroundFightSound.mp3')
+        this.load.audio('sonidoDisparo','sounds/disparoSound.mp3')
     }
 
     create(){
 
         this.add.image(1280/2, 720/2, 'Creditos');
-
+        sonidoFondo = this.sound.add('sonidoFondo');
+        sonidoDisparo = this.sound.add('sonidoDisparo');
+        sonidoFondo.loop = true;
+        
         const volver = this.add.sprite(620, 640, 'botonVolver').setInteractive();
         
         // Botón VOLVER
@@ -57,7 +62,8 @@ export class Creditos extends Phaser.Scene{
                   target: 'menu-inicio',
                   duration:1000,
               });
-
+                sonidoFondo.stop();
+                sonidoDisparo.play();
           });
 
           volver.on('pointerup', () => {
