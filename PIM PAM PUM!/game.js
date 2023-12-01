@@ -29,6 +29,7 @@ var num_balas_2;
 
 //Booleano para comprobar que se pueda disparar
 var posibilidad_1;
+var posibilidad_1;
 var posibilidad_2;
 
 //Daño por disparo
@@ -38,60 +39,70 @@ var damage_2;
 //Velocidad balas
 var bullet_speed;
 
+//POWER UPS
+var corazones;
+
+//Vairables que sirven de contador para los power ups
+var vida_total_perdida;
+var vida_extra;
+var corazon_1_mostrado;
+var corazon_2_mostrado;
+
 //Variables para los sonidos
 var sonidoFondo ;
 var sonidoDisparo;
 
 export class Game extends Phaser.Scene{
-
     constructor(){
         super({key:'game'});
     }
-        
+    
     preload ()
     {
         //FONDO
-        this.load.image('Desierto', 'resources/FondoDesierto.png') 
+        this.load.image('Desierto', 'resources/FondoDesierto.png');    
+        
         
         //ELEMENTOS DEL MUNDO
-        .image('Vías','resources/ViasTren.png')
-        .image('Tanque','resources/Agua.png')
-        .image('Carreta1','resources/CarretaDerecha.png')
-        .image('Carreta2','resources/CarretaIzquierda.png')
-        .image('Mesa','resources/MesaDerecha.png')
+        this.load.image('Vías','resources/ViasTren.png');
+        this.load.image('Tanque','resources/Agua.png');
+        this.load.image('Carreta1','resources/CarretaDerecha.png');
+        this.load.image('Carreta2','resources/CarretaIzquierda.png');
+        this.load.image('Mesa','resources/MesaDerecha.png');
 
         //ELEMENTOS DEL MUNDO DESTRUIDOS
-        .image('Carreta1_Rota','resources/Carreta derecha rota.png')
-        .image('Carreta2_Rota','resources/Carreta izq rota.png')
-        .image('Mesa_Rota','resources/Mesa Rota.png')
+        this.load.image('Tanque_Roto','resources/Agua Rota.png');
+        this.load.image('Carreta1_Rota','resources/Carreta derecha rota.png');
+        this.load.image('Carreta2_Rota','resources/Carreta izq rota.png');
+        this.load.image('Mesa_Rota','resources/Mesa Rota.png');
         
-        //PLAYERS
-        .image('vaquero', 'resources/Vaquero derecha.png')
-        .image('vaquero_2', 'resources/Vaquero2 izquierda.png')
+        //PLAYERS SPRITES
+        this.load.spritesheet('vaquero_1', 'resources/Vaquero dch spritesheet.png',{ frameWidth: 203, frameHeight: 72 });
+        this.load.spritesheet('vaquero_2', 'resources/Vaquero izq spritesheet.png',{ frameWidth: 204, frameHeight: 70 });
 
         //BALAS
-        .image('bala_vaquero_1','resources/Bala_Derecha.png')
-        .image('bala_vaquero_2','resources/Bala_Izquierda.png')
-        
-        //AUDIO
-        .audio('sonidoFondo','sounds/BackgroundFightSound.mp3')
-        .audio('sonidoDisparo','sounds/disparoSound.mp3')
+        this.load.image('bala_vaquero_1','resources/Bala_Derecha.png')
+        this.load.image('bala_vaquero_2','resources/Bala_Izquierda.png')
 
+        //CORAZÓN INTERFAZ
+        this.load.image('corazon','resources/Corazon.png')
+
+        //AUDIO
+        this.load.audio('sonidoFondo','sounds/BackgroundFightSound.mp3')
+        this.load.audio('sonidoDisparo','sounds/disparoSound.mp3')
     }
-    
-    
     create ()
     {
         
         //FONDO
-        //this.physics.world.setCollideWorldBounds(true,true,true,false);
-        this.add.image(1280/2, 720/2, 'Desierto');   
-
+        this.add.image(1280/2, 720/2, 'Desierto'); 
+        
         //ELEMENTOS DESTRUIDOS
+        this.add.image(WIDTH/3.2, HEIGHT/15, 'Tanque_Roto');
         this.add.image(WIDTH/1.3, 100, 'Carreta1_Rota');
         this.add.image(WIDTH/4.4, HEIGHT-90, 'Carreta2_Rota');
         this.add.image(1.8*WIDTH/3,HEIGHT/1.2, 'Mesa_Rota');
-        
+
         //ELEMENTOS DEL MUNDO    
         vias = this.physics.add.staticGroup();
         vias.create(WIDTH/2, HEIGHT/2, 'Vías');
@@ -103,11 +114,39 @@ export class Game extends Phaser.Scene{
         obstaculos.create(1.8*WIDTH/3, HEIGHT/1.2, 'Mesa');
 
         //Agregamos los vaqueros
-        vaquero_1 = this.physics.add.sprite(100, HEIGHT/4,'vaquero').setScale(7/8);
+        vaquero_1 = this.physics.add.sprite(100, HEIGHT/4,'vaquero_1').setScale(7/8);
         vaquero_1.setCollideWorldBounds(true);
 
         vaquero_2 = this.physics.add.sprite(WIDTH-100,3*HEIGHT/4,'vaquero_2').setScale(7/8);
         vaquero_2.setCollideWorldBounds(true);
+
+        //Agregamos las animaciones de cada vaquero
+        //Para el vaquero 1
+        this.anims.create({
+            key: 'andar_vaquero_1',
+            frames: this.anims.generateFrameNumbers('vaquero_1', { start: 0, end: 6 }),
+            frameRate: 10,
+            repeat: -1
+        });
+        this.anims.create({
+            key: 'idle_vaquero_1',
+            frames: this.anims.generateFrameNumbers('vaquero_1', { start: 7, end: 23 }),
+            frameRate: 10,
+            repeat: -1
+        });
+        //Para el vaquero 1
+        this.anims.create({
+            key: 'idle_vaquero_2',
+            frames: this.anims.generateFrameNumbers('vaquero_2', { start: 0, end: 16 }),
+            frameRate: 10,
+            repeat: -1
+        });
+        this.anims.create({
+            key: 'andar_vaquero_2',
+            frames: this.anims.generateFrameNumbers('vaquero_2', { start: 17, end: 23 }),
+            frameRate: 10,
+            repeat: -1
+        });
 
         //Agregamos colsiones de los vaqueros con el escenario
         this.physics.add.collider(vaquero_1,vias);
@@ -138,23 +177,66 @@ export class Game extends Phaser.Scene{
         damage_2=10;
 
         bullet_speed=400;
+
+        vida_total_perdida=0;
+        vida_extra=30;
+        corazon_1_mostrado=false;
+        corazon_2_mostrado=false;
         
         //Asignamos vidas a los vaqueros
         vaquero_1.life=life1;
         vaquero_2.life=life2;
         
+        //Añadimos los corazones en los cuales se almacenará la vida de los personajes
+        this.add.image(50,50, 'corazon').setScale(1.25);
+        this.add.image(WIDTH-50,50, 'corazon').setScale(1.25);
+
         //Textos
-        texto1 = this.add.text(16, 16, 'Vida P1:'+vaquero_1.life, {
+        texto1 = this.add.text(17, 30, vaquero_1.life, {
             fontSize: '200px',
             fill: '#fff'
         }).setScale(1/5.8);
 
         //Textos
-        texto2 = this.add.text(WIDTH-250, 16, 'Vida P2:'+vaquero_2.life, {
+        texto2 = this.add.text(WIDTH-82, 30,vaquero_2.life, {
             fontSize: '200px',
-            fill: '#000'
+            fill: '#fff'
         }).setScale(1/5.8);
         
+        // Función para colocar correctamente el texto 1
+        function colocar_texto_1()
+        {
+            if(vaquero_1.life<100 && vaquero_1.life>0)
+            {
+                texto1.setX(28)
+            }
+            else if(vaquero_1.life===0)
+            {
+                texto1.setX(38)
+            }
+            else
+            {
+                texto1.setX(17)
+            }
+        }
+
+        //Función para colocar correctamente el texto 2
+        function colocar_texto_2()
+        {
+            if(vaquero_2.life<100 && vaquero_2.life>0)
+            {
+                texto2.setX(WIDTH-71)
+            }
+            else if(vaquero_2.life===0)
+            {
+                texto2.setX(WIDTH-61)
+            }
+            else
+            {
+                texto2.setX(WIDTH-82)
+            }
+        }
+
         //Efecto sombra
         //vaquero_1.setInteractive();
         //const fxShadow = phaserVia.preFX.addShadow(80, -90, 0.006, 2, 0x333333, 10);
@@ -187,7 +269,9 @@ export class Game extends Phaser.Scene{
             bala.destroy();
             num_balas_2++;
             vaquero_1.life-=bala.damage;
-            texto1.setText('Vida P1:'+vaquero_1.life);
+            vida_total_perdida+=bala.damage;
+            texto1.setText(vaquero_1.life);
+            colocar_texto_1();
             if(vaquero_1.life<=0)
             {
                 vaquero_1.setTint(0xff0000);
@@ -200,12 +284,13 @@ export class Game extends Phaser.Scene{
             bala.destroy();
             num_balas_1++;
             vaquero_2.life-=bala.damage;
-            texto2.setText('Vida P1:'+vaquero_2.life);
+            vida_total_perdida+=bala.damage;
+            texto2.setText(vaquero_2.life);
+            colocar_texto_2();
             if (vaquero_2.life<=0)
             {
                 vaquero_2.setTint(0xff0000);
                 this.scene.start('winJ1');
-
             }
         }
         //Colisiones de los personajes y las balas
@@ -240,17 +325,33 @@ export class Game extends Phaser.Scene{
         this.physics.add.collider(obstaculos, balas_vaquero_1,damage_obstaculos_1, null, this);
         this.physics.add.collider(obstaculos, balas_vaquero_2,damage_obstaculos_2, null, this);
 
-        function winJ1 (){
-            this.scene.start('winJ1');
-        }
+        //POWER UPS
+        corazones = this.physics.add.staticGroup();
 
-        function winJ2 (){
-            this.scene.start('winJ2');
-        }
+        // Funciones que se encarga de sumarle vida a los vaqueros si obtienen un power up de corazoón
+        function obtener_corazon_1(corazon,bala)
+        {
+            bala.destroy();
+            num_balas_1++;
+            vaquero_1.life+=vida_extra;
+            texto1.setText(vaquero_1.life);
+            colocar_texto_1();
+            corazon.destroy();
+        } 
+        function obtener_corazon_2(corazon,bala)
+        {
+            bala.destroy();
+            num_balas_2++;
+            vaquero_2.life+=vida_extra;
+            texto2.setText(vaquero_2.life);
+            colocar_texto_2();
+            corazon.destroy();
+        } 
 
-}
-
-    
+        //Colisiones entre las balas y los corazones
+        this.physics.add.collider(corazones, balas_vaquero_1,obtener_corazon_1, null, this);
+        this.physics.add.collider(corazones, balas_vaquero_2,obtener_corazon_2, null, this);
+    }
 
     update ()
     {
@@ -260,29 +361,34 @@ export class Game extends Phaser.Scene{
             vaquero_1.setVelocityX(80);
             vaquero_1.setVelocityY(0);
             vaquero_1.x++;
+            vaquero_1.anims.play('andar_vaquero_1', true);
         }
         else if (this.teclaA.isDown)
         {
             vaquero_1.setVelocityX(-80);
             vaquero_1.setVelocityY(0);
             vaquero_1.x--;
+            vaquero_1.anims.play('andar_vaquero_1', true);
         }
         else if (this.teclaW.isDown)
         {
             vaquero_1.setVelocityX(0);
             vaquero_1.setVelocityY(-80);
             vaquero_1.y--;
+            vaquero_1.anims.play('andar_vaquero_1', true);
         }
         else if (this.teclaS.isDown)
         {
             vaquero_1.setVelocityX(0);
             vaquero_1.setVelocityY(80);
             vaquero_1.y++;
+            vaquero_1.anims.play('andar_vaquero_1', true);
         }
         else
         {
             vaquero_1.setVelocityX(0);
             vaquero_1.setVelocityY(0);
+            vaquero_1.anims.play('idle_vaquero_1', true);
         }
         //Gestión del disparo para el jugador 1
         if (this.teclaF.isDown)
@@ -309,29 +415,34 @@ export class Game extends Phaser.Scene{
             vaquero_2.setVelocityX(80);
             vaquero_2.setVelocityY(0);
             vaquero_2.x++;
+            vaquero_2.anims.play('andar_vaquero_2', true);
         }
         else if (this.teclaJ.isDown)
         {
             vaquero_2.setVelocityX(-80);
             vaquero_2.setVelocityY(0);
             vaquero_2.x--;
+            vaquero_2.anims.play('andar_vaquero_2', true);
         }
         else if (this.teclaI.isDown)
         {
             vaquero_2.setVelocityX(0);
             vaquero_2.setVelocityY(-80);
             vaquero_2.y--;
+            vaquero_2.anims.play('andar_vaquero_2', true);
         }
         else if (this.teclaK.isDown)
         {
             vaquero_2.setVelocityX(0);
             vaquero_2.setVelocityY(80);
             vaquero_2.y++;
+            vaquero_2.anims.play('andar_vaquero_2', true);
         }
         else
         {
             vaquero_2.setVelocityX(0);
             vaquero_2.setVelocityY(0);
+            vaquero_2.anims.play('idle_vaquero_2', true);
         }
         //Gestión del disparo para el jugador 2
         if (this.teclaH.isDown)
@@ -373,6 +484,20 @@ export class Game extends Phaser.Scene{
                 }
             }
         });
+
+        //Comprobaremos la cantidad total de vida perdida para crear los objetos corazón en función de la misma
+        if(vida_total_perdida===70 && corazon_1_mostrado===false)
+        {
+            corazones.create(WIDTH/2, 2*HEIGHT/6, 'corazon');
+            corazon_1_mostrado=true;
+        }
+
+        if(vida_total_perdida===110 && corazon_2_mostrado===false)
+        {
+            corazones.create(WIDTH/2, 4*HEIGHT/6, 'corazon');
+            corazon_2_mostrado=true;
+        }
+
     }
 
 }
