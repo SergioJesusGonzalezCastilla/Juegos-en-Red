@@ -270,7 +270,7 @@ export class Game extends Phaser.Scene{
             if(vaquero_1.life<=0)
             {
                 vaquero_1.setTint(0xff0000);
-                //gameOver=true;
+                this.scene.start('winJ2');
             }
         }
         // Función con las acciones que se llevan a cabo en caso de que el jugador 1 sea golpeado
@@ -292,7 +292,7 @@ export class Game extends Phaser.Scene{
             if (vaquero_2.life<=0)
             {
                 vaquero_2.setTint(0xff0000);
-                //gameOver=true;
+                this.scene.start('winJ1');
             }
         }
         //Colisiones de los personajes y las balas
