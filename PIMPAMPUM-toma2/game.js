@@ -50,8 +50,7 @@ export class Game extends Phaser.Scene{
     preload ()
     {
         //FONDO
-        this.load.image('Desierto', 'resources/FondoDesierto.png');    
-        
+        this.load.image('Desierto', 'resources/FondoDesierto.png'); 
         
         //ELEMENTOS DEL MUNDO
         this.load.image('Vías','resources/ViasTren.png');
@@ -60,7 +59,11 @@ export class Game extends Phaser.Scene{
         this.load.image('Carreta2','resources/CarretaIzquierda.png');
         this.load.image('Mesa','resources/MesaDerecha.png');
 
-
+        //ELEMENTOS DEL MUNDO DESTRUIDOS
+        this.load.image('Carreta1_Rota','resources/Carreta derecha rota.png');
+        this.load.image('Carreta2_Rota','resources/Carreta izq rota.png');
+        this.load.image('Mesa_Rota','resources/Mesa Rota.png');
+        
         //PLAYERS
         this.load.image('vaquero', 'resources/Vaquero derecha.png');
         this.load.image('vaquero_2', 'resources/Vaquero2 izquierda.png');
@@ -76,9 +79,14 @@ export class Game extends Phaser.Scene{
     create ()
     {
         
-    //FONDO
+        //FONDO
         //this.physics.world.setCollideWorldBounds(true,true,true,false);
         this.add.image(1280/2, 720/2, 'Desierto');   
+
+        //ELEMENTOS DESTRUIDOS
+        this.add.image(WIDTH/1.3, 100, 'Carreta1_Rota');
+        this.add.image(WIDTH/4.4, HEIGHT-90, 'Carreta2_Rota');
+        this.add.image(1.8*WIDTH/3,HEIGHT/1.2, 'Mesa_Rota');
         
         //ELEMENTOS DEL MUNDO    
         vias = this.physics.add.staticGroup();
