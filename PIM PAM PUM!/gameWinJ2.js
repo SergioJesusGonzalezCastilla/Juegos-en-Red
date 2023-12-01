@@ -1,3 +1,5 @@
+var sonidoFondo;
+var sonidoDisparo;
 export class gameWinJ2 extends Phaser.Scene{
 
     constructor(){
@@ -8,13 +10,27 @@ export class gameWinJ2 extends Phaser.Scene{
     preload(){
 
         //FONDO
-        this.load.image('Gana Jugador 2', 'resources/Gana2.png');    
+        this.load.image('Gana Jugador 2', 'resources/Gana2.png')   
+        this.load.image('Lose','resources/YOU LOSE.png')
+        this.load.image('Win','resources/YOU WIN.png')
+        .spritesheet('botonInicio','resources/botones/Inicio.png',{ frameWidth: 286, frameHeight: 102 })
+        .spritesheet('botonRevancha','resources/botones/Revancha.png',{ frameWidth: 286, frameHeight: 102 })    
     
+        //Musica
+        this.load.audio('sonidoFondo','sounds/BackgroundFightSound.mp3')
+        this.load.audio('sonidoDisparo','sounds/disparoSound.mp3')
     }
 
     create(){
 
-        this.add.image(1280/2, 720/2, 'Gana Jugador 2');     
+        this.add.image(1280/2, 720/2, 'Gana Jugador 2');  
+        this.add.image(1000,150,'Win').setScale(1/2);
+        this.add.image(300,150,'Lose').setScale(1/2);
+        sonidoFondo = this.sound.add('sonidoFondo');
+        sonidoDisparo = this.sound.add('sonidoDisparo');
+        sonidoFondo.loop =true;
+        sonidoFondo.play();   
+        
         const inicio = this.add.sprite(846, 318, 'botonInicio').setInteractive();
         
         // Botón VOLVER
@@ -56,7 +72,8 @@ export class gameWinJ2 extends Phaser.Scene{
                   target: 'menu-inicio',
                   duration:1000,
               });
-
+              sonidoFondo.stop();
+              sonidoDisparo.play();
           });
 
           inicio.on('pointerup', () => {
@@ -106,7 +123,8 @@ export class gameWinJ2 extends Phaser.Scene{
                   target: 'game',
                   duration:1000,
               });
-
+              sonidoFondo.stop();
+              sonidoDisparo.play();
           });
 
           revancha.on('pointerup', () => {
@@ -115,6 +133,11 @@ export class gameWinJ2 extends Phaser.Scene{
 
 
     }
+
+    update(){
+
+    }
+ }
 
     update(){
 
