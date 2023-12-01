@@ -65,9 +65,9 @@ export class Game extends Phaser.Scene{
         this.load.image('Carreta2_Rota','resources/Carreta izq rota.png');
         this.load.image('Mesa_Rota','resources/Mesa Rota.png');
         
-        //PLAYERS
-        this.load.image('vaquero', 'resources/Vaquero derecha.png');
-        this.load.image('vaquero_2', 'resources/Vaquero2 izquierda.png');
+        //PLAYERS SPRITES
+        this.load.spritesheet('vaquero_1', 'resources/Vaquero dch spritesheet.png',{ frameWidth: 203, frameHeight: 72 });
+        this.load.spritesheet('vaquero_2', 'resources/Vaquero izq spritesheet.png',{ frameWidth: 204, frameHeight: 70 });
 
         //BALAS
         this.load.image('bala_vaquero_1','resources/Bala_Derecha.png')
@@ -104,11 +104,39 @@ export class Game extends Phaser.Scene{
         obstaculos.create(1.8*WIDTH/3, HEIGHT/1.2, 'Mesa');
 
         //Agregamos los vaqueros
-        vaquero_1 = this.physics.add.sprite(100, HEIGHT/4,'vaquero').setScale(7/8);
-        vaquero_1.setCollideWorldBounds(true);
+    vaquero_1 = this.physics.add.sprite(100 ,HEIGHT/4,'vaquero').setScale(7/8);
+    vaquero_1.setCollideWorldBounds(true);
 
-        vaquero_2 = this.physics.add.sprite(WIDTH-100,3*HEIGHT/4,'vaquero_2').setScale(7/8);
-        vaquero_2.setCollideWorldBounds(true);
+    vaquero_2 = this.physics.add.sprite(WIDTH-100,3*HEIGHT/4,'vaquero_2').setScale(7/8);
+    vaquero_2.setCollideWorldBounds(true);
+
+    //Agregamos las animaciones de cada vaquero
+        //Para el vaquero 1
+        this.anims.create({
+            key: 'andar_vaquero_1',
+            frames: this.anims.generateFrameNumbers('vaquero_1', { start: 0, end: 6 }),
+            frameRate: 10,
+            repeat: -1
+        });
+        this.anims.create({
+            key: 'idle_vaquero_1',
+            frames: this.anims.generateFrameNumbers('vaquero_1', { start: 7, end: 23 }),
+            frameRate: 10,
+            repeat: -1
+        });
+        //Para el vaquero 2
+        this.anims.create({
+            key: 'idle_vaquero_2',
+            frames: this.anims.generateFrameNumbers('vaquero_2', { start: 0, end: 16 }),
+            frameRate: 10,
+            repeat: -1
+        });
+        this.anims.create({
+            key: 'andar_vaquero_2',
+            frames: this.anims.generateFrameNumbers('vaquero_2', { start: 17, end: 23 }),
+            frameRate: 10,
+            repeat: -1
+        });
 
         //Agregamos colsiones de los vaqueros con el escenario
         this.physics.add.collider(vaquero_1,vias);
