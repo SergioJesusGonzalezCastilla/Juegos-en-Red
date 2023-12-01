@@ -1,0 +1,13 @@
+body {
+
+    cursor: url(resources/cursor-wc.png),auto;
+    background-image: url(resources/FondoDesierto.png);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#menu {
+    text-align: center;
+}
