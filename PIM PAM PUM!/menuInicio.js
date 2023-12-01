@@ -27,7 +27,9 @@ export class Minicio extends Phaser.Scene{
 
         var sonidoInicio = this.sound.add('sonidoinicio');
         var sonidoDisparo = this.sound.add('sonidoDisparo');
+        sonidoInicio.loop =true;
         sonidoInicio.play();
+        
 
         this.add.image(1280/2, 720/2, 'FondoMenu');   
 
@@ -121,6 +123,8 @@ export class Minicio extends Phaser.Scene{
                     target: 'creditos',
                     duration:1000,
                 });
+                sonidoInicio.stop();
+                sonidoDisparo.play();
             });
 
             creditos.on('pointerup', () => {
@@ -164,11 +168,12 @@ export class Minicio extends Phaser.Scene{
             ajustes.on('pointerdown', () => {
                 ajustes.play('buttonClick2');
                 this.scene.transition({
-                    target: 'creditos',
+                    target: 'ajustes',
                     duration:1000,
                     
                 });
-                
+                sonidoInicio.stop();
+                sonidoDisparo.play();
             });
 
             ajustes.on('pointerup', () => {
