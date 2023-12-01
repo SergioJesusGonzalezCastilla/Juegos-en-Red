@@ -1,6 +1,6 @@
 import{Game}from './game.js';
-import{GameOver}from './gameOverScene.js';
-import{Win}from './gameWinScene.js';
+import{gameWinJ1}from './gameWinJ1.js';
+import{gameWinJ2}from './gameWinJ2.js';
 import{Creditos}from './creditos.js';
 import{Minicio}from './menuInicio.js';
  
@@ -12,7 +12,7 @@ const config = {
     width:WIDTH,
     height:HEIGHT,
     
-    scene:[Minicio,Creditos,Game,GameOver,Win],
+    scene:[Minicio,Creditos,Game,gameWinJ1,gameWinJ2],
 
     physics: {
         default: 'arcade',
