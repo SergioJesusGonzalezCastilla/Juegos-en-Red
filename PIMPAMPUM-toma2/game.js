@@ -71,6 +71,9 @@ export class Game extends Phaser.Scene{
         //BALAS
         this.load.image('bala_vaquero_1','resources/Bala_Derecha.png')
         this.load.image('bala_vaquero_2','resources/Bala_Izquierda.png')
+
+        //CORAZÓN INTERFAZ
+        this.load.image('corazon','resources/Corazon.png')
         
         //AUDIO
         this.load.audio('sonidoFondo','sounds/BackgroundFightSound.mp3')
@@ -138,17 +141,21 @@ export class Game extends Phaser.Scene{
         //Asignamos vidas a los vaqueros
         vaquero_1.life=life1;
         vaquero_2.life=life2;
+
+        //Añadimos los corazones en los cuales se almacenará la vida de los personajes
+        this.add.image(50,50, 'corazon').setScale(1.25);
+        this.add.image(WIDTH-50,50, 'corazon').setScale(1.25);
         
         //Textos
-        texto1 = this.add.text(16, 16, 'Vida P1:'+vaquero_1.life, {
+        texto1 = this.add.text(17, 30, vaquero_1.life, {
             fontSize: '200px',
             fill: '#fff'
         }).setScale(1/5.8);
 
         //Textos
-        texto2 = this.add.text(WIDTH-250, 16, 'Vida P2:'+vaquero_2.life, {
+        texto2 = this.add.text(WIDTH-82, 30,vaquero_2.life, {
             fontSize: '200px',
-            fill: '#000'
+            fill: '#fff'
         }).setScale(1/5.8);
         
         //Efecto sombra
@@ -183,7 +190,15 @@ export class Game extends Phaser.Scene{
             bala.destroy();
             num_balas_2++;
             vaquero_1.life-=bala.damage;
-            texto1.setText('Vida P1:'+vaquero_1.life);
+            texto1.setText(vaquero_1.life);
+            if(vaquero_1.life<100 && vaquero_1.life>0)
+            {
+                texto1.setX(28)
+            }
+            else
+            {
+                texto1.setX(17)
+            }
             if(vaquero_1.life<=0)
             {
                 vaquero_1.setTint(0xff0000);
@@ -196,7 +211,15 @@ export class Game extends Phaser.Scene{
             bala.destroy();
             num_balas_1++;
             vaquero_2.life-=bala.damage;
-            texto2.setText('Vida P1:'+vaquero_2.life);
+            texto2.setText(vaquero_2.life);
+            if(vaquero_2.life<100 && vaquero_2.life>0)
+            {
+                texto2.setX(WIDTH-71)
+            }
+            else
+            {
+                texto2.setX(WIDTH-82)
+            }
             if (vaquero_2.life<=0)
             {
                 vaquero_2.setTint(0xff0000);
