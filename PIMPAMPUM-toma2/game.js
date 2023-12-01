@@ -1,10 +1,7 @@
 
 // Elementos del mundo
 var vias;
-var tanque;
-var carreta1;
-var carreta2;
-var mesa;
+var obstaculos;
 
 //Jugador
 var vaquero_1;
@@ -22,6 +19,9 @@ var HEIGHT = 720;
 var texto1;
 var texto2;
 
+//Vida de los obstáculos
+var vida_obstáculos;
+
 //Vida de cada Jugador
 var life1;
 var life2;
@@ -37,6 +37,9 @@ var posibilidad_2;
 //Daño por disparo
 var damage_1;
 var damage_2;
+
+//Velocidad balas
+var bullet_speed;
 
 //Variables para los sonidos
 var sonidoFondo ;
@@ -84,17 +87,11 @@ export class Game extends Phaser.Scene{
         vias = this.physics.add.staticGroup();
         vias.create(WIDTH/2, HEIGHT/2, 'Vías');
         
-        tanque = this.physics.add.staticGroup();
-        tanque.create(WIDTH/3.2, HEIGHT/15, 'Tanque');
-
-        carreta1 = this.physics.add.staticGroup();
-        carreta1.create(WIDTH/1.3, 100, 'Carreta1');
-
-        carreta2 = this.physics.add.staticGroup();
-        carreta2.create(WIDTH/4.5, HEIGHT-90, 'Carreta2');
-
-        mesa = this.physics.add.staticGroup();
-        mesa.create(1.8*WIDTH/3, HEIGHT/1.2, 'Mesa');
+        obstaculos = this.physics.add.staticGroup();
+        obstaculos.create(WIDTH/3.2, HEIGHT/15, 'Tanque');
+        obstaculos.create(WIDTH/1.3, 100, 'Carreta1');
+        obstaculos.create(WIDTH/4.5, HEIGHT-90, 'Carreta2');
+        obstaculos.create(1.8*WIDTH/3, HEIGHT/1.2, 'Mesa');
 
         //Agregamos los vaqueros
         vaquero_1 = this.physics.add.sprite(100, HEIGHT/4,'vaquero').setScale(7/8);
@@ -106,11 +103,15 @@ export class Game extends Phaser.Scene{
         //Agregamos colsiones de los vaqueros con el escenario
         this.physics.add.collider(vaquero_1,vias);
         this.physics.add.collider(vaquero_2,vias);
-        this.physics.add.collider(vaquero_1,tanque);
-        this.physics.add.collider(vaquero_2,carreta1);
-        this.physics.add.collider(vaquero_1,carreta2);
-        this.physics.add.collider(vaquero_2,mesa);
+        this.physics.add.collider(vaquero_1,obstaculos);
+        this.physics.add.collider(vaquero_2,obstaculos);
 
+        //Asignamos una vida, la misma para todos a los obtaculos
+        vida_obstáculos=200;
+        obstaculos.children.iterate(function (child) {
+            child.vida=vida_obstáculos;
+        });
+        
         // Agregamos las balas
         balas_vaquero_1 = this.physics.add.group();
         balas_vaquero_2 = this.physics.add.group();
@@ -128,6 +129,8 @@ export class Game extends Phaser.Scene{
         damage_1=10;
         damage_2=10;
 
+        bullet_speed=400;
+        
         //Asignamos vidas a los vaqueros
         vaquero_1.life=life1;
         vaquero_2.life=life2;
@@ -169,6 +172,7 @@ export class Game extends Phaser.Scene{
         sonidoFondo = this.sound.add('sonidoFondo');
         sonidoDisparo = this.sound.add('sonidoDisparo');
         sonidoFondo.play();
+        
         // Función con las acciones que se llevan a cabo en caso de que el jugador 1 sea golpeado
         function herido_vaquero_1(vaquero_1,bala)
         {
@@ -198,7 +202,34 @@ export class Game extends Phaser.Scene{
         //Colisiones de los personajes y las balas
         this.physics.add.overlap(vaquero_1, balas_vaquero_2, herido_vaquero_1, null, this);
         this.physics.add.collider(vaquero_2, balas_vaquero_1, herido_vaquero_2, null, this);
+        
+        // Función que se encarga de restar vida a los obstáculos si son golpeados por una bala del primer vaquero
+        function damage_obstaculos_1(obstaculo,bala)
+        {
+            bala.destroy();
+            num_balas_1++;
+            obstaculo.vida-=bala.damage;
+            if(obstaculo.vida<=0)
+            {
+                obstaculo.destroy();
+            }
+        } 
 
+        // Función que se encarga de restar vida a los obstáculos si son golpeados por una bala del segundo vaquero
+        function damage_obstaculos_2(obstaculo,bala)
+        {
+            bala.destroy();
+            num_balas_2++;
+            obstaculo.vida-=bala.damage;
+            if(obstaculo.vida<=0)
+            {
+                obstaculo.destroy();
+            }
+        } 
+
+        //Colisiones entre las balas y los obstáculos
+        this.physics.add.collider(obstaculos, balas_vaquero_1,damage_obstaculos_1, null, this);
+        this.physics.add.collider(obstaculos, balas_vaquero_2,damage_obstaculos_2, null, this);
     }
 
     update ()
@@ -240,7 +271,7 @@ export class Game extends Phaser.Scene{
             {
                 var bala=balas_vaquero_1.create(vaquero_1.x,vaquero_1.y,'bala_vaquero_1').setScale(1/2);
                 bala.damage=damage_1;
-                bala.setVelocity(300, 0);
+                bala.setVelocity(bullet_speed, 0);
                 posibilidad_1=false;
                 num_balas_1--;
                 sonidoDisparo.play();
@@ -289,7 +320,7 @@ export class Game extends Phaser.Scene{
             {
                 var bala=balas_vaquero_2.create(vaquero_2.x,vaquero_2.y,'bala_vaquero_2').setScale(1/2);
                 bala.damage=damage_2;
-                bala.setVelocity(-300, 0);
+                bala.setVelocity(-bullet_speed, 0);
                 posibilidad_2=false;
                 num_balas_2--;
                 sonidoDisparo.play();
