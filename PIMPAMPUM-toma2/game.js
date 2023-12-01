@@ -19,9 +19,6 @@ var HEIGHT = 720;
 var texto1;
 var texto2;
 
-//Vida de los obstáculos
-var vida_obstáculos;
-
 //Vida de cada Jugador
 var life1;
 var life2;
@@ -30,7 +27,7 @@ var life2;
 var num_balas_1;
 var num_balas_2;
 
-//Booleano para comporbar que se pueda disparar
+//Booleano para comprobar que se pueda disparar
 var posibilidad_1;
 var posibilidad_2;
 
@@ -106,10 +103,9 @@ export class Game extends Phaser.Scene{
         this.physics.add.collider(vaquero_1,obstaculos);
         this.physics.add.collider(vaquero_2,obstaculos);
 
-        //Asignamos una vida, la misma para todos a los obtaculos
-        vida_obstáculos=200;
+        //Asignamos una vida al azar entre un rango de valores
         obstaculos.children.iterate(function (child) {
-            child.vida=vida_obstáculos;
+            child.vida=Phaser.Math.Between(200, 300);
         });
         
         // Agregamos las balas
