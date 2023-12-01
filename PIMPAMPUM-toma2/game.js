@@ -38,6 +38,13 @@ var damage_2;
 //Velocidad balas
 var bullet_speed;
 
+//POWER UPS
+var corazon_1;
+var corazon_2;
+
+//Vairables que sirven de contador para los power ups
+var vida_total_perdida;
+
 //Variables para los sonidos
 var sonidoFondo ;
 var sonidoDisparo;
@@ -167,6 +174,8 @@ export class Game extends Phaser.Scene{
         damage_2=10;
 
         bullet_speed=400;
+
+        vida_total_perdida=0;
         
         //Asignamos vidas a los vaqueros
         vaquero_1.life=life1;
@@ -220,6 +229,7 @@ export class Game extends Phaser.Scene{
             bala.destroy();
             num_balas_2++;
             vaquero_1.life-=bala.damage;
+            vida_total_perdida+=bala.damage;
             texto1.setText(vaquero_1.life);
             if(vaquero_1.life<100 && vaquero_1.life>0)
             {
@@ -241,6 +251,7 @@ export class Game extends Phaser.Scene{
             bala.destroy();
             num_balas_1++;
             vaquero_2.life-=bala.damage;
+            vida_total_perdida+=bala.damage;
             texto2.setText(vaquero_2.life);
             if(vaquero_2.life<100 && vaquero_2.life>0)
             {
@@ -287,6 +298,10 @@ export class Game extends Phaser.Scene{
         //Colisiones entre las balas y los obstáculos
         this.physics.add.collider(obstaculos, balas_vaquero_1,damage_obstaculos_1, null, this);
         this.physics.add.collider(obstaculos, balas_vaquero_2,damage_obstaculos_2, null, this);
+
+        //POWER UPS
+        corazon_1 = this.physics.add.staticGroup();
+        corazon_2 = this.physics.add.staticGroup();
     }
 
     update ()
