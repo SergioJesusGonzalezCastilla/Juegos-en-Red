@@ -65,9 +65,9 @@ export class Game extends Phaser.Scene{
         this.load.image('Carreta2_Rota','resources/Carreta izq rota.png');
         this.load.image('Mesa_Rota','resources/Mesa Rota.png');
         
-        //PLAYERS
-        this.load.image('vaquero', 'resources/Vaquero derecha.png');
-        this.load.image('vaquero_2', 'resources/Vaquero2 izquierda.png');
+        //PLAYERS SPRITES
+        this.load.spritesheet('vaquero_1', 'resources/Vaquero dch spritesheet.png',{ frameWidth: 203, frameHeight: 72 });
+        this.load.spritesheet('vaquero_2', 'resources/Vaquero izq spritesheet.png',{ frameWidth: 204, frameHeight: 70 });
 
         //BALAS
         this.load.image('bala_vaquero_1','resources/Bala_Derecha.png')
@@ -109,6 +109,34 @@ export class Game extends Phaser.Scene{
 
         vaquero_2 = this.physics.add.sprite(WIDTH-100,3*HEIGHT/4,'vaquero_2').setScale(7/8);
         vaquero_2.setCollideWorldBounds(true);
+
+        //Agregamos las animaciones de cada vaquero
+        //Para el vaquero 1
+        this.anims.create({
+            key: 'andar_vaquero_1',
+            frames: this.anims.generateFrameNumbers('vaquero_1', { start: 0, end: 6 }),
+            frameRate: 10,
+            repeat: -1
+        });
+        this.anims.create({
+            key: 'idle_vaquero_1',
+            frames: this.anims.generateFrameNumbers('vaquero_1', { start: 7, end: 23 }),
+            frameRate: 10,
+            repeat: -1
+        });
+        //Para el vaquero 1
+        this.anims.create({
+            key: 'idle_vaquero_2',
+            frames: this.anims.generateFrameNumbers('vaquero_2', { start: 0, end: 16 }),
+            frameRate: 10,
+            repeat: -1
+        });
+        this.anims.create({
+            key: 'andar_vaquero_2',
+            frames: this.anims.generateFrameNumbers('vaquero_2', { start: 17, end: 23 }),
+            frameRate: 10,
+            repeat: -1
+        });
 
         //Agregamos colsiones de los vaqueros con el escenario
         this.physics.add.collider(vaquero_1,vias);
@@ -269,29 +297,34 @@ export class Game extends Phaser.Scene{
             vaquero_1.setVelocityX(80);
             vaquero_1.setVelocityY(0);
             vaquero_1.x++;
+            vaquero_1.anims.play('andar_vaquero_1', true);
         }
         else if (this.teclaA.isDown)
         {
             vaquero_1.setVelocityX(-80);
             vaquero_1.setVelocityY(0);
             vaquero_1.x--;
+            vaquero_1.anims.play('andar_vaquero_1', true);
         }
         else if (this.teclaW.isDown)
         {
             vaquero_1.setVelocityX(0);
             vaquero_1.setVelocityY(-80);
             vaquero_1.y--;
+            vaquero_1.anims.play('andar_vaquero_1', true);
         }
         else if (this.teclaS.isDown)
         {
             vaquero_1.setVelocityX(0);
             vaquero_1.setVelocityY(80);
             vaquero_1.y++;
+            vaquero_1.anims.play('andar_vaquero_1', true);
         }
         else
         {
             vaquero_1.setVelocityX(0);
             vaquero_1.setVelocityY(0);
+            vaquero_1.anims.play('idle_vaquero_1', true);
         }
         //Gestión del disparo para el jugador 1
         if (this.teclaF.isDown)
@@ -318,29 +351,34 @@ export class Game extends Phaser.Scene{
             vaquero_2.setVelocityX(80);
             vaquero_2.setVelocityY(0);
             vaquero_2.x++;
+            vaquero_2.anims.play('andar_vaquero_2', true);
         }
         else if (this.teclaJ.isDown)
         {
             vaquero_2.setVelocityX(-80);
             vaquero_2.setVelocityY(0);
             vaquero_2.x--;
+            vaquero_2.anims.play('andar_vaquero_2', true);
         }
         else if (this.teclaI.isDown)
         {
             vaquero_2.setVelocityX(0);
             vaquero_2.setVelocityY(-80);
             vaquero_2.y--;
+            vaquero_2.anims.play('andar_vaquero_2', true);
         }
         else if (this.teclaK.isDown)
         {
             vaquero_2.setVelocityX(0);
             vaquero_2.setVelocityY(80);
             vaquero_2.y++;
+            vaquero_2.anims.play('andar_vaquero_2', true);
         }
         else
         {
             vaquero_2.setVelocityX(0);
             vaquero_2.setVelocityY(0);
+            vaquero_2.anims.play('idle_vaquero_2', true);
         }
         //Gestión del disparo para el jugador 2
         if (this.teclaH.isDown)
