@@ -112,6 +112,7 @@ export class Game extends Phaser.Scene{
         //DAMAGE_BOOST
         this.load.image('damage','resources/PowerUP damage.png');
         this.load.image('damage_bullet','resources/PowerUP damage Ingame.png');
+        this.load.image('damage_bullet_2','resources/PowerUP damage Ingame 2.png');
 
         //AUDIO
         this.load.audio('sonidoFondo','sounds/BackgroundFightSound.mp3');
@@ -247,11 +248,11 @@ export class Game extends Phaser.Scene{
         // Función para colocar correctamente el texto 1
         function colocar_texto_1()
         {
-            if(vaquero_1.life<100 && vaquero_1.life>0)
+            if(vaquero_1.life<100 && vaquero_1.life>=10)
             {
                 texto1.setX(28)
             }
-            else if(vaquero_1.life===0)
+            else if(vaquero_1.life<10 && vaquero_1.life>=0)
             {
                 texto1.setX(38)
             }
@@ -264,11 +265,11 @@ export class Game extends Phaser.Scene{
         //Función para colocar correctamente el texto 2
         function colocar_texto_2()
         {
-            if(vaquero_2.life<100 && vaquero_2.life>0)
+            if(vaquero_2.life<100 && vaquero_2.life>=10)
             {
                 texto2.setX(WIDTH-71)
             }
-            else if(vaquero_2.life===0)
+            else if(vaquero_2.life<10 && vaquero_2.life>=0)
             {
                 texto2.setX(WIDTH-61)
             }
@@ -459,7 +460,6 @@ export class Game extends Phaser.Scene{
             total_balas_empleadas++;
             extra_damage_1+=5;
             damage_boost.destroy();
-            vaquero_1.setTint(0xff0000);
             this.add.image(130,50, 'damage').setScale(2/7);
             damage_boost_1_conseguido=true;
         } 
@@ -471,7 +471,6 @@ export class Game extends Phaser.Scene{
             total_balas_empleadas++;
             extra_damage_2+=5;
             damage_boost.destroy();
-            vaquero_2.setTint(0xff0000);
             this.add.image(WIDTH-162,50, 'damage').setScale(2/7);
             damage_boost_2_conseguido=true;
         } 
@@ -523,7 +522,14 @@ export class Game extends Phaser.Scene{
         {
             if(num_balas_1>0 && posibilidad_1===true)
             {
-                var bala=balas_vaquero_1.create(vaquero_1.x+100,vaquero_1.y,'bala_vaquero_1').setScale(1/2);
+                var imagen_1='bala_vaquero_1';
+                var escala_1=1/2;
+                if(damage_boost_1_conseguido)
+                {
+                    imagen_1='damage_bullet';
+                    escala_1=1/4;
+                }
+                var bala=balas_vaquero_1.create(vaquero_1.x+100,vaquero_1.y,imagen_1).setScale(escala_1);
                 bala.damage=damage_1+extra_damage_1;
                 bala.setVelocity(bullet_speed, 0);
                 posibilidad_1=false;
@@ -577,7 +583,14 @@ export class Game extends Phaser.Scene{
         {
             if(num_balas_2>0 && posibilidad_2===true)
             {
-                var bala=balas_vaquero_2.create(vaquero_2.x-100,vaquero_2.y,'bala_vaquero_2').setScale(1/2);
+                var imagen_2='bala_vaquero_2';
+                var escala_2=1/2;
+                if(damage_boost_2_conseguido)
+                {
+                    imagen_2='damage_bullet';
+                    escala_2=1/4;
+                }
+                var bala=balas_vaquero_2.create(vaquero_2.x-100,vaquero_2.y,imagen_2).setScale(escala_2);
                 bala.damage=damage_2+extra_damage_2;
                 bala.setVelocity(-bullet_speed, 0);
                 posibilidad_2=false;
