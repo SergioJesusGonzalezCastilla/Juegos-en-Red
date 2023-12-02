@@ -41,6 +41,7 @@ var bullet_speed;
 
 //POWER UPS
 var corazones;
+var speedup;
 
 //Vairables que sirven de contador para los power ups
 var vida_total_perdida;
@@ -49,6 +50,8 @@ var corazon_1_mostrado;
 var corazon_2_mostrado;
 
 var total_balas_empleadas;
+var speedup_1_mostrado;
+var speedup_2_mostrado;
 
 //Variables para los sonidos
 var sonidoFondo ;
@@ -88,6 +91,9 @@ export class Game extends Phaser.Scene{
 
         //CORAZÓN INTERFAZ
         this.load.image('corazon','resources/Corazon.png')
+
+        //GATO
+        this.load.image('gato','resources/Gatito.png')
 
         //AUDIO
         this.load.audio('sonidoFondo','sounds/BackgroundFightSound.mp3')
@@ -186,6 +192,8 @@ export class Game extends Phaser.Scene{
         corazon_2_mostrado=false;
 
         total_balas_empleadas=0;
+        speedup_1_mostrado=false;
+        speedup_2_mostrado=false;
 
         //Asignamos vidas a los vaqueros
         vaquero_1.life=life1;
@@ -338,6 +346,8 @@ export class Game extends Phaser.Scene{
         this.physics.add.collider(obstaculos, balas_vaquero_2,damage_obstaculos_2, null, this);
 
         //POWER UPS
+
+        //CORAZONES
         corazones = this.physics.add.staticGroup();
 
         // Funciones que se encarga de sumarle vida a los vaqueros si obtienen un power up de corazoón
@@ -365,6 +375,9 @@ export class Game extends Phaser.Scene{
         //Colisiones entre las balas y los corazones
         this.physics.add.collider(corazones, balas_vaquero_1,obtener_corazon_1, null, this);
         this.physics.add.collider(corazones, balas_vaquero_2,obtener_corazon_2, null, this);
+
+        // SPEEDUP
+        speedup=this.physics.add.staticGroup();
     }
 
     update ()
