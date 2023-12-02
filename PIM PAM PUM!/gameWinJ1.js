@@ -141,8 +141,3 @@ var sonidoDisparo;
     }
  }
     
-
-    update(){
-
-    }
- }
