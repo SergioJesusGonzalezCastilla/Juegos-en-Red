@@ -100,18 +100,22 @@ export class Game extends Phaser.Scene{
         this.load.spritesheet('vaquero_2', 'resources/Vaquero izq spritesheet.png',{ frameWidth: 204, frameHeight: 70 });
 
         //BALAS
-        this.load.image('bala_vaquero_1','resources/Bala_Derecha.png')
-        this.load.image('bala_vaquero_2','resources/Bala_Izquierda.png')
+        this.load.image('bala_vaquero_1','resources/Bala_Derecha.png');
+        this.load.image('bala_vaquero_2','resources/Bala_Izquierda.png');
 
         //CORAZÓN INTERFAZ
-        this.load.image('corazon','resources/Corazon.png')
+        this.load.image('corazon','resources/Corazon.png');
 
         //GATO
-        this.load.image('gato','resources/Gatito.png')
+        this.load.image('gato','resources/Gatito.png');
+
+        //DAMAGE_BOOST
+        this.load.image('damage','resources/PowerUP damage.png');
+        this.load.image('damage_bullet','resources/PowerUP damage Ingame.png');
 
         //AUDIO
-        this.load.audio('sonidoFondo','sounds/BackgroundFightSound.mp3')
-        this.load.audio('sonidoDisparo','sounds/disparoSound.mp3')
+        this.load.audio('sonidoFondo','sounds/BackgroundFightSound.mp3');
+        this.load.audio('sonidoDisparo','sounds/disparoSound.mp3');
     }
     create ()
     {
@@ -456,7 +460,7 @@ export class Game extends Phaser.Scene{
             extra_damage_1+=5;
             damage_boost.destroy();
             vaquero_1.setTint(0xff0000);
-            this.add.image(130,50, 'gato').setScale(2/7);
+            this.add.image(130,50, 'damage').setScale(2/7);
             damage_boost_1_conseguido=true;
         } 
 
@@ -468,7 +472,7 @@ export class Game extends Phaser.Scene{
             extra_damage_2+=5;
             damage_boost.destroy();
             vaquero_2.setTint(0xff0000);
-            this.add.image(WIDTH-162,50, 'gato').setScale(2/7);
+            this.add.image(WIDTH-162,50, 'damage').setScale(2/7);
             damage_boost_2_conseguido=true;
         } 
 
@@ -639,7 +643,7 @@ export class Game extends Phaser.Scene{
         //Comprobaremos la cantidad de balas totales empleadas para crear los objetos damage_boost en función de la misma
         if(total_balas_empleadas>=(Phaser.Math.Between(30, 50)) && damage_boost_mostrado===false)
         {
-            damage_boost.create(WIDTH/2, HEIGHT/2, 'gato').setScale(1/2);
+            damage_boost.create(WIDTH/2, HEIGHT/2, 'damage').setScale(1/2);
             damage_boost_mostrado=true;
         }
     }
