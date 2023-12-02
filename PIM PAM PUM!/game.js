@@ -486,7 +486,7 @@ export class Game extends Phaser.Scene{
             if(num_balas_1>0 && posibilidad_1===true)
             {
                 var bala=balas_vaquero_1.create(vaquero_1.x+100,vaquero_1.y,'bala_vaquero_1').setScale(1/2);
-                bala.damage=damage_1;
+                bala.damage=damage_1+extra_damage;
                 bala.setVelocity(bullet_speed, 0);
                 posibilidad_1=false;
                 num_balas_1--;
@@ -540,7 +540,7 @@ export class Game extends Phaser.Scene{
             if(num_balas_2>0 && posibilidad_2===true)
             {
                 var bala=balas_vaquero_2.create(vaquero_2.x-100,vaquero_2.y,'bala_vaquero_2').setScale(1/2);
-                bala.damage=damage_2;
+                bala.damage=damage_2+extra_damage;
                 bala.setVelocity(-bullet_speed, 0);
                 posibilidad_2=false;
                 num_balas_2--;
