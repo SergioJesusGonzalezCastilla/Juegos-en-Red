@@ -3,6 +3,9 @@ import{gameWinJ1}from './gameWinJ1.js';
 import{gameWinJ2}from './gameWinJ2.js';
 import{Creditos}from './creditos.js';
 import{Minicio}from './menuInicio.js';
+import{Simulador}from './simulador.js';
+import{Seleccion}from './seleccion.js';
+
  
 const WIDTH = 1280;
 const HEIGHT = 720;
@@ -12,7 +15,7 @@ const config = {
     width:WIDTH,
     height:HEIGHT,
     
-    scene:[Minicio,Creditos,Game,gameWinJ1,gameWinJ2],
+    scene:[Minicio,Seleccion,Simulador,Creditos,Game,gameWinJ1,gameWinJ2],
 
     physics: {
         default: 'arcade',
