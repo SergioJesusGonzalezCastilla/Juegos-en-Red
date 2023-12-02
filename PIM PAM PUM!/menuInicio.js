@@ -72,7 +72,7 @@ export class Minicio extends Phaser.Scene{
                 jugar.play('buttonClick');
                 //meter tiempo espera
                 this.scene.transition({
-                    target: 'game',
+                    target: 'seleccion',
                     duration:1000,
                 });
                 sonidoInicio.stop();
