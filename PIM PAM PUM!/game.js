@@ -536,6 +536,18 @@ export class Game extends Phaser.Scene{
             corazones.create(WIDTH/2, 5*HEIGHT/8, 'corazon');
             corazon_2_mostrado=true;
         }
+        //Comprobaremos la cantidad de balas totales empleadas para crear los objetos speedup en función de la misma
+        if(total_balas_empleadas>=(Phaser.Math.Between(20, 30)) && speedup_1_mostrado===false)
+        {
+            speedup.create(WIDTH/2, 1*HEIGHT/6+20, 'gato').setScale(1/2);
+            speedup_1_mostrado=true;
+        }
+
+        if(total_balas_empleadas>=(Phaser.Math.Between(40, 50)) && speedup_2_mostrado===false)
+        {
+            speedup.create(WIDTH/2, 6*HEIGHT/8, 'gato').setScale(1/2);
+            speedup_2_mostrado=true;
+        }
 
     }
 
