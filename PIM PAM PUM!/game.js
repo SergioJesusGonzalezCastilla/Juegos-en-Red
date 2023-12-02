@@ -111,8 +111,8 @@ export class Game extends Phaser.Scene{
 
         //DAMAGE_BOOST
         this.load.image('damage','resources/PowerUP damage.png');
-        this.load.image('damage_bullet','resources/PowerUP damage Ingame.png');
-        this.load.image('damage_bullet_2','resources/PowerUP damage Ingame 2.png');
+        this.load.image('damage_bullet','resources/Bala flama dcha.png');
+        this.load.image('damage_bullet_2','resources/Bala flama izq.png');
 
         //AUDIO
         this.load.audio('sonidoFondo','sounds/BackgroundFightSound.mp3');
