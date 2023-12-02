@@ -604,6 +604,12 @@ export class Game extends Phaser.Scene{
             speedup_2_mostrado=true;
         }
 
+        //Comprobaremos la cantidad de balas totales empleadas para crear los objetos damage_boost en función de la misma
+        if(total_balas_empleadas>=(Phaser.Math.Between(30, 50)) && damage_boost_mostrado===false)
+        {
+            damage_boost.create(WIDTH/2, HEIGHT/2, 'gato').setScale(1/2);
+            damage_boost_mostrado=true;
+        }
     }
 
 }
