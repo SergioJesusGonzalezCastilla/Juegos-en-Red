@@ -64,7 +64,8 @@ var speedup_2_conseguido;
 var damage_boost_mostrado;
 var damage_boost_1_conseguido;
 var damage_boost_2_conseguido;
-var extra_damage;
+var extra_damage_1;
+var extra_damage_2;
 
 //Variables para los sonidos
 var sonidoFondo ;
@@ -216,7 +217,8 @@ export class Game extends Phaser.Scene{
         damage_boost_mostrado=false;
         damage_boost_1_conseguido=false;
         damage_boost_2_conseguido=false;
-        extra_damage=5;
+        extra_damage_1=0;
+        extra_damage_2=0;
 
         //Asignamos vidas a los vaqueros
         vaquero_1.life=life1;
@@ -486,7 +488,7 @@ export class Game extends Phaser.Scene{
             if(num_balas_1>0 && posibilidad_1===true)
             {
                 var bala=balas_vaquero_1.create(vaquero_1.x+100,vaquero_1.y,'bala_vaquero_1').setScale(1/2);
-                bala.damage=damage_1+extra_damage;
+                bala.damage=damage_1+extra_damage_1;
                 bala.setVelocity(bullet_speed, 0);
                 posibilidad_1=false;
                 num_balas_1--;
@@ -540,7 +542,7 @@ export class Game extends Phaser.Scene{
             if(num_balas_2>0 && posibilidad_2===true)
             {
                 var bala=balas_vaquero_2.create(vaquero_2.x-100,vaquero_2.y,'bala_vaquero_2').setScale(1/2);
-                bala.damage=damage_2+extra_damage;
+                bala.damage=damage_2+extra_damage_2;
                 bala.setVelocity(-bullet_speed, 0);
                 posibilidad_2=false;
                 num_balas_2--;
