@@ -443,6 +443,38 @@ export class Game extends Phaser.Scene{
         //Colisiones entre los objetos de speedup y las balas
         this.physics.add.collider(speedup, balas_vaquero_1,obtener_speedup_1, null, this);
         this.physics.add.collider(speedup, balas_vaquero_2,obtener_speedup_2, null, this);
+
+        //DAMAGE_BOOST
+        damage_boost=this.physics.add.staticGroup();
+
+        //Función que se encarga de aumentar el daño de los personajes si cogen el power up correspondiente
+        function obtener_damage_boost_1(damage_boost,bala)
+        {
+            bala.destroy();
+            num_balas_1++;
+            total_balas_empleadas++;
+            extra_damage_1+=5;
+            damage_boost.destroy();
+            vaquero_1.setTint(0xff0000);
+            this.add.image(130,50, 'gato').setScale(2/7);
+            damage_boost_1_conseguido=true;
+        } 
+
+        function obtener_damage_boost_2(damage_boost,bala)
+        {
+            bala.destroy();
+            num_balas_2++;
+            total_balas_empleadas++;
+            extra_damage_2+=5;
+            damage_boost.destroy();
+            vaquero_2.setTint(0xff0000);
+            this.add.image(WIDTH-162,50, 'gato').setScale(2/7);
+            damage_boost_2_conseguido=true;
+        } 
+
+        //Colisiones entre los objetos de damage_boost y las balas
+        this.physics.add.collider(damage_boost, balas_vaquero_1,obtener_damage_boost_1, null, this);
+        this.physics.add.collider(damage_boost, balas_vaquero_2,obtener_damage_boost_2, null, this);
     }
 
     update ()
