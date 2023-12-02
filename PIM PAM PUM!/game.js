@@ -111,8 +111,8 @@ export class Game extends Phaser.Scene{
 
         //DAMAGE_BOOST
         this.load.image('damage','resources/PowerUP damage.png');
-        this.load.image('damage_bullet','resources/Bala flama dcha.png');
-        this.load.image('damage_bullet_2','resources/Bala flama izq.png');
+        this.load.image('damage_bullet_1','resources/Bala flama izq.png');
+        this.load.image('damage_bullet_2','resources/Bala flama dcha.png');
 
         //AUDIO
         this.load.audio('sonidoFondo','sounds/BackgroundFightSound.mp3');
@@ -526,7 +526,7 @@ export class Game extends Phaser.Scene{
                 var escala_1=1/2;
                 if(damage_boost_1_conseguido)
                 {
-                    imagen_1='damage_bullet';
+                    imagen_1='damage_bullet_1';
                     escala_1=1/4;
                 }
                 var bala=balas_vaquero_1.create(vaquero_1.x+100,vaquero_1.y,imagen_1).setScale(escala_1);
@@ -587,7 +587,7 @@ export class Game extends Phaser.Scene{
                 var escala_2=1/2;
                 if(damage_boost_2_conseguido)
                 {
-                    imagen_2='damage_bullet';
+                    imagen_2='damage_bullet_2';
                     escala_2=1/4;
                 }
                 var bala=balas_vaquero_2.create(vaquero_2.x-100,vaquero_2.y,imagen_2).setScale(escala_2);
