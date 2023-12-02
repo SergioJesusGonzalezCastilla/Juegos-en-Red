@@ -1,3 +1,5 @@
+//VARIABLE CONSTANTE DE LA VELOCIDAD DE LOS PERSONAJES FIJA
+var BASE_SPEED=140;
 
 // Elementos del mundo
 var vias;
@@ -50,6 +52,8 @@ var corazon_1_mostrado;
 var corazon_2_mostrado;
 
 var total_balas_empleadas;
+var velocidad_extra_1;
+var velocidad_extra_2;
 var speedup_1_mostrado;
 var speedup_2_mostrado;
 
@@ -194,6 +198,8 @@ export class Game extends Phaser.Scene{
         total_balas_empleadas=0;
         speedup_1_mostrado=false;
         speedup_2_mostrado=false;
+        velocidad_extra_1=0;
+        velocidad_extra_2=0;
 
         //Asignamos vidas a los vaqueros
         vaquero_1.life=life1;
@@ -385,14 +391,14 @@ export class Game extends Phaser.Scene{
         //Movimiento del vaquero 1
         if (this.teclaD.isDown)
         {
-            vaquero_1.setVelocityX(80);
+            vaquero_1.setVelocityX(BASE_SPEED+velocidad_extra_1);
             vaquero_1.setVelocityY(0);
             vaquero_1.x++;
             vaquero_1.anims.play('andar_vaquero_1', true);
         }
         else if (this.teclaA.isDown)
         {
-            vaquero_1.setVelocityX(-80);
+            vaquero_1.setVelocityX(-BASE_SPEED-velocidad_extra_1);
             vaquero_1.setVelocityY(0);
             vaquero_1.x--;
             vaquero_1.anims.play('andar_vaquero_1', true);
@@ -400,14 +406,14 @@ export class Game extends Phaser.Scene{
         else if (this.teclaW.isDown)
         {
             vaquero_1.setVelocityX(0);
-            vaquero_1.setVelocityY(-80);
+            vaquero_1.setVelocityY(-BASE_SPEED-velocidad_extra_1);
             vaquero_1.y--;
             vaquero_1.anims.play('andar_vaquero_1', true);
         }
         else if (this.teclaS.isDown)
         {
             vaquero_1.setVelocityX(0);
-            vaquero_1.setVelocityY(80);
+            vaquero_1.setVelocityY(BASE_SPEED+velocidad_extra_1);
             vaquero_1.y++;
             vaquero_1.anims.play('andar_vaquero_1', true);
         }
@@ -439,14 +445,14 @@ export class Game extends Phaser.Scene{
 
         if (this.teclaL.isDown)
         {
-            vaquero_2.setVelocityX(80);
+            vaquero_2.setVelocityX(BASE_SPEED+velocidad_extra_2);
             vaquero_2.setVelocityY(0);
             vaquero_2.x++;
             vaquero_2.anims.play('andar_vaquero_2', true);
         }
         else if (this.teclaJ.isDown)
         {
-            vaquero_2.setVelocityX(-80);
+            vaquero_2.setVelocityX(-BASE_SPEED-velocidad_extra_2);
             vaquero_2.setVelocityY(0);
             vaquero_2.x--;
             vaquero_2.anims.play('andar_vaquero_2', true);
@@ -454,14 +460,14 @@ export class Game extends Phaser.Scene{
         else if (this.teclaI.isDown)
         {
             vaquero_2.setVelocityX(0);
-            vaquero_2.setVelocityY(-80);
+            vaquero_2.setVelocityY(-BASE_SPEED-velocidad_extra_2);
             vaquero_2.y--;
             vaquero_2.anims.play('andar_vaquero_2', true);
         }
         else if (this.teclaK.isDown)
         {
             vaquero_2.setVelocityX(0);
-            vaquero_2.setVelocityY(80);
+            vaquero_2.setVelocityY(BASE_SPEED+velocidad_extra_2);
             vaquero_2.y++;
             vaquero_2.anims.play('andar_vaquero_2', true);
         }
