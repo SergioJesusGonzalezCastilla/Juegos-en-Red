@@ -48,6 +48,8 @@ var vida_extra;
 var corazon_1_mostrado;
 var corazon_2_mostrado;
 
+var total_balas_empleadas;
+
 //Variables para los sonidos
 var sonidoFondo ;
 var sonidoDisparo;
@@ -182,7 +184,9 @@ export class Game extends Phaser.Scene{
         vida_extra=30;
         corazon_1_mostrado=false;
         corazon_2_mostrado=false;
-        
+
+        total_balas_empleadas=0;
+
         //Asignamos vidas a los vaqueros
         vaquero_1.life=life1;
         vaquero_2.life=life2;
@@ -270,6 +274,7 @@ export class Game extends Phaser.Scene{
         {
             bala.destroy();
             num_balas_2++;
+            total_balas_empleadas++;
             vaquero_1.life-=bala.damage;
             vida_total_perdida+=bala.damage;
             texto1.setText(vaquero_1.life);
@@ -286,6 +291,7 @@ export class Game extends Phaser.Scene{
         {
             bala.destroy();
             num_balas_1++;
+            total_balas_empleadas++;
             vaquero_2.life-=bala.damage;
             vida_total_perdida+=bala.damage;
             texto2.setText(vaquero_2.life);
@@ -306,6 +312,7 @@ export class Game extends Phaser.Scene{
         {
             bala.destroy();
             num_balas_1++;
+            total_balas_empleadas++;
             obstaculo.vida-=bala.damage;
             if(obstaculo.vida<=0)
             {
@@ -318,6 +325,7 @@ export class Game extends Phaser.Scene{
         {
             bala.destroy();
             num_balas_2++;
+            total_balas_empleadas++;
             obstaculo.vida-=bala.damage;
             if(obstaculo.vida<=0)
             {
@@ -337,6 +345,7 @@ export class Game extends Phaser.Scene{
         {
             bala.destroy();
             num_balas_1++;
+            total_balas_empleadas++;
             vaquero_1.life+=vida_extra;
             texto1.setText(vaquero_1.life);
             colocar_texto_1();
@@ -346,6 +355,7 @@ export class Game extends Phaser.Scene{
         {
             bala.destroy();
             num_balas_2++;
+            total_balas_empleadas++;
             vaquero_2.life+=vida_extra;
             texto2.setText(vaquero_2.life);
             colocar_texto_2();
@@ -474,6 +484,7 @@ export class Game extends Phaser.Scene{
                 {
                     child.destroy();
                     num_balas_1++;
+                    total_balas_empleadas++;
                 }
             }
         });
@@ -485,6 +496,7 @@ export class Game extends Phaser.Scene{
                 {
                     child.destroy();
                     num_balas_2++;
+                    total_balas_empleadas++;
                 }
             }
         });
