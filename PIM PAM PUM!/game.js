@@ -299,7 +299,6 @@ export class Game extends Phaser.Scene{
             colocar_texto_1();
             if(vaquero_1.life<=0)
             {
-                vaquero_1.setTint(0xff0000);
                 this.scene.start('winJ2');
                 sonidoFondo.stop();
             }
@@ -316,7 +315,6 @@ export class Game extends Phaser.Scene{
             colocar_texto_2();
             if (vaquero_2.life<=0)
             {
-                vaquero_2.setTint(0xff0000);
                 this.scene.start('winJ1');
                 sonidoFondo.stop();
             }
@@ -389,7 +387,7 @@ export class Game extends Phaser.Scene{
         //SPEEDUP
         speedup=this.physics.add.staticGroup();
 
-        //Función que se encarga de aumentar la velocidad de los personajes si cojen el power up correspondiente
+        //Función que se encarga de aumentar la velocidad de los personajes si cogen el power up correspondiente
         function obtener_speedup_1(speedup,bala)
         {
             bala.destroy();
