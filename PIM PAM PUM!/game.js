@@ -386,8 +386,50 @@ export class Game extends Phaser.Scene{
         this.physics.add.collider(corazones, balas_vaquero_1,obtener_corazon_1, null, this);
         this.physics.add.collider(corazones, balas_vaquero_2,obtener_corazon_2, null, this);
 
-        // SPEEDUP
+        //SPEEDUP
         speedup=this.physics.add.staticGroup();
+
+        //Función que se encarga de aumentar la velocidad de los personajes si cojen el power up correspondiente
+        function obtener_speedup_1(speedup,bala)
+        {
+            bala.destroy();
+            num_balas_1++;
+            total_balas_empleadas++;
+            velocidad_extra_1+=50;
+            speedup.destroy();
+            vaquero_1.setTint(0xffff00);
+            if(speedup_1_conseguido===0)
+            {
+                this.add.image(50,130, 'gato').setScale(2/7);
+            }
+            else
+            {
+                this.add.image(50,190, 'gato').setScale(2/7);
+            }
+            speedup_1_conseguido++;
+        } 
+        function obtener_speedup_2(speedup,bala)
+        {
+            bala.destroy();
+            num_balas_2++;
+            total_balas_empleadas++;
+            velocidad_extra_2+=50;
+            speedup.destroy();
+            vaquero_2.setTint(0xffff00);
+            if(speedup_2_conseguido===0)
+            {
+                this.add.image(WIDTH-50,130, 'gato').setScale(2/7);
+            }
+            else
+            {
+                this.add.image(WIDTH-50,190, 'gato').setScale(2/7);
+            }
+            speedup_2_conseguido++;
+        } 
+
+        //Colisiones entre los objetos de speedup y las balas
+        this.physics.add.collider(speedup, balas_vaquero_1,obtener_speedup_1, null, this);
+        this.physics.add.collider(speedup, balas_vaquero_2,obtener_speedup_2, null, this);
     }
 
     update ()
