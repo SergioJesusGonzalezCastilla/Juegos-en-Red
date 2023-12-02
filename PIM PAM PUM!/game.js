@@ -56,6 +56,8 @@ var velocidad_extra_1;
 var velocidad_extra_2;
 var speedup_1_mostrado;
 var speedup_2_mostrado;
+var speedup_1_conseguido;
+var speedup_2_conseguido;
 
 //Variables para los sonidos
 var sonidoFondo ;
@@ -200,6 +202,8 @@ export class Game extends Phaser.Scene{
         speedup_2_mostrado=false;
         velocidad_extra_1=0;
         velocidad_extra_2=0;
+        speedup_1_conseguido=0;
+        speedup_2_conseguido=0;
 
         //Asignamos vidas a los vaqueros
         vaquero_1.life=life1;
