@@ -4,6 +4,7 @@ var BASE_SPEED=140;
 // Elementos del mundo
 var vias;
 var obstaculos;
+var damage_boost;
 
 //Jugador
 var vaquero_1;
@@ -45,19 +46,25 @@ var bullet_speed;
 var corazones;
 var speedup;
 
-//Vairables que sirven de contador para los power ups
+//Variables que sirven de contador para los power ups
 var vida_total_perdida;
 var vida_extra;
 var corazon_1_mostrado;
 var corazon_2_mostrado;
 
 var total_balas_empleadas;
+
 var velocidad_extra_1;
 var velocidad_extra_2;
 var speedup_1_mostrado;
 var speedup_2_mostrado;
 var speedup_1_conseguido;
 var speedup_2_conseguido;
+
+var damage_boost_mostrado;
+var damage_boost_1_conseguido;
+var damage_boost_2_conseguido;
+var extra_damage;
 
 //Variables para los sonidos
 var sonidoFondo ;
@@ -198,12 +205,18 @@ export class Game extends Phaser.Scene{
         corazon_2_mostrado=false;
 
         total_balas_empleadas=0;
+        
         speedup_1_mostrado=false;
         speedup_2_mostrado=false;
         velocidad_extra_1=0;
         velocidad_extra_2=0;
         speedup_1_conseguido=0;
         speedup_2_conseguido=0;
+
+        damage_boost_mostrado=false;
+        damage_boost_1_conseguido=false;
+        damage_boost_2_conseguido=false;
+        extra_damage=5;
 
         //Asignamos vidas a los vaqueros
         vaquero_1.life=life1;
