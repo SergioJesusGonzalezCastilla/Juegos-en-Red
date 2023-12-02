@@ -502,15 +502,15 @@ export class Game extends Phaser.Scene{
         });
 
         //Comprobaremos la cantidad total de vida perdida para crear los objetos corazón en función de la misma
-        if(vida_total_perdida===70 && corazon_1_mostrado===false)
+        if(vida_total_perdida>=70 && corazon_1_mostrado===false)
         {
             corazones.create(WIDTH/2, 2*HEIGHT/6, 'corazon');
             corazon_1_mostrado=true;
         }
 
-        if(vida_total_perdida===110 && corazon_2_mostrado===false)
+        if(vida_total_perdida>=110 && corazon_2_mostrado===false)
         {
-            corazones.create(WIDTH/2, 4*HEIGHT/6, 'corazon');
+            corazones.create(WIDTH/2, 5*HEIGHT/8, 'corazon');
             corazon_2_mostrado=true;
         }
 
