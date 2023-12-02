@@ -138,8 +138,3 @@ export class gameWinJ2 extends Phaser.Scene{
 
     }
  }
-
-    update(){
-
-    }
- }
