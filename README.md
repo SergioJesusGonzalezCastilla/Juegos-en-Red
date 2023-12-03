@@ -346,6 +346,13 @@ En este apartado, se va a dejar evidencia de los bocetos iniciales de la interfa
 - 
 *5.3 Diagrama de flujo*
 
+  <p align="center">
+      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Diagrama Interfaces.JPG">
+      <br><br>
+      <b>Ilustración 15. Diagrama de flujo"</b>
+      <br><br>
+</p>
+
 **6. Arte del juego**
 
 Como previamente aparece, El juego presenta similitudes gráficas con la serie animada de Scooby-Doo, aparte de una visión pareja a la del título de Supercell: “Brawl Stars”. A continuación, se muestran referencias, artes, bocetos y nociones sobre el apartado artístico y su forma de ser representado en el juego. 
