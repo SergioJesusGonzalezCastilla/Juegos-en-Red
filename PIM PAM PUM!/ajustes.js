@@ -20,6 +20,8 @@ export class Ajustes extends Phaser.Scene{
     .spritesheet('botonVolver','resources/botones/Volver.png',{ frameWidth: 286, frameHeight: 102 })   
     this.load.audio('sonidoFondo','sounds/BackgroundFightSound.mp3')
     this.load.audio('sonidoDisparo','sounds/disparoSound.mp3')
+    .image('MEME', 'resources/meme.png')
+
   }
 
   create(){
@@ -88,5 +90,7 @@ export class Ajustes extends Phaser.Scene{
         this.sound.mute=true;
       }
     });
+     this.add.image(1280/2, 820/2, 'MEME').setScale(1/4);   
+
   }
 }
