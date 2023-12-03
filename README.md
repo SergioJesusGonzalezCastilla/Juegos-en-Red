@@ -140,15 +140,25 @@ En lo que respecta al sonido del título, por el momento se implementará median
 Se buscará utilizar aquellos que mejor correspondan al periodo de tiempo en el que se desarrolle la partida, aunque con un tono modernizado y que aporte cierto dinamismo a la partida.
 
 En la pantalla de título y el flujo de interfaces fuera de la partida se han utilizado los siguientes recursos:
-- Música de fondo
+- Música de fondo: https://www.youtube.com/watch?v=bhMFzNJCXBw (Editado con FL Studio)
   
 En el simulador/turoial, se han utilizado los siguientes recursos sonoros:
-- Música de fondo:
-- Disparo de bala:
+- Música de fondo: https://www.youtube.com/watch?v=4Qo16-9sc5Y (Editado con FL Studio y recortado)
+- Disparo de bala: https://www.youtube.com/watch?v=8u1-JILEx5Y (Recortado)
   
 En lo que respecta al primer escenario, ambientado en el Salvaje Oeste, se han utilizado los siguientes recursos:
-- Música de fondo:
-- Disparo de bala:
+- Música de fondo: https://www.youtube.com/watch?v=dcPxsVPoQ2E (Editado con FL Studio)
+- Disparo de bala: https://www.youtube.com/watch?v=8u1-JILEx5Y (Recortado)
+
+En la pantalla de ajustes:
+- Música de fondo: https://www.youtube.com/watch?v=ZnBPzhYWlcg (Editado con FL Studio)
+
+En las interfaces de victoria:
+- Voz en off: https://es.snatchbot.me/tts
+- - Música de fondo: https://www.youtube.com/watch?v=ud23ua10ZEI
+
+Sonidos que aparecen en como elementos de transición entre interfaces:
+- Disparo bala: https://www.youtube.com/watch?v=8u1-JILEx5Y (Recortado)
 
 *4.3 Mecánicas principales*
 
@@ -301,7 +311,7 @@ En este apartado, se va a dejar evidencia de los bocetos iniciales de la interfa
 <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Boceto Pausa P2.png">
       <br><br>
-      <b>Ilustración 1o. Boceto de la interfaz de pausa para el jugador 2"</b>
+      <b>Ilustración 10. Boceto de la interfaz de pausa para el jugador 2"</b>
       <br><br>
 </p>
 
