@@ -108,7 +108,7 @@ La jugabilidad base del juego se basa en el avance de los jugadores a lo largo y
 El título contará con una estética de estilo cartoon, que resulte atractiva para una amplia audiencia, en un punto intermedio entre el minimalismo y el detallismo, gracias a la vista desde arriba del mismo, lo cual facilita centrarse solo en ciertos elementos a la hora de dibujar el entorno, los personajes y los distintos elementos que influyen en la jugabilidad. 
 Podría tomarse como referencia el estilo de series animadas como *Scooby Doo*. 
 
-**3.Ambientación y sinopsis **
+**3.Ambientación y sinopsis**
 
 *3.1 Ambientación*
 
@@ -227,6 +227,7 @@ En esta versión del documento de diseño, divideremos entre aquellos que ya han
 </p>
 
 **Elementos pendientes de implementar**
+
 -Barrilla: Se trata de un arbusto que atraviesa el escenario de forma esporádica y bloquea un proyectil de cualquiera de los participantes, tras lo cual se rompe. En el entorno de juego, se muestra como un arbusto seco que recorre el escenario de arriba abajo. 
 
 -Placa de sheriff: Los próximos tres disparos del jugador se convierten en dardos, que paralizan al enemigo durante unos segundos en caso de acertarle, además de quitarle la correspondiente cantidad de vida. Si se acierta, el resto de los dardos restantes pasan a ser balas normales. En el entorno del juego, se presenta como una estrella dorada. Gráficamente, las balas pasan a convertirse en dardos, más afilados, de modo que se diferencien de unas balas clásicas. 
@@ -236,6 +237,7 @@ En esta versión del documento de diseño, divideremos entre aquellos que ya han
 - **PIRATAS:**
   
 **Elementos pendientes de implementar**
+
 -Barril de pólvora: Proyectil que al impactar con un borde de pantalla explota y hace daño en área tanto al entorno y posibles coberturas, como a personajes. En el mundo del juego se representa como un barril con una calavera en medio, que será lanzado en el disparo inmediatamente posterior a su obtención. 
 
 -Remolino: Aparece esporádicamente en diferentes puntos del escenario, impidiendo el movimiento del jugador que caiga en el durante unos segundos. En el mundo del juego, se muestra como una espiral de tonos azulados. 
@@ -245,6 +247,7 @@ En esta versión del documento de diseño, divideremos entre aquellos que ya han
 - **MEDIEVAL:**
   
 **Elementos pendientes de implementar**
+
 -Flecha de fuego: Proyectil que al impactar con un borde de pantalla prende fuego a su alrededor, tocar el fuego hace perder vida por segundo. El fuego se extingue tras un breve periodo de tiempo. En el mundo del fuego, se presenta como una llama embotellada. Las flechas afectadas por este potenciador cuentan con una pequeña llama en la parte de arriba. 
 
 -Carga de arco: Potencia el disparo siguiente, de forma que se lancen dos flechas consecutivamente. Se muestra en el entorno de juego como un carcaj dorado. 
@@ -260,25 +263,34 @@ En esta versión del documento de diseño, divideremos entre aquellos que ya han
 
 -Virus desconocido: En caso de que un jugador entre en contacto con él, perderá vida constantemente durante un cierto periodo de tiempo. Se muestra en el entorno del juego como un virus estrellado de tonos verdosos. El jugador afectado por el mismo tendrá tonalidades verdosas. 
 
- 
-**5. Arte del juego**
+**5. Interfaces**
 
-Como previamente aparece, El juego presenta similitudes gráficas con la serie animada de Scooby-Doo, aparte de una visión pareja a la del título de Supercell: “Brawl Stars”. A continuación, se muestran referencias, artes, bocetos y nociones sobre el apartado artístico y su forma de ser representado en el juego. 
+*5.1 Bocetos interfaces*
 
-*5.1 Referencias*
+En este apartado se dejará evidencia de los primeros prototipos de interfaz, para mostrar la evolución con respecto a las interfaces actuales.
 
-Las referencias son claras. A la izquierda, se observa una imagen inGame del famoso título de Supercell “Brawl Stars”. A la derecha, una escena de un capítulo de la serie televisiva de Warner Bros “Scooby - Doo”. 
-            
+A continuación, se presentan los posibles candidatos, a día de hoy desfasados, a ejercer de interfaces del título. En la primera imagen se muestra la que podría ser la pantalla de inicio de “Pim Pam PUM”. En ella se presenta un fondo arenoso, representando el mapa de El Salvaje Oeste. A la izquierda se observa el logo del título, con referencias a dos de los niveles del juego (Edad de Oro de la Piratería y Salvaje Oeste); y a la derecha las posibles interacciones por ventana para interactuar con el título. 
 
-(Imagen. Referencia gráfica, Brawl Stars y Scooby Doo) 
-*5.2 Menús*
-
-A continuación, se presentan los posibles candidatos a ejercer de interfaces del título. En la primera imagen se muestra la que podría ser la pantalla de inicio de “Pim Pam PUM”. En ella se presenta un fondo arenoso, representando el mapa de El Salvaje Oeste. A la izquierda se observa el logo del título, con referencias a dos de los niveles del juego (Edad de Oro de la Piratería y Salvaje Oeste); y a la derecha las posibles interacciones por ventana para interactuar con el título. 
 (Imagen. Interfaz Menú de Inicio) 
 
 En la siguiente imagen, se presenta la posible interfaz InGame del juego, con una sección para indicar el tiempo que queda en la partida; otra para representar la vida restante de cada jugador; y una última en la que aparecerán elementos indicadores de los potenciadores que posee cada uno de los personajes. 
 
-*5.3 Personajes*
+*5.2 Interfaces actualizadas*
 
-*5.4 Flowchart*
+*5.3 Diagrama de flujo*
 
+**6. Arte del juego**
+
+Como previamente aparece, El juego presenta similitudes gráficas con la serie animada de Scooby-Doo, aparte de una visión pareja a la del título de Supercell: “Brawl Stars”. A continuación, se muestran referencias, artes, bocetos y nociones sobre el apartado artístico y su forma de ser representado en el juego. 
+
+*6.1 Referencias*
+
+Las referencias son claras. A la izquierda, se observa una imagen inGame del famoso título de Supercell “Brawl Stars”. A la derecha, una escena de un capítulo de la serie televisiva de Warner Bros “Scooby - Doo”. 
+            
+(Imagen. Referencia gráfica, Brawl Stars y Scooby Doo) 
+
+*6.2 Escenario*
+
+*6.3 Personajes*
+
+*6.4 Assets*
