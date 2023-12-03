@@ -291,6 +291,58 @@ Las referencias son claras. A la izquierda, se observa una imagen inGame del fam
 
 *6.2 Escenario*
 
+El escenario creado esta basado en el Salvaje Oeste, siendo un pequeño pueblo con unas vias de tren en medio, además de carretas y mesas y trozos de madera por el escenario.
+Todos los elementos que hay por medio del escenario, ya sean las carretas o la mesa son protecciones para los jugadores.
+
+<p align="left">
+      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Agua sin sombra.png">
+      <br><br>
+      <b>Ilustración 6.  Protección de barreño de Agua</b>
+      <br><br>
+</p>
+<p align="center">
+      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Carreta derecha sin sombra .png">
+      <br><br>
+      <b>Ilustración 6.  Protección de Carreta </b>
+      <br><br>
+</p>
+<p align="right">
+      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Carreta izzq sin sombra .png">
+      <br><br>
+      <b>Ilustración 6.  Protección de Carreta 2 </b>
+      <br><br>
+</p>
+<p align="center">
+      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Mesa sin sombra .png">
+      <br><br>
+      <b>Ilustración 6.  Protección de Mesa </b>
+      <br><br>
+</p>
+Cuando las protecciones son destruidas, los sprites son reemplazados por unos iguales pero rotos, por lo que los jugadores podrán pasar por ellos.
+<p align="left">
+      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Agua rota.png">
+      <br><br>
+      <b>Ilustración 6.  Barreño de Agua roto</b>
+      <br><br>
+</p>
+<p align="center">
+      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Carreta derecha rota .png">
+      <br><br>
+      <b>Ilustración 6.  Carreta rota </b>
+      <br><br>
+</p>
+<p align="right">
+      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Carreta izq rota .png">
+      <br><br>
+      <b>Ilustración 6. Carreta rota 2</b>
+      <br><br>
+</p>
+<p align="center">
+      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Mesa rota .png">
+      <br><br>
+      <b>Ilustración 6.  Mesa rota </b>
+      <br><br>
+</p>
 *6.3 Personajes*
 
 *6.4 Assets*
