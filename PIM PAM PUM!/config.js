@@ -6,6 +6,7 @@ import {Ajustes} from './ajustes.js';
 import{Minicio}from './menuInicio.js';
 import{Simulador}from './simulador.js';
 import{Seleccion}from './seleccion.js';
+import{Pausa}from './pause.js';
 
  
 const WIDTH = 1280;
@@ -16,7 +17,7 @@ const config = {
     width:WIDTH,
     height:HEIGHT,
     
-    scene:[Minicio,Seleccion,Simulador,Ajustes,Creditos,Game,gameWinJ1,gameWinJ2],
+    scene:[Minicio,Seleccion,Simulador,Ajustes,Creditos,Game,Pausa,gameWinJ1,gameWinJ2],
 
     physics: {
         default: 'arcade',
