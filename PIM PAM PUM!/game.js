@@ -119,7 +119,7 @@ export class Game extends Phaser.Scene{
         this.load.audio('sonidoDisparo','sounds/disparoSound.mp3');
 
         //BOTON PAUSA
-        this.load.image('pausa','/resources/botones/BotonPausa.png')
+        this.load.image('pausa','resources/BotonPausaS.png');
     }
     create ()
     {
