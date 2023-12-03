@@ -18,7 +18,7 @@ export class Pausa extends Phaser.Scene{
 
       this.load.spritesheet('restart','resources/pausa/PausaReiniciar.png',{ frameWidth: 286, frameHeight: 63 });
         
-      this.load.spritesheet('botonVolver','resources/pausa/PausaVolver.png',{ frameWidth: 286, frameHeight: 63 });
+      this.load.spritesheet('back','resources/pausa/PausaVolver.png',{ frameWidth: 286, frameHeight: 63 });
     }
 
     create () 
@@ -118,27 +118,27 @@ export class Pausa extends Phaser.Scene{
               quit.play('buttonHover6');
             });
 
-        const volver = this.add.sprite(WIDTH/2, 240, 'botonVolver').setInteractive();
+        const volver = this.add.sprite(WIDTH/2, 240, 'back').setInteractive();
         
         // Botón VOLVER
         // Define las animaciones del botón
           this.anims.create({
               key: 'buttonNormal7',
-              frames: this.anims.generateFrameNumbers('botonVolver', { start: 0, end: 0 }),
+              frames: this.anims.generateFrameNumbers('back', { start: 0, end: 0 }),
               frameRate: 1,
               repeat: 0
           });
 
           this.anims.create({
               key: 'buttonHover7',
-              frames: this.anims.generateFrameNumbers('botonVolver', { start: 1, end: 1 }),
+              frames: this.anims.generateFrameNumbers('back', { start: 1, end: 1 }),
               frameRate: 1,
               repeat: 0
           });
 
           this.anims.create({
               key: 'buttonClick7',
-              frames: this.anims.generateFrameNumbers('botonVolver', { start: 2, end: 2 }),
+              frames: this.anims.generateFrameNumbers('back', { start: 2, end: 2 }),
               frameRate: 1,
               repeat: 0
           });
