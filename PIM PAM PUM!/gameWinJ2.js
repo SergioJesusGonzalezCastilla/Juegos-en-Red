@@ -1,4 +1,4 @@
-var sonidoFondo;
+var sonidoFondoG2;
 var sonidoDisparo;
 export class gameWinJ2 extends Phaser.Scene{
 
@@ -10,28 +10,24 @@ export class gameWinJ2 extends Phaser.Scene{
     preload(){
 
         //FONDO
-        this.load.image('Gana Jugador 2', 'resources/Gana2.png')   
-        this.load.image('Lose','resources/YOU LOSE.png')
-        this.load.image('Win','resources/YOU WIN.png')
+        this.load.image('Gana Jugador 2', 'resources/ganadores/GanaJugador2.png')   
         .spritesheet('botonInicio','resources/botones/Inicio.png',{ frameWidth: 286, frameHeight: 102 })
         .spritesheet('botonRevancha','resources/botones/Revancha.png',{ frameWidth: 286, frameHeight: 102 })    
     
         //Musica
-        this.load.audio('sonidoFondo','sounds/BackgroundFightSound.mp3')
+        this.load.audio('sonidoGana2','resources/ganadores/ganaJugador2.mp3')
         this.load.audio('sonidoDisparo','sounds/disparoSound.mp3')
     }
 
     create(){
 
         this.add.image(1280/2, 720/2, 'Gana Jugador 2');  
-        this.add.image(1000,150,'Win').setScale(1/2);
-        this.add.image(300,150,'Lose').setScale(1/2);
-        sonidoFondo = this.sound.add('sonidoFondo');
+        sonidoFondoG2 = this.sound.add('sonidoGana2');
         sonidoDisparo = this.sound.add('sonidoDisparo');
-        sonidoFondo.loop =true;
-        sonidoFondo.play();   
+        sonidoFondoG2.loop =true;
+        sonidoFondoG2.play();   
         
-        const inicio = this.add.sprite(846, 318, 'botonInicio').setInteractive();
+        const inicio = this.add.sprite(946, 70, 'botonInicio').setInteractive();
         
         // Botón VOLVER
         // Define las animaciones del botón
@@ -72,7 +68,7 @@ export class gameWinJ2 extends Phaser.Scene{
                   target: 'menu-inicio',
                   duration:1000,
               });
-              sonidoFondo.stop();
+              sonidoFondoG2.stop();
               sonidoDisparo.play();
           });
 
@@ -82,7 +78,7 @@ export class gameWinJ2 extends Phaser.Scene{
 
 
 
-          const revancha = this.add.sprite(446, 318, 'botonRevancha').setInteractive();
+          const revancha = this.add.sprite(346, 70, 'botonRevancha').setInteractive();
         
         // Botón REVANCHA
         // Define las animaciones del botón
@@ -123,7 +119,7 @@ export class gameWinJ2 extends Phaser.Scene{
                   target: 'game',
                   duration:1000,
               });
-              sonidoFondo.stop();
+              sonidoFondoG2.stop();
               sonidoDisparo.play();
           });
 
