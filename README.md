@@ -55,14 +55,14 @@ Repositorio creado por estudiantes, para la asignatura de Juegos en Red del Grad
   - Slogan : Disparando por la red
   - Logo equipo:
     <p align="center">
-      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/MMhouse2.png">
+      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/MMhouse2.png">
       <br><br>
       <b>Ilustración 2. Logo del equipo</b>
       <br><br>
     </p>
    - Logo juegto:
     <p align="center">
-      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Pim%20pam%20pum.png">
+      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Pim%20pam%20pum.png">
       <br><br>
       <b>Ilustración 3. Logo del juego</b>
       <br><br>
