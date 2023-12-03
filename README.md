@@ -301,7 +301,9 @@ Todos los elementos que hay por medio del escenario, ya sean las carretas o la m
       <b>Ilustración 7. Barreño de Agua</b>
       <br><br>
     </p>
+    
    - Proteccion de Carreta:
+   
     <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Carreta derecha sin sombra.png">
       <br><br>
