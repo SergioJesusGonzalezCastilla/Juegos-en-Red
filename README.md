@@ -102,7 +102,7 @@ La jugabilidad base del juego se basa en el avance de los jugadores a lo largo y
 - **Desplazamiento libre**: Cada jugador podrá moverse libremente por su sección del escenario para atacar o protegerse de los rivales. 
 - **Obtención de potenciadores**: Una serie de objetos potenciadores aparecerán de vez en cuando por el escenario, de modo que el jugador que se haga con ellos podrá gozar de ciertas ventajas o desventajas durante el transcurso de la partida. 
 - **Diversos niveles**: Cada uno constará de particularidades que permitirán crear estrategias variadas en función de este.
-- 
+  
  *2.6 Estética*
   
 El título contará con una estética de estilo cartoon, que resulte atractiva para una amplia audiencia, en un punto intermedio entre el minimalismo y el detallismo, gracias a la vista desde arriba del mismo, lo cual facilita centrarse solo en ciertos elementos a la hora de dibujar el entorno, los personajes y los distintos elementos que influyen en la jugabilidad. 
@@ -114,11 +114,11 @@ Podría tomarse como referencia el estilo de series animadas como *Scooby Doo*.
 
 Se contempla hasta un total de cuatro posibles ambientaciones para los diferentes niveles de Pim Pam PUM, aunque su implementación en el juego dependerá de las dificultades que se encuentren durante el proceso de desarrollo del mismo. Estos son:
 
-- **Salvaje Oeste**
-- **Edad de Oro de la Piratería**
-- **Edad Media**
-- **Era Espacial**
-- 
+- **Salvaje Oeste**: Duelo de Pistolas
+- **Edad de Oro de la Piratería**: Piratas al Abordaje
+- **Edad Media**: Cacería Salvaje
+- **Era Espacial**: Lluvia de estrellas
+  
 *3.2 Sinopsis*
   
 Acompaña a los agentes 11 y 29, miembros de la Agencia Intratemporal de Cronos Aurus (más conocida como la A.I.C.A), quienes han descubierto que, con el fin de evitar modificar el curso de la historia, deberán hacerse pasar por diferentes personajes históricos de su pasado y futuro, como Billy el Niño y Pat Garret, los cuales parecen haber huido por una serie de portales temporales con el fin de tomarse unas vacaciones, lo cual está provocando bastantes dolores de cabeza a la A.I.C.A.  
@@ -285,9 +285,14 @@ Como previamente aparece, El juego presenta similitudes gráficas con la serie a
 
 *6.1 Referencias*
 
-Las referencias son claras. A la izquierda, se observa una imagen inGame del famoso título de Supercell “Brawl Stars”. A la derecha, una escena de un capítulo de la serie televisiva de Warner Bros “Scooby - Doo”. 
+Las referencias son claras: A la hora de establecer el estilo artístico a implementar en el juego, se ha tomado como principal inspiración el estilo "cartoon" de Scooby Doo, serie animada que empezó a retransmitirse a finales de los años 60.
             
-(Imagen. Referencia gráfica, Brawl Stars y Scooby Doo) 
+<p align="center">
+      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Scooby Doo.png">
+      <br><br>
+      <b>Ilustración x. Imagen de la serie animadsa "Scooby Doo"</b>
+      <br><br>
+</p>
 
 *6.2 Escenario*
 
