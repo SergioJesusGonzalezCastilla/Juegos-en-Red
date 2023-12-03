@@ -310,6 +310,9 @@ export class Game extends Phaser.Scene{
             this.teclaK= this.input.keyboard.addKey(keyCodes.K);
             this.teclaH= this.input.keyboard.addKey(keyCodes.H);
 
+            this.teclaG= this.input.keyboard.addKey(keyCodes.G);
+
+
         //Sonidos
         sonidoFondo = this.sound.add('sonidoFondo');
         sonidoDisparo = this.sound.add('sonidoDisparo');
@@ -492,6 +495,12 @@ export class Game extends Phaser.Scene{
 
     update ()
     {
+        if (this.teclaG.isDown)
+        {
+            sonidoFondo.pause();
+            this.scene.switch('pause');
+        }
+        
         //Continuamos el sonido si se pauso al entrar en la pausa
         sonidoFondo.resume();
         //Movimiento del vaquero 1
