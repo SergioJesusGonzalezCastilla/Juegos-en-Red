@@ -343,6 +343,33 @@ En este apartado, se va a dejar evidencia de los bocetos iniciales de la interfa
       <br><br>
 </p>
 
+- Interfaz de selección de nivel: Permite elegir entre una variedad de niveles, aunque actualmente solo está disponible el primero de ellos. También permite volver a la pantalla de selección de modo de juego.
+
+<p align="center">
+      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Interfaz selección de nivel.jpeg">
+      <br><br>
+      <b>Ilustración 15. Interfaz de selección de nivel"</b>
+      <br><br>
+</p>
+
+- Escena Ingame: En esta escena es en la que se desarrolla toda la acción del juego. Existe un pequeño botón en la parte superior de la misma que permite pausar el juego, pudiendo volver a activarse el mismo sin cambios en el entorno.
+
+<p align="center">
+      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Interfaz Ingame.jpeg">
+      <br><br>
+      <b>Ilustración 16. Interfaz de la escena Ingame"</b>
+      <br><br>
+</p>
+
+- Interfaz de pausa: Permite parar la escena de la partida actual, sin perderse por ello el progreso en la misma. También permite reiniciar la partida o abandonar por completo este modo de juego.
+
+<p align="center">
+      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Interfaz pausa.jpeg">
+      <br><br>
+      <b>Ilustración 17. Interfaz de pausa"</b>
+      <br><br>
+</p>
+
 - 
 *5.3 Diagrama de flujo*
 
