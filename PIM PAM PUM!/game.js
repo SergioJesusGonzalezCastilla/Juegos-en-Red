@@ -146,6 +146,7 @@ export class Game extends Phaser.Scene{
         //BOTON PAUSA
         const pause_label=this.add.image(1280/2,50, 'pausa').setScale(0.25).setInteractive();
         pause_label.on('pointerdown', () => {
+            sonidoFondo.pause();
             this.scene.switch('pause');
         });
 
@@ -491,6 +492,8 @@ export class Game extends Phaser.Scene{
 
     update ()
     {
+        //Continuamos el sonido si se pauso al entrar en la pausa
+        sonidoFondo.resume();
         //Movimiento del vaquero 1
         if (this.teclaD.isDown)
         {
