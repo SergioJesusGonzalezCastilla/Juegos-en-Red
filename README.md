@@ -347,7 +347,7 @@ En este apartado, se va a dejar evidencia de los bocetos iniciales de la interfa
 *5.3 Diagrama de flujo*
 
   <p align="center">
-      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Diagrama Interfaces.JPG">
+      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Diagrama Interfaces.jpg">
       <br><br>
       <b>Ilustración 15. Diagrama de flujo"</b>
       <br><br>
