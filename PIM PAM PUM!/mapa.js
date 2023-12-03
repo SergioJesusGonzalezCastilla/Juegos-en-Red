@@ -22,7 +22,7 @@ export class Mapas extends Phaser.Scene{
         sonidoDisparo = this.sound.add('sonidoDisparo');
         sonidoFondo.loop = true;
         
-        const volver = this.add.sprite(620, 640, 'botonVolver').setInteractive();
+        const volver = this.add.sprite(1280/2, 720/2, 'botonVolver').setInteractive();
         
         // Botón VOLVER
         // Define las animaciones del botón
