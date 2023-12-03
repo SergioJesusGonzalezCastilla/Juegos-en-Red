@@ -136,12 +136,16 @@ Las mecánicas del título vienen muy de la mano de su forma de verlo, lo que ll
 *4.2 Sonido*
 
 En lo que respecta al sonido del título, por el momento se implementará mediante el uso de recursos de uso libre, tanto para la banda sonora como para los efectos de sonido, con el fin de acelerar el proceso de desarrollo, aunque no se descarta el desarrollo de música y/o efectos propios de cara al futuro. 
+
 Se buscará utilizar aquellos que mejor correspondan al periodo de tiempo en el que se desarrolle la partida, aunque con un tono modernizado y que aporte cierto dinamismo a la partida.
+
 En la pantalla de título y el flujo de interfaces fuera de la partida se han utilizado los siguientes recursos:
 - Música de fondo
+  
 En el simulador/turoial, se han utilizado los siguientes recursos sonoros:
 - Música de fondo:
-- Disparo de bala: 
+- Disparo de bala:
+  
 En lo que respecta al primer escenario, ambientado en el Salvaje Oeste, se han utilizado los siguientes recursos:
 - Música de fondo:
 - Disparo de bala:
@@ -277,4 +281,4 @@ En la siguiente imagen, se presenta la posible interfaz InGame del juego, con un
 *5.3 Personajes*
 
 *5.4 Flowchart*
-**6. Enlace al repositorio de Github**
+
