@@ -319,14 +319,31 @@ En este apartado, se va a dejar evidencia de los bocetos iniciales de la interfa
 - Interfaz de créditos: Esta interfaz tiene como único objetivo mostrar los nombres de los desarrolladores. Por medio de la navegación puede volverse al menú de inicio.
 
 <p align="center">
-      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Interfaz Créditos.JPG">
+      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Interfaz créditos.JPG">
       <br><br>
-      <b>Ilustración 11. Interfaz de créditos"</b>
+      <b>Ilustración 12. Interfaz de créditos"</b>
+      <br><br>
+</p>
+
+- Interfaz de selección de modo de juego: Mediante esta interfaz puede elegirse entre el modo "tutorial", con el que se accede al simulador y los jugadores podrán acostumbrarse a los controles y el manejo de los perosnajes; o el modo "1 vs 1", en el que se lleva a cabo una partida real como tal. También permite volver al menú de inicio.
+
+<p align="center">
+      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Interfaz de selección de modo de juego.JPG">
+      <br><br>
+      <b>Ilustración 13. Interfaz de selección de modo de juego"</b>
+      <br><br>
+</p>
+
+- Tutorial/ Simulador: Presenta como fondo del escenario el set de controles para cada jugador, permitiendo además que los prueben para acostumbrarse con el movimiento d elos personajes y la mecánica principal de disparo.
+
+<p align="center">
+      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Interfaz Simulador.JPG">
+      <br><br>
+      <b>Ilustración 14. Interfaz del tutorial/simulador"</b>
       <br><br>
 </p>
 
 - 
-
 *5.3 Diagrama de flujo*
 
 **6. Arte del juego**
