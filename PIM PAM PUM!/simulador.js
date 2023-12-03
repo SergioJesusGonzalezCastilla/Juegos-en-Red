@@ -48,27 +48,27 @@ export class Simulador extends Phaser.Scene{
     preload ()
     {
         //FONDO
-        this.load.image('Simulador', 'resources/simulador/SimuladorFondo.png') 
+        this.load.image('Simulador', 'resources/simulador/SimuladorFondo.png'); 
         
         //ELEMENTOS DEL MUNDO
-        .image('Brecha','resources/simulador/FranjaSimulador.png')
+        .image('Brecha','resources/simulador/FranjaSimulador.png');
         
         //PLAYERS
         //PLAYERS SPRITES
-        .spritesheet('vaquero_1S', 'resources/Vaquero dch spritesheet.png',{ frameWidth: 203, frameHeight: 72 })
-        .spritesheet('vaquero_2S', 'resources/Vaquero izq spritesheet.png',{ frameWidth: 204, frameHeight: 70 })
+        .spritesheet('vaquero_1S', 'resources/Juego/Vaquero dch spritesheet.png',{ frameWidth: 203, frameHeight: 72 });
+        .spritesheet('vaquero_2S', 'resources/Juego/Vaquero izq spritesheet.png',{ frameWidth: 204, frameHeight: 70 });
 
         //BALAS
-        .image('bala_vaquero_1','resources/Bala_Derecha.png')
-        .image('bala_vaquero_2','resources/Bala_Izquierda.png')
+        .image('bala_vaquero_1','resources/Juego/Bala_Derecha.png');
+        .image('bala_vaquero_2','resources/Juego/Bala_Izquierda.png');
         
         //AUDIO
-        .audio('sonidoDisparo','sounds/disparoSound.mp3')
-        .audio('sonidoSimulador','resources/simulador/simulador.mp3')
+        .audio('sonidoDisparo','sounds/disparoSound.mp3');
+        .audio('sonidoSimulador','resources/simulador/simulador.mp3');
 
 
         //BOTON
-        .spritesheet('botonVolverS','resources/simulador/VolverSimulador.png',{ frameWidth: 263, frameHeight: 73 })   
+        .spritesheet('botonVolverS','resources/simulador/VolverSimulador.png',{ frameWidth: 263, frameHeight: 73 });   
 
 
     }
