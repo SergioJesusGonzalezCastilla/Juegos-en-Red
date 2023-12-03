@@ -1,7 +1,7 @@
 body {
 
-    cursor: url(resources/cursor-wc.png),auto;
-    background-image: url(resources/FondoDesierto.png);
+    cursor: url(resources//css-cursor/Cursor-reloj.png),auto;
+    background-image: url(resources/css-fondo/nubesFondo.png);
     display: flex;
     justify-content: center;
     align-items: center;
