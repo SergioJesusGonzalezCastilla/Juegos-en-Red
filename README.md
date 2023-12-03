@@ -267,13 +267,43 @@ En esta versión del documento de diseño, divideremos entre aquellos que ya han
 
 *5.1 Bocetos interfaces*
 
-En este apartado se dejará evidencia de los primeros prototipos de interfaz, para mostrar la evolución con respecto a las interfaces actuales.
+En este apartado, se va a dejar evidencia de los bocetos iniciales de la interfaz, para presentar la base sobre la que se trabajó para posteriormente desarrollarse y perfeccionarse hasta la obtención de las interfaces actuales:
 
-A continuación, se presentan los posibles candidatos, a día de hoy desfasados, a ejercer de interfaces del título. En la primera imagen se muestra la que podría ser la pantalla de inicio de “Pim Pam PUM”. En ella se presenta un fondo arenoso, representando el mapa de El Salvaje Oeste. A la izquierda se observa el logo del título, con referencias a dos de los niveles del juego (Edad de Oro de la Piratería y Salvaje Oeste); y a la derecha las posibles interacciones por ventana para interactuar con el título. 
+- Boceto del menú de inicio:
 
-(Imagen. Interfaz Menú de Inicio) 
+<p align="center">
+      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Boceto Menu Inicio.png">
+      <br><br>
+      <b>Ilustración 7. Boceto de la interfaz de menú de inicio"</b>
+      <br><br>
+</p>
 
-En la siguiente imagen, se presenta la posible interfaz InGame del juego, con una sección para indicar el tiempo que queda en la partida; otra para representar la vida restante de cada jugador; y una última en la que aparecerán elementos indicadores de los potenciadores que posee cada uno de los personajes. 
+- Boceto de la interfaz Ingame:
+
+<p align="center">
+      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Boceto Interfaz Ingame.png">
+      <br><br>
+      <b>Ilustración 8. Boceto de la interfaz Ingame"</b>
+      <br><br>
+</p>
+
+- Boceto de la interfaz de pausa para el jugador 1:
+
+<p align="center">
+      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Boceto Pausa P1.png">
+      <br><br>
+      <b>Ilustración 9. Boceto de la interfaz de pausa para el jugador 1"</b>
+      <br><br>
+</p>
+
+- Boceto de la interfaz de pausa para el jugador 2:
+
+<p align="center">
+      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Boceto Pausa P2.png">
+      <br><br>
+      <b>Ilustración 9. Boceto de la interfaz de pausa para el jugador 2"</b>
+      <br><br>
+</p>
 
 *5.2 Interfaces actualizadas*
 
