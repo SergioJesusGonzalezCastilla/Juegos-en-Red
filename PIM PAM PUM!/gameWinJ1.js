@@ -1,4 +1,4 @@
- var sonidoFondo;
+var sonidoFondoG1;
 var sonidoDisparo;
  export class gameWinJ1 extends Phaser.Scene{
 
@@ -9,27 +9,23 @@ var sonidoDisparo;
     preload(){
 
         //FONDO
-        this.load.image('Gana Jugador 1', 'resources/Gana1.png')
-        this.load.image('Lose','resources/YOU LOSE.png')
-        this.load.image('Win','resources/YOU WIN.png')
+        this.load.image('Gana Jugador 1', 'resources/ganadores/GanaJugador1.png')
         .spritesheet('botonInicio','resources/botones/Inicio.png',{ frameWidth: 286, frameHeight: 102 })
         .spritesheet('botonRevancha','resources/botones/Revancha.png',{ frameWidth: 286, frameHeight: 102 })    
     
         //Musica
-        this.load.audio('sonidoFondo','sounds/BackgroundFightSound.mp3')
+        this.load.audio('sonidoGana1','resources/ganadores/ganaJugador1.mp3')
         this.load.audio('sonidoDisparo','sounds/disparoSound.mp3')
     }
 
     create(){
 
         this.add.image(1280/2, 720/2, 'Gana Jugador 1');  
-        this.add.image(300,150,'Win').setScale(1/2);
-        this.add.image(1000,150,'Lose').setScale(1/2);
-        sonidoFondo = this.sound.add('sonidoFondo');
+        sonidoFondoG1 = this.sound.add('sonidoGana1');
         sonidoDisparo = this.sound.add('sonidoDisparo');
-        sonidoFondo.loop =true;
-        sonidoFondo.play();
-        const inicio = this.add.sprite(846, 318, 'botonInicio').setInteractive();
+        sonidoFondoG1.loop =true;
+        sonidoFondoG1.play();
+        const inicio = this.add.sprite(946, 70, 'botonInicio').setInteractive();
         
         // Botón VOLVER
         // Define las animaciones del botón
@@ -70,7 +66,7 @@ var sonidoDisparo;
                   target: 'menu-inicio',
                   duration:1000,
               });
-              sonidoFondo.stop();
+              sonidoFondoG1.stop();
               sonidoDisparo.play();
           });
 
@@ -81,7 +77,7 @@ var sonidoDisparo;
 
 
 
-          const revancha = this.add.sprite(446, 318, 'botonRevancha').setInteractive();
+          const revancha = this.add.sprite(346, 70, 'botonRevancha').setInteractive();
         
         // Botón REVANCHA
         // Define las animaciones del botón
@@ -122,7 +118,7 @@ var sonidoDisparo;
                   target: 'game',
                   duration:1000,
               });
-              sonidoFondo.stop();
+              sonidoFondoG1.stop();
               sonidoDisparo.play();
           });
 
