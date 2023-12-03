@@ -653,20 +653,20 @@ export class Game extends Phaser.Scene{
             corazon_2_mostrado=true;
         }
         //Comprobaremos la cantidad de balas totales empleadas para crear los objetos speedup en función de la misma
-        if(total_balas_empleadas>=(Phaser.Math.Between(30, 40)) && speedup_1_mostrado===false)
+        if(total_balas_empleadas>=(Phaser.Math.Between(20, 35)) && speedup_1_mostrado===false)
         {
             speedup.create(WIDTH/2, 1*HEIGHT/6+20, 'gato').setScale(1/2);
             speedup_1_mostrado=true;
         }
 
-        if(total_balas_empleadas>=(Phaser.Math.Between(55, 70)) && speedup_2_mostrado===false)
+        if(total_balas_empleadas>=(Phaser.Math.Between(50, 65)) && speedup_2_mostrado===false)
         {
             speedup.create(WIDTH/2, 6*HEIGHT/8, 'gato').setScale(1/2);
             speedup_2_mostrado=true;
         }
 
         //Comprobaremos la cantidad de balas totales empleadas para crear los objetos damage_boost en función de la misma
-        if(total_balas_empleadas>=(Phaser.Math.Between(85, 90)) && damage_boost_mostrado===false)
+        if(total_balas_empleadas>=(Phaser.Math.Between(40, 55)) && damage_boost_mostrado===false)
         {
             damage_boost.create(WIDTH/2, HEIGHT/2, 'damage').setScale(1/2);
             damage_boost_mostrado=true;
