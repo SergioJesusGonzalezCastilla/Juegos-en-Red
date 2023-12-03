@@ -288,7 +288,7 @@ Como previamente aparece, El juego presenta similitudes gráficas con la serie a
 Las referencias son claras: A la hora de establecer el estilo artístico a implementar en el juego, se ha tomado como principal inspiración el estilo "cartoon" de Scooby Doo, serie animada que empezó a retransmitirse a finales de los años 60.
             
 <p align="center">
-      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Scooby Doo.png">
+      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Scooby Doo.avif">
       <br><br>
       <b>Ilustración x. Imagen de la serie animadsa "Scooby Doo"</b>
       <br><br>
