@@ -69,20 +69,7 @@ export class Creditos extends Phaser.Scene{
           volver.on('pointerup', () => {
             volver.play('buttonHover4');
           });
-           
-        var cursors = this.input.keyboard.createCursorKeys();
-        const keyCodes= Phaser.Input.Keyboard.KeyCodes;
-        this.teclaZ= this.input.keyboard.addKey(keyCodes.Z);
 
-    }
-
-    update(){
-
-        if (this.teclaZ.isDown)
-        {
-         this.scene.start('game');
-     
-        }
     }
 
 }
