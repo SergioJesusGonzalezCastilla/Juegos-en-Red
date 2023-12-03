@@ -302,7 +302,7 @@ Todos los elementos que hay por medio del escenario, ya sean las carretas o la m
       <br><br>
     </p>
     
-   - Proteccion de Carreta:
+- Proteccion de Carreta:
    
     <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Carreta derecha sin sombra.png">
@@ -312,13 +312,16 @@ Todos los elementos que hay por medio del escenario, ya sean las carretas o la m
     </p>
     
 - Protección Carreta 2:
+
 <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Carreta izzq sin sombra .png">
       <br><br>
       <b>Ilustración 6.  Protección de Carreta 2 </b>
       <br><br>
 </p>
+
 - Protección Mesa:
+
 <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Mesa sin sombra .png">
       <br><br>
@@ -328,27 +331,34 @@ Todos los elementos que hay por medio del escenario, ya sean las carretas o la m
 Cuando las protecciones son destruidas, los sprites son reemplazados por unos iguales pero rotos, por lo que los jugadores podrán pasar por ellos.
 
 - Barreño destruido:
+  
 <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Agua rota.png">
       <br><br>
       <b>Ilustración 6.  Barreño de Agua roto</b>
       <br><br>
 </p>
+
 - Carreta destruida destruida:
+
 <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Carreta derecha rota .png">
       <br><br>
       <b>Ilustración 6.  Carreta rota </b>
       <br><br>
 </p>
+
 - Carreta 2 destruida:
+
 <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Carreta izq rota .png">
       <br><br>
       <b>Ilustración 6. Carreta rota 2</b>
       <br><br>
 </p>
+
 - Mesa destruida:
+
 <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Mesa rota .png">
       <br><br>
