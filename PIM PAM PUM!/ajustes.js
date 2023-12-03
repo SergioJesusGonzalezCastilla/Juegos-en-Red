@@ -1,4 +1,4 @@
-var sonidoFondo;
+var sonidoFondoA;
 var sonidoDisparo;
 
 //Tamaño de la pantalla
@@ -18,7 +18,7 @@ export class Ajustes extends Phaser.Scene{
     this.load.image('AjustesF', 'resources/FondoDesierto.png')
     this.load.image('Ajustes', 'resources/Ajustes.png')
     .spritesheet('botonVolver','resources/botones/Volver.png',{ frameWidth: 286, frameHeight: 102 })   
-    this.load.audio('sonidoFondo','sounds/BackgroundFightSound.mp3')
+    this.load.audio('sonidoFondoA','sounds/meme.mp3')
     this.load.audio('sonidoDisparo','sounds/disparoSound.mp3')
     .image('MEME', 'resources/meme.png')
 
@@ -28,10 +28,10 @@ export class Ajustes extends Phaser.Scene{
 
     this.add.image(1280/2, 720/2, 'AjustesF');
     this.add.image(700,150,'Ajustes').setScale(1/3);
-    sonidoFondo = this.sound.add('sonidoFondo');
+    sonidoFondoA = this.sound.add('sonidoFondoA');
     sonidoDisparo = this.sound.add('sonidoDisparo');
-    sonidoFondo.loop =true;
-    sonidoFondo.play();
+    sonidoFondoA.loop =true;
+    sonidoFondoA.play();
     const volver = this.add.sprite(620, 640, 'botonVolver').setInteractive();
         
     // Botón VOLVER
@@ -73,7 +73,7 @@ export class Ajustes extends Phaser.Scene{
         target: 'menu-inicio',
         duration:1000,
       });
-      sonidoFondo.stop();
+      sonidoFondoA.stop();
       sonidoDisparo.play();
       });
 
@@ -90,7 +90,8 @@ export class Ajustes extends Phaser.Scene{
         this.sound.mute=true;
       }
     });
-     this.add.image(1280/2, 820/2, 'MEME').setScale(1/4);   
+
+    this.add.image(1280/2, 820/2, 'MEME').setScale(1/4);   
 
   }
 }
