@@ -17,6 +17,8 @@ export class Minicio extends Phaser.Scene{
         .spritesheet('botonCreditos','resources/botones/Creditos.png',{ frameWidth: 286, frameHeight: 102 })
         //BOTON AJUSTES
         .spritesheet('botonAjustes','resources/botones/Ajustes.png',{ frameWidth: 286, frameHeight: 102 })
+                .image('Proximamente', 'resources/proximamente.png')
+
 
     }
     startGame(){
@@ -179,6 +181,8 @@ export class Minicio extends Phaser.Scene{
             ajustes.on('pointerup', () => {
                 ajustes.play('buttonHover2');
             });
+            this.add.image(1040, 480, 'Proximamente');   
+
         
     }
     
