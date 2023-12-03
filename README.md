@@ -272,7 +272,7 @@ En este apartado, se va a dejar evidencia de los bocetos iniciales de la interfa
 - Boceto del menú de inicio:
 
 <p align="center">
-      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Boceto Menu Inicio.png">
+      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Boceto Menu inicio.png">
       <br><br>
       <b>Ilustración 7. Boceto de la interfaz de menú de inicio"</b>
       <br><br>
@@ -281,7 +281,7 @@ En este apartado, se va a dejar evidencia de los bocetos iniciales de la interfa
 - Boceto de la interfaz Ingame:
 
 <p align="center">
-      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Boceto Interfaz Ingame.png">
+      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Boceto Interfaz Ingame.jpg">
       <br><br>
       <b>Ilustración 8. Boceto de la interfaz Ingame"</b>
       <br><br>
@@ -301,7 +301,7 @@ En este apartado, se va a dejar evidencia de los bocetos iniciales de la interfa
 <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Boceto Pausa P2.png">
       <br><br>
-      <b>Ilustración 9. Boceto de la interfaz de pausa para el jugador 2"</b>
+      <b>Ilustración 1o. Boceto de la interfaz de pausa para el jugador 2"</b>
       <br><br>
 </p>
 
