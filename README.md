@@ -30,7 +30,7 @@ Repositorio creado por estudiantes, para la asignatura de Juegos en Red del Grad
 **GDD: Pim Pam PUM!**
 
 <p align="center">
-  <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Pim%20pam%20pum.png">
+  <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/Archivos README/Pim%20pam%20pum.png">
   <br><br>
   <b>Ilustración 1. Logo del juego</b>
   <br><br>
