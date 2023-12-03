@@ -495,13 +495,6 @@ export class Game extends Phaser.Scene{
 
     update ()
     {
-        if (this.teclaG.isDown)
-        {
-            sonidoFondo.pause();
-            this.scene.switch('pause');
-            sonidoFondo.stop();
-
-        }
         
         //Continuamos el sonido si se pauso al entrar en la pausa
         sonidoFondo.resume();
