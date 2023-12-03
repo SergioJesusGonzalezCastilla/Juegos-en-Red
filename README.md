@@ -368,6 +368,7 @@ Cuando las protecciones son destruidas, los sprites son reemplazados por unos ig
     
 
 *6.3 Personajes*
+
 Los personajes de este escenario estan basados en vaqueros, teniendo uno de ellos una paleta de colores más de forajido (colores tierra) y otro colores más de hombre de la ley (colores azules que usaban los oficiales de ejercito)
 Se ha dibujado a mano todos los frames para las animaciones, tanto para la animación en la que el personaje no se mueve, como para la animación de andar. Más tarde se han creado los spritesheets con todos los frames para las animaciones.
 
@@ -407,3 +408,49 @@ Se ha dibujado a mano todos los frames para las animaciones, tanto para la anima
     </p>
     
 *6.4 Assets*
+
+Se ha dibujado varios sprites para diferentes assets del juego, ya sean titulos de algunas pantallas, letras de victoria o derrota o el cursor que se usa, inspirado en un reloj (viajes en el tiempo)
+
+ - Sprite Cursor reloj:
+    <p align="center">
+      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Cursor reloj.png">
+      <br><br>
+      <b>Ilustración 19. Cursor personalizado</b>
+      <br><br>
+    </p>
+    
+- Derrota:
+   
+    <p align="center">
+      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/YOU LOSE.png">
+      <br><br>
+      <b>Ilustración 20. Letras de Derrota</b>
+      <br><br>
+    </p>
+    
+ - Victoria:
+   
+    <p align="center">
+      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/YOU WIN.png">
+      <br><br>
+      <b>Ilustración 21. Letras de Victoria</b>
+      <br><br>
+    </p>
+    
+- Titulo de escena de Creditos:
+   
+    <p align="center">
+      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Creditos.png">
+      <br><br>
+      <b>Ilustración 22. Titulo Creditos 2</b>
+      <br><br>
+    </p>
+
+- Titulo de escena de Ajustes:
+   
+    <p align="center">
+      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Ajustes.png">
+      <br><br>
+      <b>Ilustración 23. Titulo Ajustes</b>
+      <br><br>
+    </p>
