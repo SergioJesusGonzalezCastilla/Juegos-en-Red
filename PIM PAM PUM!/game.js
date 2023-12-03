@@ -499,6 +499,8 @@ export class Game extends Phaser.Scene{
         {
             sonidoFondo.pause();
             this.scene.switch('pause');
+            sonidoFondo.stop();
+
         }
         
         //Continuamos el sonido si se pauso al entrar en la pausa
