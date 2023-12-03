@@ -9,55 +9,135 @@ export class Pausa extends Phaser.Scene{
     }
 
     preload(){
-        //FONDO
-        this.load.image('Simulador', 'resources/simulador/SimuladorFondo.png');
+      //FONDO
+      this.load.image('Fondo', 'resources/pausa/PausaFondo.png');
+      //EFECTO SONIDO
+      this.load.audio('sonidoDisparo','sounds/disparoSound.mp3')
+      //BOTONES
+      this.load.spritesheet('quit','resources/pausa/PausaAbandonar.png',{ frameWidth: 286, frameHeight: 63 });
 
-        this.load.audio('sonidoDisparo','sounds/disparoSound.mp3')
-
-        this.load.image('quit','/resources/botones/BotonPausa.png')
-
-        this.load.image('restart','/resources/botones/no tocar/InicioBoton.png')
+      this.load.spritesheet('restart','resources/pausa/PausaReiniciar.png',{ frameWidth: 286, frameHeight: 63 });
         
-        this.load.spritesheet('botonVolver','resources/botones/Volver.png',{ frameWidth: 286, frameHeight: 102 });
+      this.load.spritesheet('botonVolver','resources/pausa/PausaVolver.png',{ frameWidth: 286, frameHeight: 63 });
     }
 
     create () 
     {
-        //FONDO
-        this.add.image(1280/2, 720/2, 'Simulador'); 
+        var sonidoDisparo = this.sound.add('sonidoDisparo');
 
-        const restart = this.add.image(WIDTH/2,HEIGHT/1.5,'restart').setScale(0.25).setInteractive();
-        restart.on('pointerdown', () => {
+        //FONDO
+        this.add.image(1280/2, 720/2, 'Fondo'); 
+      
+        const reinicio = this.add.sprite(WIDTH/2,HEIGHT/1.5, 'restart').setInteractive();
+        
+        // Botón REINICIO
+        // Define las animaciones del botón
+          this.anims.create({
+              key: 'buttonNormal5',
+              frames: this.anims.generateFrameNumbers('restart', { start: 0, end: 0 }),
+              frameRate: 1,
+              repeat: 0
+          });
+
+          this.anims.create({
+              key: 'buttonHover5',
+              frames: this.anims.generateFrameNumbers('restart', { start: 1, end: 1 }),
+              frameRate: 1,
+              repeat: 0
+          });
+
+          this.anims.create({
+              key: 'buttonClick5',
+              frames: this.anims.generateFrameNumbers('restart', { start: 2, end: 2 }),
+              frameRate: 1,
+              repeat: 0
+          });
+
+          // Configura la interactividad del botón
+          reinicio.on('pointerover', () => {
+            reinicio.play('buttonHover5');
+          });
+
+          reinicio.on('pointerout', () => {
+            reinicio.play('buttonNormal5');
+          });
+
+          reinicio.on('pointerdown', () => {
+            reinicio.play('buttonClick5');
             this.scene.stop('game');
             this.scene.start('game');
+            sonidoDisparo.play();
           });
 
-        const quit = this.add.image(WIDTH/2,HEIGHT/2,'quit').setScale(0.25).setInteractive();
-        quit.on('pointerdown', () => {
-            this.scene.stop('game');
-            this.scene.start('menu-inicio');
+          reinicio.on('pointerup', () => {
+            reinicio.play('buttonHover5');
           });
 
-        const volver = this.add.sprite(620, 640, 'botonVolver').setInteractive();
+          const quit = this.add.sprite(WIDTH/2,HEIGHT/2, 'quit').setInteractive();
+        
+          // Botón ABANDONAR
+          // Define las animaciones del botón
+            this.anims.create({
+                key: 'buttonNormal6',
+                frames: this.anims.generateFrameNumbers('quit', { start: 0, end: 0 }),
+                frameRate: 1,
+                repeat: 0
+            });
+  
+            this.anims.create({
+                key: 'buttonHover6',
+                frames: this.anims.generateFrameNumbers('quit', { start: 1, end: 1 }),
+                frameRate: 1,
+                repeat: 0
+            });
+  
+            this.anims.create({
+                key: 'buttonClick6',
+                frames: this.anims.generateFrameNumbers('quit', { start: 2, end: 2 }),
+                frameRate: 1,
+                repeat: 0
+            });
+  
+            // Configura la interactividad del botón
+            quit.on('pointerover', () => {
+              quit.play('buttonHover6');
+            });
+  
+            quit.on('pointerout', () => {
+              quit.play('buttonNormal6');
+            });
+  
+            quit.on('pointerdown', () => {
+              quit.play('buttonClick6');
+              this.scene.stop('game');
+              this.scene.start('menu-inicio');
+              sonidoDisparo.play();
+            });
+  
+            quit.on('pointerup', () => {
+              quit.play('buttonHover6');
+            });
+
+        const volver = this.add.sprite(WIDTH/2, 240, 'botonVolver').setInteractive();
         
         // Botón VOLVER
         // Define las animaciones del botón
           this.anims.create({
-              key: 'buttonNormal4',
+              key: 'buttonNormal7',
               frames: this.anims.generateFrameNumbers('botonVolver', { start: 0, end: 0 }),
               frameRate: 1,
               repeat: 0
           });
 
           this.anims.create({
-              key: 'buttonHover4',
+              key: 'buttonHover7',
               frames: this.anims.generateFrameNumbers('botonVolver', { start: 1, end: 1 }),
               frameRate: 1,
               repeat: 0
           });
 
           this.anims.create({
-              key: 'buttonClick4',
+              key: 'buttonClick7',
               frames: this.anims.generateFrameNumbers('botonVolver', { start: 2, end: 2 }),
               frameRate: 1,
               repeat: 0
@@ -65,22 +145,21 @@ export class Pausa extends Phaser.Scene{
 
           // Configura la interactividad del botón
           volver.on('pointerover', () => {
-            volver.play('buttonHover4');
+            volver.play('buttonHover7');
           });
 
           volver.on('pointerout', () => {
-            volver.play('buttonNormal4');
+            volver.play('buttonNormal7');
           });
 
           volver.on('pointerdown', () => {
-            volver.play('buttonClick4');
-              //meter tiempo espera
-              this.scene.switch('game');
-                //sonidoDisparo.play();
+            volver.play('buttonClick7');
+            this.scene.switch('game');
+            sonidoDisparo.play();
           });
 
           volver.on('pointerup', () => {
-            volver.play('buttonHover4');
+            volver.play('buttonHover7');
           });
     }
 }
