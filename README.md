@@ -307,6 +307,26 @@ En este apartado, se va a dejar evidencia de los bocetos iniciales de la interfa
 
 *5.2 Interfaces actualizadas*
 
+- Menú de inicio: La interfaz a la que se accede al iniciar el juego. mediante ella se puede navegar al resto de apartados principales del mismo, por medio de los botones "Jugar", "Créditos" y "Ajustes", el cual actualmente se encuentra marcado como próximamente, pues sus funcionalidades se implementarán en posteriores fases del proceso de desarrollo del videojuego. Pese a todo, a este último apartado puede accederse, auqnue el efecto del mismo es bastante inesperado.
+
+<p align="center">
+      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Menu Inicio.JPG">
+      <br><br>
+      <b>Ilustración 11. Interfaz del menú de inicio"</b>
+      <br><br>
+</p>
+  
+- Interfaz de créditos: Esta interfaz tiene como único objetivo mostrar los nombres de los desarrolladores. Por medio de la navegación puede volverse al menú de inicio.
+
+<p align="center">
+      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Interfaz Créditos.JPG">
+      <br><br>
+      <b>Ilustración 11. Interfaz de créditos"</b>
+      <br><br>
+</p>
+
+- 
+
 *5.3 Diagrama de flujo*
 
 **6. Arte del juego**
@@ -320,7 +340,7 @@ Las referencias son claras: A la hora de establecer el estilo artístico a imple
 <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Scooby Doo.png">
       <br><br>
-      <b>Ilustración x. Imagen de la serie animadsa "Scooby Doo"</b>
+      <b>Ilustración x. Imagen de la serie animada "Scooby Doo"</b>
       <br><br>
 </p>
 
