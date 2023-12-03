@@ -33,21 +33,21 @@ export class Pausa extends Phaser.Scene{
         // Botón REINICIO
         // Define las animaciones del botón
           this.anims.create({
-              key: 'buttonNormal5',
+              key: 'buttonNormal5555',
               frames: this.anims.generateFrameNumbers('restart', { start: 0, end: 0 }),
               frameRate: 1,
               repeat: 0
           });
 
           this.anims.create({
-              key: 'buttonHover5',
+              key: 'buttonHover5555',
               frames: this.anims.generateFrameNumbers('restart', { start: 1, end: 1 }),
               frameRate: 1,
               repeat: 0
           });
 
           this.anims.create({
-              key: 'buttonClick5',
+              key: 'buttonClick5555',
               frames: this.anims.generateFrameNumbers('restart', { start: 2, end: 2 }),
               frameRate: 1,
               repeat: 0
@@ -55,22 +55,22 @@ export class Pausa extends Phaser.Scene{
 
           // Configura la interactividad del botón
           reinicio.on('pointerover', () => {
-            reinicio.play('buttonHover5');
+            reinicio.play('buttonHover5555');
           });
 
           reinicio.on('pointerout', () => {
-            reinicio.play('buttonNormal5');
+            reinicio.play('buttonNormal5555');
           });
 
           reinicio.on('pointerdown', () => {
-            reinicio.play('buttonClick5');
+            reinicio.play('buttonClick5555');
             this.scene.stop('game');
             this.scene.start('game');
             sonidoDisparo.play();
           });
 
           reinicio.on('pointerup', () => {
-            reinicio.play('buttonHover5');
+            reinicio.play('buttonHover5555');
           });
 
           const quit = this.add.sprite(WIDTH/2,HEIGHT/2, 'quit').setInteractive();
