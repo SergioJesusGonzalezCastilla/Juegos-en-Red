@@ -331,41 +331,41 @@ Todos los elementos que hay por medio del escenario, ya sean las carretas o la m
     
 Cuando las protecciones son destruidas, los sprites son reemplazados por unos iguales pero rotos, por lo que los jugadores podrán pasar por ellos.
 
-- Barreño destruido:
-  
-<p align="center">
+ - Barreño de Agua destruido:
+    <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Agua rota.png">
       <br><br>
-      <b>Ilustración 11.  Barreño de Agua roto</b>
+      <b>Ilustración 7. Barreño de Agua</b>
       <br><br>
-</p>
-
-- Carreta destruida destruida:
-
-<p align="center">
-      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Carreta derecha rota .png">
+    </p>
+    
+- Carreta destruida:
+   
+    <p align="center">
+      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Carreta derecha rota.png">
       <br><br>
-      <b>Ilustración 12.  Carreta rota </b>
+      <b>Ilustración 8. Carreta derecha</b>
       <br><br>
-</p>
-
-- Carreta 2 destruida:
-
-<p align="center">
-      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Carreta izq rota .png">
+    </p>
+    
+ - Carreta 2 destruida:
+   
+    <p align="center">
+      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Carreta izq rota.png">
       <br><br>
-      <b>Ilustración 13. Carreta rota 2</b>
+      <b>Ilustración 9. Carreta izquierda</b>
       <br><br>
-</p>
-
+    </p>
+    
 - Mesa destruida:
-
-<p align="center">
-      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Mesa rota .png">
+   
+    <p align="center">
+      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Mesa Rota.png">
       <br><br>
-      <b>Ilustración 14.  Mesa rota </b>
+      <b>Ilustración 10. Mesa</b>
       <br><br>
-</p>
+    </p>
+    
 
 *6.3 Personajes*
 
