@@ -83,36 +83,36 @@ export class Game extends Phaser.Scene{
         
         
         //ELEMENTOS DEL MUNDO
-        this.load.image('Vías','resources/ViasTren.png');
-        this.load.image('Tanque','resources/Agua.png');
-        this.load.image('Carreta1','resources/CarretaDerecha.png');
-        this.load.image('Carreta2','resources/CarretaIzquierda.png');
-        this.load.image('Mesa','resources/MesaDerecha.png');
+        this.load.image('Vías','resources/Juego/ViasTren.png');
+        this.load.image('Tanque','resources/Juego/Agua.png');
+        this.load.image('Carreta1','resources/Juego/CarretaDerecha.png');
+        this.load.image('Carreta2','resources/Juego/CarretaIzquierda.png');
+        this.load.image('Mesa','resources/Juego/MesaDerecha.png');
 
         //ELEMENTOS DEL MUNDO DESTRUIDOS
-        this.load.image('Tanque_Roto','resources/Agua Rota.png');
-        this.load.image('Carreta1_Rota','resources/Carreta derecha rota.png');
-        this.load.image('Carreta2_Rota','resources/Carreta izq rota.png');
-        this.load.image('Mesa_Rota','resources/Mesa Rota.png');
+        this.load.image('Tanque_Roto','resources/Juego/Agua Rota.png');
+        this.load.image('Carreta1_Rota','resources/Juego/Carreta derecha rota.png');
+        this.load.image('Carreta2_Rota','resources/Juego/Carreta izq rota.png');
+        this.load.image('Mesa_Rota','resources/Juego/Mesa Rota.png');
         
         //PLAYERS SPRITES
-        this.load.spritesheet('vaquero_1', 'resources/Vaquero dch spritesheet.png',{ frameWidth: 203, frameHeight: 72 });
-        this.load.spritesheet('vaquero_2', 'resources/Vaquero izq spritesheet.png',{ frameWidth: 204, frameHeight: 70 });
+        this.load.spritesheet('vaquero_1', 'resources/Juego/Vaquero dch spritesheet.png',{ frameWidth: 203, frameHeight: 72 });
+        this.load.spritesheet('vaquero_2', 'resources/Juego/Vaquero izq spritesheet.png',{ frameWidth: 204, frameHeight: 70 });
 
         //BALAS
-        this.load.image('bala_vaquero_1','resources/Bala_Derecha.png');
-        this.load.image('bala_vaquero_2','resources/Bala_Izquierda.png');
+        this.load.image('bala_vaquero_1','resources/Juego/Bala_Derecha.png');
+        this.load.image('bala_vaquero_2','resources/Juego/Bala_Izquierda.png');
 
         //CORAZÓN INTERFAZ
-        this.load.image('corazon','resources/Corazon.png');
+        this.load.image('corazon','resources/Juego/Corazon.png');
 
         //GATO
-        this.load.image('gato','resources/Gatito.png');
+        this.load.image('gato','resources/Juego/Gatito.png');
 
         //DAMAGE_BOOST
-        this.load.image('damage','resources/PowerUP damage.png');
-        this.load.image('damage_bullet_1','resources/Bala flama izq.png');
-        this.load.image('damage_bullet_2','resources/Bala flama dcha.png');
+        this.load.image('damage','resources/Juego/PowerUP damage.png');
+        this.load.image('damage_bullet_1','resources/Juego/Bala flama izq.png');
+        this.load.image('damage_bullet_2','resources/Juego/Bala flama dcha.png');
 
         //AUDIO
         this.load.audio('sonidoFondo','sounds/BackgroundFightSound.mp3');
@@ -183,7 +183,7 @@ export class Game extends Phaser.Scene{
 
         //Asignamos una vida al azar entre un rango de valores
         obstaculos.children.iterate(function (child) {
-            child.vida=Phaser.Math.Between(200, 300);
+            child.vida=Phaser.Math.Between(150, 250);
         });
         
         // Agregamos las balas
