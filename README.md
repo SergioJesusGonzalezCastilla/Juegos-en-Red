@@ -307,27 +307,28 @@ Todos los elementos que hay por medio del escenario, ya sean las carretas o la m
     <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Carreta derecha sin sombra.png">
       <br><br>
-      <b>Ilustración 3. Carreta derecha</b>
+      <b>Ilustración 8. Carreta derecha</b>
       <br><br>
     </p>
     
-- Protección Carreta 2:
-
-<p align="center">
-      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Carreta izzq sin sombra .png">
+ - Protección de Carreta 2:
+   
+    <p align="center">
+      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Carreta izzq sin sombra.png">
       <br><br>
-      <b>Ilustración 6.  Protección de Carreta 2 </b>
+      <b>Ilustración 9. Carreta izquierda</b>
       <br><br>
-</p>
-
-- Protección Mesa:
-
-<p align="center">
-      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Mesa sin sombra .png">
+    </p>
+    
+- Proteccion de Mesa:
+   
+    <p align="center">
+      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Mesa sin sombra.png">
       <br><br>
-      <b>Ilustración 6.  Protección de Mesa </b>
+      <b>Ilustración 10. Mesa</b>
       <br><br>
-</p>
+    </p>
+    
 Cuando las protecciones son destruidas, los sprites son reemplazados por unos iguales pero rotos, por lo que los jugadores podrán pasar por ellos.
 
 - Barreño destruido:
@@ -335,7 +336,7 @@ Cuando las protecciones son destruidas, los sprites son reemplazados por unos ig
 <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Agua rota.png">
       <br><br>
-      <b>Ilustración 6.  Barreño de Agua roto</b>
+      <b>Ilustración 11.  Barreño de Agua roto</b>
       <br><br>
 </p>
 
@@ -344,7 +345,7 @@ Cuando las protecciones son destruidas, los sprites son reemplazados por unos ig
 <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Carreta derecha rota .png">
       <br><br>
-      <b>Ilustración 6.  Carreta rota </b>
+      <b>Ilustración 12.  Carreta rota </b>
       <br><br>
 </p>
 
@@ -353,7 +354,7 @@ Cuando las protecciones son destruidas, los sprites son reemplazados por unos ig
 <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Carreta izq rota .png">
       <br><br>
-      <b>Ilustración 6. Carreta rota 2</b>
+      <b>Ilustración 13. Carreta rota 2</b>
       <br><br>
 </p>
 
@@ -362,9 +363,10 @@ Cuando las protecciones son destruidas, los sprites son reemplazados por unos ig
 <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Mesa rota .png">
       <br><br>
-      <b>Ilustración 6.  Mesa rota </b>
+      <b>Ilustración 14.  Mesa rota </b>
       <br><br>
 </p>
+
 *6.3 Personajes*
 
 *6.4 Assets*
