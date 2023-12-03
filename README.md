@@ -335,7 +335,7 @@ Cuando las protecciones son destruidas, los sprites son reemplazados por unos ig
     <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Agua rota.png">
       <br><br>
-      <b>Ilustración 7. Barreño de Agua</b>
+      <b>Ilustración 11. Barreño de Agua destruido</b>
       <br><br>
     </p>
     
@@ -344,7 +344,7 @@ Cuando las protecciones son destruidas, los sprites son reemplazados por unos ig
     <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Carreta derecha rota.png">
       <br><br>
-      <b>Ilustración 8. Carreta derecha</b>
+      <b>Ilustración 12. Carreta derecha destruida</b>
       <br><br>
     </p>
     
@@ -353,7 +353,7 @@ Cuando las protecciones son destruidas, los sprites son reemplazados por unos ig
     <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Carreta izq rota.png">
       <br><br>
-      <b>Ilustración 9. Carreta izquierda</b>
+      <b>Ilustración 13. Carreta izquierda destruida</b>
       <br><br>
     </p>
     
@@ -362,11 +362,48 @@ Cuando las protecciones son destruidas, los sprites son reemplazados por unos ig
     <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Mesa Rota.png">
       <br><br>
-      <b>Ilustración 10. Mesa</b>
+      <b>Ilustración 14. Mesa destruida</b>
       <br><br>
     </p>
     
 
 *6.3 Personajes*
+Los personajes de este escenario estan basados en vaqueros, teniendo uno de ellos una paleta de colores más de forajido (colores tierra) y otro colores más de hombre de la ley (colores azules que usaban los oficiales de ejercito)
+Se ha dibujado a mano todos los frames para las animaciones, tanto para la animación en la que el personaje no se mueve, como para la animación de andar. Más tarde se han creado los spritesheets con todos los frames para las animaciones.
 
+ - Sprite individual vaquero 1:
+    <p align="center">
+      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Vaquero1 izquierda1.png">
+      <br><br>
+      <b>Ilustración 15. Vaquero 1</b>
+      <br><br>
+    </p>
+    
+- Spritesheet Vaquero 1:
+   
+    <p align="center">
+      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Vaquero izq spritesheet V.2.png">
+      <br><br>
+      <b>Ilustración 16. Spritesheet Vaquero 1</b>
+      <br><br>
+    </p>
+    
+ - Sprite individual vaquero 2:
+   
+    <p align="center">
+      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Vaquero 2 dcha 1.png">
+      <br><br>
+      <b>Ilustración 17. Vaquero 2</b>
+      <br><br>
+    </p>
+    
+- Spritesheet Vaquero 2:
+   
+    <p align="center">
+      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Vaquero dch spritesheet.png">
+      <br><br>
+      <b>Ilustración 18. Spritesheet Vaquero 2</b>
+      <br><br>
+    </p>
+    
 *6.4 Assets*
