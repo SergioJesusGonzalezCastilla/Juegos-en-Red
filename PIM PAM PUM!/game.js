@@ -117,6 +117,9 @@ export class Game extends Phaser.Scene{
         //AUDIO
         this.load.audio('sonidoFondo','sounds/BackgroundFightSound.mp3');
         this.load.audio('sonidoDisparo','sounds/disparoSound.mp3');
+
+        //BOTON PAUSA
+        this.load.image('pausa','/resources/botones/BotonPausa.png')
     }
     create ()
     {
@@ -139,6 +142,12 @@ export class Game extends Phaser.Scene{
         obstaculos.create(WIDTH/1.3, 100, 'Carreta1');
         obstaculos.create(WIDTH/4.5, HEIGHT-90, 'Carreta2');
         obstaculos.create(1.8*WIDTH/3, HEIGHT/1.2, 'Mesa');
+
+        //BOTON PAUSA
+        const pause_label=this.add.image(1280/2,50, 'pausa').setScale(0.25).setInteractive();
+        pause_label.on('pointerdown', () => {
+            this.scene.switch('pause');
+        });
 
         //Agregamos los vaqueros
         vaquero_1 = this.physics.add.sprite(100, HEIGHT/4,'vaquero_1').setScale(7/8);
