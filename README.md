@@ -142,7 +142,7 @@ Se buscará utilizar aquellos que mejor correspondan al periodo de tiempo en el 
 En la pantalla de título y el flujo de interfaces fuera de la partida se han utilizado los siguientes recursos:
 - Música de fondo: https://www.youtube.com/watch?v=bhMFzNJCXBw (Editado con FL Studio)
   
-En el simulador/turoial, se han utilizado los siguientes recursos sonoros:
+En el simulador/tutorial, se han utilizado los siguientes recursos sonoros:
 - Música de fondo: https://www.youtube.com/watch?v=4Qo16-9sc5Y (Editado con FL Studio y recortado)
 - Disparo de bala: https://www.youtube.com/watch?v=8u1-JILEx5Y (Recortado)
   
