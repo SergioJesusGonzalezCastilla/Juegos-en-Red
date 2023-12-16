@@ -9,7 +9,7 @@ var sonidoDisparo;
     preload(){
 
         //FONDO
-        this.load.image('Gana Jugador 1', 'resources/ganadores/GanaJugador1.png')
+        this.load.image('Gana Jugador 1', 'resources/ganadores/GanaJu1.png')
         .spritesheet('botonInicio','resources/botones/Inicio.png',{ frameWidth: 286, frameHeight: 102 })
         .spritesheet('botonRevancha','resources/botones/Revancha.png',{ frameWidth: 286, frameHeight: 102 })    
     
