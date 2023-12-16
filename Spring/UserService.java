@@ -16,7 +16,7 @@ public class UserService {
 	
 	public boolean registrarse(User usuario)
 	{
-		//En caso de que uno de los elementos de
+		//En caso de que uno de los elementos del conjunto de usuarios ya tenga el mismo nombre, no se crea el usuario
 		if(usuarios.containsKey(usuario.getUsuario()))
 		{
 			return false;
