@@ -118,7 +118,7 @@ export class Seleccion extends Phaser.Scene{
             unovuno.play('buttonClick43');
               //meter tiempo espera
               this.scene.transition({
-                  target: 'mapas',
+                  target: 'modoCliente',
                   duration:1000,
               });
               sonidoDisparo.play();
