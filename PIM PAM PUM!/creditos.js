@@ -8,7 +8,7 @@ export class Creditos extends Phaser.Scene{
 
     preload(){
 
-        this.load.image('Creditos', 'resources/FondoCreditos.png')
+        this.load.image('Creditos', 'resources/FondoCreditosFinal.png')
         .spritesheet('botonVolver','resources/botones/Volver.png',{ frameWidth: 286, frameHeight: 102 })   
         this.load.audio('sonidoFondo','sounds/BackgroundFightSound.mp3')
         this.load.audio('sonidoDisparo','sounds/disparoSound.mp3')
