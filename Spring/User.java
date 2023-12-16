@@ -11,8 +11,8 @@ public class User {
 	//Definimos ahora el constructor con el que se definirá un usuario al registrarse
 	public User(String nombre_usuario, String password_usuario)
 	{
-		//Primero actualizaremos el campo registrado de dicho usuairo, pues ya fromará parte dle sistema
-		registrado=true;
+		//Primero asiganremos un valor por defecto al parámetro registrado
+		registrado=false;
 		//Asignamos los valores que se reciben al crear un usuario a las variables correspondientes
 		nombre=nombre_usuario;
 		password=password_usuario;
