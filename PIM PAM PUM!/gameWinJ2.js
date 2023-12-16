@@ -10,7 +10,7 @@ export class gameWinJ2 extends Phaser.Scene{
     preload(){
 
         //FONDO
-        this.load.image('Gana Jugador 2', 'resources/ganadores/GanaJugador2.png')   
+        this.load.image('Gana Jugador 2', 'resources/ganadores/GanaJu2.png')   
         .spritesheet('botonInicio','resources/botones/Inicio.png',{ frameWidth: 286, frameHeight: 102 })
         .spritesheet('botonRevancha','resources/botones/Revancha.png',{ frameWidth: 286, frameHeight: 102 })    
     
