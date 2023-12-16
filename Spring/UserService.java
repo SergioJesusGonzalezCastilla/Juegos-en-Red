@@ -2,12 +2,13 @@ package com.example.demo;
 
 import org.springframework.stereotype.*;
 import java.util.HashMap;
+import java.util.concurrent.ConcurrentHashMap;
 
 @Service
 public class UserService {
 
 	//Crearemos un HashMap en el que almacenaremos el conjunto de usuarios, identificándolos por su nombre
-	private HashMap<String,User> usuarios = new HashMap<>();
+	private ConcurrentHashMap<String,User> usuarios = new ConcurrentHashMap<>();
 	//Cada vez que un usuario se de de alta, se almacenará en el String su nombre, y User el conjunto de datos del usuario
 	
 	//Definimos ahora un método que se encargará de dar de alta a nuestros usuarios
