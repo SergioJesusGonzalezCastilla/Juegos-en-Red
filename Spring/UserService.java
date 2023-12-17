@@ -10,6 +10,15 @@ public class UserService {
 	//Crearemos un HashMap en el que almacenaremos el conjunto de usuarios, identificándolos por su nombre
 	private ConcurrentHashMap<String,User> usuarios = new ConcurrentHashMap<>();
 	//Cada vez que un usuario se de de alta, se almacenará en el String su nombre, y User el conjunto de datos del usuario
+
+	//Se define también una variable que almacenará el número de usuarios conectados
+	private int numUsuarios=0;
+	
+	//Método get del numero de usuarios
+	public int getNumUsuarios()
+	{
+		return numUsuarios;
+	}
 	
 	//Definimos ahora un método que se encargará de dar de alta a nuestros usuarios
 	//Como ya hemos definido en otras clases, se devolverá un boolean que será verdadero en caso de que se lleve a cabo el registro
@@ -67,6 +76,7 @@ public class UserService {
 				//Ahora que hemos obtenido este usuario, tenemos que comprobar que la contraseña coincide
 				if(usuarioObtenido.getPassword().equals(psw))
 				{
+					numUsuarios++;
 					return usuarioObtenido;
 				}
 				//En caso contrario
@@ -104,6 +114,7 @@ public class UserService {
 				{
 					usuarioObtenido.setRegistrado(false);
 					usuarios.remove(nombre_usuario);
+					numUsuarios--;
 					return true;
 				}
 				//En caso contrario
