@@ -85,5 +85,55 @@ public class UserController {
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
 	}
+
+	//Ahora determinaremos un método que nos permitirá visualizar la información de un jugador a partir de su ID
+	@GetMapping(value="/playerInfo")
+	public ResponseEntity<String> playerInfo(@PathVariable String nombre)
+	{
+		User usuarioObtenido= User_Service.getUser(nombre);
+		//Ahora devolveremos una u otra información en función de si el usuario existe o no
+		if(usuarioObtenido!=null)
+		{
+			return new ResponseEntity<>(usuarioObtenido.toString(),HttpStatus.OK);
+		}
+		//En caso de que no se haya conseguido se devuelve un mensaje de error
+		//Este indicará al usuario que se ha llevado a cabo de forma incorrecta la petición
+		else
+		{
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
+	}
 	
+	//A continuación, se definirá un método que permititrá cambiar la contraseña de un jugador
+	@PostMapping(value="/changePassword")
+	public ResponseEntity<User> changePassword(@PathVariable String nombre, @RequestBody User usuario)
+	{
+		User usuarioObtenido= User_Service.getUser(nombre);
+		//Ahora devolveremos una u otra ifnormación en caso de que el usuario exista o no
+		if(usuarioObtenido!=null)
+		{
+			//Ahora comprobaremos si coinciden las contraseñas o no
+			if(usuario.getPassword().equals(usuarioObtenido.getPassword()))
+			{
+				usuarioObtenido.setPassword(usuario.getPassword());
+				return new ResponseEntity<>(usuarioObtenido,HttpStatus.OK);
+			}
+			else
+			{
+				return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+			}
+		}
+		else
+		{
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
+		
+	}
+
+	//Definimos un método ahora que nos permite obtener el número de usuarios como si se tratase de un string
+	@GetMapping(value="/numUsuarios")
+	public String numUsers()
+	{
+		return "Hay "+ User_Service.getNumUsuarios()+ " usuarios conectados";
+	}	
 }
