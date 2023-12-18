@@ -2,7 +2,7 @@ import './usuarios.js';
 export class Registro extends Phaser.Scene{
 
     constructor(){
-      super({key:'registro'});
+      super({key:'modoCliente'});
     }
   
     preload(){
