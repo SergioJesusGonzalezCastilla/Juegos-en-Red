@@ -6,9 +6,9 @@ export class ModoCliente extends Phaser.Scene{
 
     preload(){
 
-        this.load.image('modoCliente', 'resources/online/ONOFFfondo.png')
-        .spritesheet('offlineB','resources/online/Offline.png',{ frameWidth: 569, frameHeight: 518 })   
-        .spritesheet('onlineB','resources/online/Online.png',{ frameWidth: 569, frameHeight: 518 }) 
+        this.load.image('modoCliente', 'resources/modoServer/OnlineD.png')
+        .spritesheet('offlineB','resources/modoServer/EnLocalB.png',{ frameWidth: 510, frameHeight: 720 })   
+        .spritesheet('onlineB','resources/modoServer/EnLineaB.png',{ frameWidth: 510, frameHeight: 720 }) 
         .spritesheet('botonInicio','resources/botones/Inicio.png',{ frameWidth: 286, frameHeight: 102 }) 
         .audio('sonidoinicio','sounds/MenuInicioSound.mp3')
         .audio('sonidoDisparo','sounds/disparoSound.mp3')
@@ -24,7 +24,7 @@ export class ModoCliente extends Phaser.Scene{
         var sonidoDisparo = this.sound.add('sonidoDisparo');
 
 
-        const offline = this.add.sprite(946, 308, 'offlineB').setInteractive();
+        const offline = this.add.sprite(930, 360, 'offlineB').setInteractive();
         
         // Botón OFFLINE
         // Define las animaciones del botón
@@ -77,7 +77,7 @@ export class ModoCliente extends Phaser.Scene{
           });
 
 
-          const online = this.add.sprite(335, 308, 'onlineB').setInteractive();
+          const online = this.add.sprite(359, 360, 'onlineB').setInteractive();
         
         // Botón 1v1
         // Define las animaciones del botón
@@ -115,7 +115,7 @@ export class ModoCliente extends Phaser.Scene{
             online.play('buttonClick4399');
               //meter tiempo espera
               this.scene.transition({
-                  target: 'modoCliente',
+                  target: 'registro',
                   duration:1000,
               });
               sonidoDisparo.play();
@@ -184,3 +184,4 @@ export class ModoCliente extends Phaser.Scene{
 
     }
 }
+
