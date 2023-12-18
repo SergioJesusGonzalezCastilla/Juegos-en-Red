@@ -19,7 +19,7 @@ const config = {
     width:WIDTH,
     height:HEIGHT,
     
-    scene:[Registro,Minicio,Mapas,Seleccion,Simulador,ModoCliente,Ajustes,Creditos,Game,Pausa,gameWinJ1,gameWinJ2],
+    scene:[Minicio,ModoCliente,Registro,Ajustes,Mapas,Seleccion,Simulador,Creditos,Game,Pausa,gameWinJ1,gameWinJ2],
 
     physics: {
         default: 'arcade',
