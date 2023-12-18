@@ -27,7 +27,8 @@ function newUser(user)
 function loadUsers() {
 	$.ajax({
     method:"GET", //Se trata de una petición de tipo get, pues recuperamos recursos existentes
-    url:"http://localhost:8080/usuarios", //En el servidor definiremos el directorio /usuarios medinante @RequestMapping
+    url:"http://localhost:8080/usuarios/lista", //En el servidor definiremos el directorio /usuarios medinante @RequestMapping
+    data:JSON.stringify(user), //Pasaremos como cadena la información del user
     processData:false,
     headers:{"Content-Type":"application/json"}
     //En caso de lograr cargarse los usuarios, se sacan por consola
@@ -39,6 +40,21 @@ function loadUsers() {
     })
 }
 
+//Establecemos una función a continuación que nos permite cargar a 
+function logIn(user) {
+	$.ajax({
+    method:"GET", //Se trata de una petición de tipo get, pues recuperamos recursos existentes
+    url:"http://localhost:8080/usuarios/lista", //En el servidor definiremos el directorio /usuarios medinante @RequestMapping
+    processData:false,
+    headers:{"Content-Type":"application/json"}
+    //En caso de lograr cargarse los usuarios, se sacan por consola
+    }).done(function(usuariosRegistrados) {
+		console.log(user);
+    //En caso de error, simplemente indicamos que ha habido un error al crear al usuario
+    }).fail(function(){
+        console.log("Error al cargar los usuarios");
+    })
+}
 //Una vez definidas las funciones, determinaremos el comporrtamiento derivado de la interacción con los diferentes elementos
 //Englobaremos toda dicha funcionalidad en la siguiente función, que se inicializa cuando el com está listo
 $(document).ready(function()
@@ -146,6 +162,13 @@ $(document).ready(function()
                         //En caso de haber introducido la contraseña correcta
                         else
                         {
+                            var user = 
+                            {
+                                nombre: UserName,
+                                password: UserPassword,
+                                registrado: false
+                            }
+                            logIn(user)
                             //Se indica al usuario que ha iniciado sesión correctamente
                             console.log("Ha iniciado sesión con éxito");
                             //Se desactivan las casillas de iniciar sesión y crear usuario, pues ya no serían necesarias
