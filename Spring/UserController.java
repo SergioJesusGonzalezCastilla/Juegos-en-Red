@@ -71,58 +71,18 @@ public class UserController {
 		List<User> userList= User_Service.getUsuarios();
 		return userList;
 	}
-	/*
-	//Ahora determinaremos un método con el que cerrar sesión
-	//Se tratará de una operación de tipo post, pues solo requeriremos de un usuario como cuerpo de la petición
-	@PostMapping(value="/logOut")
-	public ResponseEntity<User> logOut(@RequestBody User usuario)
-	{
-		//Se comprobará mediante el método correspondiente de User_Service que usuario y contraseña coinciden
-		//Nos devuelve un boolean, con  el que podemos lanzar un mensaje para indicar si se ha logeado
-		boolean usuarioObtenido=User_Service.deleteUser(usuario.getUsuario(),usuario.getPassword());
-		//En función del valor obtenido, lanzamos uno u otro pensaje
-		if(usuarioObtenido==true)
-		{
-			//En caso de que se halla accedido correctamente, devolveremos un indicador de que se ha creado con éxito
-			// También se devuelve el correspondiente usuario con sus datos
-			return new ResponseEntity<>(usuario, HttpStatus.OK);
-		}
-		else
-		{
-			//En caso de que no haya podido obtenerse se devuelve un mensaje de error
-			//Este indicará al usuario que se ha llevado a cabo de forma incorrecta la petición
-			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-		}
-	}
-	
-	//Ahora determinaremos un método que nos permitirá visualizar la información de un jugador a partir de su ID
-	@GetMapping(value="/playerInfo")
-	public ResponseEntity<String> playerInfo(@PathVariable String nombre)
-	{
-		User usuarioObtenido= User_Service.getUser(nombre);
-		//Ahora devolveremos una u otra información en función de si el usuario existe o no
-		if(usuarioObtenido!=null)
-		{
-			return new ResponseEntity<>(usuarioObtenido.toString(),HttpStatus.OK);
-		}
-		//En caso de que no se haya conseguido se devuelve un mensaje de error
-		//Este indicará al usuario que se ha llevado a cabo de forma incorrecta la petición
-		else
-		{
-			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-		}
-	}
+
 	
 	//A continuación, se definirá un método que permititrá cambiar la contraseña de un jugador
-	@PutMapping(value="/changePassword")
-	public ResponseEntity<User> changePassword(@PathVariable String nombre, @RequestBody User usuario)
+	@PutMapping
+	public ResponseEntity<User> changePassword(@PathVariable String psw, @RequestBody User usuario)
 	{
-		User usuarioObtenido= User_Service.getUser(nombre);
+		User usuarioObtenido= User_Service.getUser(usuario.getUsuario());
 		//Ahora devolveremos una u otra ifnormación en caso de que el usuario exista o no
 		if(usuarioObtenido!=null)
 		{
 			//Ahora comprobaremos si coinciden las contraseñas o no
-			if(usuario.getPassword().equals(usuarioObtenido.getPassword()))
+			if(usuario.getPassword().equals(psw))
 			{
 				usuarioObtenido.setPassword(usuario.getPassword());
 				return new ResponseEntity<>(usuarioObtenido,HttpStatus.OK);
@@ -138,12 +98,4 @@ public class UserController {
 		}
 		
 	}
-
-	//Definimos un método ahora que nos permite obtener el número de usuarios como si se tratase de un string
-	@GetMapping(value="/numUsuarios")
-	public String numUsers()
-	{
-		return "Hay "+ User_Service.getNumUsuarios()+ " usuarios conectados";
-	}
-	*/
 }
