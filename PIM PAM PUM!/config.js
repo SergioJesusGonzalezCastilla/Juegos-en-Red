@@ -10,6 +10,8 @@ import{Pausa}from './pause.js';
 import{Mapas}from './mapa.js';
 import {ModoCliente }from './modoCliente.js';
 import {Registro }from './registroUsuario.js';
+import {Opciones }from './opciones_online.js';
+
  
 const WIDTH = 1280;
 const HEIGHT = 720;
@@ -19,7 +21,7 @@ const config = {
     width:WIDTH,
     height:HEIGHT,
     
-    scene:[Minicio,ModoCliente,Registro,Ajustes,Mapas,Seleccion,Simulador,Creditos,Game,Pausa,gameWinJ1,gameWinJ2],
+    scene:[Minicio,ModoCliente,Registro,Ajustes,Opciones,Mapas,Seleccion,Simulador,Creditos,Game,Pausa,gameWinJ1,gameWinJ2],
 
     physics: {
         default: 'arcade',
