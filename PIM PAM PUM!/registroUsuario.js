@@ -1,3 +1,4 @@
+
 import './usuarios.js';
 
 
@@ -23,7 +24,11 @@ export class Registro extends Phaser.Scene{
 
       var fondo = this.add.image(1280/2, 720/2, 'RegistroF').setInteractive();
       var barra= this.add.image(1291/2, 688/2, 'Barra').setInteractive();
+      barra.setData('name','acceder');
+
       var barra2= this.add.image(1291/2, 968/2, 'Barra').setInteractive();
+      barra2.setData('password','acceder');
+
       var text = this.add.text(980/2, 655/2,'', { fontSize: '32px', fill: '#000' }).setInteractive();
       var text2 = this.add.text(980/2, 930/2,'', { fontSize: '32px', fill: '#000' }).setInteractive();
 
@@ -56,10 +61,14 @@ export class Registro extends Phaser.Scene{
         // Verificar si se ha presionado una tecla alfanumérica
         if (/^[a-zA-Z0-9]$/.test(event.key)&& Bool1) {
             // Actualizar el texto con la tecla presionada
-            text.text += event.key;}
+            text.text += event.key;
+            const buttonId = barra.getData('name');
+            }
 
         else if(/^[a-zA-Z0-9]$/.test(event.key)&& Bool2){
             text2.text += event.key;
+            const buttonId = barra.getData('password');
+
             console.log('puta');
 
         } 
@@ -78,7 +87,9 @@ export class Registro extends Phaser.Scene{
     //////////////////////////////////////////
     //Botones
     const acceder = this.add.sprite(524, 580, 'Acceder').setInteractive();
+    acceder.setData('LogInButton','acceder');
     const crear = this.add.sprite(758, 580, 'Crear').setInteractive();
+    crear.setData('CreateUserButton','crear');
 
         
     // Botón ACCEDER
@@ -115,6 +126,8 @@ export class Registro extends Phaser.Scene{
 
     acceder.on('pointerdown', () => {
       acceder.play('buttonClick59999');
+      const buttonId = acceder.getData('LogInButton');
+      console.log(`Se hizo clic en el botón con ID: ${LogInButton}`);
       this.scene.transition({
         target: 'opciones',
         duration:1000,
@@ -165,6 +178,8 @@ export class Registro extends Phaser.Scene{
  
      crear.on('pointerdown', () => {
       crear.play('buttonClick599999');
+      const buttonId = crear.getData('CreateUserButton');
+      console.log(`Se hizo clic en el botón con ID: ${buttonId}`);
        this.scene.transition({
          target: 'opciones',
          duration:1000,
@@ -185,5 +200,4 @@ export class Registro extends Phaser.Scene{
     }
 
   }
-  
   
