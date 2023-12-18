@@ -98,4 +98,18 @@ public class UserController {
 		}
 		
 	}
+
+	@DeleteMapping
+	public ResponseEntity<User> deleteUser(@PathVariable String psw,@RequestBody User usuario)
+	{
+		boolean borrado=User_Service.deleteUser(usuario.getUsuario(), psw);
+		if(borrado)
+		{
+			return new ResponseEntity<>(usuario,HttpStatus.OK);
+		}
+		else
+		{
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
+	}
 }
