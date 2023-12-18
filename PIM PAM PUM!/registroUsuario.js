@@ -1,3 +1,6 @@
+import './usuarios.js';
+
+
 export class Registro extends Phaser.Scene{
 
     constructor(){
