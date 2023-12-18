@@ -28,7 +28,6 @@ function loadUsers() {
 	$.ajax({
     method:"GET", //Se trata de una petición de tipo get, pues recuperamos recursos existentes
     url:"http://localhost:8080/usuarios/lista", //En el servidor definiremos el directorio /usuarios medinante @RequestMapping
-    data:JSON.stringify(user), //Pasaremos como cadena la información del user
     processData:false,
     headers:{"Content-Type":"application/json"}
     //En caso de lograr cargarse los usuarios, se sacan por consola
@@ -45,6 +44,7 @@ function logIn(user) {
 	$.ajax({
     method:"GET", //Se trata de una petición de tipo get, pues recuperamos recursos existentes
     url:"http://localhost:8080/usuarios/lista", //En el servidor definiremos el directorio /usuarios medinante @RequestMapping
+    data:JSON.stringify(user), //Pasaremos como cadena la información del user
     processData:false,
     headers:{"Content-Type":"application/json"}
     //En caso de lograr cargarse los usuarios, se sacan por consola
