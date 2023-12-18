@@ -113,7 +113,7 @@ export class Registro extends Phaser.Scene{
     acceder.on('pointerdown', () => {
       acceder.play('buttonClick59999');
       this.scene.transition({
-        target: 'mapas',
+        target: 'opciones',
         duration:1000,
     });
       });
@@ -163,7 +163,7 @@ export class Registro extends Phaser.Scene{
      crear.on('pointerdown', () => {
       crear.play('buttonClick599999');
        this.scene.transition({
-         target: 'mapas',
+         target: 'opciones',
          duration:1000,
      });
        });
