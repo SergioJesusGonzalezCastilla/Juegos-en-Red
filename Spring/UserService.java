@@ -1,7 +1,6 @@
 package com.example.demo;
 
 import org.springframework.stereotype.*;
-import java.util.HashMap;
 import java.util.concurrent.ConcurrentHashMap;
 
 @Service
@@ -10,11 +9,11 @@ public class UserService {
 	//Crearemos un HashMap en el que almacenaremos el conjunto de usuarios, identificándolos por su nombre
 	private ConcurrentHashMap<String,User> usuarios = new ConcurrentHashMap<>();
 	//Cada vez que un usuario se de de alta, se almacenará en el String su nombre, y User el conjunto de datos del usuario
-
-	//Se define también una variable que almacenará el número de usuarios conectados
+	
+	//Se define también una variable que almacenará el número de usuarios
 	private int numUsuarios=0;
 	
-	//Método get del numero de usuarios
+	//Método get del numero de usuarios conectados
 	public int getNumUsuarios()
 	{
 		return numUsuarios;
@@ -59,22 +58,22 @@ public class UserService {
 	}
 	
 	//Ahora, definimos un método que permite que los usuarios inicien sesión a partir de un nombre de usuario y una contraseña
-	public User inicio_sesion(String nombre_usuario, String psw)
+	public User inicio_sesion(User usuario)
 	{
 		//Primero comprobamos el hipotético caso de que no haya rellenado el nombre de usuario ni la contraseña
-		if(nombre_usuario==null || psw==null)
+		if(usuario.getUsuario()==null || usuario.getPassword()==null)
 		{
 			return null;
 		}
 		//Ahora en caso de que si lo haya hecho
 		else
 		{
-			User usuarioObtenido= getUser(nombre_usuario);
+			User usuarioObtenido= getUser(usuario.getUsuario());
 			//Si el usuario existe, es decir, no hemos obtenido un null
 			if(usuarioObtenido!=null)
 			{
 				//Ahora que hemos obtenido este usuario, tenemos que comprobar que la contraseña coincide
-				if(usuarioObtenido.getPassword().equals(psw))
+				if(usuarioObtenido.getPassword().equals(usuario.getPassword()))
 				{
 					numUsuarios++;
 					return usuarioObtenido;
