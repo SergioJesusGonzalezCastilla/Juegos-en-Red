@@ -1,187 +1,201 @@
-export class ModoCliente extends Phaser.Scene{
+import './usuarios.js';
+export class Registro extends Phaser.Scene{
 
     constructor(){
-        super({key:'modoCliente'});
+      super({key:'registro'});
     }
-
+  
     preload(){
-
-        this.load.image('modoCliente', 'resources/modoServer/OnlineD.png')
-        .spritesheet('offlineB','resources/modoServer/EnLocalB.png',{ frameWidth: 510, frameHeight: 720 })   
-        .spritesheet('onlineB','resources/modoServer/EnLineaB.png',{ frameWidth: 510, frameHeight: 720 }) 
-        .spritesheet('botonInicio','resources/botones/Inicio.png',{ frameWidth: 286, frameHeight: 102 }) 
-        .audio('sonidoinicio','sounds/MenuInicioSound.mp3')
-        .audio('sonidoDisparo','sounds/disparoSound.mp3')
- 
-
+  
+      this.load.image('RegistroF', 'resources/registro/RegistroUsuarios.png')
+      .image('Barra','resources/registro/Banda.png')
+      .spritesheet('Acceder','resources/registro/AccederB.png',{ frameWidth: 156, frameHeight: 70 })   
+      .spritesheet('Crear','resources/registro/CrearB.png',{ frameWidth: 156, frameHeight: 70 }) 
+      
     }
-
+  
     create(){
 
-        this.add.image(1280/2, 720/2, 'modoCliente');
+        var Bool1 = false;
+        var Bool2 = false;
 
-        var sonidoInicio = this.sound.add('sonidoinicio');
-        var sonidoDisparo = this.sound.add('sonidoDisparo');
+      var fondo = this.add.image(1280/2, 720/2, 'RegistroF').setInteractive();
+      var barra= this.add.image(1291/2, 688/2, 'Barra').setInteractive();
+      barra.setData('name','acceder');
+
+      var barra2= this.add.image(1291/2, 968/2, 'Barra').setInteractive();
+      barra2.setData('password','acceder');
+
+      var text = this.add.text(980/2, 655/2,'', { fontSize: '32px', fill: '#000' }).setInteractive();
+      var text2 = this.add.text(980/2, 930/2,'', { fontSize: '32px', fill: '#000' }).setInteractive();
+
+      fondo.on('pointerdown', () => {
+        Bool1 = false;
+        Bool2 = false;
+      });
+
+      text.on('pointerdown', () => {
+        Bool1 = true;
+        Bool2 = false;
+      });
+
+      text2.on('pointerdown', () => {
+        Bool1 = false;
+        Bool2 = true;
+      });
+
+      barra.on('pointerdown', () => {
+        Bool1 = true;
+        Bool2 = false;
+      });
+
+      barra2.on('pointerdown', () => {
+        Bool1 = false;
+        Bool2 = true;
+      });
+
+      this.input.keyboard.on('keydown', function (event) {
+        // Verificar si se ha presionado una tecla alfanumérica
+        if (/^[a-zA-Z0-9]$/.test(event.key)&& Bool1) {
+            // Actualizar el texto con la tecla presionada
+            text.text += event.key;
+            const buttonId = barra.getData('name');
+            }
+
+        else if(/^[a-zA-Z0-9]$/.test(event.key)&& Bool2){
+            text2.text += event.key;
+            const buttonId = barra.getData('password');
+
+            console.log('puta');
+
+        } 
+
+        else if (event.key === 'Backspace'&& Bool1) {
+            // Eliminar el último carácter si se presiona la tecla "Backspace"
+            text.text = text.text.slice(0, -1);
+        }
+        else if (event.key === 'Backspace'&& Bool2) {
+            // Eliminar el último carácter si se presiona la tecla "Backspace"
+            text2.text = text2.text.slice(0, -1);
+        }
+    });
 
 
-        const offline = this.add.sprite(930, 360, 'offlineB').setInteractive();
+    //////////////////////////////////////////
+    //Botones
+    const acceder = this.add.sprite(524, 580, 'Acceder').setInteractive();
+    acceder.setData('LogInButton','acceder');
+    const crear = this.add.sprite(758, 580, 'Crear').setInteractive();
+    crear.setData('CreateUserButton','crear');
+
         
-        // Botón OFFLINE
-        // Define las animaciones del botón
-          this.anims.create({
-              key: 'buttonNormal4288',
-              frames: this.anims.generateFrameNumbers('offlineB', { start: 0, end: 0 }),
-              frameRate: 1,
-              repeat: 0
-          });
+    // Botón ACCEDER
+    // Define las animaciones del botón
+    this.anims.create({
+     key: 'buttonNormal59999',
+      frames: this.anims.generateFrameNumbers('Acceder', { start: 0, end: 0 }),
+      frameRate: 1,
+      repeat: 0
+    });
 
-          this.anims.create({
-              key: 'buttonHover4288',
-              frames: this.anims.generateFrameNumbers('offlineB', { start: 1, end: 1 }),
-              frameRate: 1,
-              repeat: 0
-          });
+    this.anims.create({
+      key: 'buttonHover59999',
+      frames: this.anims.generateFrameNumbers('Acceder', { start: 1, end: 1 }),
+      frameRate: 1,
+        repeat: 0
+    });
 
-          this.anims.create({
-              key: 'buttonClick4288',
-              frames: this.anims.generateFrameNumbers('offlineB', { start: 0, end: 0  }),
-              frameRate: 1,
-              repeat: 0
-          });
+    this.anims.create({
+      key: 'buttonClick59999',
+      frames: this.anims.generateFrameNumbers('Acceder', { start: 0, end: 0 }),
+      frameRate: 1,
+      repeat: 0
+    });
 
-          // Configura la interactividad del botón
-          offline.on('pointerover', () => {
-            offline.play('buttonHover4288');
-          });
+    // Configura la interactividad del botón
+    acceder.on('pointerover', () => {
+      acceder.play('buttonHover59999');
+    });
 
-          offline.on('pointerout', () => {
-            offline.play('buttonNormal4288');
-          });
+    acceder.on('pointerout', () => {
+      acceder.play('buttonNormal59999');
+    });
 
-          offline.on('pointerdown', () => {
-            offline.play('buttonClick4288');
-              //meter tiempo espera
-              this.scene.transition({
-                  target: 'mapas',
-                  duration:1000,
-              });
-              sonidoDisparo.play();
+    acceder.on('pointerdown', () => {
+      acceder.play('buttonClick59999');
+      const buttonId = acceder.getData('LogInButton');
+      console.log(`Se hizo clic en el botón con ID: ${LogInButton}`);
+      this.scene.transition({
+        target: 'opciones',
+        duration:1000,
+    });
+      });
 
-
-              
-
-          });
-
-          offline.on('pointerup', () => {
-            offline.play('buttonHover4288');
-          });
-
-
-          const online = this.add.sprite(359, 360, 'onlineB').setInteractive();
-        
-        // Botón 1v1
-        // Define las animaciones del botón
-          this.anims.create({
-              key: 'buttonNormal4399',
-              frames: this.anims.generateFrameNumbers('onlineB', { start: 0, end: 0 }),
-              frameRate: 1,
-              repeat: 0
-          });
-
-          this.anims.create({
-              key: 'buttonHover4399',
-              frames: this.anims.generateFrameNumbers('onlineB', { start: 1, end: 1 }),
-              frameRate: 1,
-              repeat: 0
-          });
-
-          this.anims.create({
-              key: 'buttonClick4399',
-              frames: this.anims.generateFrameNumbers('onlineB', { start: 0, end: 0  }),
-              frameRate: 1,
-              repeat: 0
-          });
-
-          // Configura la interactividad del botón
-          online.on('pointerover', () => {
-            online.play('buttonHover4399');
-          });
-
-          online.on('pointerout', () => {
-            online.play('buttonNormal4399');
-          });
-
-          online.on('pointerdown', () => {
-            online.play('buttonClick4399');
-              //meter tiempo espera
-              this.scene.transition({
-                  target: 'registro',
-                  duration:1000,
-              });
-              sonidoDisparo.play();
-              
-          });
-
-          online.on('pointerup', () => {
-            online.play('buttonHover4399');
-          });
+      acceder.on('pointerup', () => {
+        acceder.play('buttonHover59999');
+      });
 
 
 
-          const inicio = this.add.sprite(640, 645, 'botonInicio').setInteractive();
-        
-
-          // Botón INICIO
-          // Define las animaciones del botón
-            this.anims.create({
-                key: 'buttonNormal17',
-                frames: this.anims.generateFrameNumbers('botonInicio', { start: 0, end: 0 }),
-                frameRate: 1,
-                repeat: 0
-            });
-  
-            this.anims.create({
-                key: 'buttonHover17',
-                frames: this.anims.generateFrameNumbers('botonInicio', { start: 1, end: 1 }),
-                frameRate: 1,
-                repeat: 0
-            });
-  
-            this.anims.create({
-                key: 'buttonClick17',
-                frames: this.anims.generateFrameNumbers('botonInicio', { start: 2, end: 2 }),
-                frameRate: 1,
-                repeat: 0
-            });
-  
-            // Configura la interactividad del botón
-            inicio.on('pointerover', () => {
-              inicio.play('buttonHover17');
-            });
-  
-            inicio.on('pointerout', () => {
-              inicio.play('buttonNormal17');
-            });
-  
-            inicio.on('pointerdown', () => {
-              inicio.play('buttonClick17');
-                //meter tiempo espera
-                this.scene.transition({
-                    target: 'menu-inicio',
-                    duration:1000,
-                });
-                sonidoDisparo.play();
-
-  
-            });
-  
-            inicio.on('pointerup', () => {
-              inicio.play('buttonHover17');
-            });
 
 
 
+
+    // Botón CREAR
+    // Define las animaciones del botón
+    this.anims.create({
+      key: 'buttonNormal599999',
+       frames: this.anims.generateFrameNumbers('Crear', { start: 0, end: 0 }),
+       frameRate: 1,
+       repeat: 0
+     });
+ 
+     this.anims.create({
+       key: 'buttonHover599999',
+       frames: this.anims.generateFrameNumbers('Crear', { start: 1, end: 1 }),
+       frameRate: 1,
+         repeat: 0
+     });
+ 
+     this.anims.create({
+       key: 'buttonClick599999',
+       frames: this.anims.generateFrameNumbers('Crear', { start: 0, end: 0 }),
+       frameRate: 1,
+       repeat: 0
+     });
+ 
+     // Configura la interactividad del botón
+     crear.on('pointerover', () => {
+      crear.play('buttonHover599999');
+     });
+ 
+     crear.on('pointerout', () => {
+      crear.play('buttonNormal599999');
+     });
+ 
+     crear.on('pointerdown', () => {
+      crear.play('buttonClick599999');
+      const buttonId = crear.getData('CreateUserButton');
+      console.log(`Se hizo clic en el botón con ID: ${buttonId}`);
+       this.scene.transition({
+         target: 'opciones',
+         duration:1000,
+     });
+       });
+ 
+       crear.on('pointerup', () => {
+        crear.play('buttonHover599999');
+       });
+
+
+
+
+
+
+    
 
     }
-}
+
+  }
+  
 
