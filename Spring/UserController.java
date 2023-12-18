@@ -1,5 +1,7 @@
 package com.example.demo;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,13 +20,13 @@ public class UserController {
 	//Primero determinaremos un método con el que registrarse
 	//Se tratará de una operación de tipo post, pues crearemos un nuevo objeto
 	
-	@PostMapping(value="/signUp")
+	@PostMapping
 	public ResponseEntity<User> signUp(@RequestBody User usuario)
 	{
 		//Primero añadiremos a User_Service el usuario, en caso de que no exista uno igual
 		//Nos devuelve un boolean, con  el que podemos lanzar un mensaje para indicar si se ha registrado o no
 		boolean usuarioRepetido=User_Service.registrarse(usuario);
-		//En función del valor obtenido, lanzamos uno u otro pensaje
+		//En función del valor obtenido, lanzamos uno u otro mensaje
 		if(usuarioRepetido==true)
 		{
 			//En caso de que se halla creado, devolveremos un indicador de que se ha creado con éxito
@@ -42,12 +44,12 @@ public class UserController {
 	//Ahora determinaremos un método con el que iniciar sesión
 	//Se tratará de una operación de tipo post, pues solo requeriremos de un usuario como cuerpo de la petición para obtener el resultado requerido
 	
-	@PostMapping(value="/logIn")
+	@GetMapping
 	public ResponseEntity<User> logIn(@RequestBody User usuario)
 	{
 		//Se comprobará mediante el método correspondiente de User_Service que usuario y contraseña coinciden
 		//Nos devuelve un User, con  el que podemos lanzar un mensaje para indicar si se ha logeado
-		User usuarioObtenido=User_Service.inicio_sesion(usuario.getUsuario(),usuario.getPassword());
+		User usuarioObtenido=User_Service.inicio_sesion(usuario);
 		//En función del valor obtenido, lanzamos uno u otro pensaje
 		if(usuarioObtenido!=null)
 		{
@@ -63,6 +65,13 @@ public class UserController {
 		}
 	}
 	
+	@GetMapping("/lista")
+	public List<User> loadUsers()
+	{
+		List<User> userList= User_Service.getUsuarios();
+		return userList;
+	}
+	/*
 	//Ahora determinaremos un método con el que cerrar sesión
 	//Se tratará de una operación de tipo post, pues solo requeriremos de un usuario como cuerpo de la petición
 	@PostMapping(value="/logOut")
@@ -85,7 +94,7 @@ public class UserController {
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
 	}
-
+	
 	//Ahora determinaremos un método que nos permitirá visualizar la información de un jugador a partir de su ID
 	@GetMapping(value="/playerInfo")
 	public ResponseEntity<String> playerInfo(@PathVariable String nombre)
@@ -105,7 +114,7 @@ public class UserController {
 	}
 	
 	//A continuación, se definirá un método que permititrá cambiar la contraseña de un jugador
-	@PostMapping(value="/changePassword")
+	@PutMapping(value="/changePassword")
 	public ResponseEntity<User> changePassword(@PathVariable String nombre, @RequestBody User usuario)
 	{
 		User usuarioObtenido= User_Service.getUser(nombre);
@@ -135,5 +144,6 @@ public class UserController {
 	public String numUsers()
 	{
 		return "Hay "+ User_Service.getNumUsuarios()+ " usuarios conectados";
-	}	
+	}
+	*/
 }
