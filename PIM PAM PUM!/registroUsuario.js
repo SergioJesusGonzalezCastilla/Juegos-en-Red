@@ -61,16 +61,15 @@ export class Registro extends Phaser.Scene{
         // Verificar si se ha presionado una tecla alfanumérica
         if (/^[a-zA-Z0-9]$/.test(event.key)&& Bool1) {
             // Actualizar el texto con la tecla presionada
+            
             text.text += event.key;
             const buttonId = barra.getData('name');
             }
 
         else if(/^[a-zA-Z0-9]$/.test(event.key)&& Bool2){
-            text2.text += event.key;
+            text2.text += '*';
+          //text2.text += event.key;
             const buttonId = barra.getData('password');
-
-            console.log('puta');
-
         } 
 
         else if (event.key === 'Backspace'&& Bool1) {
@@ -201,3 +200,4 @@ export class Registro extends Phaser.Scene{
 
   }
   
+
