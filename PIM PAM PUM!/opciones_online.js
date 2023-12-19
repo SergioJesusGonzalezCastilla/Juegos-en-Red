@@ -117,6 +117,8 @@ export class Opciones extends Phaser.Scene{
     mod.on('pointerdown', () => {
         mod.play('buttonClick5989');
         //meter tiempo espera
+        this.scene.start('modificar');
+
 
       });
 
@@ -174,3 +176,4 @@ export class Opciones extends Phaser.Scene{
 
   }
 }
+
