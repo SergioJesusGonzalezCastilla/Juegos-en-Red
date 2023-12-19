@@ -358,7 +358,7 @@ En este apartado, se va a dejar evidencia de los bocetos iniciales de la interfa
 <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/OnlineF.png">
       <br><br>
-      <b>Ilustración 13. Interfaz de selección de modo de juego"</b>
+      <b>Ilustración 15. Interfaz de tipo de conexión"</b>
       <br><br>
 </p>
 
@@ -367,7 +367,7 @@ En este apartado, se va a dejar evidencia de los bocetos iniciales de la interfa
 <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/RegistroUsuarios.png">
       <br><br>
-      <b>Ilustración 13. Interfaz de selección de modo de juego"</b>
+      <b>Ilustración 16. Interfaz de registro de usuarios"</b>
       <br><br>
 </p>
 
@@ -376,7 +376,16 @@ En este apartado, se va a dejar evidencia de los bocetos iniciales de la interfa
 <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/FondoOpciones.png">
       <br><br>
-      <b>Ilustración 13. Interfaz de selección de modo de juego"</b>
+      <b>Ilustración 17. Pantalla de Juego en línea"</b>
+      <br><br>
+</p>
+
+-Pantalla de Modificar Cuenta: En esta pantalla se puede cambiar la contraseña de la cuenta, además se puede eliminar dicha cuenta o cerrar sesión. También se puede volver a la pantalla anterior.
+
+<p align="center">
+      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/FondoModificarCuenta.png">
+      <br><br>
+      <b>Ilustración 18. Pantalla de Modificar Cuenta"</b>
       <br><br>
 </p>
 
@@ -385,7 +394,7 @@ En este apartado, se va a dejar evidencia de los bocetos iniciales de la interfa
 <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Interfaz selección de nivel.jpeg">
       <br><br>
-      <b>Ilustración 15. Interfaz de selección de nivel"</b>
+      <b>Ilustración 19. Interfaz de selección de nivel"</b>
       <br><br>
 </p>
 
@@ -394,7 +403,7 @@ En este apartado, se va a dejar evidencia de los bocetos iniciales de la interfa
 <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Interfaz Ingame.jpeg">
       <br><br>
-      <b>Ilustración 16. Interfaz de la escena Ingame"</b>
+      <b>Ilustración 20. Interfaz de la escena Ingame"</b>
       <br><br>
 </p>
 
@@ -403,7 +412,7 @@ En este apartado, se va a dejar evidencia de los bocetos iniciales de la interfa
 <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Interfaz pausa.jpeg">
       <br><br>
-      <b>Ilustración 17. Interfaz de pausa"</b>
+      <b>Ilustración 21. Interfaz de pausa"</b>
       <br><br>
 </p>
 
@@ -412,7 +421,7 @@ En este apartado, se va a dejar evidencia de los bocetos iniciales de la interfa
 <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Victoria J1.JPG">
       <br><br>
-      <b>Ilustración 18. Interfaz de victoria del jugador 1"</b>
+      <b>Ilustración 22. Interfaz de victoria del jugador 1"</b>
       <br><br>
 </p>
 
@@ -421,7 +430,7 @@ En este apartado, se va a dejar evidencia de los bocetos iniciales de la interfa
 <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Victoria J2.JPG">
       <br><br>
-      <b>Ilustración 19. Interfaz de victoria del jugador 2"</b>
+      <b>Ilustración 23. Interfaz de victoria del jugador 2"</b>
       <br><br>
 </p>
 
@@ -430,7 +439,7 @@ En este apartado, se va a dejar evidencia de los bocetos iniciales de la interfa
 <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Interfaz Ajustes.JPG">
       <br><br>
-      <b>Ilustración 20. Interfaz de ajustes, a día de hoy con un meme."</b>
+      <b>Ilustración 24. Interfaz de ajustes, a día de hoy con un meme."</b>
       <br><br>
 </p>
 
@@ -439,7 +448,7 @@ En este apartado, se va a dejar evidencia de los bocetos iniciales de la interfa
   <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Diagramaflujo.jpg">
       <br><br>
-      <b>Ilustración 21. Diagrama de flujo"</b>
+      <b>Ilustración 25. Diagrama de flujo"</b>
       <br><br>
 </p>
 
@@ -454,7 +463,7 @@ Las referencias son claras: A la hora de establecer el estilo artístico a imple
 <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Scooby Doo.png">
       <br><br>
-      <b>Ilustración 22. Imagen de la serie animada "Scooby Doo"</b>
+      <b>Ilustración 26. Imagen de la serie animada "Scooby Doo"</b>
       <br><br>
 </p>
 
@@ -467,7 +476,7 @@ Todos los elementos que hay por medio del escenario, ya sean las carretas o la m
     <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Agua sin sombra.png">
       <br><br>
-      <b>Ilustración 23. Barreño de Agua</b>
+      <b>Ilustración 27. Barreño de Agua</b>
       <br><br>
     </p>
     
@@ -476,7 +485,7 @@ Todos los elementos que hay por medio del escenario, ya sean las carretas o la m
     <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Carreta derecha sin sombra.png">
       <br><br>
-      <b>Ilustración 24. Carreta derecha</b>
+      <b>Ilustración 28. Carreta derecha</b>
       <br><br>
     </p>
     
@@ -485,7 +494,7 @@ Todos los elementos que hay por medio del escenario, ya sean las carretas o la m
     <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Carreta izzq sin sombra.png">
       <br><br>
-      <b>Ilustración 25. Carreta izquierda</b>
+      <b>Ilustración 29. Carreta izquierda</b>
       <br><br>
     </p>
     
@@ -494,7 +503,7 @@ Todos los elementos que hay por medio del escenario, ya sean las carretas o la m
     <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Mesa sin sombra.png">
       <br><br>
-      <b>Ilustración 26. Mesa</b>
+      <b>Ilustración 30. Mesa</b>
       <br><br>
     </p>
     
@@ -504,7 +513,7 @@ Cuando las protecciones son destruidas, los sprites son reemplazados por unos ig
     <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Agua rota.png">
       <br><br>
-      <b>Ilustración 27. Barreño de Agua destruido</b>
+      <b>Ilustración 31. Barreño de Agua destruido</b>
       <br><br>
     </p>
     
@@ -513,7 +522,7 @@ Cuando las protecciones son destruidas, los sprites son reemplazados por unos ig
     <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Carreta derecha rota.png">
       <br><br>
-      <b>Ilustración 28. Carreta derecha destruida</b>
+      <b>Ilustración 32. Carreta derecha destruida</b>
       <br><br>
     </p>
     
@@ -522,7 +531,7 @@ Cuando las protecciones son destruidas, los sprites son reemplazados por unos ig
     <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Carreta izq rota.png">
       <br><br>
-      <b>Ilustración 29. Carreta izquierda destruida</b>
+      <b>Ilustración 33. Carreta izquierda destruida</b>
       <br><br>
     </p>
     
@@ -531,7 +540,7 @@ Cuando las protecciones son destruidas, los sprites son reemplazados por unos ig
     <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Mesa Rota.png">
       <br><br>
-      <b>Ilustración 30. Mesa destruida</b>
+      <b>Ilustración 34. Mesa destruida</b>
       <br><br>
     </p>
     
@@ -545,7 +554,7 @@ Se ha dibujado a mano todos los frames para las animaciones, tanto para la anima
     <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Vaquero1 izquierda1.png">
       <br><br>
-      <b>Ilustración 31. Vaquero 1</b>
+      <b>Ilustración 35. Vaquero 1</b>
       <br><br>
     </p>
     
@@ -554,7 +563,7 @@ Se ha dibujado a mano todos los frames para las animaciones, tanto para la anima
     <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Vaquero izq spritesheet V.2.png">
       <br><br>
-      <b>Ilustración 32. Spritesheet Vaquero 1</b>
+      <b>Ilustración 36. Spritesheet Vaquero 1</b>
       <br><br>
     </p>
     
@@ -563,7 +572,7 @@ Se ha dibujado a mano todos los frames para las animaciones, tanto para la anima
     <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Vaquero 2 dcha 1.png">
       <br><br>
-      <b>Ilustración 33. Vaquero 2</b>
+      <b>Ilustración 37. Vaquero 2</b>
       <br><br>
     </p>
     
@@ -572,7 +581,7 @@ Se ha dibujado a mano todos los frames para las animaciones, tanto para la anima
     <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Vaquero dch spritesheet.png">
       <br><br>
-      <b>Ilustración 34. Spritesheet Vaquero 2</b>
+      <b>Ilustración 38. Spritesheet Vaquero 2</b>
       <br><br>
     </p>
     
@@ -584,7 +593,7 @@ Se ha dibujado varios sprites para diferentes assets del juego, ya sean titulos 
     <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Cursor reloj.png">
       <br><br>
-      <b>Ilustración 35. Cursor personalizado</b>
+      <b>Ilustración 39. Cursor personalizado</b>
       <br><br>
     </p>
     
@@ -593,7 +602,7 @@ Se ha dibujado varios sprites para diferentes assets del juego, ya sean titulos 
     <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/YOU LOSE.png">
       <br><br>
-      <b>Ilustración 36. Letras de Derrota</b>
+      <b>Ilustración 40. Letras de Derrota</b>
       <br><br>
     </p>
     
@@ -602,7 +611,7 @@ Se ha dibujado varios sprites para diferentes assets del juego, ya sean titulos 
     <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/YOU WIN.png">
       <br><br>
-      <b>Ilustración 37. Letras de Victoria</b>
+      <b>Ilustración 41. Letras de Victoria</b>
       <br><br>
     </p>
     
@@ -611,7 +620,7 @@ Se ha dibujado varios sprites para diferentes assets del juego, ya sean titulos 
     <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Creditos.png">
       <br><br>
-      <b>Ilustración 38. Titulo Creditos 2</b>
+      <b>Ilustración 42. Titulo Creditos 2</b>
       <br><br>
     </p>
 
@@ -620,6 +629,6 @@ Se ha dibujado varios sprites para diferentes assets del juego, ya sean titulos 
     <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Ajustes.png">
       <br><br>
-      <b>Ilustración 39. Titulo Ajustes</b>
+      <b>Ilustración 43. Titulo Ajustes</b>
       <br><br>
     </p>
