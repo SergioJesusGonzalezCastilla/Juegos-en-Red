@@ -2,6 +2,8 @@
 var WIDTH = 1280;
 var HEIGHT = 720;
 
+var sonidoDisparo;
+
 export class Modificar extends Phaser.Scene{
 
   constructor(){
@@ -10,33 +12,160 @@ export class Modificar extends Phaser.Scene{
 
   preload(){
 
-    this.load.image('ModificarF', 'resources/modificar/FondoModificarFinal.png')
+    this.load.image('ModificarF', 'resources/modificar/NewFondo.png')
     .spritesheet('botonEliminar','resources/modificar/eliminarB.png',{ frameWidth: 720, frameHeight: 53 })   
     .spritesheet('botonCambiar','resources/modificar/cambiarB.png',{ frameWidth: 720, frameHeight: 53 })
     .spritesheet('botonAtras','resources/modificar/atrasB.png',{ frameWidth: 720, frameHeight: 53 })    
     .spritesheet('botonCerrar','resources/modificar/cerrarB.png',{ frameWidth: 720, frameHeight: 53 })
     .image('Escribir','resources/modificar/Introducir.png',{ frameWidth: 720, frameHeight: 53 })
     .image('Verificar', 'resources/modificar/verificar.png')
-   
-
-    this.load.audio('sonidoDisparo','sounds/disparoSound.mp3')
+    .audio('sonidoDisparo','sounds/disparoSound.mp3')
+    .image('Barra','resources/registro/Banda.png')
 
   }
 
   create(){
 
+    sonidoDisparo = this.sound.add('sonidoDisparo');
     var fondo = this.add.image(1280/2, 720/2, 'ModificarF').setInteractive();
   
-    const eliminar=this.add.sprite(1280/2, 791/2, 'botonEliminar').setInteractive();
-    const cambiar=this.add.sprite(1280/2, 540/2, 'botonCambiar').setInteractive();
-    const atras=this.add.sprite(1280/2, 1050/2, 'botonAtras').setInteractive();
-    const cerrar=this.add.sprite(1280/2, 1298/2, 'botonCerrar').setInteractive();
+    const eliminar=this.add.sprite(1775/2, 650/2, 'botonEliminar').setInteractive();
+    const cambiar=this.add.sprite(1775/2, 400/2, 'botonCambiar').setInteractive();
+    const atras=this.add.sprite(1775/2, 900/2, 'botonAtras').setInteractive();
+    const cerrar=this.add.sprite(1775/2, 1180/2, 'botonCerrar').setInteractive();
 
     var cambio = false;
     var ok = false;
     //no se crea hasta que seleccione el botón de cambiar contraseña
     /////////const escribir=this.add.sprite(1280/2, 540/2, 'Escribir').setInteractive();
     //añadir texto
+
+
+
+
+
+    var Bool1 = false;
+    var Bool2 = false;
+    var Bool3 = false;
+
+    var creado=false;
+    var iniciado=false;
+
+  var barra= this.add.image(509/2, 532/2, 'Barra').setInteractive();
+  barra.setData('name','acceder');
+
+  var barra2= this.add.image(509/2, 810/2, 'Barra').setInteractive();
+  barra2.setData('password','acceder');
+
+  var barra3= this.add.image(509/2, 1094/2, 'Barra').setInteractive();
+  barra3.setData('password','acceder');
+
+  var text = this.add.text(280/2, 504/2,'', { fontSize: '32px', fill: '#000' }).setInteractive();
+  var text2 = this.add.text(280/2, 790/2,'', { fontSize: '32px', fill: '#000' }).setInteractive();
+  var text3 = this.add.text(280/2, 1076/2,'', { fontSize: '32px', fill: '#000' }).setInteractive();
+
+
+  text.on('pointerdown', () => {
+    Bool1 = true;
+    Bool2 = false;
+    Bool3 = false;
+
+  });
+
+  text2.on('pointerdown', () => {
+    Bool1 = false;
+    Bool2 = true;
+    Bool3 = false;
+
+  });
+
+  text3.on('pointerdown', () => {
+    Bool1 = false;
+    Bool2 = false;
+    Bool3 = true;
+
+  });
+
+  barra.on('pointerdown', () => {
+    Bool1 = true;
+    Bool2 = false;
+    Bool3 = false;
+
+  });
+
+  barra2.on('pointerdown', () => {
+    Bool1 = false;
+    Bool2 = true;
+    Bool3 = false;
+
+  });
+
+  barra3.on('pointerdown', () => {
+    Bool1 = false;
+    Bool2 = false;
+    Bool3 = true;
+
+  });
+
+  this.input.keyboard.on('keydown', function (event) {
+    // Verificar si se ha presionado una tecla alfanumérica
+    if (/^[a-zA-Z0-9]$/.test(event.key)&& Bool1) {
+        // Actualizar el texto con la tecla presionada
+        
+        text.text += event.key;
+        const buttonId = barra.getData('name');
+        }
+
+    else if(/^[a-zA-Z0-9]$/.test(event.key)&& Bool2){
+        text2.text += '*';
+      //text2.text += event.key;
+        const buttonId = barra.getData('password');
+    } 
+    else if(/^[a-zA-Z0-9]$/.test(event.key)&& Bool3){
+      text3.text += '*';
+    //text3.text += event.key;
+      const buttonId = barra.getData('password');
+  } 
+
+    else if (event.key === 'Backspace'&& Bool1) {
+        // Eliminar el último carácter si se presiona la tecla "Backspace"
+        text.text = text.text.slice(0, -1);
+    }
+    else if (event.key === 'Backspace'&& Bool2) {
+        // Eliminar el último carácter si se presiona la tecla "Backspace"
+        text2.text = text2.text.slice(0, -1);
+    }
+    else if (event.key === 'Backspace'&& Bool3) {
+      // Eliminar el último carácter si se presiona la tecla "Backspace"
+      text2.text = text2.text.slice(0, -1);
+  }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     //eliminar
@@ -72,7 +201,7 @@ export class Modificar extends Phaser.Scene{
  
      eliminar.on('pointerdown', () => {
       eliminar.play('buttonClickE');
-      cambio = false;
+      sonidoDisparo.play();
       this.scene.start('menu-inicio');
 
        });
@@ -113,30 +242,8 @@ export class Modificar extends Phaser.Scene{
      });
  
      cambiar.on('pointerdown', () => {
+      sonidoDisparo.play();
       cambiar.play('buttonClickC');
-      cambio = true;
-      if(cambio = true){
-        const escribir=this.add.sprite(1280/2, 540/2, 'Escribir').setInteractive();
-        var text = this.add.text(980/2, 520/2,'', { fontSize: '32px', fill: '#000' }).setInteractive();
-        const verificar=this.add.sprite(1908/2, 540/2, 'Verificar').setInteractive();
-
-          this.input.keyboard.on('keydown', function (event) {
-            // Verificar si se ha presionado una tecla alfanumérica
-            if (/^[a-zA-Z0-9]$/.test(event.key)&& cambio) {
-                // Actualizar el texto con la tecla presionada
-                text.text += '*';
-                //text.text += event.key;
-                }
-                else if (event.key === 'Backspace'&& cambio) {
-                  // Eliminar el último carácter si se presiona la tecla "Backspace"
-                  text.text = text.text.slice(0, -1);
-              }
-              else if (event.key === 'Enter'&& cambio) {
-                const buttonId = text.getData('password');
-            }
-              });
-
-      }
        });
  
        cambiar.on('pointerup', () => {
@@ -176,6 +283,7 @@ export class Modificar extends Phaser.Scene{
  
      atras.on('pointerdown', () => {
       atras.play('buttonClickA');
+      sonidoDisparo.play();
       this.scene.start('opciones');
 
        });
@@ -217,6 +325,7 @@ export class Modificar extends Phaser.Scene{
  
      cerrar.on('pointerdown', () => {
       cerrar.play('buttonClickCE');
+      sonidoDisparo.play();
       cambio = false;
       this.scene.start('menu-inicio');
 
@@ -242,3 +351,4 @@ export class Modificar extends Phaser.Scene{
 function StarOpciones(){
   this.scene.start('opciones');
 }
+
