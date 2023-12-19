@@ -20,7 +20,7 @@ public class UserController {
 	
 	//Primero determinaremos un método con el que registrarse
 	//Se tratará de una operación de tipo post, pues crearemos un nuevo objeto
-	
+			
 	@PostMapping
 	public ResponseEntity<User> signUp(@RequestBody User usuario)
 	{
@@ -92,9 +92,10 @@ public class UserController {
 	}
 	
 	//A continuación, se definirá un método que permititrá cambiar la contraseña de un jugador
-	@PutMapping
-	public ResponseEntity<User> changePassword(@PathVariable String psw, @RequestBody User usuario)
-	{
+	@PutMapping(value = "/{key}/{psw}")
+	public ResponseEntity<User> changePassword(@PathVariable String key, @PathVariable String psw, @RequestBody String pswNew)
+	{	
+		User usuario=User_Service.getUser(key);
 		//Modificiamos el usuario recibido con la contraseña nueva
 		usuario.setPassword(psw);
 		//Se comprobará mediante el método correspondiente de User_Service que usuario y contraseña coinciden
@@ -138,4 +139,10 @@ public class UserController {
 		}		
 	}
 	
+	@GetMapping(value="/numUsuarios")
+	public int getActiveUsers()
+	{
+		int num= User_Service.getNumActive();
+		return num;
+	}
 }
