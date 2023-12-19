@@ -63,8 +63,8 @@ export class Registro extends Phaser.Scene{
             }
 
         else if(/^[a-zA-Z0-9]$/.test(event.key)&& Bool2){
-            text2.text += '*';
-          //text2.text += event.key;
+            //text2.text += '*';
+          text2.text += event.key;
             const buttonId = barra.getData('password');
         } 
 
@@ -125,13 +125,13 @@ export class Registro extends Phaser.Scene{
       console.log(`Se hizo clic en el botón con ID: ${LogInButton}`);
       //Ahora nos centraremos en el botón que nos permite iniciar sesión dados unos usuarios y contraseña, tras hacer click en él
       //Para definir un usuario necesitaremos obtener su nombre y contraseña desde el campo correspondiente
-      var UserName = $("#name").val(); //Con val accedemos al valor
-      var UserPassword = $("#password").val(); //Con val accedemos al valor
+      var UserName = text._text; //Con val accedemos al valor
+      var UserPassword = text2._text; //Con val accedemos al valor
       //Ahora, únicamente en el caso de que UserName y userPassword hayan sido rellenados, se crearía un usuario
       if(UserName!=null && UserPassword!=null)
       {
           //Comprobamos que no estén vacíos dichos campos
-          if(UserName.equals('') || UserPassword.equals(''))
+          if(UserName===('') || UserPassword===(''))
           {
               console.log("Rellene todos los campos por favor");
           }
@@ -139,26 +139,18 @@ export class Registro extends Phaser.Scene{
           {
                   $.ajax({
                     method:"GET", //Se trata de una petición de tipo get, pues recuperamos recursos existentes
-                    url:ip.http +"/usuarios/"+ UserName + "/" + UserPassword, //En el servidor definiremos el directorio /usuarios medinante @RequestMapping
-                    data:(UserName,UserPassword), //Pasaremos como cadena la información del user
+                    url:'http://'+location.host+'/usuarios/'+UserName+"/"+UserPassword, //En el servidor definiremos el directorio /usuarios medinante @RequestMapping
                     processData:false,
                     headers:{"Content-Type":"application/json"}
                     //En caso de lograr cargarse los usuarios, se sacan por consola
                     }).done(function(usuariosRegistrados) {
-                    console.log(user);
+					//Se indica al usuario que ha iniciado sesión correctamente
+                    console.log("Ha iniciado sesión con éxito");
                     iniciado=true;
                     //En caso de error, simplemente indicamos que ha habido un error al crear al usuario
                     }).fail(function(){
                         console.log("Error al cargar los usuarios");
                     })
-                  //Se indica al usuario que ha iniciado sesión correctamente
-                  console.log("Ha iniciado sesión con éxito");
-                  //Se desactivan las casillas de iniciar sesión y crear usuario, pues ya no serían necesarias
-                  $("#CreateUserButton").disabled=true;
-                  $("#LogInButton").disabled=true;
-                  //También se desacttivan los campos de texto
-                  $("#name").disabled=true;
-                  $("#password").disabled=true;
           }
     }
       //En caso de que no se hayan rellenado los campos, se le piden al usuario
@@ -217,39 +209,35 @@ export class Registro extends Phaser.Scene{
       const buttonId = crear.getData('CreateUserButton');
       console.log(`Se hizo clic en el botón con ID: ${buttonId}`);
       //Para definir un usuario necesitaremos obtener su nombre y contraseña desde el campo correspondiente
-      var UserName = $("#name").val(); //Con val accedemos al valor
-      var UserPassword = $("#password").val(); //Con val accedemos al valor
+      var UserName = text._text; //Con val accedemos al valor
+      var UserPassword =text2._text; //Con val accedemos al valor
+      console.log(UserName)
+      console.log(UserPassword)
+      var vacio='';
       //Ahora, únicamente en el caso de que UserName y userPassword hayan sido rellenados, se crearía un usuario
       if(UserName!=null && UserPassword!=null)
       {
           //Comprobamos que no estén vacíos dichos campos
-          if(UserName.equals('') || UserPassword.equals(''))
+          if(UserName===(vacio) || UserPassword===(vacio))
           {
               console.log("Rellene todos los campos por favor");
           }
           else
           {
-              if(!UserName.contains(' '))
-              {
-                $.ajax({
-                  method:"POST", //Se trata de una petición de tipo post, pues creamos un nuevo recurso
-                  url:ip.http +"/usuarios", //En el servidor definiremos el directorio /usuarios medinante @RequestMapping
-                  data:JSON.stringify({nombre: UserName, UserName: psw}), //Pasaremos como cadena la información del user
-                  processData:false, 
-                  headers:{"Content-Type":"application/json"}
-                  //En caso de acierto, se saca por consola al usuario
-                  }).done(function(user) {
-                      console.log(user)
-                      creado=true;
-                  //En caso de error, simplemente indicamos que ha habido un error al crear al usuario
-                  }).fail(function(){
-                      console.log("Error al crear al usuario");
-                  })
-              }
-              else
-              {
-                  console.log("El nombre de usuario no puede contener espacios");
-              }
+              $.ajax({
+                method:"POST", //Se trata de una petición de tipo post, pues creamos un nuevo recurso
+                url:'http://'+location.host+'/usuarios', //En el servidor definiremos el directorio /usuarios medinante @RequestMapping
+                data:JSON.stringify({nombre: UserName, password: UserPassword}), //Pasaremos como cadena la información del user
+                processData:false, 
+                headers:{"Content-Type":"application/json"}
+                //En caso de acierto, se saca por consola al usuario
+                }).done(function(user) {
+                    console.log(user)
+                    creado=true;
+                //En caso de error, simplemente indicamos que ha habido un error al crear al usuario
+                }).fail(function(){
+                    console.log("Error al crear al usuario");
+                })
           }
       } 
       //En caso de que no se hayan rellenado los campos, se le piden al usuario
