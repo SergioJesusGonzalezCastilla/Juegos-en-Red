@@ -335,7 +335,7 @@ En este apartado, se va a dejar evidencia de los bocetos iniciales de la interfa
       <br><br>
 </p>
 
-- Interfaz de selección de modo de juego: Mediante esta interfaz puede elegirse entre el modo "tutorial", con el que se accede al simulador y los jugadores podrán acostumbrarse a los controles y el manejo de los perosnajes; o el modo "1 vs 1", en el que se lleva a cabo una partida real como tal. También permite volver al menú de inicio.
+- Interfaz de selección de modo de juego: Mediante esta interfaz puede elegirse entre el modo "tutorial", con el que se accede al simulador y los jugadores podrán acostumbrarse a los controles y el manejo de los perosnajes; o el modo "1 vs 1", que te lleva a la interfaz de elección tipo de conexión en el juego, local o en línea. También permite volver al menú de inicio.
 
 <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Interfaz de selección de modo de juego.JPG">
@@ -350,6 +350,15 @@ En este apartado, se va a dejar evidencia de los bocetos iniciales de la interfa
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Interfaz Simulador.JPG">
       <br><br>
       <b>Ilustración 14. Interfaz del tutorial/simulador"</b>
+      <br><br>
+</p>
+
+- Interfaz de tipo de conexión: Mediante esta interfaz puede elegirse entre el tipo de conexión en el juego, si se quiere una partida en local, por lo que los dos jugadores jugarán en el mismo teclado con los contoles del simulador. Si se quiere una partida en línea, los jugadores jugarán en 2 ordenadores cada uno usando los controles que tiene el jugador 1 en local.
+  
+<p align="center">
+      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/OnlineF.png">
+      <br><br>
+      <b>Ilustración 13. Interfaz de selección de modo de juego"</b>
       <br><br>
 </p>
 
@@ -410,7 +419,7 @@ En este apartado, se va a dejar evidencia de los bocetos iniciales de la interfa
 *5.3 Diagrama de flujo*
 
   <p align="center">
-      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Diagrama Interfaces.jpg">
+      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Diagramaflujo.jpg">
       <br><br>
       <b>Ilustración 21. Diagrama de flujo"</b>
       <br><br>
