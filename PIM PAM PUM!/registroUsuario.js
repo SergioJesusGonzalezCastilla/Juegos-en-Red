@@ -1,13 +1,8 @@
-
-import './usuarios.js';
-
-
 export class Registro extends Phaser.Scene{
 
     constructor(){
       super({key:'registro'});
     }
-  
     preload(){
   
       this.load.image('RegistroF', 'resources/registro/RegistroUsuarios.png')
@@ -18,9 +13,10 @@ export class Registro extends Phaser.Scene{
     }
   
     create(){
-
         var Bool1 = false;
         var Bool2 = false;
+        var creado=false;
+        var iniciado=false;
 
       var fondo = this.add.image(1280/2, 720/2, 'RegistroF').setInteractive();
       var barra= this.add.image(1291/2, 688/2, 'Barra').setInteractive();
@@ -125,24 +121,65 @@ export class Registro extends Phaser.Scene{
 
     acceder.on('pointerdown', () => {
       acceder.play('buttonClick59999');
-      const buttonId = acceder.getData('LogInButton');
+      const LogInButton = acceder.getData('LogInButton');
       console.log(`Se hizo clic en el botón con ID: ${LogInButton}`);
+      //Ahora nos centraremos en el botón que nos permite iniciar sesión dados unos usuarios y contraseña, tras hacer click en él
+      //Para definir un usuario necesitaremos obtener su nombre y contraseña desde el campo correspondiente
+      var UserName = $("#name").val(); //Con val accedemos al valor
+      var UserPassword = $("#password").val(); //Con val accedemos al valor
+      //Ahora, únicamente en el caso de que UserName y userPassword hayan sido rellenados, se crearía un usuario
+      if(UserName!=null && UserPassword!=null)
+      {
+          //Comprobamos que no estén vacíos dichos campos
+          if(UserName.equals('') || UserPassword.equals(''))
+          {
+              console.log("Rellene todos los campos por favor");
+          }
+          else
+          {
+                  $.ajax({
+                    method:"GET", //Se trata de una petición de tipo get, pues recuperamos recursos existentes
+                    url:ip.http +"/usuarios/"+ UserName + "/" + UserPassword, //En el servidor definiremos el directorio /usuarios medinante @RequestMapping
+                    data:(UserName,UserPassword), //Pasaremos como cadena la información del user
+                    processData:false,
+                    headers:{"Content-Type":"application/json"}
+                    //En caso de lograr cargarse los usuarios, se sacan por consola
+                    }).done(function(usuariosRegistrados) {
+                    console.log(user);
+                    iniciado=true;
+                    //En caso de error, simplemente indicamos que ha habido un error al crear al usuario
+                    }).fail(function(){
+                        console.log("Error al cargar los usuarios");
+                    })
+                  //Se indica al usuario que ha iniciado sesión correctamente
+                  console.log("Ha iniciado sesión con éxito");
+                  //Se desactivan las casillas de iniciar sesión y crear usuario, pues ya no serían necesarias
+                  $("#CreateUserButton").disabled=true;
+                  $("#LogInButton").disabled=true;
+                  //También se desacttivan los campos de texto
+                  $("#name").disabled=true;
+                  $("#password").disabled=true;
+          }
+    }
+      //En caso de que no se hayan rellenado los campos, se le piden al usuario
+      else
+      {
+          console.log("Rellene todos los campos por favor");
+      }
+      //En cualquier caso, hayan permqanecido activos o inactivos los campos, se borra el contenido de los mismos
+      $("#name").val('');
+      $("#password").val('');
+      if(iniciado)
+      {
       this.scene.transition({
         target: 'opciones',
         duration:1000,
-    });
+    });}
       });
 
       acceder.on('pointerup', () => {
         acceder.play('buttonHover59999');
       });
-
-
-
-
-
-
-
     // Botón CREAR
     // Define las animaciones del botón
     this.anims.create({
@@ -179,25 +216,63 @@ export class Registro extends Phaser.Scene{
       crear.play('buttonClick599999');
       const buttonId = crear.getData('CreateUserButton');
       console.log(`Se hizo clic en el botón con ID: ${buttonId}`);
+      //Para definir un usuario necesitaremos obtener su nombre y contraseña desde el campo correspondiente
+      var UserName = $("#name").val(); //Con val accedemos al valor
+      var UserPassword = $("#password").val(); //Con val accedemos al valor
+      //Ahora, únicamente en el caso de que UserName y userPassword hayan sido rellenados, se crearía un usuario
+      if(UserName!=null && UserPassword!=null)
+      {
+          //Comprobamos que no estén vacíos dichos campos
+          if(UserName.equals('') || UserPassword.equals(''))
+          {
+              console.log("Rellene todos los campos por favor");
+          }
+          else
+          {
+              if(!UserName.contains(' '))
+              {
+                $.ajax({
+                  method:"POST", //Se trata de una petición de tipo post, pues creamos un nuevo recurso
+                  url:ip.http +"/usuarios", //En el servidor definiremos el directorio /usuarios medinante @RequestMapping
+                  data:JSON.stringify({nombre: UserName, UserName: psw}), //Pasaremos como cadena la información del user
+                  processData:false, 
+                  headers:{"Content-Type":"application/json"}
+                  //En caso de acierto, se saca por consola al usuario
+                  }).done(function(user) {
+                      console.log(user)
+                      creado=true;
+                  //En caso de error, simplemente indicamos que ha habido un error al crear al usuario
+                  }).fail(function(){
+                      console.log("Error al crear al usuario");
+                  })
+              }
+              else
+              {
+                  console.log("El nombre de usuario no puede contener espacios");
+              }
+          }
+      } 
+      //En caso de que no se hayan rellenado los campos, se le piden al usuario
+      else
+      {
+          console.log("Rellene todos los campos por favor");
+      }
+      
+      //Una vez que se ha acabado de crear un usuario, volvemos a restaurar los valores de los campos, para que puedan volver a rellenarse
+      $("#name").val('');
+      $("#password").val('');
+      if(creado)
+      {
        this.scene.transition({
          target: 'opciones',
          duration:1000,
-     });
+        });
+      }
        });
  
        crear.on('pointerup', () => {
         crear.play('buttonHover599999');
        });
-
-
-
-
-
-
-    
-
     }
 
   }
-  
-
