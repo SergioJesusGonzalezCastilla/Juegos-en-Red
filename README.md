@@ -632,3 +632,10 @@ Se ha dibujado varios sprites para diferentes assets del juego, ya sean titulos 
       <b>Ilustración 43. Titulo Ajustes</b>
       <br><br>
     </p>
+
+
+**7. Instrucciones para ejecutar el programa**
+
+  Para iniciar nuestro juego deberás de seguir los pasos que podrás leer a continuación:
+    1- Primero de todo tendrás que tener instalado “Spring Tool Suite” (Versión 4 preferiblemente), para poder ejecutar el código si deseas abrirlo como servidor.
+    2- Para iniciarlo como cliente, deberás de implementar en tu navegador (preferentemente Google Chrome, ya que ha sido el utilizado para el testeo del desarrollo) la IP que te facilitaremos en el               momento (suponemos “XXXX”) y añadir la extensión siguiente = “XXXX:8080”.
