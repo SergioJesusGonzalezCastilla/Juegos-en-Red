@@ -641,3 +641,11 @@ Se ha dibujado varios sprites para diferentes assets del juego, ya sean titulos 
 2 - Para iniciarlo como cliente, deberás de implementar en tu navegador (preferentemente Google Chrome, ya que ha sido el utilizado para el testeo del desarrollo) la IP que te facilitaremos en el momento (suponemos “XXXX”) y añadir la extensión siguiente = “XXXX:8080”.
 3 - Deber abrir la consola para poder ver como se modifica el registro de los usuarios.
     
+- Diagrama de clases API REST:
+   
+    <p align="center">
+      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Diagrama API REST.jpg">
+      <br><br>
+      <b>Ilustración 44. Diagrama API REST</b>
+      <br><br>
+    </p>
