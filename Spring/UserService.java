@@ -19,14 +19,20 @@ public class UserService {
 	//Y en User el conjunto de datos del usuario
 	private ConcurrentHashMap<String,User> usuarios = null;
 	//También dispondremos de una variable de tipo String en la que almacenaremos al dirección en que se guardará el fichero en que almacenaremos los datos
-	private String directorio="./constructorVacio.txt";
+	private String directorio=System.getProperty("user.dir") + "/src/main/resources/static/usuarios.txt";
 	//Creamos una lista de User en la que almacenaremos a aquellos usuarios que esten logeados actualmente
 	private List<User> usuariosActivos=new ArrayList<>();
-	
+	//Variable para almacenar el número de usuarios activos
+	private int numActive=0;
 	//Establecemos un método Get para la lista anterior
 	public List<User> getUsuariosActivos()
 	{
 		return this.usuariosActivos;
+	}
+	//Get para el número de usuarios activos
+	public int getNumActive() 
+	{
+		return numActive;
 	}
 
 	//De momento definiremos también un método que nos permita leer también los archivos de un fichero
@@ -44,7 +50,7 @@ public class UserService {
         	//Primero comprobamos si el fichero obtenido tiene o no información
         	//En caso de no tener, significa que aún no hay usuarios registrados
         	//Por lo tanto sería necesario inicializar el mapa
-            if (fichero==null)
+            if (!fichero.exists())
             	{
             	usuarios = new ConcurrentHashMap<>();
             	}
@@ -134,6 +140,7 @@ public class UserService {
 			usuarios.put(usuario.getNombre(),usuario);
 			//Lo agregamos también al conjunto de usuarios activos
 			usuariosActivos.add(usuario);
+			numActive++;
 			//Una vez añadidos, guardamos en el fichero correspondiente los usuarios
 			guardarUsuariosSistema();
 			return usuario;
@@ -167,6 +174,7 @@ public class UserService {
 				if(usuarioObtenido.getPassword().equals(usuario.getPassword()))
 				{
 					//Se agrega al conjunto de usuarios activos
+					numActive++;
 					usuariosActivos.add(usuario);
 					return usuarioObtenido;
 				}
@@ -225,6 +233,7 @@ public class UserService {
 					if(aux>=0)
 					{
 						usuariosActivos.remove(aux);//Se elimina de la lista de usuarios activos
+						numActive--;
 					}
 					//Una vez añadidos, guardamos en el fichero correspondiente los usuarios
 					guardarUsuariosSistema();
@@ -315,6 +324,7 @@ public class UserService {
 				if(aux>=0)
 				{
 					usuariosActivos.remove(aux);//Se elimina de la lista de usuarios activos
+					numActive--;
 				}
 				return usuario;
 			}	
