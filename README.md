@@ -353,10 +353,28 @@ En este apartado, se va a dejar evidencia de los bocetos iniciales de la interfa
       <br><br>
 </p>
 
-- Interfaz de tipo de conexión: Mediante esta interfaz puede elegirse entre el tipo de conexión en el juego, si se quiere una partida en local, por lo que los dos jugadores jugarán en el mismo teclado con los contoles del simulador. Si se quiere una partida en línea, los jugadores jugarán en 2 ordenadores cada uno usando los controles que tiene el jugador 1 en local.
+- Interfaz de tipo de conexión: Mediante esta interfaz puede elegirse entre el tipo de conexión en el juego, si se quiere una partida en local, por lo que los dos jugadores jugarán en el mismo teclado con los contoles del simulador, y se llevará a la pantalla de Registro de Usuarios. Si se quiere una partida en línea, los jugadores jugarán en 2 ordenadores cada uno usando los controles que tiene el jugador 1 en local.
   
 <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/OnlineF.png">
+      <br><br>
+      <b>Ilustración 13. Interfaz de selección de modo de juego"</b>
+      <br><br>
+</p>
+
+-Registro de Usuarios: En esta pantalla se permite elegir un nombre de usuario y una contraseña. También se puede meter un usuario con contraseña y pulsar el botón de acceder si ya se tiene un usuario creado. Al crear el usuario o acceder con el tuyo se pasara a la pantalla de juego en línea.
+
+<p align="center">
+      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/RegistroUsuarios.png">
+      <br><br>
+      <b>Ilustración 13. Interfaz de selección de modo de juego"</b>
+      <br><br>
+</p>
+
+-Pantalla de Juego en línea: En esta pantalla se podrá acceder al juego, a un chat para poder hablar con otros usuarios, y a una pantalla para poder modificar aspectos de la Cuenta.
+
+<p align="center">
+      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/FondoOpciones.png">
       <br><br>
       <b>Ilustración 13. Interfaz de selección de modo de juego"</b>
       <br><br>
