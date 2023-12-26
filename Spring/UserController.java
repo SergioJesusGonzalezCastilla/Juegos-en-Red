@@ -145,4 +145,5 @@ public class UserController {
 		int num= User_Service.getNumActive();
 		return num;
 	}
+	
 }
