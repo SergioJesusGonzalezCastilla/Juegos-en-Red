@@ -12,7 +12,7 @@ export class Modificar extends Phaser.Scene{
 
   preload(){
 
-    this.load.image('ModificarF', 'resources/modificar/NewFondo.png')
+    this.load.image('ModificarF', 'resources/modificar/NewFondo2.png')
     .spritesheet('botonEliminar','resources/modificar/eliminarB.png',{ frameWidth: 720, frameHeight: 53 })   
     .spritesheet('botonCambiar','resources/modificar/cambiarB.png',{ frameWidth: 720, frameHeight: 53 })
     .spritesheet('botonAtras','resources/modificar/atrasB.png',{ frameWidth: 720, frameHeight: 53 })    
@@ -47,6 +47,8 @@ export class Modificar extends Phaser.Scene{
     var Bool1 = false;
     var Bool2 = false;
     var Bool3 = false;
+    var eliminado=false;
+    var deslogueado=false;
 
     var creado=false;
     var iniciado=false;
@@ -57,12 +59,9 @@ export class Modificar extends Phaser.Scene{
   var barra2= this.add.image(509/2, 810/2, 'Barra').setInteractive();
   barra2.setData('password','acceder');
 
-  var barra3= this.add.image(509/2, 1094/2, 'Barra').setInteractive();
-  barra3.setData('password','acceder');
 
   var text = this.add.text(280/2, 504/2,'', { fontSize: '32px', fill: '#000' }).setInteractive();
   var text2 = this.add.text(280/2, 790/2,'', { fontSize: '32px', fill: '#000' }).setInteractive();
-  var text3 = this.add.text(280/2, 1076/2,'', { fontSize: '32px', fill: '#000' }).setInteractive();
 
 
   text.on('pointerdown', () => {
@@ -79,12 +78,6 @@ export class Modificar extends Phaser.Scene{
 
   });
 
-  text3.on('pointerdown', () => {
-    Bool1 = false;
-    Bool2 = false;
-    Bool3 = true;
-
-  });
 
   barra.on('pointerdown', () => {
     Bool1 = true;
@@ -100,12 +93,6 @@ export class Modificar extends Phaser.Scene{
 
   });
 
-  barra3.on('pointerdown', () => {
-    Bool1 = false;
-    Bool2 = false;
-    Bool3 = true;
-
-  });
 
   this.input.keyboard.on('keydown', function (event) {
     // Verificar si se ha presionado una tecla alfanumérica
@@ -117,15 +104,11 @@ export class Modificar extends Phaser.Scene{
         }
 
     else if(/^[a-zA-Z0-9]$/.test(event.key)&& Bool2){
-        text2.text += '*';
-      //text2.text += event.key;
+        //text2.text += '*';
+      text2.text += event.key;
         const buttonId = barra.getData('password');
     } 
-    else if(/^[a-zA-Z0-9]$/.test(event.key)&& Bool3){
-      text3.text += '*';
-    //text3.text += event.key;
-      const buttonId = barra.getData('password');
-  } 
+
 
     else if (event.key === 'Backspace'&& Bool1) {
         // Eliminar el último carácter si se presiona la tecla "Backspace"
@@ -135,10 +118,6 @@ export class Modificar extends Phaser.Scene{
         // Eliminar el último carácter si se presiona la tecla "Backspace"
         text2.text = text2.text.slice(0, -1);
     }
-    else if (event.key === 'Backspace'&& Bool3) {
-      // Eliminar el último carácter si se presiona la tecla "Backspace"
-      text2.text = text2.text.slice(0, -1);
-  }
 });
 
 
@@ -202,7 +181,50 @@ export class Modificar extends Phaser.Scene{
      eliminar.on('pointerdown', () => {
       eliminar.play('buttonClickE');
       sonidoDisparo.play();
-      this.scene.start('menu-inicio');
+      //Para definir un usuario necesitaremos obtener su nombre y contraseña desde el campo correspondiente
+      var UserName = text._text; //Con val accedemos al valor
+      var UserPassword = text2._text; //Con val accedemos al valor
+      console.log(UserName);
+      console.log(UserPassword)
+      //Ahora, únicamente en el caso de que UserName y userPassword hayan sido rellenados, se crearía un usuario
+      if(UserName!=null && UserPassword!=null)
+      {
+          //Comprobamos que no estén vacíos dichos campos
+          if(UserName===('') || UserPassword===(''))
+          {
+              console.log("Rellene todos los campos por favor");
+          }
+          else
+          {
+                  $.ajax({
+                    method:"DELETE", //Se trata de una petición de tipo get, pues recuperamos recursos existentes
+                    url:'http://'+location.host+'/usuarios/'+UserName+"/"+UserPassword, //En el servidor definiremos el directorio /usuarios medinante @RequestMapping
+                    processData:false,
+                    headers:{"Content-Type":"application/json"}
+                    //En caso de lograr cargarse los usuarios, se sacan por consola
+                    }).done(function(usuario) {
+					//Se indica al usuario que ha iniciado sesión correctamente
+                    console.log("Ha borrado corretamente su cuenta");
+                    eliminado=true;
+                    console.log(usuario);
+                    //En caso de error, simplemente indicamos que ha habido un error al crear al usuario
+                    }).fail(function(){
+                        console.log("Error al borrar a los usuarios");
+                    })
+          }
+    }
+      //En caso de que no se hayan rellenado los campos, se le piden al usuario
+      else
+      {
+          console.log("Rellene todos los campos por favor");
+      }
+      
+      if(eliminado)
+      {
+      this.scene.transition({
+        target: 'menu-inicio',
+        duration:1000,
+    });}
 
        });
  
@@ -244,6 +266,42 @@ export class Modificar extends Phaser.Scene{
      cambiar.on('pointerdown', () => {
       sonidoDisparo.play();
       cambiar.play('buttonClickC');
+      //Para definir un usuario necesitaremos obtener su nombre y contraseña desde el campo correspondiente
+      var UserName = text._text; 
+      var UserPassword = text2._text; 
+      var newPasword= 'Auxiliar'; 
+      //Ahora, únicamente en el caso de que UserName y userPassword hayan sido rellenados, se crearía un usuario
+      if(UserName!=null && UserPassword!=null && newPasword!=null)
+      {
+          //Comprobamos que no estén vacíos dichos campos
+          if(UserName===('') || UserPassword===('')|| newPasword===(''))
+          {
+              console.log("Rellene todos los campos por favor");
+          }
+          else
+          {
+                  $.ajax({
+                    method:"PUT", //Se trata de una petición de tipo PUT, pues recuperamos recursos existentes
+                    url:'http://'+location.host+'/usuarios/'+UserName+"/"+UserPassword, //En el servidor definiremos el directorio /usuarios medinante @RequestMapping
+                    data:newPasword,
+                    processData:false,
+                    headers:{"Content-Type":"application/json"}
+                    //En caso de lograr cargarse los usuarios, se sacan por consola
+                    }).done(function(usuario) {
+					//Se indica al usuario que ha iniciado sesión correctamente
+                    console.log("Ha modificado su contraseña");
+                    console.log(usuario)
+                    //En caso de error, simplemente indicamos que ha habido un error al crear al usuario
+                    }).fail(function(){
+                        console.log("Error al modificar su contraseña");
+                    })
+          }
+    }
+      //En caso de que no se hayan rellenado los campos, se le piden al usuario
+      else
+      {
+          console.log("Rellene todos los campos por favor");
+      }
        });
  
        cambiar.on('pointerup', () => {
@@ -285,7 +343,6 @@ export class Modificar extends Phaser.Scene{
       atras.play('buttonClickA');
       sonidoDisparo.play();
       this.scene.start('opciones');
-
        });
  
        atras.on('pointerup', () => {
@@ -351,4 +408,3 @@ export class Modificar extends Phaser.Scene{
 function StarOpciones(){
   this.scene.start('opciones');
 }
-
