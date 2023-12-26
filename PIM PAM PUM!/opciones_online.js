@@ -1,5 +1,3 @@
-var sonidoDisparo;
-
 //Tamaño de la pantalla
 var WIDTH = 1280;
 var HEIGHT = 720;
@@ -23,62 +21,7 @@ export class Opciones extends Phaser.Scene{
   create(){
 
     this.add.image(1280/2, 720/2, 'AjustesF');
-    sonidoDisparo = this.sound.add('sonidoDisparo');
-
-
-    const volver = this.add.sprite(620, 230, 'botonVolver').setInteractive();
-        
-    // Botón VOLVER
-    // Define las animaciones del botón
-    this.anims.create({
-     key: 'buttonNormal5',
-      frames: this.anims.generateFrameNumbers('botonVolver', { start: 0, end: 0 }),
-      frameRate: 1,
-      repeat: 0
-    });
-
-    this.anims.create({
-      key: 'buttonHover5',
-      frames: this.anims.generateFrameNumbers('botonVolver', { start: 1, end: 1 }),
-      frameRate: 1,
-        repeat: 0
-    });
-
-    this.anims.create({
-      key: 'buttonClick5',
-      frames: this.anims.generateFrameNumbers('botonVolver', { start: 2, end: 2 }),
-      frameRate: 1,
-      repeat: 0
-    });
-
-    // Configura la interactividad del botón
-    volver.on('pointerover', () => {
-    volver.play('buttonHover5');
-    });
-
-    volver.on('pointerout', () => {
-      volver.play('buttonNormal5');
-    });
-
-    volver.on('pointerdown', () => {
-      volver.play('buttonClick5');
-        //meter tiempo espera
-      this.scene.transition({
-        target: 'menu-inicio',
-        duration:1000,
-      });
-      sonidoDisparo.play();
-      });
-
-    volver.on('pointerup', () => {
-      volver.play('buttonHover5');
-      });
-           
-
-
-
-
-
+    sonidoDisparo = this.sound.add('sonidoDisparo');        
 
       const mod = this.add.sprite(641, 65, 'botonModificar').setInteractive();
         
@@ -176,4 +119,3 @@ export class Opciones extends Phaser.Scene{
 
   }
 }
-
