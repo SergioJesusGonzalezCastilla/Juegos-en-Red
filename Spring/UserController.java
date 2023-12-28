@@ -95,12 +95,10 @@ public class UserController {
 	@PutMapping(value = "/{key}/{psw}")
 	public ResponseEntity<User> changePassword(@PathVariable String key, @PathVariable String psw, @RequestBody String pswNew)
 	{	
-		User usuario=User_Service.getUser(key);
-		//Modificiamos el usuario recibido con la contraseña nueva
-		usuario.setPassword(psw);
+		User usuario=new User(key,psw);
 		//Se comprobará mediante el método correspondiente de User_Service que usuario y contraseña coinciden
 		//Nos devuelve un User, con  el que podemos lanzar un mensaje para indicar si se ha logeado
-		User usuarioModificado=User_Service.cambiarPsw(usuario);
+		User usuarioModificado=User_Service.cambiarPsw(usuario,pswNew);
 		//En función del valor obtenido, lanzamos uno u otro pensaje
 		if(usuarioModificado!=null)
 		{
