@@ -1,17 +1,19 @@
 package com.example.demo;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class User {
 	
 	//Definimos las variables que determinarán las carcaterísticas de un usuario
 	private String nombre; 
 	private String password; 
-	
-	//Definimos ahora el constructor con el que se definirá un usuario al registrarse
-	public User(String nombre, String password)
+		
+	//Se determina el constructor, que se encargará de crear un usuario a partir de la información de un JSON
+	//También es el constructor por defecto
+	public User(@JsonProperty("nombre")String nombre, @JsonProperty("password")String password)
 	{
-		//Asignamos los valores que se reciben al crear un usuario a las variables correspondientes
-		this.nombre=nombre;
-		this.password=password;
+		this.nombre = nombre;
+		this.password = password;
 	}
 	
 	public String getNombre()
@@ -34,3 +36,4 @@ public class User {
 		this.password=password_param;
 	}
 }
+
