@@ -73,11 +73,11 @@ public class UserService {
 	{
 		//Crearemos un objeto de tipo objectMapper con el que podremos ecribir en el fihcero
 	    ObjectMapper mapeador = new ObjectMapper();
-	  //Comenzaremos cargando el fichero correspondiente desde el directorio establecido para ello
-        File fichero = new File(directorio);
 	  //Establecemos ahora un bucle try catch para detectar errores
 	    try
 	    {
+	  	  //Comenzaremos cargando el fichero correspondiente desde el directorio establecido para ello
+	        File fichero = new File(directorio);
 	    	//Almacenaremos en el fichero los valores de cada uno de los
 	        mapeador.writeValue(fichero, usuarios);
 	    }
@@ -335,4 +335,3 @@ public class UserService {
 		}
 	}
 }
-
