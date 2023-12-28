@@ -64,7 +64,9 @@ export class Modificar extends Phaser.Scene {
 
 		var text = this.add.text(280 / 2, 504 / 2, '', { fontSize: '32px', fill: '#000' }).setInteractive();
 		var text2 = this.add.text(280 / 2, 790 / 2, '', { fontSize: '32px', fill: '#000' }).setInteractive();
+		var text2Aux = this.add.text(5000, 5000, '', { fontSize: '32px', fill: '#000' }).setInteractive();
 		var text3 = this.add.text(280 / 2, 1076 / 2, '', { fontSize: '32px', fill: '#000' }).setInteractive();
+		var text3Aux = this.add.text(5000, 5000, '', { fontSize: '32px', fill: '#000' }).setInteractive();
 
 
 		text.on('pointerdown', () => {
@@ -119,13 +121,13 @@ export class Modificar extends Phaser.Scene {
 			}
 
 			else if (/^[a-zA-Z0-9]$/.test(event.key) && Bool2) {
-				//text2.text += '*';
-				text2.text += event.key;
+				text2.text += '*';
+				text2Aux.text += event.key;
 				const buttonId = barra.getData('password');
 			}
 			else if (/^[a-zA-Z0-9]$/.test(event.key) && Bool3) {
-				//text3.text += '*';
-				text3.text += event.key;
+				text3.text += '*';
+				text3Aux.text += event.key;
 				const buttonId = barra.getData('password');
 			}
 			else if (event.key === 'Backspace' && Bool1) {
@@ -135,10 +137,12 @@ export class Modificar extends Phaser.Scene {
 			else if (event.key === 'Backspace' && Bool2) {
 				// Eliminar el último carácter si se presiona la tecla "Backspace"
 				text2.text = text2.text.slice(0, -1);
+				text2Aux.text = text2Aux.text.slice(0, -1);
 			}
 			else if (event.key === 'Backspace' && Bool3) {
 				// Eliminar el último carácter si se presiona la tecla "Backspace"
 				text3.text = text3.text.slice(0, -1);
+				text3Aux.text = text3Aux.text.slice(0, -1);
 			}
 		});
 
@@ -205,7 +209,7 @@ export class Modificar extends Phaser.Scene {
 			sonidoDisparo.play();
 			//Para definir un usuario necesitaremos obtener su nombre y contraseña desde el campo correspondiente
 			var UserName = text._text; //Con val accedemos al valor
-			var UserPassword = text2._text; //Con val accedemos al valor
+			var UserPassword = text2Aux._text; //Con val accedemos al valor
 			console.log(UserName);
 			console.log(UserPassword)
 			//Ahora, únicamente en el caso de que UserName y userPassword hayan sido rellenados, se crearía un usuario
@@ -286,8 +290,8 @@ export class Modificar extends Phaser.Scene {
 			cambiar.play('buttonClickC');
 			//Para definir un usuario necesitaremos obtener su nombre y contraseña desde el campo correspondiente
 			var UserName = text._text;
-			var UserPassword = text2._text;
-			var NewPassword=text3._text;
+			var UserPassword = text2Aux._text;
+			var NewPassword=text3Aux._text;
 			//Ahora, únicamente en el caso de que UserName y userPassword hayan sido rellenados, se crearía un usuario
 			if (UserName != null && UserPassword != null && NewPassword != null) {
 				//Comprobamos que no estén vacíos dichos campos
@@ -422,3 +426,4 @@ export class Modificar extends Phaser.Scene {
 function StarOpciones() {
 	this.scene.start('opciones');
 }
+
