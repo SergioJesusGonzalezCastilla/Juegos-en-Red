@@ -254,7 +254,7 @@ public class UserService {
 	}
 	
 	//Definimos ahora un método que se encargará de borrar la contraseña de un usuario dado
-	public User cambiarPsw(User usuario)
+	public User cambiarPsw(User usuario, String newPsw)
 	{
 		//Primero tenemos que comprobar si tenemos usuarios dentro del sistema
 		//Solo de esta forma podremos añadirlo al total de usuarios dle sistema
@@ -273,13 +273,13 @@ public class UserService {
 		{
 			User usuarioObtenido= getUser(usuario.getNombre());
 			//Si el usuario existe, es decir, no hemos obtenido un null
-			if(usuarioObtenido!=null)
+			if(usuarioObtenido!=null && usuario.getPassword().equals(usuarioObtenido.getPassword()))
 			{
 				//En este caso, determinamos que la contraseña del usuario que buscamos sea la nuestra
-				usuarioObtenido.setPassword(usuario.getPassword());
+				usuarioObtenido.setPassword(newPsw);
 				//Una vez añadidos, guardamos en el fichero correspondiente los usuarios
 				guardarUsuariosSistema();
-				return usuario;
+				return usuarioObtenido;
 			}		
 			else
 			{
