@@ -28,6 +28,7 @@ export class Modificar extends Phaser.Scene {
 
 		sonidoDisparo = this.sound.add('sonidoDisparo');
 		var fondo = this.add.image(1280 / 2, 720 / 2, 'ModificarF').setInteractive();
+		var self=this;
 
 		const eliminar = this.add.sprite(1775 / 2, 650 / 2, 'botonEliminar').setInteractive();
 		const cambiar = this.add.sprite(1775 / 2, 400 / 2, 'botonCambiar').setInteractive();
@@ -230,6 +231,12 @@ export class Modificar extends Phaser.Scene {
 						console.log("Ha borrado corretamente su cuenta");
 						eliminado = true;
 						console.log(usuario);
+						if (eliminado) {
+							self.scene.transition({
+							target: 'menu-inicio',
+							duration: 1000,
+							});
+						}
 						//En caso de error, simplemente indicamos que ha habido un error al crear al usuario
 					}).fail(function() {
 						console.log("Error al borrar a los usuarios");
@@ -239,13 +246,6 @@ export class Modificar extends Phaser.Scene {
 			//En caso de que no se hayan rellenado los campos, se le piden al usuario
 			else {
 				console.log("Rellene todos los campos por favor");
-			}
-
-			if (eliminado) {
-				this.scene.transition({
-					target: 'menu-inicio',
-					duration: 1000,
-				});
 			}
 
 		});
@@ -426,4 +426,3 @@ export class Modificar extends Phaser.Scene {
 function StarOpciones() {
 	this.scene.start('opciones');
 }
-
