@@ -21,7 +21,7 @@ export class Opciones extends Phaser.Scene{
   create(){
 
     this.add.image(1280/2, 720/2, 'AjustesF');
-    sonidoDisparo = this.sound.add('sonidoDisparo');        
+    var sonidoDisparo = this.sound.add('sonidoDisparo');        
 
       const mod = this.add.sprite(641, 65, 'botonModificar').setInteractive();
         
