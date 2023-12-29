@@ -17,6 +17,7 @@ export class Registro extends Phaser.Scene {
 		var Bool2 = false;
 		var creado = false;
 		var iniciado = false;
+		var self=this;
 
 		var fondo = this.add.image(1280 / 2, 720 / 2, 'RegistroF').setInteractive();
 		var barra = this.add.image(1291 / 2, 688 / 2, 'Barra').setInteractive();
@@ -147,6 +148,12 @@ export class Registro extends Phaser.Scene {
 						console.log("Ha iniciado sesión con éxito");
 						iniciado = true;
 						console.log(usuario)
+						if (iniciado) {
+							self.scene.transition({
+							target: 'opciones',
+							duration: 1000,
+							});
+						}
 						//En caso de error, simplemente indicamos que ha habido un error al crear al usuario
 					}).fail(function() {
 						console.log("Error al cargar el usuario");
@@ -160,12 +167,6 @@ export class Registro extends Phaser.Scene {
 			//En cualquier caso, hayan permqanecido activos o inactivos los campos, se borra el contenido de los mismos
 			$("#name").val('');
 			$("#password").val('');
-			if (iniciado) {
-				this.scene.transition({
-					target: 'opciones',
-					duration: 1000,
-				});
-			}
 		});
 
 		acceder.on('pointerup', () => {
@@ -242,12 +243,6 @@ export class Registro extends Phaser.Scene {
 			//Una vez que se ha acabado de crear un usuario, volvemos a restaurar los valores de los campos, para que puedan volver a rellenarse
 			$("#name").val('');
 			$("#password").val('');
-			if (creado) {
-				this.scene.transition({
-					target: 'opciones',
-					duration: 1000,
-				});
-			}
 		});
 
 		crear.on('pointerup', () => {
