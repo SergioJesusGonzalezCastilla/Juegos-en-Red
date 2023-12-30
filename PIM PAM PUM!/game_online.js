@@ -1,4 +1,4 @@
-import './WebSocketConfig.js';
+import { WebSocketConfig } from './WebSocketConfig.js';
 
 //VARIABLE CONSTANTE DE LA VELOCIDAD DE LOS PERSONAJES FIJA
 var BASE_SPEED = 140;
@@ -124,6 +124,9 @@ export class Game_Online extends Phaser.Scene {
 	}
 	create() {
 
+		// Creo un manager del websocket pasándole la escena actual
+		this.webSocketManager = new WebSocketConfig(this);
+		
 		//FONDO
 		this.add.image(1280 / 2, 720 / 2, 'Desierto');
 
