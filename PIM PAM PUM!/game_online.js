@@ -218,24 +218,45 @@ export class Game_Online extends Phaser.Scene {
 		//Inicialización de variables
 		life1 = 100;
 		life2 = 100;
+		//Asignamos Ids
+		life1.Id = "life1";
+		life2.Id = "life2";
 
 		num_balas_1 = 4;
 		num_balas_2 = 4;
+		//Asignamos Ids
+		num_balas_1.Id = "nbalas1";
+		num_balas_2.Id = "nbalas2";
 
 		posibilidad_1 = true;
 		posibilidad_2 = true;
+		//Asignamos Ids
+		posibilidad_1.Id = "posibilidad1";
+		posibilidad_2.Id = "posibilidad2";
 
 		damage_1 = 10;
 		damage_2 = 10;
+		//Asignamos Ids
+		damage_1.Id = "damage1";
+		damage_2.Id = "damage2";
 
 		bullet_speed = 500;
+		//Asignamos Ids
+		bullet_speed.Id = "bulletspeed";
 
 		vida_total_perdida = 0;
 		vida_extra = 30;
 		corazon_1_mostrado = false;
 		corazon_2_mostrado = false;
+		//Asignamos Ids
+		vida_total_perdida.Id = "vida_perdida";
+		vida_extra.Id = "extravida";
+		corazon_1_mostrado.Id = "corazon1";
+		corazon_2_mostrado.Id = "corazon2";
 
 		total_balas_empleadas = 0;
+		//Asignamos Ids
+		total_balas_empleadas.Id = "balas_empleadas";
 
 		speedup_1_mostrado = false;
 		speedup_2_mostrado = false;
@@ -243,12 +264,25 @@ export class Game_Online extends Phaser.Scene {
 		velocidad_extra_2 = 0;
 		speedup_1_conseguido = 0;
 		speedup_2_conseguido = 0;
+		//Asignamos Ids
+		speedup_1_mostrado.Id = "speedup1";
+		speedup_2_mostrado.Id = "speedup2";
+		velocidad_extra_1.Id = "extravelocidad1";
+		velocidad_extra_2.Id = "extravelocidad2";
+		speedup_1_conseguido.Id = "speedup1";
+		speedup_2_conseguido.Id = "speedup2";
 
 		damage_boost_mostrado = false;
 		damage_boost_1_conseguido = false;
 		damage_boost_2_conseguido = false;
 		extra_damage_1 = 0;
 		extra_damage_2 = 0;
+		//Asignamos Ids
+		damage_boost_mostrado = "damage_b";
+		damage_boost_1_conseguido = "damage_b1";
+		damage_boost_2_conseguido = "damage_b2";
+		extra_damage_1 = "damage_e1";
+		extra_damage_2 = "damage_e2";
 
 		//Asignamos vidas a los vaqueros
 		vaquero_1.life = life1;
