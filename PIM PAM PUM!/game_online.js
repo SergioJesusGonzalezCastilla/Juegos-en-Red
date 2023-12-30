@@ -484,6 +484,17 @@ export class Game_Online extends Phaser.Scene {
 			vaquero_1.life += vida_extra;
 			texto1.setText(vaquero_1.life);
 			colocar_texto_1();
+
+			if (webSocketManager) {
+				//Se manda el mensaje, pasándole el tipo, que en este caso será "extravida"
+				//También mandamos el id del vaquero y la vida actual
+				webSocketManager.sendMessage({
+					tipo: 'extravida',
+					id: vaquero_1.id,
+					vida:vaquero_1.life
+				});
+			}
+			
 			corazon.destroy();
 		}
 		function obtener_corazon_2(corazon, bala) {
@@ -493,6 +504,17 @@ export class Game_Online extends Phaser.Scene {
 			vaquero_2.life += vida_extra;
 			texto2.setText(vaquero_2.life);
 			colocar_texto_2();
+
+			if (webSocketManager) {
+				//Se manda el mensaje, pasándole el tipo, que en este caso será "extravida"
+				//También mandamos el id del vaquero y la vida actual
+				webSocketManager.sendMessage({
+					tipo: 'extravida',
+					id: vaquero_2.id,
+					vida:vaquero_2.life
+				});
+			}
+			
 			corazon.destroy();
 		}
 
