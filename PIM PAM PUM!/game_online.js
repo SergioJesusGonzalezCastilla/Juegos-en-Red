@@ -146,6 +146,14 @@ export class Game_Online extends Phaser.Scene {
 		obstaculos.create(WIDTH / 4.5, HEIGHT - 90, 'Carreta2');
 		obstaculos.create(1.8 * WIDTH / 3, HEIGHT / 1.2, 'Mesa');
 
+		//Asigno un id a cada uno de los obstáculos
+		obstaculos.children.iterate(function (obstaculo, index) {
+			//El index es el número de hijo, que comienza en 0
+			//Le asigno al id index+1 para que sean todo números positivos
+			var id_aux = "obstaculo_" + (index + 1);
+			obstaculo.id=id_aux;
+		});
+
 		//BOTON PAUSA
 		const pause_label = this.add.image(1280 / 2, 50, 'pausa').setScale(0.25).setInteractive();
 		pause_label.on('pointerdown', () => {
@@ -357,6 +365,20 @@ export class Game_Online extends Phaser.Scene {
 			num_balas_1++;
 			total_balas_empleadas++;
 			obstaculo.vida -= bala.damage;
+			// Se procede ahora a mandar la información por websocket
+			// En caso de que la conexión esté activa 
+			if (webSocketManager) {
+				//Se manda el mensaje, pasándole el tipo, que en este caso será "vida_obstaculo"
+				//También mandamos el id del obstáculo y la vida actual
+				webSocketManager.enviarMensaje({
+					tipo: 'vida_obstaculo',
+					id: obstaculo.id,
+					vida: obstaculo.vida
+				});
+			}
+
+			//Finalmente, se destruye el obstáculo en caso de que no le quede vida
+			//Solo lo podemos llevar a cabo después de mandar la información, pues sino no habría que mandar
 			if (obstaculo.vida <= 0) {
 				obstaculo.destroy();
 			}
@@ -368,6 +390,20 @@ export class Game_Online extends Phaser.Scene {
 			num_balas_2++;
 			total_balas_empleadas++;
 			obstaculo.vida -= bala.damage;
+			// Se procede ahora a mandar la información por websocket
+			// En caso de que la conexión esté activa 
+			if (webSocketManager) {
+				//Se manda el mensaje, pasándole el tipo, que en este caso será "vida_obstaculo"
+				//También mandamos el id del obstáculo y la vida actual
+				webSocketManager.enviarMensaje({
+					tipo: 'vida_obstaculo',
+					id: obstaculo.id,
+					vida: obstaculo.vida
+				});
+			}
+
+			//Finalmente, se destruye el obstáculo en caso de que no le quede vida
+			//Solo lo podemos llevar a cabo después de mandar la información, pues sino no habría que mandar
 			if (obstaculo.vida <= 0) {
 				obstaculo.destroy();
 			}
