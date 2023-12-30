@@ -520,29 +520,75 @@ export class Game_Online extends Phaser.Scene {
 			vaquero_1.setVelocityY(0);
 			vaquero_1.x++;
 			vaquero_1.anims.play('andar_vaquero_1', true);
+			// Se procede ahora a mandar la información por websocket
+			// En caso de que la conexión esté activa 
+			if (webSocketManager) {
+				//Se manda el mensaje, pasándole el tipo, que en este caso será "movimiento_vaquero"
+				//También mandamos la x y la y actual del vaquero
+				webSocketManager.enviarMensaje({
+					tipo: 'movimiento_vaquero',
+					id: vaquero_1.id,
+					x: vaquero_1.x,
+					y: vaquero_1.y
+				});
+			}
 		}
 		else if (this.teclaA.isDown) {
 			vaquero_1.setVelocityX(-BASE_SPEED - velocidad_extra_1);
 			vaquero_1.setVelocityY(0);
 			vaquero_1.x--;
 			vaquero_1.anims.play('andar_vaquero_1', true);
+			//Mismo proceso que en anteriores casos
+			if (webSocketManager) {
+				webSocketManager.enviarMensaje({
+					tipo: 'movimiento_vaquero',
+					id: vaquero_1.id,
+					x: vaquero_1.x,
+					y: vaquero_1.y
+				});
+			}
 		}
 		else if (this.teclaW.isDown) {
 			vaquero_1.setVelocityX(0);
 			vaquero_1.setVelocityY(-BASE_SPEED - velocidad_extra_1);
 			vaquero_1.y--;
 			vaquero_1.anims.play('andar_vaquero_1', true);
+			//Mismo proceso que en anteriores casos
+			if (webSocketManager) {
+				webSocketManager.enviarMensaje({
+					tipo: 'movimiento_vaquero',
+					id: vaquero_1.id,
+					x: vaquero_1.x,
+					y: vaquero_1.y
+				});
+			}
 		}
 		else if (this.teclaS.isDown) {
 			vaquero_1.setVelocityX(0);
 			vaquero_1.setVelocityY(BASE_SPEED + velocidad_extra_1);
 			vaquero_1.y++;
 			vaquero_1.anims.play('andar_vaquero_1', true);
+			//Mismo proceso que en anteriores casos
+			if (webSocketManager) {
+				webSocketManager.enviarMensaje({
+					tipo: 'movimiento_vaquero',
+					id: vaquero_1.id,
+					x: vaquero_1.x,
+					y: vaquero_1.y
+				});
+			}
 		}
 		else {
 			vaquero_1.setVelocityX(0);
 			vaquero_1.setVelocityY(0);
 			vaquero_1.anims.play('idle_vaquero_1', true);
+			//En este caso, solo pasamos el id, pues simplemente indicaremos que se active la correspondeinte animación
+			if (webSocketManager) {
+				webSocketManager.enviarMensaje({
+					tipo: 'parada_vaquero',
+					id: vaquero_1.id,
+				});
+			}
 		}
 		//Gestión del disparo para el jugador 1
 		if (this.teclaF.isDown) {
@@ -572,29 +618,72 @@ export class Game_Online extends Phaser.Scene {
 			vaquero_2.setVelocityY(0);
 			vaquero_2.x++;
 			vaquero_2.anims.play('andar_vaquero_2', true);
+			//Mismo proceso que en anteriores casos
+			if (webSocketManager) {
+				webSocketManager.enviarMensaje({
+					tipo: 'movimiento_vaquero',
+					id: vaquero_2.id,
+					x: vaquero_2.x,
+					y: vaquero_2.y
+				});
+			}
 		}
 		else if (this.teclaJ.isDown) {
 			vaquero_2.setVelocityX(-BASE_SPEED - velocidad_extra_2);
 			vaquero_2.setVelocityY(0);
 			vaquero_2.x--;
 			vaquero_2.anims.play('andar_vaquero_2', true);
+			//Mismo proceso que en anteriores casos
+			if (webSocketManager) {
+				webSocketManager.enviarMensaje({
+					tipo: 'movimiento_vaquero',
+					id: vaquero_2.id,
+					x: vaquero_2.x,
+					y: vaquero_2.y
+				});
+			}
 		}
 		else if (this.teclaI.isDown) {
 			vaquero_2.setVelocityX(0);
 			vaquero_2.setVelocityY(-BASE_SPEED - velocidad_extra_2);
 			vaquero_2.y--;
 			vaquero_2.anims.play('andar_vaquero_2', true);
+			//Mismo proceso que en anteriores casos
+			if (webSocketManager) {
+				webSocketManager.enviarMensaje({
+					tipo: 'movimiento_vaquero',
+					id: vaquero_2.id,
+					x: vaquero_2.x,
+					y: vaquero_2.y
+				});
+			}
 		}
 		else if (this.teclaK.isDown) {
 			vaquero_2.setVelocityX(0);
 			vaquero_2.setVelocityY(BASE_SPEED + velocidad_extra_2);
 			vaquero_2.y++;
 			vaquero_2.anims.play('andar_vaquero_2', true);
+			//Mismo proceso que en anteriores casos
+			if (webSocketManager) {
+				webSocketManager.enviarMensaje({
+					tipo: 'movimiento_vaquero',
+					id: vaquero_2.id,
+					x: vaquero_2.x,
+					y: vaquero_2.y
+				});
+			}
 		}
 		else {
 			vaquero_2.setVelocityX(0);
 			vaquero_2.setVelocityY(0);
 			vaquero_2.anims.play('idle_vaquero_2', true);
+			//En este caso, solo pasamos el id, pues simplemente indicaremos que se active la correspondeinte animación
+			if (webSocketManager) {
+				webSocketManager.enviarMensaje({
+					tipo: 'parada_vaquero',
+					id: vaquero_2.id,
+				});
+			}
 		}
 		//Gestión del disparo para el jugador 2
 		if (this.teclaH.isDown) {
