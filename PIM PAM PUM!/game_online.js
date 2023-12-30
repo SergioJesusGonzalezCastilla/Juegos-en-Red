@@ -336,6 +336,18 @@ export class Game_Online extends Phaser.Scene {
 			vida_total_perdida += bala.damage;
 			texto1.setText(vaquero_1.life);
 			colocar_texto_1();
+			// Se procede ahora a mandar la información por websocket
+			// En caso de que la conexión esté activa 
+			if (webSocketManager) {
+				//Se manda el mensaje, pasándole el tipo, que en este caso será "vida_vaquero"
+				//También mandamos el id del obstáculo y la vida actual
+				webSocketManager.sendMessage({
+					tipo: 'vida_vaquero',
+					id: vaquero_1.id,
+					vida:vaquero_1.life
+				});
+			}
+			//Realizamos la comprobación ya una vez se ha acabado de mandar la información
 			if (vaquero_1.life <= 0) {
 				this.scene.start('winJ2');
 				sonidoFondo.stop();
@@ -350,6 +362,18 @@ export class Game_Online extends Phaser.Scene {
 			vida_total_perdida += bala.damage;
 			texto2.setText(vaquero_2.life);
 			colocar_texto_2();
+			// Se procede ahora a mandar la información por websocket
+			// En caso de que la conexión esté activa 
+			if (webSocketManager) {
+				//Se manda el mensaje, pasándole el tipo, que en este caso será "vida_vaquero"
+				//También mandamos el id del obstáculo y la vida actual
+				webSocketManager.sendMessage({
+					tipo: 'vida_vaquero',
+					id: vaquero_2.id,
+					vida:vaquero_2.life
+				});
+			}
+			//Realizamos la comprobación ya una vez se ha acabado de mandar la información
 			if (vaquero_2.life <= 0) {
 				this.scene.start('winJ1');
 				sonidoFondo.stop();
