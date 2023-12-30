@@ -370,7 +370,7 @@ export class Game_Online extends Phaser.Scene {
 			if (webSocketManager) {
 				//Se manda el mensaje, pasándole el tipo, que en este caso será "vida_obstaculo"
 				//También mandamos el id del obstáculo y la vida actual
-				webSocketManager.enviarMensaje({
+				webSocketManager.sendMessage({
 					tipo: 'vida_obstaculo',
 					id: obstaculo.id,
 					vida: obstaculo.vida
@@ -395,7 +395,7 @@ export class Game_Online extends Phaser.Scene {
 			if (webSocketManager) {
 				//Se manda el mensaje, pasándole el tipo, que en este caso será "vida_obstaculo"
 				//También mandamos el id del obstáculo y la vida actual
-				webSocketManager.enviarMensaje({
+				webSocketManager.sendMessage({
 					tipo: 'vida_obstaculo',
 					id: obstaculo.id,
 					vida: obstaculo.vida
@@ -525,7 +525,7 @@ export class Game_Online extends Phaser.Scene {
 			if (webSocketManager) {
 				//Se manda el mensaje, pasándole el tipo, que en este caso será "movimiento_vaquero"
 				//También mandamos la x y la y actual del vaquero
-				webSocketManager.enviarMensaje({
+				webSocketManager.sendMessage({
 					tipo: 'movimiento_vaquero',
 					id: vaquero_1.id,
 					x: vaquero_1.x,
@@ -540,7 +540,7 @@ export class Game_Online extends Phaser.Scene {
 			vaquero_1.anims.play('andar_vaquero_1', true);
 			//Mismo proceso que en anteriores casos
 			if (webSocketManager) {
-				webSocketManager.enviarMensaje({
+				webSocketManager.sendMessage({
 					tipo: 'movimiento_vaquero',
 					id: vaquero_1.id,
 					x: vaquero_1.x,
@@ -555,7 +555,7 @@ export class Game_Online extends Phaser.Scene {
 			vaquero_1.anims.play('andar_vaquero_1', true);
 			//Mismo proceso que en anteriores casos
 			if (webSocketManager) {
-				webSocketManager.enviarMensaje({
+				webSocketManager.sendMessage({
 					tipo: 'movimiento_vaquero',
 					id: vaquero_1.id,
 					x: vaquero_1.x,
@@ -570,7 +570,7 @@ export class Game_Online extends Phaser.Scene {
 			vaquero_1.anims.play('andar_vaquero_1', true);
 			//Mismo proceso que en anteriores casos
 			if (webSocketManager) {
-				webSocketManager.enviarMensaje({
+				webSocketManager.sendMessage({
 					tipo: 'movimiento_vaquero',
 					id: vaquero_1.id,
 					x: vaquero_1.x,
@@ -584,7 +584,7 @@ export class Game_Online extends Phaser.Scene {
 			vaquero_1.anims.play('idle_vaquero_1', true);
 			//En este caso, solo pasamos el id, pues simplemente indicaremos que se active la correspondeinte animación
 			if (webSocketManager) {
-				webSocketManager.enviarMensaje({
+				webSocketManager.sendMessage({
 					tipo: 'parada_vaquero',
 					id: vaquero_1.id,
 				});
@@ -620,7 +620,7 @@ export class Game_Online extends Phaser.Scene {
 			vaquero_2.anims.play('andar_vaquero_2', true);
 			//Mismo proceso que en anteriores casos
 			if (webSocketManager) {
-				webSocketManager.enviarMensaje({
+				webSocketManager.sendMessage({
 					tipo: 'movimiento_vaquero',
 					id: vaquero_2.id,
 					x: vaquero_2.x,
@@ -635,7 +635,7 @@ export class Game_Online extends Phaser.Scene {
 			vaquero_2.anims.play('andar_vaquero_2', true);
 			//Mismo proceso que en anteriores casos
 			if (webSocketManager) {
-				webSocketManager.enviarMensaje({
+				webSocketManager.sendMessage({
 					tipo: 'movimiento_vaquero',
 					id: vaquero_2.id,
 					x: vaquero_2.x,
@@ -650,7 +650,7 @@ export class Game_Online extends Phaser.Scene {
 			vaquero_2.anims.play('andar_vaquero_2', true);
 			//Mismo proceso que en anteriores casos
 			if (webSocketManager) {
-				webSocketManager.enviarMensaje({
+				webSocketManager.sendMessage({
 					tipo: 'movimiento_vaquero',
 					id: vaquero_2.id,
 					x: vaquero_2.x,
@@ -665,7 +665,7 @@ export class Game_Online extends Phaser.Scene {
 			vaquero_2.anims.play('andar_vaquero_2', true);
 			//Mismo proceso que en anteriores casos
 			if (webSocketManager) {
-				webSocketManager.enviarMensaje({
+				webSocketManager.sendMessage({
 					tipo: 'movimiento_vaquero',
 					id: vaquero_2.id,
 					x: vaquero_2.x,
@@ -679,7 +679,7 @@ export class Game_Online extends Phaser.Scene {
 			vaquero_2.anims.play('idle_vaquero_2', true);
 			//En este caso, solo pasamos el id, pues simplemente indicaremos que se active la correspondeinte animación
 			if (webSocketManager) {
-				webSocketManager.enviarMensaje({
+				webSocketManager.sendMessage({
 					tipo: 'parada_vaquero',
 					id: vaquero_2.id,
 				});
