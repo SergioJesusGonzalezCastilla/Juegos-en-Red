@@ -665,5 +665,37 @@ export class Game_Online extends Phaser.Scene {
 			damage_boost_mostrado = true;
 		}
 	}
+	// Método que se encarga de manejar los mensajes que le lleguen al websocket
+	handleWebSocketMessage(data)
+	{
+		//En función de los datos recibi
+		switch (data.type) {
+		  case 'vida_obstaculo':
+			this.gestionVidaObstaculo(data.data);
+			break;
 
+		  default:
+			console.warn('Se ha recibido un mensaje desconodido: ' +data.data);
+		}
+	}
+
+	//Método que se encarga de gestionar la vida de los obstáculos al recibir un mensaje
+	gestionVidaObstaculo(datos_vida)
+	{
+		//Primero buscamos el obstáuclo cuyo id coincida con el recibido
+		const obstaculo = this.obstaculos.getById(datos_vida.id);
+
+		//Si se ha encontrado el obstáculo...
+		if (obstaculo) {
+			// Primero actualizamos la vida del obstáculo
+			obstaculo.vida = datos_vida.vida;
+	
+			// Después se comprueba si su vida es <=0, en cuyo caso se destruye
+			if (obstaculo.vida <= 0) {
+				obstaculo.destroy();
+			}
+		} else {
+			console.warn("No se ha encontrado el obstáculo");
+		}
+	}
 }
