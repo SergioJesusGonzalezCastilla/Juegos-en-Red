@@ -798,7 +798,13 @@ export class Game_Online extends Phaser.Scene {
 				this.gestionParadaVaquero(data.data);
 				break;
 			}
-
+				
+			case 'vida_vaquero':
+			{
+				this.gestionVidaVaquero(data.data);
+				break;
+			}
+				
 			default:
 				console.warn('Se ha recibido un mensaje desconodido: ' +data.data);
 		}
@@ -867,6 +873,36 @@ export class Game_Online extends Phaser.Scene {
 		else
 		{
 			console.warn("El id no corresponde con ningún vaquero");
+		}
+	}
+	//Método que se encargará de gestionar la vida de los vaqueros
+	gestionVidaVaquero(datos_vida)
+	{
+		//Llevaremos a cabo primero unas acciones en caso de que el vaquero sea el primero
+		if (vaquero_1.id === datos_vida.id) 
+		{
+			vaquero_1.life=datos_vida.vida;
+			texto1.setText(vaquero_1.life);
+			colocar_texto_1();
+			if (vaquero_1.life <= 0) {
+				this.scene.start('winJ2');
+				sonidoFondo.stop();
+			}
+		} 
+		else if (vaquero_2.id === datos_vida.id) 
+		{
+			vaquero_2.life=datos_vida.vida;
+			texto2.setText(vaquero_2.life);
+			colocar_texto_2();
+			if (vaquero_2.life <= 0) {
+				this.scene.start('winJ1');
+				sonidoFondo.stop();
+			}
+		} 
+		else 
+		{
+			console.warn("El ID no corresponde con ningún vaquero");
+			return;
 		}
 	}
 }
