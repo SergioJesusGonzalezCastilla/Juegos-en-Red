@@ -570,6 +570,17 @@ export class Game_Online extends Phaser.Scene {
 			num_balas_1++;
 			total_balas_empleadas++;
 			extra_damage_1 += 5;
+
+			if (webSocketManager) {
+				//Se manda el mensaje, pasándole el tipo, que en este caso será "extravida"
+				//También mandamos el id del vaquero y la vida actual
+				webSocketManager.sendMessage({
+					tipo: 'damage_b',
+					id: vaquero_1.id,
+					vida:vaquero_1.life
+				});
+			}
+			
 			damage_boost.destroy();
 			this.add.image(130, 50, 'damage').setScale(2 / 7);
 			damage_boost_1_conseguido = true;
@@ -580,6 +591,17 @@ export class Game_Online extends Phaser.Scene {
 			num_balas_2++;
 			total_balas_empleadas++;
 			extra_damage_2 += 5;
+
+			if (webSocketManager) {
+				//Se manda el mensaje, pasándole el tipo, que en este caso será "extravida"
+				//También mandamos el id del vaquero y la vida actual
+				webSocketManager.sendMessage({
+					tipo: 'damage_b',
+					id: vaquero_2.id,
+					vida:vaquero_2.life
+				});
+			}
+			
 			damage_boost.destroy();
 			this.add.image(WIDTH - 162, 50, 'damage').setScale(2 / 7);
 			damage_boost_2_conseguido = true;
