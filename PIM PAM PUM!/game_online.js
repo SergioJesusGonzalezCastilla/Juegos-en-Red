@@ -757,14 +757,26 @@ export class Game_Online extends Phaser.Scene {
 	// Método que se encarga de manejar los mensajes que le lleguen al websocket
 	handleWebSocketMessage(data)
 	{
-		//En función de los datos recibi
+		//En función de los datos recibidos
 		switch (data.type) {
-		  case 'vida_obstaculo':
-			this.gestionVidaObstaculo(data.data);
-			break;
+			case 'vida_obstaculo':
+				this.gestionVidaObstaculo(data.data);
+				break;
 
-		  default:
-			console.warn('Se ha recibido un mensaje desconodido: ' +data.data);
+			case 'movimiento_vaquero':
+			{
+				this.gestionMovimientoVaquero(data.data);
+				break;
+			}
+
+			case 'parada_vaquero':
+			{
+				this.gestionParadaVaquero(data.data);
+				break;
+			}
+
+			default:
+				console.warn('Se ha recibido un mensaje desconodido: ' +data.data);
 		}
 	}
 
@@ -785,6 +797,52 @@ export class Game_Online extends Phaser.Scene {
 			}
 		} else {
 			console.warn("No se ha encontrado el obstáculo");
+		}
+	}
+
+	//Método que se encarga de gestionar el movimiento de los vaqueros
+	gestionMovimientoVaquero(datos_movimiento)
+	{
+		//Primero comprobaremos si el id pertenece al primer vaquero
+		if (vaquero_1.id === datos_movimiento.id)
+		{
+			//Actualizamos la posición del personaje 1
+			vaquero_1.x=datos_movimiento.x;
+			vaquero_1.y=datos_movimiento.y;
+			vaquero_1.anims.play('andar_vaquero_1', true);
+		}
+
+		//Ahora comprobaremos si el id pertenece al segundo vaquero
+		else if (vaquero_2.id === datos_movimiento.id)
+		{
+			//Actualizamos la posición del personaje 2
+			vaquero_2.x=datos_movimiento.x;
+			vaquero_2.y=datos_movimiento.y;
+			vaquero_2.anims.play('andar_vaquero_2', true);
+		}
+		else
+		{
+			console.warn("El id no corresponde con ningún vaquero");
+		}
+	}
+
+	//Método que se encargará de gestionar las paradas de los vaqueros
+	gestionParadaVaquero(datos_parada)
+	{
+		//Primero comprobaremos si el id pertenece al primer vaquero
+		if (vaquero_1.id === datos_parada.id)
+		{
+			vaquero_1.anims.play('idle_vaquero_1', true);
+		}
+
+		//Ahora comprobaremos si el id pertenece al segundo vaquero
+		else if (vaquero_2.id === datos_parada.id)
+		{
+			vaquero_2.anims.play('idle_vaquero_2', true);
+		}
+		else
+		{
+			console.warn("El id no corresponde con ningún vaquero");
 		}
 	}
 }
