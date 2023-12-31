@@ -1,8 +1,8 @@
 export class WebSocketConfig {
     //Método constructor
-    constructor(scene) {
-        // Establecemos el websocket
-        var socket = new WebSocket("ws://" + location.host + "/echo");
+    constructor(scene, userId) {
+        // Establecemos el websocket, con  el id del usuario
+        var socket = new WebSocket("ws://" + location.host + "/echo?id=" + userId);
         
         //Asignamos la correspondiente escena
         this.scene = scene;
