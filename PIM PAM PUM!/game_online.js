@@ -707,6 +707,13 @@ export class Game_Online extends Phaser.Scene {
 				posibilidad_1 = false;
 				num_balas_1--;
 				sonidoDisparo.play();
+				if (webSocketManager) {
+				webSocketManager.sendMessage({
+					tipo: 'disparo_vaquero1',
+					id: vaquero_1.id,
+					speed: bullet_speed.id,
+					nbullet1: num_balas_1.id,					
+				});
 			}
 		}
 		// Vuelve a darse la posibilidad de disparar una vez se deja de pulsar la F
@@ -802,6 +809,14 @@ export class Game_Online extends Phaser.Scene {
 				posibilidad_2 = false;
 				num_balas_2--;
 				sonidoDisparo.play();
+				if (webSocketManager) {
+				webSocketManager.sendMessage({
+					tipo: 'disparo_vaquero2',
+					id: vaquero_2.id,
+					speed: bullet_speed.id,
+					nbullet2: num_balas_2.id,					
+				});
+			}
 			}
 		}
 		// Vuelve a darse la posibilidad de disparar una vez se deja de pulsar la H
