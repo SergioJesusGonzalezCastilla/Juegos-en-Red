@@ -709,11 +709,14 @@ export class Game_Online extends Phaser.Scene {
 				sonidoDisparo.play();
 				if (webSocketManager) {
 				webSocketManager.sendMessage({
-					tipo: 'disparo_vaquero1',
+					tipo: 'disparo_vaquero',
 					id: vaquero_1.id,
 					speed: bullet_speed.id,
-					nbullet1: num_balas_1.id,					
+					x: vaquero_1.x,
+					y: vaquero_1.y,
+					damage: bala.damage,					
 				});
+			}
 			}
 		}
 		// Vuelve a darse la posibilidad de disparar una vez se deja de pulsar la F
@@ -811,10 +814,12 @@ export class Game_Online extends Phaser.Scene {
 				sonidoDisparo.play();
 				if (webSocketManager) {
 				webSocketManager.sendMessage({
-					tipo: 'disparo_vaquero2',
+					tipo: 'disparo_vaquero',
 					id: vaquero_2.id,
 					speed: bullet_speed.id,
-					nbullet2: num_balas_2.id,					
+					x: vaquero_2.x,
+					y: vaquero_2.y,
+					damage: bala.damage,					
 				});
 			}
 			}
@@ -870,7 +875,7 @@ export class Game_Online extends Phaser.Scene {
 			damage_boost.create(WIDTH / 2, HEIGHT / 2, 'damage').setScale(1 / 2);
 			damage_boost_mostrado = true;
 		}
-	}
+	
 	// Método que se encarga de manejar los mensajes que le lleguen al websocket
 	handleWebSocketMessage(data)
 	{
@@ -895,6 +900,12 @@ export class Game_Online extends Phaser.Scene {
 			case 'vida_vaquero':
 			{
 				this.gestionVidaVaquero(data.data);
+				break;
+			}
+
+			case 'disparo_vaquero':
+			{
+				this.gestionDisparoVaquero(data.data);
 				break;
 			}
 				
@@ -991,6 +1002,29 @@ export class Game_Online extends Phaser.Scene {
 				this.scene.start('winJ1');
 				sonidoFondo.stop();
 			}
+		} 
+		else 
+		{
+			console.warn("El ID no corresponde con ningún vaquero");
+			return;
+		}
+	}
+	//Metodo para crear y dirigir las balas	
+	gestionDisparoVaquero(datos_disparo)
+	{
+		//Se comprueba el id del vaquero que dispara
+		if (vaquero_1.id === datos_vida.id)
+		{
+			//Y luego se crea la bala en la posicion relativa al vaquero que ha disparado
+			var bala = balas_vaquero_1.create(datos_disparo.x + 100, datos_disparo.y, imagen_1).setScale(escala_1);
+			bala.damage = datos.damage;
+			bala.setVelocity(datos.speed, 0);
+		}
+		else if (vaquero_2.id === datos_vida.id) 
+		{
+			var bala = balas_vaquero_1.create(datos_disparo.x + 100, datos_disparo.y, imagen_1).setScale(escala_1);
+			bala.damage = datos.damage;
+			bala.setVelocity(datos.speed, 0);
 		} 
 		else 
 		{
