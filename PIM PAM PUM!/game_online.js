@@ -708,15 +708,16 @@ export class Game_Online extends Phaser.Scene {
 				num_balas_1--;
 				sonidoDisparo.play();
 				if (webSocketManager) {
-				webSocketManager.sendMessage({
-					tipo: 'disparo_vaquero',
-					id: vaquero_1.id,
-					speed: bullet_speed.id,
-					x: vaquero_1.x,
-					y: vaquero_1.y,
-					damage: bala.damage,					
-				});
-			}
+					webSocketManager.sendMessage({
+						tipo: 'disparo_vaquero',
+						id: vaquero_1.id,
+						x: vaquero_1.x,
+						y: vaquero_1.y,
+						damage: bala.damage,
+						imagen: imagen_1,
+						escala: escala_1
+					});
+				}
 			}
 		}
 		// Vuelve a darse la posibilidad de disparar una vez se deja de pulsar la F
@@ -813,15 +814,16 @@ export class Game_Online extends Phaser.Scene {
 				num_balas_2--;
 				sonidoDisparo.play();
 				if (webSocketManager) {
-				webSocketManager.sendMessage({
-					tipo: 'disparo_vaquero',
-					id: vaquero_2.id,
-					speed: bullet_speed.id,
-					x: vaquero_2.x,
-					y: vaquero_2.y,
-					damage: bala.damage,					
-				});
-			}
+					webSocketManager.sendMessage({
+						tipo: 'disparo_vaquero',
+						id: vaquero_2.id,
+						x: vaquero_2.x,
+						y: vaquero_2.y,
+						damage: bala.damage,
+						imagen: imagen_2,
+						escala: escala_2
+					});
+				}
 			}
 		}
 		// Vuelve a darse la posibilidad de disparar una vez se deja de pulsar la H
@@ -929,6 +931,7 @@ export class Game_Online extends Phaser.Scene {
 			if (obstaculo.vida <= 0) {
 				obstaculo.destroy();
 			}
+			total_balas_empleadas++
 		} else {
 			console.warn("No se ha encontrado el obstáculo");
 		}
@@ -992,6 +995,7 @@ export class Game_Online extends Phaser.Scene {
 				this.scene.start('winJ2');
 				sonidoFondo.stop();
 			}
+			total_balas_empleadas++
 		} 
 		else if (vaquero_2.id === datos_vida.id) 
 		{
@@ -1002,6 +1006,7 @@ export class Game_Online extends Phaser.Scene {
 				this.scene.start('winJ1');
 				sonidoFondo.stop();
 			}
+			total_balas_empleadas++
 		} 
 		else 
 		{
@@ -1013,18 +1018,18 @@ export class Game_Online extends Phaser.Scene {
 	gestionDisparoVaquero(datos_disparo)
 	{
 		//Se comprueba el id del vaquero que dispara
-		if (vaquero_1.id === datos_vida.id)
+		if (vaquero_1.id === datos_disparo.id)
 		{
 			//Y luego se crea la bala en la posicion relativa al vaquero que ha disparado
-			var bala = balas_vaquero_1.create(datos_disparo.x + 100, datos_disparo.y, imagen_1).setScale(escala_1);
-			bala.damage = datos.damage;
-			bala.setVelocity(datos.speed, 0);
+			var bala = balas_vaquero_1.create(datos_disparo.x + 100, datos_disparo.y, datos_disparo.imagen).setScale(datos_disparo.escala);
+			bala.damage = datos_disparo.damage;
+			bala.setVelocity(bullet_speed, 0);
 		}
 		else if (vaquero_2.id === datos_vida.id) 
 		{
-			var bala = balas_vaquero_1.create(datos_disparo.x + 100, datos_disparo.y, imagen_1).setScale(escala_1);
-			bala.damage = datos.damage;
-			bala.setVelocity(datos.speed, 0);
+			var bala = balas_vaquero_2.create(datos_disparo.x -100, datos_disparo.y, datos_disparo.imagen).setScale(datos_disparo.imagen);
+			bala.damage = datos_disparo.damage;
+			bala.setVelocity(-bullet_speed, 0);
 		} 
 		else 
 		{
