@@ -577,7 +577,7 @@ export class Game_Online extends Phaser.Scene {
 				webSocketManager.sendMessage({
 					tipo: 'damage_b',
 					id: vaquero_1.id,
-					damage: balas_vaquero_1.damage
+					damage: extra_damage_1.damage
 				});
 			}
 			
@@ -598,7 +598,7 @@ export class Game_Online extends Phaser.Scene {
 				webSocketManager.sendMessage({
 					tipo: 'damage_b',
 					id: vaquero_2.id,
-					damage: balas_vaquero_2.damage
+					damage: extra_damage_2.damage
 				});
 			}
 			
