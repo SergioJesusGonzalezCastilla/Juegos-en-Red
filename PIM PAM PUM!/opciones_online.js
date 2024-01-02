@@ -13,7 +13,7 @@ export class Opciones extends Phaser.Scene {
 	preload() {
 
 		this.load.image('AjustesF', 'resources/opcionesOnline/FondoOpcionesF.png')
-			.spritesheet('botonVolver', 'resources/botones/Volver.png', { frameWidth: 286, frameHeight: 102 })
+   			.spritesheet('botonJugar','resources/opcionesOnline/jugarB.png',{ frameWidth: 966, frameHeight: 457 })
 			.spritesheet('botonModificar', 'resources/opcionesOnline/ModificarB.png', { frameWidth: 1076, frameHeight: 129 })
 		this.load.audio('sonidoDisparo', 'sounds/disparoSound.mp3')
 
@@ -70,5 +70,55 @@ export class Opciones extends Phaser.Scene {
 		mod.on('pointerup', () => {
 			mod.play('buttonHover5989');
 		});
+
+		const acc = this.add.sprite(641, 360, 'botonJugar').setInteractive();
+		        
+		      // Botón Jugar
+		      // Define las animaciones del botón
+		      this.anims.create({
+		       key: 'buttonNormal59889',
+		        frames: this.anims.generateFrameNumbers('botonJugar', { start: 0, end: 0 }),
+		        frameRate: 1,
+		        repeat: 0
+		      });
+		  
+		      this.anims.create({
+		        key: 'buttonHover59889',
+		        frames: this.anims.generateFrameNumbers('botonJugar', { start: 1, end: 9 }),
+		        frameRate: 15,
+		          repeat: 0
+		      });
+		  
+		      this.anims.create({
+		        key: 'buttonClick59889',
+		        frames: this.anims.generateFrameNumbers('botonJugar', { start: 10, end: 10 }),
+		        frameRate: 1,
+		        repeat: 0
+		      });
+		  
+		      // Configura la interactividad del botón
+		      acc.on('pointerover', () => {
+		        acc.play('buttonHover59889');
+		      });
+		  
+		      acc.on('pointerout', () => {
+		        acc.play('buttonNormal59889');
+		      });
+		  
+		      acc.on('pointerdown', () => {
+		        acc.play('buttonClick59889');
+		          //meter tiempo espera
+		          this.scene.transition({
+		            target: 'game',
+		            duration:1000,
+		        });
+		        sonidoInicio.stop();
+		        sonidoDisparo.play();
+		        });
+		  
+		        acc.on('pointerup', () => {
+		            acc.play('buttonHover59889');
+		        });
+		
 	}
 }
