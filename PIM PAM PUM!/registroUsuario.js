@@ -1,8 +1,11 @@
+var sonidoDisparo;
+
 export class Registro extends Phaser.Scene {
 
 	constructor() {
 		super({ key: 'registro' });
 	}
+	
 	preload() {
 
 		this.load.image('RegistroF', 'resources/registro/RegistroUsuarios.png')
@@ -18,6 +21,8 @@ export class Registro extends Phaser.Scene {
 		var creado = false;
 		var iniciado = false;
 		var self=this;
+
+		var sonidoDisparo = this.sound.add('sonidoDisparo');
 
 		var fondo = this.add.image(1280 / 2, 720 / 2, 'RegistroF').setInteractive();
 		var barra = this.add.image(1291 / 2, 688 / 2, 'Barra').setInteractive();
@@ -124,6 +129,7 @@ export class Registro extends Phaser.Scene {
 
 		acceder.on('pointerdown', () => {
 			acceder.play('buttonClick59999');
+			sonidoDisparo.play();
 			const LogInButton = acceder.getData('LogInButton');
 			console.log(`Se hizo clic en el botón con ID: ${LogInButton}`);
 			//Ahora nos centraremos en el botón que nos permite iniciar sesión dados unos usuarios y contraseña, tras hacer click en él
@@ -206,6 +212,7 @@ export class Registro extends Phaser.Scene {
 
 		crear.on('pointerdown', () => {
 			crear.play('buttonClick599999');
+			sonidoDisparo.play();
 			const buttonId = crear.getData('CreateUserButton');
 			console.log(`Se hizo clic en el botón con ID: ${buttonId}`);
 			//Para definir un usuario necesitaremos obtener su nombre y contraseña desde el campo correspondiente
