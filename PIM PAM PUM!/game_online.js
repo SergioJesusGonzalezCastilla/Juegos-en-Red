@@ -535,6 +535,16 @@ export class Game_Online extends Phaser.Scene {
 			vaquero_1.setTint(0xffff00);
 			if (speedup_1_conseguido === 0) {
 				this.add.image(50, 130, 'gato').setScale(2 / 7);
+
+				if (webSocketManager) {
+				//Se manda el mensaje, pasándole el tipo, que en este caso será "extravida"
+				//También mandamos el id del vaquero y la vida actual
+				webSocketManager.sendMessage({
+					tipo: 'extravelocidad1',
+					id: vaquero_1.id,
+					speedup:velocidad_extra_1.speedup
+				});
+					
 			}
 			else {
 				this.add.image(50, 190, 'gato').setScale(2 / 7);
@@ -550,6 +560,16 @@ export class Game_Online extends Phaser.Scene {
 			vaquero_2.setTint(0xffff00);
 			if (speedup_2_conseguido === 0) {
 				this.add.image(WIDTH - 50, 130, 'gato').setScale(2 / 7);
+
+				if (webSocketManager) {
+				//Se manda el mensaje, pasándole el tipo, que en este caso será "extravida"
+				//También mandamos el id del vaquero y la vida actual
+				webSocketManager.sendMessage({
+					tipo: 'extravelocidad2',
+					id: vaquero_2.id,
+					speedup:velocidad_extra_2.speedup
+				});
+					
 			}
 			else {
 				this.add.image(WIDTH - 50, 190, 'gato').setScale(2 / 7);
