@@ -17,9 +17,7 @@ export class Minicio extends Phaser.Scene{
         .spritesheet('botonCreditos','resources/botones/Creditos.png',{ frameWidth: 286, frameHeight: 102 })
         //BOTON AJUSTES
         .spritesheet('botonAjustes','resources/botones/Ajustes.png',{ frameWidth: 286, frameHeight: 102 })
-        //BOTON MEME
         .spritesheet('botonMeme','resources/mmB.png',{ frameWidth: 128, frameHeight: 122 })
-
                 .image('Proximamente', 'resources/proximamente.png')
 
 
@@ -186,10 +184,7 @@ export class Minicio extends Phaser.Scene{
             });
             this.add.image(1040, 480, 'Proximamente');   
 
-        
-    }
-
-                //Boton MEME
+            //Boton MEME
 
         const meme = this.add.sprite(960, 620, 'botonMeme').setInteractive();
         
@@ -248,3 +243,4 @@ export class Minicio extends Phaser.Scene{
     }
 
 }
+
