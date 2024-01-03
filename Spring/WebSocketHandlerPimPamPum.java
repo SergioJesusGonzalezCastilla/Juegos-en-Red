@@ -19,33 +19,14 @@ public class WebSocketHandlerPimPamPum extends TextWebSocketHandler {
 
 	// Mapa con el que realizaremos un seguimiento de los ususarios conectados
     private ConcurrentHashMap<String, Player> usuariosConectados = new ConcurrentHashMap<>();
-    
-	//Método que obtiene el ID de la sesión
-	private String obtenerId(WebSocketSession session) {
-		
-	    // Se recupera el id de la sesión
-	    Object id = session.getAttributes().get("userId");
-
-	    // Ahora comprobamos que el id existe y es una cadena
-	    if (id instanceof String) 
-	    {
-	    	//En caso de hacerlo, se devuelve
-	        return (String) id;
-	    } 
-	    else 
-	    {
-	        // En caso contrario, devolvemos null
-	        return null;
-	    }
-	}
-	
+    	
     @Override
     public void afterConnectionEstablished(WebSocketSession session) throws Exception 
     {
     	//Primero obtenemos el id del usuario
-        String userId = obtenerId(session);
+        String userId = session.getUri().getQuery().split("=")[1];
         // En caso de haber obtenido un ID
-        if (userId != null) {
+        if (userId != null && !userId.isEmpty()) {
             // Creamos un objeto de la clase player con el nuevo ID
             Player player = new Player(userId, session);
 
@@ -69,9 +50,10 @@ public class WebSocketHandlerPimPamPum extends TextWebSocketHandler {
             //Se lee el mensaje recibido en JSON
             ObjectMapper objectMapper = new ObjectMapper();
             JsonNode jsonNode = objectMapper.readTree(payload);
-
+            
             //Envíamos el mensaje a los usuarios
             notificarActualizacion(session, jsonNode);
+            System.out.println("Se ha enviado un mensaje");
             
             //En caso de haber algún problema durante la lectura
         } catch (IOException e) {
@@ -85,9 +67,9 @@ public class WebSocketHandlerPimPamPum extends TextWebSocketHandler {
     @Override
     public void afterConnectionClosed(WebSocketSession session, CloseStatus status) throws Exception {
     	//Primero obtenemos el id del usuario
-        String userId = obtenerId(session);
+        String userId = session.getUri().getQuery().split("=")[1];
         // En caso de haber obtenido un ID
-        if (userId != null) {
+        if (userId != null && !userId.isEmpty()) {
             //Indicamos que hemos cerrado la conexión
         	usuariosConectados.remove(userId);
             System.out.println("Conexión cerrada para el usuario con ID: " + userId);
@@ -123,4 +105,5 @@ public class WebSocketHandlerPimPamPum extends TextWebSocketHandler {
     }
     
 }
+
 
