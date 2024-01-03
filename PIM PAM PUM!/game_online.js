@@ -75,7 +75,7 @@ var sonidoDisparo;
 
 export class Game_Online extends Phaser.Scene {
 	constructor() {
-		super({ key: 'game' });
+		super({ key: 'gameonline' });
 	}
 
 	preload() {
