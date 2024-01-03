@@ -17,6 +17,9 @@ export class Minicio extends Phaser.Scene{
         .spritesheet('botonCreditos','resources/botones/Creditos.png',{ frameWidth: 286, frameHeight: 102 })
         //BOTON AJUSTES
         .spritesheet('botonAjustes','resources/botones/Ajustes.png',{ frameWidth: 286, frameHeight: 102 })
+        //BOTON MEME
+        .spritesheet('botonMeme','resources/mmB.png',{ frameWidth: 128, frameHeight: 122 })
+
                 .image('Proximamente', 'resources/proximamente.png')
 
 
@@ -182,6 +185,60 @@ export class Minicio extends Phaser.Scene{
                 ajustes.play('buttonHover2');
             });
             this.add.image(1040, 480, 'Proximamente');   
+
+        
+    }
+
+                //Boton MEME
+
+        const meme = this.add.sprite(960, 620, 'botonMeme').setInteractive();
+        
+
+        // Define las animaciones del botón
+          this.anims.create({
+              key: 'buttonNormalMM',
+              frames: this.anims.generateFrameNumbers('botonMeme', { start: 0, end: 0 }),
+              frameRate: 1,
+              repeat: 0
+          });
+
+          this.anims.create({
+              key: 'buttonHoverMM',
+              frames: this.anims.generateFrameNumbers('botonMeme', { start: 1, end: 1 }),
+              frameRate: 1,
+              repeat: 0
+          });
+
+          this.anims.create({
+              key: 'buttonClickMM',
+              frames: this.anims.generateFrameNumbers('botonMeme', { start: 2, end: 2 }),
+              frameRate: 1,
+              repeat: 0
+          });
+
+          // Configura la interactividad del botón
+          meme.on('pointerover', () => {
+            meme.play('buttonHoverMM');
+          });
+
+          meme.on('pointerout', () => {
+            meme.play('buttonNormalMM');
+          });
+
+          meme.on('pointerdown', () => {
+            meme.play('buttonClickMM');
+              //meter tiempo espera
+              this.scene.transition({
+                  target: 'meme',
+                  duration:1000,
+              });
+              sonidoInicio.stop();
+              sonidoDisparo.play();
+          });
+
+          meme.on('pointerup', () => {
+            meme.play('buttonHoverMM');
+          });
 
         
     }
