@@ -13,9 +13,7 @@ import {Registro }from './registroUsuario.js';
 import {Opciones }from './opciones_online.js';
 import {Modificar }from './modificar.js';
 import {Game_Online }from './game_online.js';
-
-
-
+import {Meme }from './meme.js';
  
 const WIDTH = 1280;
 const HEIGHT = 720;
@@ -25,7 +23,7 @@ const config = {
     width:WIDTH,
     height:HEIGHT,
     
-    scene:[Minicio,Modificar,ModoCliente,Registro,Ajustes,Opciones,Mapas,Seleccion,Simulador,Creditos,Game,Game_Online,Pausa,gameWinJ1,gameWinJ2],
+    scene:[Minicio,Meme,Modificar,ModoCliente,Registro,Ajustes,Opciones,Mapas,Seleccion,Simulador,Creditos,Game,Game_Online,Pausa,gameWinJ1,gameWinJ2],
 
     physics: {
         default: 'arcade',
