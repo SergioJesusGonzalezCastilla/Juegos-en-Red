@@ -1,8 +1,12 @@
 export class WebSocketConfig {
     //Método constructor
     constructor(scene, userId) {
+		
+		// Imprime la URL completa del WebSocket en la consola
+        console.log("WebSocket URL:", "ws://" + location.host + "/echo?id=" + userId);
+        
         // Establecemos el websocket, con  el id del usuario
-        var socket = new WebSocket("ws://" + location.host + "/echo?id=" + userId);
+       	this.socket = new WebSocket("ws://" + location.host + "/echo?id=" + userId);
         
         //Asignamos la correspondiente escena
         this.scene = scene;
@@ -44,11 +48,10 @@ export class WebSocketConfig {
         
         //En caso de que el websocket esté abierto...
         if (this.socket.readyState === WebSocket.OPEN) {
-            //Se manda el mensaje en forma de string en formato JSON
             this.socket.send(JSON.stringify(message));
         } else {
             //En caso contrario, se indica que ha habido un error
-            console.error('Error. El websocket no tiene una conexión iniciada');
+            console.log('El websocket no tiene una conexión iniciada');
         }
     }
   
