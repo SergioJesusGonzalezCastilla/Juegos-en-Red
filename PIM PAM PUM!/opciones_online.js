@@ -13,7 +13,7 @@ export class Opciones extends Phaser.Scene {
 	preload() {
 
 		this.load.image('AjustesF', 'resources/opcionesOnline/FondoOpcionesF.png')
-   			.spritesheet('botonJugar','resources/opcionesOnline/jugarB.png',{ frameWidth: 966, frameHeight: 457 })
+   			.spritesheet('botonJugarB','resources/opcionesOnline/jugarB.png',{ frameWidth: 966, frameHeight: 457 })
 			.spritesheet('botonModificar', 'resources/opcionesOnline/ModificarB.png', { frameWidth: 1076, frameHeight: 129 })
 		this.load.audio('sonidoDisparo', 'sounds/disparoSound.mp3')
 
@@ -71,27 +71,27 @@ export class Opciones extends Phaser.Scene {
 			mod.play('buttonHover5989');
 		});
 
-		const acc = this.add.sprite(641, 360, 'botonJugar').setInteractive();
+		const acc = this.add.sprite(641, 360, 'botonJugarB').setInteractive();
 		        
 		      // Botón Jugar
 		      // Define las animaciones del botón
 		      this.anims.create({
 		       key: 'buttonNormal59889',
-		        frames: this.anims.generateFrameNumbers('botonJugar', { start: 0, end: 0 }),
+		        frames: this.anims.generateFrameNumbers('botonJugarB', { start: 0, end: 0 }),
 		        frameRate: 1,
 		        repeat: 0
 		      });
 		  
 		      this.anims.create({
 		        key: 'buttonHover59889',
-		        frames: this.anims.generateFrameNumbers('botonJugar', { start: 1, end: 9 }),
+		        frames: this.anims.generateFrameNumbers('botonJugarB', { start: 1, end: 9 }),
 		        frameRate: 15,
 		          repeat: 0
 		      });
 		  
 		      this.anims.create({
 		        key: 'buttonClick59889',
-		        frames: this.anims.generateFrameNumbers('botonJugar', { start: 10, end: 10 }),
+		        frames: this.anims.generateFrameNumbers('botonJugarB', { start: 10, end: 10 }),
 		        frameRate: 1,
 		        repeat: 0
 		      });
@@ -109,7 +109,7 @@ export class Opciones extends Phaser.Scene {
 		        acc.play('buttonClick59889');
 		          //meter tiempo espera
 		          this.scene.transition({
-		            target: 'game',
+		            target: 'gameonline',
 		            duration:1000,
 		        });
 		        sonidoInicio.stop();
