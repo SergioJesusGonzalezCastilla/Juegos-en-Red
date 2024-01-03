@@ -31,7 +31,7 @@ servidorWebSocket.on('connection', (ws) => {
     });
   } else {
     // Si hay más de dos jugadores, cerrar la conexión inmediatamente
-    ws.close();
+    ws.close(440, 'Demasiados jugadores en la partida.');
   }
 });
 
