@@ -128,6 +128,11 @@ export class Game_Online extends Phaser.Scene {
    		this.ws.addEventListener('message', (event) => {
       			const data = JSON.parse(event.data);
       			// Manejar datos recibidos del servidor en la pantalla de multijugador
+			if (event.code === 440) {
+        			console.log('Conexión cerrada. Demasiados jugadores en la partida.');
+        			// Redirige a la pantalla de inicio
+        			this.scene.start('menu-inicio'); 
+			}
     		});
 		
 		//Se recibe el nombre del usuario 
