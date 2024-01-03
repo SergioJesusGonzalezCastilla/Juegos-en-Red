@@ -122,7 +122,6 @@ export class Opciones extends Phaser.Scene {
 		            duration:1000,
 			    data: { UserName: userNameFromPreviousScene }
 		        });
-		        sonidoInicio.stop();
 		        sonidoDisparo.play();
 		        });
 		  
