@@ -124,8 +124,17 @@ export class Game_Online extends Phaser.Scene {
 	}
 	create() {
 
+		//Se recibe el nombre del usuario 
+		var userNameFromPreviousScene;
+		if (this.scene.settings && this.scene.settings.data) {
+		    userNameFromPreviousScene = this.scene.settings.data.UserName;
+		    console.log('UserName:', userNameFromPreviousScene);
+		} else {
+		    console.error('No se pudo obtener el nombre del usuario.');
+		}
+		
 		// Creo un manager del websocket pasándole la escena actual
-		this.webSocketManager = new WebSocketConfig(this);
+		this.webSocketManager = new WebSocketConfig(this,userNameFromPreviousScene);
 		
 		//FONDO
 		this.add.image(1280 / 2, 720 / 2, 'Desierto');
