@@ -1,6 +1,8 @@
 import{Game}from './game.js';
 import{gameWinJ1}from './gameWinJ1.js';
 import{gameWinJ2}from './gameWinJ2.js';
+import{gameWinJ1Piratas}from './gameWinJ1Piratas.js';
+import{gameWinJ2Piratas}from './gameWinJ2Piratas.js';
 import{Creditos}from './creditos.js';
 import {Ajustes} from './ajustes.js';
 import{Minicio}from './menuInicio.js';
@@ -23,7 +25,7 @@ const config = {
     width:WIDTH,
     height:HEIGHT,
     
-    scene:[Minicio,Meme,Modificar,ModoCliente,Registro,Ajustes,Opciones,Mapas,Seleccion,Simulador,Creditos,Game,Game_Online,Pausa,gameWinJ1,gameWinJ2],
+    scene:[Minicio,Meme,Modificar,ModoCliente,Registro,Ajustes,Opciones,Mapas,Seleccion,Simulador,Creditos,Game,Game_Online,Pausa,gameWinJ1,gameWinJ2,gameWinJ1Piratas,gameWinJ2Piratas],
 
     physics: {
         default: 'arcade',
