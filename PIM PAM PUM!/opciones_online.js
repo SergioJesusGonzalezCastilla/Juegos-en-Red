@@ -21,6 +21,15 @@ export class Opciones extends Phaser.Scene {
 
 	create() {
 
+		//Se recibe el nombre del usuario 
+		var userNameFromPreviousScene;
+		if (this.scene.settings && this.scene.settings.data) {
+		    userNameFromPreviousScene = this.scene.settings.data.UserName;
+		    console.log('UserName:', userNameFromPreviousScene);
+		} else {
+		    console.error('No se pudo obtener el nombre del usuario.');
+		}
+		
 		this.add.image(1280 / 2, 720 / 2, 'AjustesF');
 		var sonidoDisparo = this.sound.add('sonidoDisparo');
 
@@ -111,6 +120,7 @@ export class Opciones extends Phaser.Scene {
 		          this.scene.transition({
 		            target: 'gameonline',
 		            duration:1000,
+			    data: { UserName: userNameFromPreviousScene }
 		        });
 		        sonidoInicio.stop();
 		        sonidoDisparo.play();
