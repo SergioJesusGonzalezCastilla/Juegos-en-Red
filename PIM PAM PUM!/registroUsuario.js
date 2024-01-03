@@ -158,6 +158,7 @@ export class Registro extends Phaser.Scene {
 							self.scene.transition({
 							target: 'opciones',
 							duration: 1000,
+							data: { UserName: UserName }
 							});
 						}
 						//En caso de error, simplemente indicamos que ha habido un error al crear al usuario
