@@ -10,19 +10,19 @@ import org.springframework.web.socket.config.annotation.WebSocketHandlerRegistry
 
 @SpringBootApplication
 @EnableWebSocket
-public class PimPamPumApplication {
+public class PimPamPumApplication implements WebSocketConfigurer {
 
-	public void registerWebSocketHandlers(
-			WebSocketHandlerRegistry registry) {
-		registry.addHandler(messageHandler(), "/echo").setAllowedOrigins("*");		
-	}
-	@Bean
-	public WebSocketHandler messageHandler() {
-		return new WebSocketHandlerPimPamPum();
-	}
-	
-	public static void main(String[] args) {
-		SpringApplication.run(PimPamPumApplication.class, args);
-	}
+    @Override
+    public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
+        registry.addHandler(messageHandler(), "/echo").setAllowedOrigins("*");
+    }
 
+    @Bean
+    public WebSocketHandler messageHandler() {
+        return new WebSocketHandlerPimPamPum();
+    }
+
+    public static void main(String[] args) {
+        SpringApplication.run(PimPamPumApplication.class, args);
+    }
 }
