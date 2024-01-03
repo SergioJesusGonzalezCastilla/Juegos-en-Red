@@ -76,6 +76,7 @@ var sonidoDisparo;
 export class Game_Online extends Phaser.Scene {
 	constructor() {
 		super({ key: 'gameonline' });
+		this.ws = new WebSocket('ws://localhost:8080'); // Conexión con el servidor
 	}
 
 	preload() {
@@ -123,7 +124,12 @@ export class Game_Online extends Phaser.Scene {
 		this.load.image('pausa', 'resources/BotonPausaS.png');
 	}
 	create() {
-
+		// Escuchar mensajes del servidor
+   		this.ws.addEventListener('message', (event) => {
+      			const data = JSON.parse(event.data);
+      			// Manejar datos recibidos del servidor en la pantalla de multijugador
+    		});
+		
 		//Se recibe el nombre del usuario 
 		var userNameFromPreviousScene;
 		if (this.scene.settings && this.scene.settings.data) {
