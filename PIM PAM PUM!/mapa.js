@@ -11,6 +11,7 @@ export class Mapas extends Phaser.Scene{
         this.load.image('Mapas', 'resources/mapa/MapaSelecciónProximamente.png')
         .spritesheet('botonVolver','resources/botones/Volver.png',{ frameWidth: 286, frameHeight: 102 })
         .spritesheet('botonVaqueros','resources/mapa/DueloDePistolas.png',{ frameWidth: 480, frameHeight: 258 })   
+        .spritesheet('botonPiratas','resources/mapa/DueloDePistolas.png',{ frameWidth: 480, frameHeight: 258 })
         this.load.audio('sonidoFondo','sounds/BackgroundFightSound.mp3')
         this.load.audio('sonidoDisparo','sounds/disparoSound.mp3')
     }
@@ -23,6 +24,7 @@ export class Mapas extends Phaser.Scene{
         sonidoFondo.loop = true;
 
           const vaqueros = this.add.sprite(352, 190, 'botonVaqueros').setInteractive();
+          const piratas = this.add.sprite(906, 190, 'botonPiratas').setInteractive();
 
           // Botón VAQUEROS
         // Define las animaciones del botón
@@ -46,6 +48,7 @@ export class Mapas extends Phaser.Scene{
             frameRate: 1,
             repeat: 0
         });
+        
 
         // Configura la interactividad del botón
         vaqueros.on('pointerover', () => {
@@ -71,9 +74,54 @@ export class Mapas extends Phaser.Scene{
             vaqueros.play('buttonHoverV4');
         });
 
+        // Botón PIRATAS
+         // Define las animaciones del botón
+         this.anims.create({
+            key: 'buttonNormalV5',
+            frames: this.anims.generateFrameNumbers('botonPiratas', { start: 0, end: 0 }),
+            frameRate: 1,
+            repeat: 0
+        });
 
+        this.anims.create({
+            key: 'buttonHoverV5',
+            frames: this.anims.generateFrameNumbers('botonVaqueros', { start: 1, end: 1 }),
+            frameRate: 1,
+            repeat: 0
+        });
+
+        this.anims.create({
+            key: 'buttonClickV5',
+            frames: this.anims.generateFrameNumbers('botonVaqueros', { start: 0, end: 0 }),
+            frameRate: 1,
+            repeat: 0
+        });
+        // Configura la interactividad del botón
+        piratas.on('pointerover', () => {
+            piratas.play('buttonHoverV5');
+        });
+
+        piratas.on('pointerout', () => {
+            piratas.play('buttonNormalV5');
+        });
+
+        piratas.on('pointerdown', () => {
+            piratas.play('buttonClickV5');
+            //meter tiempo espera
+            this.scene.transition({
+                target: 'gamePiratas',
+                duration:1000,
+            });
+              sonidoFondo.stop();
+              sonidoDisparo.play();
+        });
+
+        piratas.on('pointerup', () => {
+            piratas.play('buttonHoverV4');
+        });
          const volver = this.add.sprite(1280/2, 720/2, 'botonVolver').setInteractive();
         
+         
         // Botón VOLVER
         // Define las animaciones del botón
           this.anims.create({
