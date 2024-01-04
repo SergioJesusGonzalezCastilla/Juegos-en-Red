@@ -53,7 +53,6 @@ public class WebSocketHandlerPimPamPum extends TextWebSocketHandler {
             
             //Envíamos el mensaje a los usuarios
             notificarActualizacion(session, jsonNode);
-            System.out.println("Se ha enviado un mensaje");
             
             //En caso de haber algún problema durante la lectura
         } catch (IOException e) {
@@ -105,5 +104,3 @@ public class WebSocketHandlerPimPamPum extends TextWebSocketHandler {
     }
     
 }
-
-
