@@ -115,7 +115,7 @@ var sonidoDisparo;
             revancha.play('buttonClick8');
               //meter tiempo espera
               this.scene.transition({
-                  target: 'game',
+                  target: 'gamePiratas',
                   duration:1000,
               });
               sonidoFondoG1.stop();
@@ -137,3 +137,4 @@ var sonidoDisparo;
     }
  }
     
+
