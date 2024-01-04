@@ -121,8 +121,8 @@ export class gamePiratas extends Phaser.Scene{
         this.load.image('damage_bullet_2','resources/Piratas/Bala de cañon fuego dcha.png');
 
         //AUDIO
-        this.load.audio('sonidoFondo','sounds/BackgroundFightSound.mp3');
-        this.load.audio('sonidoDisparo','sounds/disparoSound.mp3');
+        this.load.audio('sonidoFondo','sounds/FightPiratas.mp3');
+        this.load.audio('sonidoDisparo','sounds/DisparoPiratas.mp3');
 
         //BOTON PAUSA
         this.load.image('pausa','resources/BotonPausaS.png');
