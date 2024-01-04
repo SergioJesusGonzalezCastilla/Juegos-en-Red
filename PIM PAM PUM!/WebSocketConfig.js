@@ -31,16 +31,20 @@ export class WebSocketConfig {
 
         //Comportamiento al recibir un mensaje
         this.socket.onmessage = (event) => {
-            //Obtenemos los fatos del JSON
-            data = JSON.parse(event.data);
-
-            //Indicamos la información que se ha recibido
-            console.log('Se ha recibido el siguiente mensaje:', data);
-    
-            //Finalmente, se invocará al método del juego que gestiona qué hacer al recibir un mensaje.
-            //Variará en función de la información que pasemos o recibamos
-            this.scene.handleWebSocketMessage(data);
-        };
+		    console.log('Se ha recibido un mensaje');
+		
+		    let data; // Declarar data aquí
+		
+		    try {
+		        // Obtener los datos del JSON
+		        data = JSON.parse(event.data);
+		
+		        // Invocar al método del juego que gestiona qué hacer al recibir un mensaje
+		        this.scene.handleWebSocketMessage(data);
+		    } catch (error) {
+		        console.error('Error al analizar JSON:', error);
+		    }
+		};
     }
   
     // Método para enviar un mensaje al servidor WebSocket
@@ -48,6 +52,7 @@ export class WebSocketConfig {
         
         //En caso de que el websocket esté abierto...
         if (this.socket.readyState === WebSocket.OPEN) {
+			console.log(message);
             this.socket.send(JSON.stringify(message));
         } else {
             //En caso contrario, se indica que ha habido un error
