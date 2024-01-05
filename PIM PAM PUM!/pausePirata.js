@@ -5,12 +5,12 @@ var HEIGHT = 720;
 export class PausaPirata extends Phaser.Scene{
 
     constructor(){
-        super({key:'pausePirata'});
+        super({key:'pausePiratas'});
     }
 
     preload(){
       //FONDO
-      this.load.image('Fondo', 'resources/pausa/PausaFondo.png');
+      this.load.image('Fondo', 'resources/pausa/PausaFondoPiratas.png');
       //EFECTO SONIDO
       this.load.audio('sonidoDisparo','sounds/disparoSound.mp3')
       //BOTONES
