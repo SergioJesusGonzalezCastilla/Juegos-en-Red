@@ -1,4 +1,4 @@
-import { WebSocketConfig } from './WebSocketConfig.js';
+	import { WebSocketConfig } from './WebSocketConfig.js';
 
 //VARIABLE CONSTANTE DE LA VELOCIDAD DE LOS PERSONAJES FIJA
 var BASE_SPEED = 140;
@@ -15,6 +15,7 @@ var vaquero_2;
 //Booleanos para indicar cual de los jugadores se es
 var soy_1;
 var soy_2;
+var juego_inciado;
 
 // Balas
 var balas_vaquero_1;
@@ -27,6 +28,8 @@ var HEIGHT = 720;
 //Textos
 var texto1;
 var texto2;
+var texto3;
+var texto4;
 
 //Vida de cada Jugador
 var life1;
@@ -133,14 +136,15 @@ export class Game_Online extends Phaser.Scene {
 		} else {
 		    console.error('No se pudo obtener el nombre del usuario.');
 		}
-
-		// Creo un manager del websocket pasándole la escena actual
-		this.webSocketManager = new WebSocketConfig(this,userNameFromPreviousScene);
 		
 		//Inicializamos las variables que indican el juagdor que se es
 		soy_1=false;
 		soy_2=false;
+		juego_inciado=false;
 		
+		// Creo un manager del websocket pasándole la escena actual
+		this.webSocketManager = new WebSocketConfig(this,userNameFromPreviousScene);
+	
 
 		//FONDO
 		this.add.image(1280 / 2, 720 / 2, 'Desierto');
@@ -278,6 +282,7 @@ export class Game_Online extends Phaser.Scene {
 			fontSize: '200px',
 			fill: '#fff'
 		}).setScale(1 / 5.8);
+		
 
 		// Función para colocar correctamente el texto 1
 		function colocar_texto_1() {
@@ -534,7 +539,7 @@ export class Game_Online extends Phaser.Scene {
 		//Continuamos el sonido si se pauso al entrar en la pausa
 		sonidoFondo.resume();
 		//Movimiento del vaquero 1
-		if (this.teclaD.isDown && soy_1) {
+		if (this.teclaD.isDown && soy_1 && juego_inciado) {
 			vaquero_1.setVelocityX(BASE_SPEED + velocidad_extra_1);
 			vaquero_1.setVelocityY(0);
 			vaquero_1.x++;
@@ -554,7 +559,7 @@ export class Game_Online extends Phaser.Scene {
 				});
 			}
 		}
-		else if (this.teclaA.isDown && soy_1) {
+		else if (this.teclaA.isDown && soy_1 && juego_inciado) {
 			vaquero_1.setVelocityX(-BASE_SPEED - velocidad_extra_1);
 			vaquero_1.setVelocityY(0);
 			vaquero_1.x--;
@@ -571,7 +576,7 @@ export class Game_Online extends Phaser.Scene {
 				});
 			}
 		}
-		else if (this.teclaW.isDown && soy_1) {
+		else if (this.teclaW.isDown && soy_1 && juego_inciado) {
 			vaquero_1.setVelocityX(0);
 			vaquero_1.setVelocityY(-BASE_SPEED - velocidad_extra_1);
 			vaquero_1.y--;
@@ -588,7 +593,7 @@ export class Game_Online extends Phaser.Scene {
 				});
 			}
 		}
-		else if (this.teclaS.isDown && soy_1) {
+		else if (this.teclaS.isDown && soy_1 && juego_inciado) {
 			vaquero_1.setVelocityX(0);
 			vaquero_1.setVelocityY(BASE_SPEED + velocidad_extra_1);
 			vaquero_1.y++;
@@ -611,7 +616,7 @@ export class Game_Online extends Phaser.Scene {
 			vaquero_1.anims.play('andar_vaquero_1', true);
 		}
 		//Gestión del disparo para el jugador 1
-		if (this.teclaF.isDown && soy_1) {
+		if (this.teclaF.isDown && soy_1 && juego_inciado) {
 			if (num_balas_1 > 0 && posibilidad_1 === true) {
 				var imagen_1 = 'bala_vaquero_1';
 				var escala_1 = 1 / 2;
@@ -644,7 +649,7 @@ export class Game_Online extends Phaser.Scene {
 		}
 		//MOVIMIENTO VAQUERO 2
 
-		if (this.teclaL.isDown && soy_2) {
+		if (this.teclaL.isDown && soy_2 && juego_inciado) {
 			vaquero_2.setVelocityX(BASE_SPEED + velocidad_extra_2);
 			vaquero_2.setVelocityY(0);
 			vaquero_2.x++;
@@ -661,7 +666,7 @@ export class Game_Online extends Phaser.Scene {
 				});
 			}
 		}
-		else if (this.teclaJ.isDown && soy_2) {
+		else if (this.teclaJ.isDown && soy_2 && juego_inciado) {
 			vaquero_2.setVelocityX(-BASE_SPEED - velocidad_extra_2);
 			vaquero_2.setVelocityY(0);
 			vaquero_2.x--;
@@ -678,7 +683,7 @@ export class Game_Online extends Phaser.Scene {
 				});
 			}
 		}
-		else if (this.teclaI.isDown && soy_2) {
+		else if (this.teclaI.isDown && soy_2 && juego_inciado) {
 			vaquero_2.setVelocityX(0);
 			vaquero_2.setVelocityY(-BASE_SPEED - velocidad_extra_2);
 			vaquero_2.y--;
@@ -695,7 +700,7 @@ export class Game_Online extends Phaser.Scene {
 				});
 			}
 		}
-		else if (this.teclaK.isDown && soy_2) {
+		else if (this.teclaK.isDown && soy_2 && juego_inciado) {
 			vaquero_2.setVelocityX(0);
 			vaquero_2.setVelocityY(BASE_SPEED + velocidad_extra_2);
 			vaquero_2.y++;
@@ -718,7 +723,7 @@ export class Game_Online extends Phaser.Scene {
 			vaquero_2.anims.play('andar_vaquero_2', true);
 		}
 		//Gestión del disparo para el jugador 2
-		if (this.teclaH.isDown && soy_2) {
+		if (this.teclaH.isDown && soy_2 && juego_inciado) {
 			if (num_balas_2 > 0 && posibilidad_2 === true) {
 				var imagen_2 = 'bala_vaquero_2';
 				var escala_2 = 1 / 2;
@@ -832,6 +837,11 @@ export class Game_Online extends Phaser.Scene {
 			{
 				this.gestionNumeroUsuarios(data);
 				break;
+			}
+			
+			case 'juego_iniciado':
+			{
+				this.gestionJuegoIniciado(data);
 			}
 
 			default:
@@ -986,15 +996,38 @@ export class Game_Online extends Phaser.Scene {
 		{
 			soy_1=true;
 			console.log('Eres el jugador 1');
+			texto3=this.add.text(WIDTH/2-43,30,'JUGADOR 1');
 		}
 		else if (datos_usuarios.numUsuariosConectados === 2)
 		{
 			soy_2=true;
 			console.log('Eres el jugador 2');
+			texto3=this.add.text(WIDTH/2-43,30,'JUGADOR 2');
 		}
 		else
 		{
 			console.log('¡Bienvenido al modo espectador!')
+			texto3=this.add.text(WIDTH/2-43,30,'ESPECTADOR');
+		}
+	}
+	gestionJuegoIniciado(datos_juego)
+	{
+		if(datos_juego.juego_iniciado===true)
+		{
+			juego_inciado=true;
+			console.log('El juego ha iniciado')
+			if(texto4)
+			{
+				texto4.setText('');
+			}
+		}
+		else
+		{
+			console.log('Espera un rato');
+			texto4=this.add.text(WIDTH/2-43,60,'CONECTANDO', {
+			fill: '#000',
+			backgroundColor: '#ff0'
+		}).setScale(7/8);
 		}
 	}
 }
