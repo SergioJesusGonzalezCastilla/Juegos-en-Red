@@ -71,7 +71,11 @@ export class Opciones extends Phaser.Scene {
 			mod.play('buttonClick5989');
 			//meter tiempo espera
 			sonidoDisparo.play();
-			this.scene.start('modificar');
+			this.scene.transition({
+				target: 'modificar',
+				duration:1000,
+				data: { UserName: userNameFromPreviousScene }
+			});
 
 
 		});
