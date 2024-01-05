@@ -13,12 +13,14 @@ import org.springframework.web.socket.handler.TextWebSocketHandler;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 @Controller
 public class WebSocketHandlerPimPamPum extends TextWebSocketHandler {
 
 	// Mapa con el que realizaremos un seguimiento de los ususarios conectados
     private ConcurrentHashMap<String, Player> usuariosConectados = new ConcurrentHashMap<>();
+    private int numUsuariosConectados=0;
     	
     @Override
     public void afterConnectionEstablished(WebSocketSession session) throws Exception 
@@ -32,6 +34,7 @@ public class WebSocketHandlerPimPamPum extends TextWebSocketHandler {
 
             // Almacenar el nuevo jugador en el mapa
             usuariosConectados.put(userId, player);
+            numUsuariosConectados++;
 
             //Indicamos que hemos iniciado la conexión
             System.out.println("Usuario conectado con ID: " + userId);
@@ -51,6 +54,11 @@ public class WebSocketHandlerPimPamPum extends TextWebSocketHandler {
             ObjectMapper objectMapper = new ObjectMapper();
             JsonNode jsonNode = objectMapper.readTree(payload);
             
+            //En caso de que el tipo de mensaje sea numero_usuarios
+            if (jsonNode.has("tipo") && jsonNode.get("tipo").asText().equals("numero_usuarios")) {
+                // Agregamos la información de numUsuariosConectados al mensaje
+                ((ObjectNode) jsonNode).put("numUsuariosConectados", numUsuariosConectados);
+            }
             //Envíamos el mensaje a los usuarios
             notificarActualizacion(session, jsonNode);
             
@@ -71,6 +79,7 @@ public class WebSocketHandlerPimPamPum extends TextWebSocketHandler {
         if (userId != null && !userId.isEmpty()) {
             //Indicamos que hemos cerrado la conexión
         	usuariosConectados.remove(userId);
+        	numUsuariosConectados--;
             System.out.println("Conexión cerrada para el usuario con ID: " + userId);
         } else {
             // En caso de no obtener el ID
@@ -80,27 +89,31 @@ public class WebSocketHandlerPimPamPum extends TextWebSocketHandler {
     
  // Método que se encarga de enviar mensajes a todos los clientes con la información correspondiente
     private void notificarActualizacion(WebSocketSession session, JsonNode jsonNode) {
-        // Enviar mensaje a todos los usuarios conectados excepto al que lo ha enviado
-    	// No sería necesario que recibiese es ainformación, ya que forma parte directamente dle juego
-    	// Y por lo tanto ya dispone de ella
-        for (Player player : usuariosConectados.values()) {
-        	//Obtenemos la sesión de cada usuario
-            WebSocketSession userSession = player.getSession();
-            // Comprobamos que los usuarios estén conectados a la hora de mandar mensajes
-            //Verificamso que no sea el que las ha enviado
-            if (userSession != null && !userSession.getId().equals(session.getId())) {
-                try {
-                	//Se les envía un mensaje a los usuarios con la información
-                    userSession.sendMessage(new TextMessage(jsonNode.toString()));
-                  //En caso de haber algún problema durante el envío de información
-                } catch (IOException e) {
-                	//Indicamos lo correspondiente
-                	System.out.println("Se ha producido un error");
-                	//Imprimimos el error
-                    e.printStackTrace();
+        // Obtemción del tipo del mensaje
+        String tipoMensaje = jsonNode.has("tipo") ? jsonNode.get("tipo").asText() : "";
+
+        // Se verifica el tipo de mensaje
+        if ("numero_usuarios".equals(tipoMensaje)) {
+            // Si el mensaje es de tipo 'numero_usuarios', se envía exclusivamente al emisor
+            try {
+                session.sendMessage(new TextMessage(jsonNode.toString()));
+            } catch (IOException e) {
+                System.out.println("Error al enviar el mensaje al emisor");
+                e.printStackTrace();
+            }
+        } else {
+            // Si no es 'numero_usuarios', envía el mensaje a todos los usuarios conectados excepto al emisor
+            for (Player player : usuariosConectados.values()) {
+                WebSocketSession userSession = player.getSession();
+                if (userSession != null && !userSession.getId().equals(session.getId())) {
+                    try {
+                        userSession.sendMessage(new TextMessage(jsonNode.toString()));
+                    } catch (IOException e) {
+                        System.out.println("Se ha producido un error");
+                        e.printStackTrace();
+                    }
                 }
             }
         }
     }
-    
 }
