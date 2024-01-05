@@ -25,7 +25,16 @@ export class Modificar extends Phaser.Scene {
 	}
 
 	create() {
-
+		
+		/Se recibe el nombre del usuario 
+		var userNameFromPreviousScene;
+		if (this.scene.settings && this.scene.settings.data) {
+		    userNameFromPreviousScene = this.scene.settings.data.UserName;
+		    console.log('UserName:', userNameFromPreviousScene);
+		} else {
+		    console.error('No se pudo obtener el nombre del usuario.');
+		}
+		
 		sonidoDisparo = this.sound.add('sonidoDisparo');
 		var fondo = this.add.image(1280 / 2, 720 / 2, 'ModificarF').setInteractive();
 		var self=this;
@@ -360,7 +369,11 @@ export class Modificar extends Phaser.Scene {
 		atras.on('pointerdown', () => {
 			atras.play('buttonClickA');
 			sonidoDisparo.play();
-			this.scene.start('opciones');
+			this.scene.transition({
+				target: 'opciones',
+				duration:1000,
+			data: { UserName: userNameFromPreviousScene }
+			});
 		});
 
 		atras.on('pointerup', () => {
