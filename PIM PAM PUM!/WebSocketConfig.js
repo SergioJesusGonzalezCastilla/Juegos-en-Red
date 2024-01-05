@@ -14,7 +14,10 @@ export class WebSocketConfig {
         //Comportamiento al abrir la conexión
         this.socket.onopen = () => {
             console.log('WebSocket connection opened.');
-            // Puede realizar acciones adicionales cuando se abre la conexión aquí
+            this.socket.send(JSON.stringify({
+						tipo: 'numero_usuarios',
+					}));
+			console.log('Se ha mandado un mesnaje')
         };
     
         //Comportamiento al cerrar la conexión
