@@ -12,6 +12,10 @@ var damage_boost;
 var vaquero_1;
 var vaquero_2;
 
+//Booleanos para indicar cual de los jugadores se es
+var soy_1;
+var soy_2;
+
 // Balas
 var balas_vaquero_1;
 var balas_vaquero_2;
@@ -76,7 +80,6 @@ var sonidoDisparo;
 export class Game_Online extends Phaser.Scene {
 	constructor() {
 		super({ key: 'gameonline' });
-		this.ws = new WebSocket('ws://localhost:8080'); // Conexión con el servidor
 	}
 
 	preload() {
@@ -119,22 +122,9 @@ export class Game_Online extends Phaser.Scene {
 		//AUDIO
 		this.load.audio('sonidoFondo', 'sounds/BackgroundFightSound.mp3');
 		this.load.audio('sonidoDisparo', 'sounds/disparoSound.mp3');
-
-		//BOTON PAUSA
-		this.load.image('pausa', 'resources/BotonPausaS.png');
 	}
 	create() {
-		// Escuchar mensajes del servidor
-   		this.ws.addEventListener('message', (event) => {
-      			const data = JSON.parse(event.data);
-      			// Manejar datos recibidos del servidor en la pantalla de multijugador
-			if (event.code === 440) {
-        			console.log('Conexión cerrada. Demasiados jugadores en la partida.');
-        			// Redirige a la pantalla de inicio
-        			this.scene.start('menu-inicio'); 
-			}
-    		});
-		
+
 		//Se recibe el nombre del usuario 
 		var userNameFromPreviousScene;
 		if (this.scene.settings && this.scene.settings.data) {
@@ -143,10 +133,15 @@ export class Game_Online extends Phaser.Scene {
 		} else {
 		    console.error('No se pudo obtener el nombre del usuario.');
 		}
-		
+
 		// Creo un manager del websocket pasándole la escena actual
 		this.webSocketManager = new WebSocketConfig(this,userNameFromPreviousScene);
 		
+		//Inicializamos las variables que indican el juagdor que se es
+		soy_1=false;
+		soy_2=false;
+		
+
 		//FONDO
 		this.add.image(1280 / 2, 720 / 2, 'Desierto');
 
@@ -173,13 +168,7 @@ export class Game_Online extends Phaser.Scene {
 			var id_aux = "obstaculo_" + (index + 1);
 			obstaculo.id=id_aux;
 		});
-
-		//BOTON PAUSA
-		const pause_label = this.add.image(1280 / 2, 50, 'pausa').setScale(0.25).setInteractive();
-		pause_label.on('pointerdown', () => {
-			sonidoFondo.pause();
-			this.scene.switch('pause');
-		});
+		
 
 		//Agregamos los vaqueros
 		vaquero_1 = this.physics.add.sprite(100, HEIGHT / 4, 'vaquero_1').setScale(7 / 8);
@@ -189,8 +178,8 @@ export class Game_Online extends Phaser.Scene {
 		vaquero_2.setCollideWorldBounds(true);
 
 		//Asigno Id a los vaqueros, con el fin de poder establecer toda la lógica de websocket
-		vaquero_1.Id = "vaquero1"; 
-		vaquero_2.Id = "vaquero1";
+		vaquero_1.id = "vaquero_1"; 
+		vaquero_2.id = "vaquero_2";
 
 		//Agregamos las animaciones de cada vaquero
 		//Para el vaquero 1
@@ -228,7 +217,7 @@ export class Game_Online extends Phaser.Scene {
 
 		//Asignamos una vida al azar entre un rango de valores
 		obstaculos.children.iterate(function(child) {
-			child.vida = Phaser.Math.Between(150, 250);
+			child.vida =200;
 		});
 
 		// Agregamos las balas
@@ -238,45 +227,24 @@ export class Game_Online extends Phaser.Scene {
 		//Inicialización de variables
 		life1 = 100;
 		life2 = 100;
-		//Asignamos Ids
-		life1.Id = "life1";
-		life2.Id = "life2";
 
 		num_balas_1 = 4;
 		num_balas_2 = 4;
-		//Asignamos Ids
-		num_balas_1.Id = "nbalas1";
-		num_balas_2.Id = "nbalas2";
 
 		posibilidad_1 = true;
 		posibilidad_2 = true;
-		//Asignamos Ids
-		posibilidad_1.Id = "posibilidad1";
-		posibilidad_2.Id = "posibilidad2";
 
 		damage_1 = 10;
 		damage_2 = 10;
-		//Asignamos Ids
-		damage_1.Id = "damage1";
-		damage_2.Id = "damage2";
 
 		bullet_speed = 500;
-		//Asignamos Ids
-		bullet_speed.Id = "bulletspeed";
 
 		vida_total_perdida = 0;
 		vida_extra = 30;
 		corazon_1_mostrado = false;
 		corazon_2_mostrado = false;
-		//Asignamos Ids
-		vida_total_perdida.Id = "vida_perdida";
-		vida_extra.Id = "extravida";
-		corazon_1_mostrado.Id = "corazon1";
-		corazon_2_mostrado.Id = "corazon2";
 
 		total_balas_empleadas = 0;
-		//Asignamos Ids
-		total_balas_empleadas.Id = "balas_empleadas";
 
 		speedup_1_mostrado = false;
 		speedup_2_mostrado = false;
@@ -284,25 +252,12 @@ export class Game_Online extends Phaser.Scene {
 		velocidad_extra_2 = 0;
 		speedup_1_conseguido = 0;
 		speedup_2_conseguido = 0;
-		//Asignamos Ids
-		speedup_1_mostrado.Id = "speedup1";
-		speedup_2_mostrado.Id = "speedup2";
-		velocidad_extra_1.Id = "extravelocidad1";
-		velocidad_extra_2.Id = "extravelocidad2";
-		speedup_1_conseguido.Id = "speedup1";
-		speedup_2_conseguido.Id = "speedup2";
 
 		damage_boost_mostrado = false;
 		damage_boost_1_conseguido = false;
 		damage_boost_2_conseguido = false;
 		extra_damage_1 = 0;
 		extra_damage_2 = 0;
-		//Asignamos Ids
-		damage_boost_mostrado = "damage_b";
-		damage_boost_1_conseguido = "damage_b1";
-		damage_boost_2_conseguido = "damage_b2";
-		extra_damage_1 = "damage_e1";
-		extra_damage_2 = "damage_e2";
 
 		//Asignamos vidas a los vaqueros
 		vaquero_1.life = life1;
@@ -392,10 +347,10 @@ export class Game_Online extends Phaser.Scene {
 			colocar_texto_1();
 			// Se procede ahora a mandar la información por websocket
 			// En caso de que la conexión esté activa 
-			if (webSocketManager) {
+			if (this.webSocketManager) {
 				//Se manda el mensaje, pasándole el tipo, que en este caso será "vida_vaquero"
 				//También mandamos el id del obstáculo y la vida actual
-				webSocketManager.sendMessage({
+				this.webSocketManager.sendMessage({
 					tipo: 'vida_vaquero',
 					id: vaquero_1.id,
 					vida:vaquero_1.life
@@ -403,8 +358,13 @@ export class Game_Online extends Phaser.Scene {
 			}
 			//Realizamos la comprobación ya una vez se ha acabado de mandar la información
 			if (vaquero_1.life <= 0) {
-				this.scene.start('winJ2');
+				this.scene.transition({
+				target: 'winJ2',
+				duration:0,
+				data: { UserName: userNameFromPreviousScene, origen:'online' }
+				});
 				sonidoFondo.stop();
+				this.webSocketManager.cerrarConexion();
 			}
 		}
 		// Función con las acciones que se llevan a cabo en caso de que el jugador 1 sea golpeado
@@ -415,22 +375,27 @@ export class Game_Online extends Phaser.Scene {
 			vaquero_2.life -= bala.damage;
 			vida_total_perdida += bala.damage;
 			texto2.setText(vaquero_2.life);
-			colocar_texto_2();
 			// Se procede ahora a mandar la información por websocket
 			// En caso de que la conexión esté activa 
-			if (webSocketManager) {
+			if (this.webSocketManager) {
 				//Se manda el mensaje, pasándole el tipo, que en este caso será "vida_vaquero"
 				//También mandamos el id del obstáculo y la vida actual
-				webSocketManager.sendMessage({
+				this.webSocketManager.sendMessage({
 					tipo: 'vida_vaquero',
 					id: vaquero_2.id,
 					vida:vaquero_2.life
 				});
 			}
 			//Realizamos la comprobación ya una vez se ha acabado de mandar la información
+			colocar_texto_2();
 			if (vaquero_2.life <= 0) {
-				this.scene.start('winJ1');
+				this.scene.transition({
+				target: 'winJ1',
+				duration:0,
+				data: { UserName: userNameFromPreviousScene, origen:'online' }
+				});
 				sonidoFondo.stop();
+				this.webSocketManager.cerrarConexion();
 			}
 		}
 		//Colisiones de los personajes y las balas
@@ -443,18 +408,6 @@ export class Game_Online extends Phaser.Scene {
 			num_balas_1++;
 			total_balas_empleadas++;
 			obstaculo.vida -= bala.damage;
-			// Se procede ahora a mandar la información por websocket
-			// En caso de que la conexión esté activa 
-			if (webSocketManager) {
-				//Se manda el mensaje, pasándole el tipo, que en este caso será "vida_obstaculo"
-				//También mandamos el id del obstáculo y la vida actual
-				webSocketManager.sendMessage({
-					tipo: 'vida_obstaculo',
-					id: obstaculo.id,
-					vida: obstaculo.vida
-				});
-			}
-
 			//Finalmente, se destruye el obstáculo en caso de que no le quede vida
 			//Solo lo podemos llevar a cabo después de mandar la información, pues sino no habría que mandar
 			if (obstaculo.vida <= 0) {
@@ -468,18 +421,6 @@ export class Game_Online extends Phaser.Scene {
 			num_balas_2++;
 			total_balas_empleadas++;
 			obstaculo.vida -= bala.damage;
-			// Se procede ahora a mandar la información por websocket
-			// En caso de que la conexión esté activa 
-			if (webSocketManager) {
-				//Se manda el mensaje, pasándole el tipo, que en este caso será "vida_obstaculo"
-				//También mandamos el id del obstáculo y la vida actual
-				webSocketManager.sendMessage({
-					tipo: 'vida_obstaculo',
-					id: obstaculo.id,
-					vida: obstaculo.vida
-				});
-			}
-
 			//Finalmente, se destruye el obstáculo en caso de que no le quede vida
 			//Solo lo podemos llevar a cabo después de mandar la información, pues sino no habría que mandar
 			if (obstaculo.vida <= 0) {
@@ -504,17 +445,6 @@ export class Game_Online extends Phaser.Scene {
 			vaquero_1.life += vida_extra;
 			texto1.setText(vaquero_1.life);
 			colocar_texto_1();
-
-			if (webSocketManager) {
-				//Se manda el mensaje, pasándole el tipo, que en este caso será "extravida"
-				//También mandamos el id del vaquero y la vida actual
-				webSocketManager.sendMessage({
-					tipo: 'extravida',
-					id: vaquero_1.id,
-					vida:vaquero_1.life
-				});
-			}
-			
 			corazon.destroy();
 		}
 		function obtener_corazon_2(corazon, bala) {
@@ -524,17 +454,6 @@ export class Game_Online extends Phaser.Scene {
 			vaquero_2.life += vida_extra;
 			texto2.setText(vaquero_2.life);
 			colocar_texto_2();
-
-			if (webSocketManager) {
-				//Se manda el mensaje, pasándole el tipo, que en este caso será "extravida"
-				//También mandamos el id del vaquero y la vida actual
-				webSocketManager.sendMessage({
-					tipo: 'extravida',
-					id: vaquero_2.id,
-					vida:vaquero_2.life
-				});
-			}
-			
 			corazon.destroy();
 		}
 
@@ -555,16 +474,6 @@ export class Game_Online extends Phaser.Scene {
 			vaquero_1.setTint(0xffff00);
 			if (speedup_1_conseguido === 0) {
 				this.add.image(50, 130, 'gato').setScale(2 / 7);
-
-				if (webSocketManager) {
-				//Se manda el mensaje, pasándole el tipo, que en este caso será "extravida"
-				//También mandamos el id del vaquero y la vida actual
-				webSocketManager.sendMessage({
-					tipo: 'extravelocidad1',
-					id: vaquero_1.id,
-					speedup:velocidad_extra_1.speedup
-				});
-					
 			}
 			else {
 				this.add.image(50, 190, 'gato').setScale(2 / 7);
@@ -580,16 +489,6 @@ export class Game_Online extends Phaser.Scene {
 			vaquero_2.setTint(0xffff00);
 			if (speedup_2_conseguido === 0) {
 				this.add.image(WIDTH - 50, 130, 'gato').setScale(2 / 7);
-
-				if (webSocketManager) {
-				//Se manda el mensaje, pasándole el tipo, que en este caso será "extravida"
-				//También mandamos el id del vaquero y la vida actual
-				webSocketManager.sendMessage({
-					tipo: 'extravelocidad2',
-					id: vaquero_2.id,
-					speedup:velocidad_extra_2.speedup
-				});
-					
 			}
 			else {
 				this.add.image(WIDTH - 50, 190, 'gato').setScale(2 / 7);
@@ -610,17 +509,6 @@ export class Game_Online extends Phaser.Scene {
 			num_balas_1++;
 			total_balas_empleadas++;
 			extra_damage_1 += 5;
-
-			if (webSocketManager) {
-				//Se manda el mensaje, pasándole el tipo, que en este caso será "extravida"
-				//También mandamos el id del vaquero y la vida actual
-				webSocketManager.sendMessage({
-					tipo: 'damage_b',
-					id: vaquero_1.id,
-					damage: extra_damage_1.damage
-				});
-			}
-			
 			damage_boost.destroy();
 			this.add.image(130, 50, 'damage').setScale(2 / 7);
 			damage_boost_1_conseguido = true;
@@ -631,17 +519,6 @@ export class Game_Online extends Phaser.Scene {
 			num_balas_2++;
 			total_balas_empleadas++;
 			extra_damage_2 += 5;
-
-			if (webSocketManager) {
-				//Se manda el mensaje, pasándole el tipo, que en este caso será "extravida"
-				//También mandamos el id del vaquero y la vida actual
-				webSocketManager.sendMessage({
-					tipo: 'damage_b',
-					id: vaquero_2.id,
-					damage: extra_damage_2.damage
-				});
-			}
-			
 			damage_boost.destroy();
 			this.add.image(WIDTH - 162, 50, 'damage').setScale(2 / 7);
 			damage_boost_2_conseguido = true;
@@ -657,83 +534,84 @@ export class Game_Online extends Phaser.Scene {
 		//Continuamos el sonido si se pauso al entrar en la pausa
 		sonidoFondo.resume();
 		//Movimiento del vaquero 1
-		if (this.teclaD.isDown) {
+		if (this.teclaD.isDown && soy_1) {
 			vaquero_1.setVelocityX(BASE_SPEED + velocidad_extra_1);
 			vaquero_1.setVelocityY(0);
 			vaquero_1.x++;
 			vaquero_1.anims.play('andar_vaquero_1', true);
 			// Se procede ahora a mandar la información por websocket
 			// En caso de que la conexión esté activa 
-			if (webSocketManager) {
+			if (this.webSocketManager) {
 				//Se manda el mensaje, pasándole el tipo, que en este caso será "movimiento_vaquero"
 				//También mandamos la x y la y actual del vaquero
-				webSocketManager.sendMessage({
+				this.webSocketManager.sendMessage({
 					tipo: 'movimiento_vaquero',
 					id: vaquero_1.id,
 					x: vaquero_1.x,
-					y: vaquero_1.y
+					y: vaquero_1.y,
+					vel_x:BASE_SPEED + velocidad_extra_1,
+					vel_y:0
 				});
 			}
 		}
-		else if (this.teclaA.isDown) {
+		else if (this.teclaA.isDown && soy_1) {
 			vaquero_1.setVelocityX(-BASE_SPEED - velocidad_extra_1);
 			vaquero_1.setVelocityY(0);
 			vaquero_1.x--;
 			vaquero_1.anims.play('andar_vaquero_1', true);
 			//Mismo proceso que en anteriores casos
-			if (webSocketManager) {
-				webSocketManager.sendMessage({
+			if (this.webSocketManager) {
+				this.webSocketManager.sendMessage({
 					tipo: 'movimiento_vaquero',
 					id: vaquero_1.id,
 					x: vaquero_1.x,
-					y: vaquero_1.y
+					y: vaquero_1.y,
+					vel_x:-BASE_SPEED - velocidad_extra_1,
+					vel_y:0
 				});
 			}
 		}
-		else if (this.teclaW.isDown) {
+		else if (this.teclaW.isDown && soy_1) {
 			vaquero_1.setVelocityX(0);
 			vaquero_1.setVelocityY(-BASE_SPEED - velocidad_extra_1);
 			vaquero_1.y--;
 			vaquero_1.anims.play('andar_vaquero_1', true);
 			//Mismo proceso que en anteriores casos
-			if (webSocketManager) {
-				webSocketManager.sendMessage({
+			if (this.webSocketManager) {
+				this.webSocketManager.sendMessage({
 					tipo: 'movimiento_vaquero',
 					id: vaquero_1.id,
 					x: vaquero_1.x,
-					y: vaquero_1.y
+					y: vaquero_1.y,
+					vel_x:0,
+					vel_y:-BASE_SPEED - velocidad_extra_1
 				});
 			}
 		}
-		else if (this.teclaS.isDown) {
+		else if (this.teclaS.isDown && soy_1) {
 			vaquero_1.setVelocityX(0);
 			vaquero_1.setVelocityY(BASE_SPEED + velocidad_extra_1);
 			vaquero_1.y++;
 			vaquero_1.anims.play('andar_vaquero_1', true);
 			//Mismo proceso que en anteriores casos
-			if (webSocketManager) {
-				webSocketManager.sendMessage({
+			if (this.webSocketManager) {
+				this.webSocketManager.sendMessage({
 					tipo: 'movimiento_vaquero',
 					id: vaquero_1.id,
 					x: vaquero_1.x,
-					y: vaquero_1.y
+					y: vaquero_1.y,
+					vel_x:0,
+					vel_y:BASE_SPEED + velocidad_extra_1
 				});
 			}
 		}
 		else {
 			vaquero_1.setVelocityX(0);
 			vaquero_1.setVelocityY(0);
-			vaquero_1.anims.play('idle_vaquero_1', true);
-			//En este caso, solo pasamos el id, pues simplemente indicaremos que se active la correspondeinte animación
-			if (webSocketManager) {
-				webSocketManager.sendMessage({
-					tipo: 'parada_vaquero',
-					id: vaquero_1.id,
-				});
-			}
+			vaquero_1.anims.play('andar_vaquero_1', true);
 		}
 		//Gestión del disparo para el jugador 1
-		if (this.teclaF.isDown) {
+		if (this.teclaF.isDown && soy_1) {
 			if (num_balas_1 > 0 && posibilidad_1 === true) {
 				var imagen_1 = 'bala_vaquero_1';
 				var escala_1 = 1 / 2;
@@ -747,8 +625,8 @@ export class Game_Online extends Phaser.Scene {
 				posibilidad_1 = false;
 				num_balas_1--;
 				sonidoDisparo.play();
-				if (webSocketManager) {
-					webSocketManager.sendMessage({
+				if (this.webSocketManager) {
+					this.webSocketManager.sendMessage({
 						tipo: 'disparo_vaquero',
 						id: vaquero_1.id,
 						x: vaquero_1.x,
@@ -766,80 +644,81 @@ export class Game_Online extends Phaser.Scene {
 		}
 		//MOVIMIENTO VAQUERO 2
 
-		if (this.teclaL.isDown) {
+		if (this.teclaL.isDown && soy_2) {
 			vaquero_2.setVelocityX(BASE_SPEED + velocidad_extra_2);
 			vaquero_2.setVelocityY(0);
 			vaquero_2.x++;
 			vaquero_2.anims.play('andar_vaquero_2', true);
 			//Mismo proceso que en anteriores casos
-			if (webSocketManager) {
-				webSocketManager.sendMessage({
+			if (this.webSocketManager) {
+				this.webSocketManager.sendMessage({
 					tipo: 'movimiento_vaquero',
 					id: vaquero_2.id,
 					x: vaquero_2.x,
-					y: vaquero_2.y
+					y: vaquero_2.y,
+					vel_x:BASE_SPEED + velocidad_extra_2,
+					vel_y:0
 				});
 			}
 		}
-		else if (this.teclaJ.isDown) {
+		else if (this.teclaJ.isDown && soy_2) {
 			vaquero_2.setVelocityX(-BASE_SPEED - velocidad_extra_2);
 			vaquero_2.setVelocityY(0);
 			vaquero_2.x--;
 			vaquero_2.anims.play('andar_vaquero_2', true);
 			//Mismo proceso que en anteriores casos
-			if (webSocketManager) {
-				webSocketManager.sendMessage({
+			if (this.webSocketManager) {
+				this.webSocketManager.sendMessage({
 					tipo: 'movimiento_vaquero',
 					id: vaquero_2.id,
 					x: vaquero_2.x,
-					y: vaquero_2.y
+					y: vaquero_2.y,
+					vel_x:-BASE_SPEED - velocidad_extra_2,
+					vel_y:0
 				});
 			}
 		}
-		else if (this.teclaI.isDown) {
+		else if (this.teclaI.isDown && soy_2) {
 			vaquero_2.setVelocityX(0);
 			vaquero_2.setVelocityY(-BASE_SPEED - velocidad_extra_2);
 			vaquero_2.y--;
 			vaquero_2.anims.play('andar_vaquero_2', true);
 			//Mismo proceso que en anteriores casos
-			if (webSocketManager) {
-				webSocketManager.sendMessage({
+			if (this.webSocketManager) {
+				this.webSocketManager.sendMessage({
 					tipo: 'movimiento_vaquero',
 					id: vaquero_2.id,
 					x: vaquero_2.x,
-					y: vaquero_2.y
+					y: vaquero_2.y,
+					vel_x:0,
+					vel_y:-BASE_SPEED - velocidad_extra_2
 				});
 			}
 		}
-		else if (this.teclaK.isDown) {
+		else if (this.teclaK.isDown && soy_2) {
 			vaquero_2.setVelocityX(0);
 			vaquero_2.setVelocityY(BASE_SPEED + velocidad_extra_2);
 			vaquero_2.y++;
 			vaquero_2.anims.play('andar_vaquero_2', true);
 			//Mismo proceso que en anteriores casos
-			if (webSocketManager) {
-				webSocketManager.sendMessage({
+			if (this.webSocketManager) {
+				this.webSocketManager.sendMessage({
 					tipo: 'movimiento_vaquero',
 					id: vaquero_2.id,
 					x: vaquero_2.x,
-					y: vaquero_2.y
+					y: vaquero_2.y,
+					vel_x:0,
+					vel_y:BASE_SPEED + velocidad_extra_2
 				});
 			}
 		}
 		else {
 			vaquero_2.setVelocityX(0);
 			vaquero_2.setVelocityY(0);
-			vaquero_2.anims.play('idle_vaquero_2', true);
-			//En este caso, solo pasamos el id, pues simplemente indicaremos que se active la correspondeinte animación
-			if (webSocketManager) {
-				webSocketManager.sendMessage({
-					tipo: 'parada_vaquero',
-					id: vaquero_2.id,
-				});
-			}
+			vaquero_2.anims.play('andar_vaquero_2', true);
 		}
 		//Gestión del disparo para el jugador 2
-		if (this.teclaH.isDown) {
+		if (this.teclaH.isDown && soy_2) {
 			if (num_balas_2 > 0 && posibilidad_2 === true) {
 				var imagen_2 = 'bala_vaquero_2';
 				var escala_2 = 1 / 2;
@@ -853,8 +732,8 @@ export class Game_Online extends Phaser.Scene {
 				posibilidad_2 = false;
 				num_balas_2--;
 				sonidoDisparo.play();
-				if (webSocketManager) {
-					webSocketManager.sendMessage({
+				if (this.webSocketManager) {
+					this.webSocketManager.sendMessage({
 						tipo: 'disparo_vaquero',
 						id: vaquero_2.id,
 						x: vaquero_2.x,
@@ -902,119 +781,103 @@ export class Game_Online extends Phaser.Scene {
 			corazon_2_mostrado = true;
 		}
 		//Comprobaremos la cantidad de balas totales empleadas para crear los objetos speedup en función de la misma
-		if (total_balas_empleadas >= (Phaser.Math.Between(20, 35)) && speedup_1_mostrado === false) {
+		if (total_balas_empleadas >= 25 && speedup_1_mostrado === false) {
 			speedup.create(WIDTH / 2, 1 * HEIGHT / 6 + 20, 'gato').setScale(1 / 2);
 			speedup_1_mostrado = true;
 		}
 
-		if (total_balas_empleadas >= (Phaser.Math.Between(50, 65)) && speedup_2_mostrado === false) {
+		if (total_balas_empleadas >= 57 && speedup_2_mostrado === false) {
 			speedup.create(WIDTH / 2, 6 * HEIGHT / 8, 'gato').setScale(1 / 2);
 			speedup_2_mostrado = true;
 		}
 
 		//Comprobaremos la cantidad de balas totales empleadas para crear los objetos damage_boost en función de la misma
-		if (total_balas_empleadas >= (Phaser.Math.Between(40, 55)) && damage_boost_mostrado === false) {
+		if (total_balas_empleadas >= 47 && damage_boost_mostrado === false) {
 			damage_boost.create(WIDTH / 2, HEIGHT / 2, 'damage').setScale(1 / 2);
 			damage_boost_mostrado = true;
 		}
-	
+	}
+
 	// Método que se encarga de manejar los mensajes que le lleguen al websocket
 	handleWebSocketMessage(data)
 	{
+		console.log('Manejando mensaje:', data);
 		//En función de los datos recibidos
-		switch (data.type) {
-			case 'vida_obstaculo':
-				this.gestionVidaObstaculo(data.data);
-				break;
-
+		switch (data.tipo) {
 			case 'movimiento_vaquero':
 			{
-				this.gestionMovimientoVaquero(data.data);
+				this.gestionMovimientoVaquero(data);
 				break;
 			}
 
 			case 'parada_vaquero':
 			{
-				this.gestionParadaVaquero(data.data);
-				break;
-			}
-				
-			case 'vida_vaquero':
-			{
-				this.gestionVidaVaquero(data.data);
+				this.gestionParadaVaquero(data);
 				break;
 			}
 
 			case 'disparo_vaquero':
 			{
-				this.gestionDisparoVaquero(data.data);
+				this.gestionDisparoVaquero(data);
 				break;
 			}
-				
+			
+			case 'vida_vaquero':
+			{
+				this.gestionVidaVaquero(data);
+				break;
+			}
+			
+			case 'numero_usuarios':
+			{
+				this.gestionNumeroUsuarios(data);
+				break;
+			}
+
 			default:
 				console.warn('Se ha recibido un mensaje desconodido: ' +data.data);
 		}
 	}
 
-	//Método que se encarga de gestionar la vida de los obstáculos al recibir un mensaje
-	gestionVidaObstaculo(datos_vida)
-	{
-		//Primero buscamos el obstáuclo cuyo id coincida con el recibido
-		const obstaculo = this.obstaculos.getById(datos_vida.id);
 
-		//Si se ha encontrado el obstáculo...
-		if (obstaculo) {
-			// Primero actualizamos la vida del obstáculo
-			obstaculo.vida = datos_vida.vida;
-	
-			// Después se comprueba si su vida es <=0, en cuyo caso se destruye
-			if (obstaculo.vida <= 0) {
-				obstaculo.destroy();
-			}
-			total_balas_empleadas++
-		} else {
-			console.warn("No se ha encontrado el obstáculo");
-		}
-	}
+	gestionMovimientoVaquero(datos_movimiento) {
+    // Seleccionamos el vaquero según el id recibido
+    const vaquero = (datos_movimiento.id === vaquero_1.id) ? vaquero_1 : (datos_movimiento.id === vaquero_2.id) ? vaquero_2 : null;
 
-	//Método que se encarga de gestionar el movimiento de los vaqueros
-	gestionMovimientoVaquero(datos_movimiento)
-	{
-		//Primero comprobaremos si el id pertenece al primer vaquero
-		if (vaquero_1.id === datos_movimiento.id)
-		{
-			//Actualizamos la posición del personaje 1
-			vaquero_1.x=datos_movimiento.x;
-			vaquero_1.y=datos_movimiento.y;
-			vaquero_1.anims.play('andar_vaquero_1', true);
-		}
+    if (!vaquero) {
+        console.warn("El id no corresponde con ningún vaquero", datos_movimiento);
+        return;
+    }
 
-		//Ahora comprobaremos si el id pertenece al segundo vaquero
-		else if (vaquero_2.id === datos_movimiento.id)
-		{
-			//Actualizamos la posición del personaje 2
-			vaquero_2.x=datos_movimiento.x;
-			vaquero_2.y=datos_movimiento.y;
-			vaquero_2.anims.play('andar_vaquero_2', true);
-		}
-		else
-		{
-			console.warn("El id no corresponde con ningún vaquero");
-		}
-	}
+    // Actualizamos la posición del vaquero
+    vaquero.setVelocityX(datos_movimiento.vel_x);
+    vaquero.setVelocityY(datos_movimiento.vel_y);
+    vaquero.x = datos_movimiento.x;
+    vaquero.y = datos_movimiento.y;
 
+    // Reproducir animación solo si no está en reproducción actualmente y no hay otra animación en curso
+    const animacion = (datos_movimiento.vel_x !== 0 || datos_movimiento.vel_y !== 0) ? 'andar' : 'idle';
+
+    if (!vaquero.anims.isPlaying && vaquero.anims.currentAnim.key !== `${animacion}_vaquero_${vaquero.id}`) {
+        vaquero.anims.play(`${animacion}_vaquero_${vaquero.id}`, true);
+    }
+}
 	//Método que se encargará de gestionar las paradas de los vaqueros
 	gestionParadaVaquero(datos_parada)
 	{
 		//Primero comprobaremos si el id pertenece al primer vaquero
 		if (vaquero_1.id === datos_parada.id)
 		{
+			vaquero_1.setVelocityX(0);
+			vaquero_1.setVelocityY(0);
 			vaquero_1.anims.play('idle_vaquero_1', true);
 		}
 
 		//Ahora comprobaremos si el id pertenece al segundo vaquero
 		else if (vaquero_2.id === datos_parada.id)
 		{
+			vaquero_2.setVelocityX(0);
+			vaquero_2.setVelocityY(0);
 			vaquero_2.anims.play('idle_vaquero_2', true);
 		}
 		else
@@ -1022,38 +885,7 @@ export class Game_Online extends Phaser.Scene {
 			console.warn("El id no corresponde con ningún vaquero");
 		}
 	}
-	//Método que se encargará de gestionar la vida de los vaqueros
-	gestionVidaVaquero(datos_vida)
-	{
-		//Llevaremos a cabo primero unas acciones en caso de que el vaquero sea el primero
-		if (vaquero_1.id === datos_vida.id) 
-		{
-			vaquero_1.life=datos_vida.vida;
-			texto1.setText(vaquero_1.life);
-			colocar_texto_1();
-			if (vaquero_1.life <= 0) {
-				this.scene.start('winJ2');
-				sonidoFondo.stop();
-			}
-			total_balas_empleadas++
-		} 
-		else if (vaquero_2.id === datos_vida.id) 
-		{
-			vaquero_2.life=datos_vida.vida;
-			texto2.setText(vaquero_2.life);
-			colocar_texto_2();
-			if (vaquero_2.life <= 0) {
-				this.scene.start('winJ1');
-				sonidoFondo.stop();
-			}
-			total_balas_empleadas++
-		} 
-		else 
-		{
-			console.warn("El ID no corresponde con ningún vaquero");
-			return;
-		}
-	}
+
 	//Metodo para crear y dirigir las balas	
 	gestionDisparoVaquero(datos_disparo)
 	{
@@ -1064,17 +896,105 @@ export class Game_Online extends Phaser.Scene {
 			var bala = balas_vaquero_1.create(datos_disparo.x + 100, datos_disparo.y, datos_disparo.imagen).setScale(datos_disparo.escala);
 			bala.damage = datos_disparo.damage;
 			bala.setVelocity(bullet_speed, 0);
+			sonidoDisparo.play();
 		}
-		else if (vaquero_2.id === datos_vida.id) 
+		else if (vaquero_2.id === datos_disparo.id) 
 		{
-			var bala = balas_vaquero_2.create(datos_disparo.x -100, datos_disparo.y, datos_disparo.imagen).setScale(datos_disparo.imagen);
+			console.log('Se va a disparar una bala del vaquero 2');
+			var bala = balas_vaquero_2.create(datos_disparo.x -100, datos_disparo.y, datos_disparo.imagen).setScale(datos_disparo.escala);
 			bala.damage = datos_disparo.damage;
 			bala.setVelocity(-bullet_speed, 0);
+			sonidoDisparo.play();
 		} 
 		else 
 		{
 			console.warn("El ID no corresponde con ningún vaquero");
 			return;
+		}
+	}
+	
+	//Método que se encargará de gestionar la vida de los vaqueros
+	gestionVidaVaquero(datos_vida)
+	{
+		// Función para colocar correctamente el texto 1
+		function colocar_texto_1() {
+			if (vaquero_1.life < 100 && vaquero_1.life >= 10) {
+				texto1.setX(28)
+			}
+			else if (vaquero_1.life < 10 && vaquero_1.life >= 0) {
+				texto1.setX(38)
+			}
+			else {
+				texto1.setX(17)
+			}
+		}
+
+		//Función para colocar correctamente el texto 2
+		function colocar_texto_2() {
+			if (vaquero_2.life < 100 && vaquero_2.life >= 10) {
+				texto2.setX(WIDTH - 71)
+			}
+			else if (vaquero_2.life < 10 && vaquero_2.life >= 0) {
+				texto2.setX(WIDTH - 61)
+			}
+			else {
+				texto2.setX(WIDTH - 82)
+			}
+		}
+		//Llevaremos a cabo primero unas acciones en caso de que el vaquero sea el primero
+		if (vaquero_1.id === datos_vida.id) 
+		{
+			vaquero_1.life=datos_vida.vida;
+			texto1.setText(vaquero_1.life);
+			colocar_texto_1();
+			if (vaquero_1.life <= 0) {
+				this.scene.transition({
+				target: 'winJ2',
+				duration:0,
+				data: { UserName: userNameFromPreviousScene, origen:'online' }
+			});
+				sonidoFondo.stop();
+				this.webSocketManager.cerrarConexion();
+			}
+			total_balas_empleadas++
+		} 
+		else if (vaquero_2.id === datos_vida.id) 
+		{
+			vaquero_2.life=datos_vida.vida;
+			texto2.setText(vaquero_2.life);
+			colocar_texto_2();
+			if (vaquero_2.life <= 0) {
+				this.scene.transition({
+				target: 'winJ1',
+				duration:0,
+				data: { UserName: userNameFromPreviousScene, origen:'online' }
+			});
+				sonidoFondo.stop();
+				this.webSocketManager.cerrarConexion();
+			}
+			total_balas_empleadas++
+		} 
+		else 
+		{
+			console.warn("El ID no corresponde con ningún vaquero");
+			return;
+		}
+	}
+	gestionNumeroUsuarios(datos_usuarios)
+	{
+		if (datos_usuarios.numUsuariosConectados === 1)
+		{
+			soy_1=true;
+			console.log('Eres el jugador 1');
+		}
+		else if (datos_usuarios.numUsuariosConectados === 2)
+		{
+			soy_2=true;
+			console.log('Eres el jugador 2');
+		}
+		else
+		{
+			console.log('¡Bienvenido al modo espectador!')
 		}
 	}
 }
