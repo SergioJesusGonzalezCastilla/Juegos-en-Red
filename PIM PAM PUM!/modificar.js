@@ -25,8 +25,8 @@ export class Modificar extends Phaser.Scene {
 	}
 
 	create() {
-		
-		/Se recibe el nombre del usuario 
+
+		//Se recibe el nombre del usuario 
 		var userNameFromPreviousScene;
 		if (this.scene.settings && this.scene.settings.data) {
 		    userNameFromPreviousScene = this.scene.settings.data.UserName;
@@ -34,7 +34,7 @@ export class Modificar extends Phaser.Scene {
 		} else {
 		    console.error('No se pudo obtener el nombre del usuario.');
 		}
-		
+
 		sonidoDisparo = this.sound.add('sonidoDisparo');
 		var fondo = this.add.image(1280 / 2, 720 / 2, 'ModificarF').setInteractive();
 		var self=this;
@@ -78,13 +78,7 @@ export class Modificar extends Phaser.Scene {
 		var text3 = this.add.text(280 / 2, 1076 / 2, '', { fontSize: '32px', fill: '#000' }).setInteractive();
 		var text3Aux = this.add.text(5000, 5000, '', { fontSize: '32px', fill: '#000' }).setInteractive();
 
-
-		text.on('pointerdown', () => {
-			Bool1 = true;
-			Bool2 = false;
-			Bool3 = false;
-
-		});
+		text.text = userNameFromPreviousScene;
 
 		text2.on('pointerdown', () => {
 			Bool1 = false;
@@ -123,14 +117,7 @@ export class Modificar extends Phaser.Scene {
 
 		this.input.keyboard.on('keydown', function(event) {
 			// Verificar si se ha presionado una tecla alfanumérica
-			if (/^[a-zA-Z0-9]$/.test(event.key) && Bool1) {
-				// Actualizar el texto con la tecla presionada
-
-				text.text += event.key;
-				const buttonId = barra.getData('name');
-			}
-
-			else if (/^[a-zA-Z0-9]$/.test(event.key) && Bool2) {
+			if (/^[a-zA-Z0-9]$/.test(event.key) && Bool2) {
 				text2.text += '*';
 				text2Aux.text += event.key;
 				const buttonId = barra.getData('password');
@@ -139,10 +126,6 @@ export class Modificar extends Phaser.Scene {
 				text3.text += '*';
 				text3Aux.text += event.key;
 				const buttonId = barra.getData('password');
-			}
-			else if (event.key === 'Backspace' && Bool1) {
-				// Eliminar el último carácter si se presiona la tecla "Backspace"
-				text.text = text.text.slice(0, -1);
 			}
 			else if (event.key === 'Backspace' && Bool2) {
 				// Eliminar el último carácter si se presiona la tecla "Backspace"
@@ -155,33 +138,6 @@ export class Modificar extends Phaser.Scene {
 				text3Aux.text = text3Aux.text.slice(0, -1);
 			}
 		});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 		//eliminar
 		this.anims.create({
