@@ -17,6 +17,9 @@ export class WebSocketConfig {
             this.socket.send(JSON.stringify({
 						tipo: 'numero_usuarios',
 					}));
+			this.socket.send(JSON.stringify({
+				tipo: 'juego_iniciado',
+			}));
 			console.log('Se ha mandado un mesnaje')
         };
     
