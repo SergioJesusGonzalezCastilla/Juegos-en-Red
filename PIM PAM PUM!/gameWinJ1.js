@@ -19,7 +19,32 @@ var sonidoDisparo;
     }
 
     create(){
-
+		//Se recibe el nombre del usuario 
+		var userNameFromPreviousScene;
+		if (this.scene.settings && this.scene.settings.data) {
+		    userNameFromPreviousScene = this.scene.settings.data.UserName;
+		    console.log('UserName:', userNameFromPreviousScene);
+		} else {
+		    console.error('No se pudo obtener el nombre del usuario.');
+		}
+		var escena_origen;
+		if (this.scene.settings && this.scene.settings.data) {
+		    escena_origen = this.scene.settings.data.origen;
+		    console.log('UserName:', escena_origen);
+		} else {
+		    console.error('No se pudo obtener el nombre del usuario.');
+		}
+		//Esstablecemos el objetivo de la escena:
+		var destino;
+		if(escena_origen==='online')
+		{
+			destino='gameonline';
+		}
+		else
+		{
+			destino='game';
+		}
+		
         this.add.image(1280/2, 720/2, 'Gana Jugador 1');  
         sonidoFondoG1 = this.sound.add('sonidoGana1');
         sonidoDisparo = this.sound.add('sonidoDisparo');
@@ -115,8 +140,9 @@ var sonidoDisparo;
             revancha.play('buttonClick8');
               //meter tiempo espera
               this.scene.transition({
-                  target: 'game',
+                  target: destino,
                   duration:1000,
+                  data: { UserName: userNameFromPreviousScene }
               });
               sonidoFondoG1.stop();
               sonidoDisparo.play();
