@@ -157,7 +157,7 @@ export class gamePiratas extends Phaser.Scene{
         const pause_label=this.add.image(1280/2,50, 'pausa').setScale(0.25).setInteractive();
         pause_label.on('pointerdown', () => {
             sonidoFondo.pause();
-            this.scene.switch('pause');
+            this.scene.switch('pausePiratas');
         });
 
         //Agregamos los vaqueros
