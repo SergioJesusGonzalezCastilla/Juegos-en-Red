@@ -219,13 +219,6 @@ En esta versión del documento de diseño, divideremos entre aquellos que ya han
       <br><br>
 </p>
 
-
-**Elementos pendientes de implementar**
-
--Rayo cronolítico: Permite disparar un mayor número de balas o elementos equivalentes antes de que estos se recarguen. En el entorno del juego, se presenta al usuario como un conjunto de chispas de tonos azulados. Gráficamente, se distingue al usuario que ha adquirido esta ventaja haciendo su arma más grande. 
-
--Esfera de las eras: Permite que las balas reboten en los bordes de la pantalla durante un periodo limitado de tiempo. En el entorno de juego se presenta al usuario como un conjunto de burbujas de tonos verdosos. Gráficamente, se distinguen de las balas normales mediante un aura verdosa a su alrededor. 
-
 - **VAQUEROS:** 
 
 **Elementos implementados**
@@ -239,42 +232,27 @@ En esta versión del documento de diseño, divideremos entre aquellos que ya han
       <br><br>
 </p>
 
-**Elementos pendientes de implementar**
-
--Barrilla: Se trata de un arbusto que atraviesa el escenario de forma esporádica y bloquea un proyectil de cualquiera de los participantes, tras lo cual se rompe. En el entorno de juego, se muestra como un arbusto seco que recorre el escenario de arriba abajo. 
-
--Placa de sheriff: Los próximos tres disparos del jugador se convierten en dardos, que paralizan al enemigo durante unos segundos en caso de acertarle, además de quitarle la correspondiente cantidad de vida. Si se acierta, el resto de los dardos restantes pasan a ser balas normales. En el entorno del juego, se presenta como una estrella dorada. Gráficamente, las balas pasan a convertirse en dardos, más afilados, de modo que se diferencien de unas balas clásicas. 
-
--Dinamita: Cuando un jugador consigue este potenciador, el próximo disparo será el de un conjunto de pólvora, que destruirá inmediatamente una cobertura del campo del jugador o del enemigo. En el entorno del juego, se presenta como tres cartuchos de dinamita juntos, que luego serán lanzados en el siguiente disparo al disparar si se consigue el potenciador. 
-
 - **PIRATAS:**
   
-**Elementos pendientes de implementar**
+**Elementos implementados**
 
--Barril de pólvora: Proyectil que al impactar con un borde de pantalla explota y hace daño en área tanto al entorno y posibles coberturas, como a personajes. En el mundo del juego se representa como un barril con una calavera en medio, que será lanzado en el disparo inmediatamente posterior a su obtención. 
+- Bala de cañón flamígera: Sustituye las balas estándar de los jugadores por balas flamígeras durante el resto de la partida, las cuales ejercen una mayor cantidad de daño sobre los personajes. En el entorno del juego se visualiza como una bala de cañon envuelta en llamas. También de esta forma se ven las nuevas balas disparadas.
 
--Remolino: Aparece esporádicamente en diferentes puntos del escenario, impidiendo el movimiento del jugador que caiga en el durante unos segundos. En el mundo del juego, se muestra como una espiral de tonos azulados. 
+<p align="center">
+      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Bala de cañón fuego.png">
+      <br><br>
+      <b>Ilustración 6. Potenciador "Bala de cañón flamígera" en el entorno de juego</b>
+      <br><br>
+</p>
 
--Tiburón:  Se muestra de vez en cuando por el escenario, causando un pequeño descenso en la vida del jugador que entre en contacto con él. Se muestra en el mundo del juego como una sombra bajo el agua, con una aleta en la superficie. 
+- Michipum pirata: Un pequeño gato que se ha colado en la A.I.C.A. Aumenta la velocidad de movimiento durante el resto de la partida. En el entorno de juego se presentan al usuario como una cabeza de gato con una estética adaptada al nivel en función del periodo histórico en que se ambiente. Gráficamente, se distingue al jugador que posee esta ventaja con un aura dorada a su alrededor.
 
-- **MEDIEVAL:**
-  
-**Elementos pendientes de implementar**
-
--Flecha de fuego: Proyectil que al impactar con un borde de pantalla prende fuego a su alrededor, tocar el fuego hace perder vida por segundo. El fuego se extingue tras un breve periodo de tiempo. En el mundo del fuego, se presenta como una llama embotellada. Las flechas afectadas por este potenciador cuentan con una pequeña llama en la parte de arriba. 
-
--Carga de arco: Potencia el disparo siguiente, de forma que se lancen dos flechas consecutivamente. Se muestra en el entorno de juego como un carcaj dorado. 
-
--Pócima de fuerza: Proporciona al jugador que se haga con ella mayor potencia en los tres disparos siguientes. En el entorno del juego, se presenta como un matraz con un líquido morado en su interior. Las fechas afectadas por este potenciador tendrán color morado. 
-
-- **ESPACIO:** 
-
-**Elementos pendientes de implementar**
--Escudo de fuerza: El jugador que logre hacerse con este potenciador no perderá vida por el próximo disparo que reciba. Se muestra en el entorno del juego como un conjunto de burbujas metálicas. Para representar esta protección, el personaje que lo utilice tendrá una esfera plateada rodeándole. 
-
--Lluvia de meteoritos: Fenómeno que tiene lugar de vez en cuando en el entorno espacial, mediante el cual una serie de meteoritos atraviesan el escenario, dañando el entorno y a los jugadores. Se muestra en el mundo de juego como una serie de meteoritos que lo recorren de arriba abajo. 
-
--Virus desconocido: En caso de que un jugador entre en contacto con él, perderá vida constantemente durante un cierto periodo de tiempo. Se muestra en el entorno del juego como un virus estrellado de tonos verdosos. El jugador afectado por el mismo tendrá tonalidades verdosas. 
+<p align="center">
+      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Gato pirata.png">
+      <br><br>
+      <b>Ilustración 5. Potenciador "Michipum" en el entorno de juego para el escenario Piratas al abordaje</b>
+      <br><br>
+</p>
 
 **5. Interfaces**
 
