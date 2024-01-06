@@ -19,7 +19,7 @@ import {Opciones }from './opciones_online.js';
 import {Modificar }from './modificar.js';
 import {Game_Online }from './game_online.js';
 import {Meme }from './meme.js';
-import {LLeno }from './lleno.js';
+import {Lleno }from './lleno.js';
 
  
 const WIDTH = 1280;
