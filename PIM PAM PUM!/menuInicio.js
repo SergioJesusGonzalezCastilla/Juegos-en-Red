@@ -171,7 +171,7 @@ export class Minicio extends Phaser.Scene{
             ajustes.on('pointerdown', () => {
                 ajustes.play('buttonClick2');
                 this.scene.transition({
-                    target: 'ajustes',
+                    target: 'ajustes1',
                     duration:1000,
                     
                 });
