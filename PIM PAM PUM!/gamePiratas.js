@@ -125,7 +125,7 @@ export class gamePiratas extends Phaser.Scene{
         this.load.audio('sonidoDisparo','sounds/DisparoPiratas.mp3');
 
         //BOTON PAUSA
-        this.load.image('pausa','resources/BotonPausaS.png');
+        this.load.image('pausa','resources/BotonPausaP.png');
     }
     create ()
     {
