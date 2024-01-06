@@ -103,6 +103,8 @@ export class gamePiratas extends Phaser.Scene{
         //PLAYERS SPRITES
         this.load.spritesheet('pirata_1', 'resources/Piratas/Spritesheetfinal barco1.png',{ frameWidth: 298, frameHeight: 116 });
         this.load.spritesheet('pirata_2', 'resources/Piratas/Spritesheet final2.png',{ frameWidth: 298, frameHeight: 116 });
+        this.load.spritesheet('musicaBoton','resources/ajustes/musicaB.png',{ frameWidth: 370, frameHeight: 77 })   
+
 
         //BALAS
         this.load.image('bala_pirata','resources/Piratas/Bala de cañon.png');
@@ -499,6 +501,56 @@ export class gamePiratas extends Phaser.Scene{
         //Colisiones entre los objetos de damage_boost y las balas
         this.physics.add.collider(damage_boost, balas_pirata_1,obtener_damage_boost_1, null, this);
         this.physics.add.collider(damage_boost, balas_pirata_2,obtener_damage_boost_2, null, this);
+
+        const mute = this.add.sprite(795, 50, 'musicaBoton').setInteractive().setScale(1/2);
+        
+        // Botón VOLVER
+        // Define las animaciones del botón
+        this.anims.create({
+         key: 'buttonNormal599',
+          frames: this.anims.generateFrameNumbers('musicaBoton', { start: 0, end: 0 }),
+          frameRate: 1,
+          repeat: 0
+        });
+    
+        this.anims.create({
+          key: 'buttonHover599',
+          frames: this.anims.generateFrameNumbers('musicaBoton', { start: 1, end: 1 }),
+          frameRate: 1,
+            repeat: 0
+        });
+    
+        this.anims.create({
+          key: 'buttonClick599',
+          frames: this.anims.generateFrameNumbers('musicaBoton', { start: 0, end: 0 }),
+          frameRate: 1,
+          repeat: 0
+        });
+    
+        // Configura la interactividad del botón
+        mute.on('pointerover', () => {
+          mute.play('buttonHover599');
+        });
+    
+        mute.on('pointerout', () => {
+          mute.play('buttonNormal599');
+        });
+    
+        mute.on('pointerdown', () => {
+          mute.play('buttonClick599');
+            //meter tiempo espera
+            sonidoFondo.mute = !sonidoFondo.mute;
+    
+    
+    
+          });
+    
+          mute.on('pointerup', () => {
+            mute.play('buttonHover599');
+          });
+    
+    
+    
     }
 
     update ()
