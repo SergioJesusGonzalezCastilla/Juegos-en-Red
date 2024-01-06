@@ -593,7 +593,7 @@ Cuando las protecciones son destruidas, los sprites son reemplazados por unos ig
  - Isla 1 hundida:
    
     <p align="center">
-      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Isla izq hundida.png">
+      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Isla izquierda hundida.png">
       <br><br>
       <b>Ilustración 43. Isla 1 hundida</b>
       <br><br>
@@ -602,7 +602,7 @@ Cuando las protecciones son destruidas, los sprites son reemplazados por unos ig
 - Isla 2 hundida:
    
     <p align="center">
-      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Isla derech hundida.png">
+      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Isla derecha hundida.png">
       <br><br>
       <b>Ilustración 44. Isla 2 hundida</b>
       <br><br>
