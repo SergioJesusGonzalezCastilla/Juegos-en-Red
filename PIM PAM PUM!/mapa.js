@@ -111,7 +111,7 @@ export class Mapas extends Phaser.Scene{
             piratas.play('buttonClickP4');
             //meter tiempo espera
             this.scene.transition({
-                target: 'gamePirata',
+                target: 'gamePiratas',
                 duration:1000,
             });
               sonidoFondo.stop();
