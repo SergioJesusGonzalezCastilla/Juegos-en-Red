@@ -8,12 +8,12 @@ var HEIGHT = 720;
 export class Ajustes extends Phaser.Scene{
 
   constructor(){
-    super({key:'ajustes'});
+    super({key:'ajustes1'});
   }
 
   preload(){
 
-    this.load.image('AjustesF', 'resources/ajustes/FondoAjustesFinal.png')
+    this.load.image('AjustesF', 'resources/ajustes/AjustesDefinitivo.png')
     .spritesheet('botonVolver','resources/botones/Volver.png',{ frameWidth: 286, frameHeight: 102 })   
     .spritesheet('musicaBoton','resources/ajustes/musicaB.png',{ frameWidth: 370, frameHeight: 77 })   
     this.load.audio('sonidoDisparo','sounds/disparoSound.mp3')
@@ -31,7 +31,7 @@ export class Ajustes extends Phaser.Scene{
     sonidoFondoA.play();
 
 
-    const volver = this.add.sprite(620, 640, 'botonVolver').setInteractive();
+    const volver = this.add.sprite(620, 610, 'botonVolver').setInteractive();
         
     // Botón VOLVER
     // Define las animaciones del botón
@@ -81,7 +81,7 @@ export class Ajustes extends Phaser.Scene{
       });
            
 
-      const mute = this.add.sprite(620, 340, 'musicaBoton').setInteractive();
+      const mute = this.add.sprite(620, 355, 'musicaBoton').setInteractive();
         
     // Botón VOLVER
     // Define las animaciones del botón
