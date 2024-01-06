@@ -43,6 +43,8 @@ export class Modificar extends Phaser.Scene {
 		const cambiar = this.add.sprite(1775 / 2, 400 / 2, 'botonCambiar').setInteractive();
 		const atras = this.add.sprite(1775 / 2, 900 / 2, 'botonAtras').setInteractive();
 		const cerrar = this.add.sprite(1775 / 2, 1180 / 2, 'botonCerrar').setInteractive();
+		
+		const info = this.add.text(700, 650, '', { font: '20px Courier', fill: '#5c330a' , weight: 23});
 
 		var cambio = false;
 		var ok = false;
@@ -183,6 +185,7 @@ export class Modificar extends Phaser.Scene {
 				//Comprobamos que no estén vacíos dichos campos
 				if (UserName === ('') || UserPassword === ('')) {
 					console.log("Rellene todos los campos por favor");
+					info.text = 'Rellene los campos necesarios'
 				}
 				else {
 					$.ajax({
@@ -205,12 +208,14 @@ export class Modificar extends Phaser.Scene {
 						//En caso de error, simplemente indicamos que ha habido un error al crear al usuario
 					}).fail(function() {
 						console.log("Error al borrar a los usuarios");
+						info.text = 'La constraseña es incorrecta';
 					})
 				}
 			}
 			//En caso de que no se hayan rellenado los campos, se le piden al usuario
 			else {
 				console.log("Rellene todos los campos por favor");
+				info.text = 'Rellene los campos necesarios';
 			}
 
 		});
@@ -262,6 +267,7 @@ export class Modificar extends Phaser.Scene {
 				//Comprobamos que no estén vacíos dichos campos
 				if (UserName === ('') || UserPassword === ('') || NewPassword === ('')) {
 					console.log("Rellene todos los campos por favor");
+					info.text = 'Rellene los campos necesarios'
 				}
 				else {
 					$.ajax({
@@ -275,15 +281,18 @@ export class Modificar extends Phaser.Scene {
 						//Se indica al usuario que ha iniciado sesión correctamente
 						console.log("Ha modificado su contraseña");
 						console.log(usuario)
+						info.text = 'Contraseña cambiada con éxito'
 						//En caso de error, simplemente indicamos que ha habido un error al crear al usuario
 					}).fail(function() {
 						console.log("Error al modificar su contraseña");
+						info.text = 'Contraseña inicial incorrecta';
 					})
 				}
 			}
 			//En caso de que no se hayan rellenado los campos, se le piden al usuario
 			else {
 				console.log("Rellene todos los campos por favor");
+				info.text = 'Rellene los campos necesarios'
 			}
 		});
 
