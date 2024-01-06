@@ -502,7 +502,7 @@ export class gamePiratas extends Phaser.Scene{
         this.physics.add.collider(damage_boost, balas_pirata_1,obtener_damage_boost_1, null, this);
         this.physics.add.collider(damage_boost, balas_pirata_2,obtener_damage_boost_2, null, this);
 
-        const mute = this.add.sprite(795, 50, 'musicaBoton').setInteractive().setScale(1/2);
+        const mute = this.add.sprite(645, 655, 'musicaBoton').setInteractive().setScale(1/2);
         
         // Botón VOLVER
         // Define las animaciones del botón
