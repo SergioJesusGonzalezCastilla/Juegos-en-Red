@@ -530,7 +530,7 @@ Cuando las protecciones son destruidas, los sprites son reemplazados por unos ig
     </p>
 
     
-*6.2 Escenario Piratas*
+*6.3 Escenario Piratas*
 
 El escenario creado esta basado en la epoca de los piratas, siendo un mar dividido por una linea de rocas puntiagudas que romperían los barcos, además de barcos ya rotos e islas.
 Todos los elementos que hay por medio del escenario, ya sean las islas o los barcos rotos son protecciones para los jugadores.
@@ -570,8 +570,47 @@ Todos los elementos que hay por medio del escenario, ya sean las islas o los bar
       <br><br>
     </p>
     
+Cuando las protecciones son destruidas, los sprites son reemplazados por unos iguales pero hundidos, por lo que los jugadores podrán pasar por ellos.
 
-*6.3 Personajes*
+
+ - Barco 1 hundido:
+    <p align="center">
+      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/barco izq hundido.png">
+      <br><br>
+      <b>Ilustración 41. Barco 1 hundido</b>
+      <br><br>
+    </p>
+    
+- Barco 2 hundido:
+   
+    <p align="center">
+      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Barco derech hundido.png">
+      <br><br>
+      <b>Ilustración 42. Barco 2 hundido</b>
+      <br><br>
+    </p>
+    
+ - Isla 1 hundida:
+   
+    <p align="center">
+      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Isla izq hundida.png">
+      <br><br>
+      <b>Ilustración 43. Isla 1 hundida</b>
+      <br><br>
+    </p>
+    
+- Isla 2 hundida:
+   
+    <p align="center">
+      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Isla derech hundida.png">
+      <br><br>
+      <b>Ilustración 44. Isla 2 hundida</b>
+      <br><br>
+    </p>
+
+    
+
+*6.4 Personajes vaqueros*
 
 Los personajes de este escenario estan basados en vaqueros, teniendo uno de ellos una paleta de colores más de forajido (colores tierra) y otro colores más de hombre de la ley (colores azules que usaban los oficiales de ejercito)
 Se ha dibujado a mano todos los frames para las animaciones, tanto para la animación en la que el personaje no se mueve, como para la animación de andar. Más tarde se han creado los spritesheets con todos los frames para las animaciones.
@@ -580,7 +619,7 @@ Se ha dibujado a mano todos los frames para las animaciones, tanto para la anima
     <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Vaquero1 izquierda1.png">
       <br><br>
-      <b>Ilustración 35. Vaquero 1</b>
+      <b>Ilustración 45. Vaquero 1</b>
       <br><br>
     </p>
     
@@ -589,7 +628,7 @@ Se ha dibujado a mano todos los frames para las animaciones, tanto para la anima
     <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Vaquero izq spritesheet V.2.png">
       <br><br>
-      <b>Ilustración 36. Spritesheet Vaquero 1</b>
+      <b>Ilustración 46. Spritesheet Vaquero 1</b>
       <br><br>
     </p>
     
@@ -598,7 +637,7 @@ Se ha dibujado a mano todos los frames para las animaciones, tanto para la anima
     <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Vaquero 2 dcha 1.png">
       <br><br>
-      <b>Ilustración 37. Vaquero 2</b>
+      <b>Ilustración 47. Vaquero 2</b>
       <br><br>
     </p>
     
@@ -607,7 +646,47 @@ Se ha dibujado a mano todos los frames para las animaciones, tanto para la anima
     <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Vaquero dch spritesheet.png">
       <br><br>
-      <b>Ilustración 38. Spritesheet Vaquero 2</b>
+      <b>Ilustración 48. Spritesheet Vaquero 2</b>
+      <br><br>
+    </p>
+
+*6.4 Personajes vaqueros*
+
+Los personajes de este escenario estan basados en barcos piratas, teniendo uno de ellos una paleta de colores distinto para cada barco
+Se ha dibujado a mano todos los frames para las animaciones, tanto para la animación en la que el personaje no se mueve, como para la animación de andar. Más tarde se han creado los spritesheets con todos los frames para las animaciones.
+
+ - Sprite individual barco 1:
+    <p align="center">
+      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Barco 1.png">
+      <br><br>
+      <b>Ilustración 49. Barco 1</b>
+      <br><br>
+    </p>
+    
+- Spritesheet barco 1:
+   
+    <p align="center">
+      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Spritesheetfinal barco1 .png">
+      <br><br>
+      <b>Ilustración 50. Spritesheet Barco 1</b>
+      <br><br>
+    </p>
+    
+ - Sprite individual barco 2:
+   
+    <p align="center">
+      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Barco 2.png">
+      <br><br>
+      <b>Ilustración 51. Barco 2</b>
+      <br><br>
+    </p>
+    
+- Spritesheet barco 2:
+   
+    <p align="center">
+      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Spritesheet final2.png">
+      <br><br>
+      <b>Ilustración 52. Spritesheet Barco 2</b>
       <br><br>
     </p>
     
@@ -626,7 +705,7 @@ Se ha dibujado varios sprites para diferentes assets del juego, ya sean titulos 
 - Derrota:
    
     <p align="center">
-      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/YOU LOSE.png">
+      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Perdedor.png">
       <br><br>
       <b>Ilustración 40. Letras de Derrota</b>
       <br><br>
@@ -635,7 +714,7 @@ Se ha dibujado varios sprites para diferentes assets del juego, ya sean titulos 
  - Victoria:
    
     <p align="center">
-      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/YOU WIN.png">
+      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Ganador.png">
       <br><br>
       <b>Ilustración 41. Letras de Victoria</b>
       <br><br>
