@@ -183,8 +183,6 @@ Para el segundo jugador en local, se utiliza su homologo por teclado “JIKL”,
 - **Movimiento hacia abajo (K)** 
 - **Disparar (H)** 
 
-Si planteamos el juego multijugador en diferentes ordenadores (en otras palabras, jugar en línea), las características de movimiento pasan a ser las mismas para los dos usuarios en partida, es decir, el protocolo será el de jugador 1 en local para ambos. 
-
 **Brecha intermedia (campo de juego)**
 
 Los jugadores estarán separados por un campo medio (que estéticamente dependerá de cada escenario) y cada jugador tendrá asignada su zona de movimiento, para poder atacar al oponente. Cada usuario tendrá a su disposición localizaciones para poder cubrirse del oponente (las cuales se irán deteriorando con los ataques enemigos). 
