@@ -535,42 +535,41 @@ Cuando las protecciones son destruidas, los sprites son reemplazados por unos ig
 El escenario creado esta basado en la epoca de los piratas, siendo un mar dividido por una linea de rocas puntiagudas que romperían los barcos, además de barcos ya rotos e islas.
 Todos los elementos que hay por medio del escenario, ya sean las islas o los barcos rotos son protecciones para los jugadores.
 
-- Protección de barco roto 1:
-   
+- Protección de barco 1:
     <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/barco izq.png">
       <br><br>
       <b>Ilustración 37. Barco roto 1</b>
       <br><br>
     </p>
-
-- Protección de barco roto 2:
+    
+- Proteccion de barco 2:
    
     <p align="center">
-      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/barco derech.png">
+      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Barco derech.png">
       <br><br>
       <b>Ilustración 38. Barco roto 2</b>
       <br><br>
     </p>
-
-  - Protección de isla 1:
+    
+ - Protección de Isla 1:
    
     <p align="center">
-      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/isla izq medio.png">
+      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Isla izq medio.png">
       <br><br>
       <b>Ilustración 39. Isla 1</b>
       <br><br>
     </p>
-
-  - Protección de isla 2:
+    
+- Proteccion de Isla 2:
    
     <p align="center">
-      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/isla derecha medio.png">
+      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Isla derecha medio.png">
       <br><br>
       <b>Ilustración 40. Isla 2</b>
       <br><br>
     </p>
-
+    
 
 *6.3 Personajes*
 
