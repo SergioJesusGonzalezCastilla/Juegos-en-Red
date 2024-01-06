@@ -16,9 +16,9 @@ export class Ajustes extends Phaser.Scene{
     this.load.image('AjustesF', 'resources/ajustes/FondoAjustesFinal.png')
     .spritesheet('botonVolver','resources/botones/Volver.png',{ frameWidth: 286, frameHeight: 102 })   
     .spritesheet('musicaBoton','resources/ajustes/musicaB.png',{ frameWidth: 370, frameHeight: 77 })   
-    this.load.audio('sonidoFondoA','sounds/meme.mp3')
     this.load.audio('sonidoDisparo','sounds/disparoSound.mp3')
-    .image('MEME', 'resources/meme.png')
+    this.load.audio('sonidoFondoA','sounds/MenuInicioSound.mp3')
+
 
   }
 
@@ -81,12 +81,7 @@ export class Ajustes extends Phaser.Scene{
       });
            
 
-
-
-
-
-
-      const mute = this.add.sprite(620, 640, 'musicaBoton').setInteractive();
+      const mute = this.add.sprite(620, 340, 'musicaBoton').setInteractive();
         
     // Botón VOLVER
     // Define las animaciones del botón
@@ -123,7 +118,9 @@ export class Ajustes extends Phaser.Scene{
     mute.on('pointerdown', () => {
       mute.play('buttonClick599');
         //meter tiempo espera
-        this.game.musicaGlobal.sonidoFondoA.setVolume(0);
+        sonidoFondoA.mute = !sonidoFondoA.mute;
+
+
 
       });
 
@@ -133,8 +130,6 @@ export class Ajustes extends Phaser.Scene{
 
 
 
-
-    this.add.image(1280/2, 820/2, 'MEME').setScale(1/4);   
-
   }
 }
+
