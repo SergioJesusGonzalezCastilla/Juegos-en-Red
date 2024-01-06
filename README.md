@@ -419,12 +419,37 @@ En este apartado, se va a dejar evidencia de los bocetos iniciales de la interfa
       <br><br>
 </p>
 
+- Escena Ingame nivel piratas: En esta escena es en la que se desarrolla toda la acción del juego, es igual que la escena de vaqueros, solo que esta vez en el escenario de piratas. Existe un pequeño botón en la parte superior de la misma que permite pausar el juego, pudiendo volver a activarse el mismo sin cambios en el entorno. En función de quién gane o pierda la partida se mostará una u otra interfaz de victoria.
+
+
+- Interfaz de pausa nivel piratas: Permite parar la escena de la partida actual, sin perderse por ello el progreso en la misma. También permite reiniciar la partida o abandonar por completo este modo de juego.
+
+
+- Interfaz de victoria del jugador 1 nivel Piratas: Se muestra únicamente en el caso de que gane el jugador 1 y pierda el jugador 2. Permite volver al menú de inicio.
+
+<p align="center">
+      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/GanaPirata1.png">
+      <br><br>
+      <b>Ilustración 26. Interfaz de victoria del jugador 1 Piratas"</b>
+      <br><br>
+</p>
+
+- Interfaz de victoria del jugador 2 nivel Piratas: Se muestra únicamente en el caso de que gane el jugador 1 y pierda el jugador 2. Permite volver al menú de inicio.
+
+<p align="center">
+      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/GanaPirata2.png">
+      <br><br>
+      <b>Ilustración 27. Interfaz de victoria del jugador 2 Piratas"</b>
+      <br><br>
+</p>
+
+
 - Interfaz de ajustes: Dado que no se ha podido desarrollar en su totalidad con las funcionalidades deseadas, se ha optado por introducir en esta escena un elemento cómico que permita obtener simultáneamente las insignias "¡Memencanta!" y "AL MÁS PELOTA"
 
 <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Interfaz Ajustes.JPG">
       <br><br>
-      <b>Ilustración 26. Interfaz de ajustes, a día de hoy con un meme."</b>
+      <b>Ilustración 28. Interfaz de ajustes, a día de hoy con un meme."</b>
       <br><br>
 </p>
 
@@ -433,7 +458,7 @@ En este apartado, se va a dejar evidencia de los bocetos iniciales de la interfa
   <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Diagramaflujo.jpg">
       <br><br>
-      <b>Ilustración 27. Diagrama de flujo"</b>
+      <b>Ilustración 29. Diagrama de flujo"</b>
       <br><br>
 </p>
 
@@ -448,7 +473,7 @@ Las referencias son claras: A la hora de establecer el estilo artístico a imple
 <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Scooby Doo.png">
       <br><br>
-      <b>Ilustración 28. Imagen de la serie animada "Scooby Doo"</b>
+      <b>Ilustración 30. Imagen de la serie animada "Scooby Doo"</b>
       <br><br>
 </p>
 
@@ -461,7 +486,7 @@ Todos los elementos que hay por medio del escenario, ya sean las carretas o la m
     <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Agua sin sombra.png">
       <br><br>
-      <b>Ilustración 29. Barreño de Agua</b>
+      <b>Ilustración 31. Barreño de Agua</b>
       <br><br>
     </p>
     
@@ -470,7 +495,7 @@ Todos los elementos que hay por medio del escenario, ya sean las carretas o la m
     <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Carreta derecha sin sombra.png">
       <br><br>
-      <b>Ilustración 30. Carreta derecha</b>
+      <b>Ilustración 32. Carreta derecha</b>
       <br><br>
     </p>
     
@@ -479,7 +504,7 @@ Todos los elementos que hay por medio del escenario, ya sean las carretas o la m
     <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Carreta izzq sin sombra.png">
       <br><br>
-      <b>Ilustración 31. Carreta izquierda</b>
+      <b>Ilustración 33. Carreta izquierda</b>
       <br><br>
     </p>
     
@@ -488,7 +513,7 @@ Todos los elementos que hay por medio del escenario, ya sean las carretas o la m
     <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Mesa sin sombra.png">
       <br><br>
-      <b>Ilustración 32. Mesa</b>
+      <b>Ilustración 34. Mesa</b>
       <br><br>
     </p>
     
@@ -498,7 +523,7 @@ Cuando las protecciones son destruidas, los sprites son reemplazados por unos ig
     <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Agua rota.png">
       <br><br>
-      <b>Ilustración 33. Barreño de Agua destruido</b>
+      <b>Ilustración 35. Barreño de Agua destruido</b>
       <br><br>
     </p>
     
@@ -507,7 +532,7 @@ Cuando las protecciones son destruidas, los sprites son reemplazados por unos ig
     <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Carreta derecha rota.png">
       <br><br>
-      <b>Ilustración 34. Carreta derecha destruida</b>
+      <b>Ilustración 36. Carreta derecha destruida</b>
       <br><br>
     </p>
     
@@ -516,7 +541,7 @@ Cuando las protecciones son destruidas, los sprites son reemplazados por unos ig
     <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Carreta izq rota.png">
       <br><br>
-      <b>Ilustración 35. Carreta izquierda destruida</b>
+      <b>Ilustración 37. Carreta izquierda destruida</b>
       <br><br>
     </p>
     
@@ -525,7 +550,7 @@ Cuando las protecciones son destruidas, los sprites son reemplazados por unos ig
     <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Mesa Rota.png">
       <br><br>
-      <b>Ilustración 36. Mesa destruida</b>
+      <b>Ilustración 38. Mesa destruida</b>
       <br><br>
     </p>
 
@@ -539,7 +564,7 @@ Todos los elementos que hay por medio del escenario, ya sean las islas o los bar
     <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/barco izq.png">
       <br><br>
-      <b>Ilustración 37. Barco roto 1</b>
+      <b>Ilustración 39. Barco roto 1</b>
       <br><br>
     </p>
     
@@ -548,7 +573,7 @@ Todos los elementos que hay por medio del escenario, ya sean las islas o los bar
     <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Barco derech.png">
       <br><br>
-      <b>Ilustración 38. Barco roto 2</b>
+      <b>Ilustración 40. Barco roto 2</b>
       <br><br>
     </p>
     
@@ -557,7 +582,7 @@ Todos los elementos que hay por medio del escenario, ya sean las islas o los bar
     <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Isla izq medio.png">
       <br><br>
-      <b>Ilustración 39. Isla 1</b>
+      <b>Ilustración 41. Isla 1</b>
       <br><br>
     </p>
     
@@ -566,7 +591,7 @@ Todos los elementos que hay por medio del escenario, ya sean las islas o los bar
     <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Isla derecha medio.png">
       <br><br>
-      <b>Ilustración 40. Isla 2</b>
+      <b>Ilustración 42. Isla 2</b>
       <br><br>
     </p>
     
@@ -577,7 +602,7 @@ Cuando las protecciones son destruidas, los sprites son reemplazados por unos ig
     <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/barco izq hundido.png">
       <br><br>
-      <b>Ilustración 41. Barco 1 hundido</b>
+      <b>Ilustración 43. Barco 1 hundido</b>
       <br><br>
     </p>
     
@@ -586,7 +611,7 @@ Cuando las protecciones son destruidas, los sprites son reemplazados por unos ig
     <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Barco derech hundido.png">
       <br><br>
-      <b>Ilustración 42. Barco 2 hundido</b>
+      <b>Ilustración 44. Barco 2 hundido</b>
       <br><br>
     </p>
     
@@ -595,7 +620,7 @@ Cuando las protecciones son destruidas, los sprites son reemplazados por unos ig
     <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Isla izquierda hundida.png">
       <br><br>
-      <b>Ilustración 43. Isla 1 hundida</b>
+      <b>Ilustración 45. Isla 1 hundida</b>
       <br><br>
     </p>
     
@@ -604,7 +629,7 @@ Cuando las protecciones son destruidas, los sprites son reemplazados por unos ig
     <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Isla derecha hundida.png">
       <br><br>
-      <b>Ilustración 44. Isla 2 hundida</b>
+      <b>Ilustración 46. Isla 2 hundida</b>
       <br><br>
     </p>
 
@@ -619,7 +644,7 @@ Se ha dibujado a mano todos los frames para las animaciones, tanto para la anima
     <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Vaquero1 izquierda1.png">
       <br><br>
-      <b>Ilustración 45. Vaquero 1</b>
+      <b>Ilustración 47. Vaquero 1</b>
       <br><br>
     </p>
     
@@ -628,7 +653,7 @@ Se ha dibujado a mano todos los frames para las animaciones, tanto para la anima
     <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Vaquero izq spritesheet V.2.png">
       <br><br>
-      <b>Ilustración 46. Spritesheet Vaquero 1</b>
+      <b>Ilustración 48. Spritesheet Vaquero 1</b>
       <br><br>
     </p>
     
@@ -637,7 +662,7 @@ Se ha dibujado a mano todos los frames para las animaciones, tanto para la anima
     <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Vaquero 2 dcha 1.png">
       <br><br>
-      <b>Ilustración 47. Vaquero 2</b>
+      <b>Ilustración 49. Vaquero 2</b>
       <br><br>
     </p>
     
@@ -646,7 +671,7 @@ Se ha dibujado a mano todos los frames para las animaciones, tanto para la anima
     <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Vaquero dch spritesheet.png">
       <br><br>
-      <b>Ilustración 48. Spritesheet Vaquero 2</b>
+      <b>Ilustración 50. Spritesheet Vaquero 2</b>
       <br><br>
     </p>
 
@@ -659,7 +684,7 @@ Se ha dibujado a mano todos los frames para las animaciones, tanto para la anima
     <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Barco 1.png">
       <br><br>
-      <b>Ilustración 49. Barco 1</b>
+      <b>Ilustración 51. Barco 1</b>
       <br><br>
     </p>
     
@@ -668,7 +693,7 @@ Se ha dibujado a mano todos los frames para las animaciones, tanto para la anima
     <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Spritesheetfinal barco1.png">
       <br><br>
-      <b>Ilustración 50. Spritesheet Barco 1</b>
+      <b>Ilustración 52. Spritesheet Barco 1</b>
       <br><br>
     </p>
     
@@ -677,7 +702,7 @@ Se ha dibujado a mano todos los frames para las animaciones, tanto para la anima
     <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Barco 2.png">
       <br><br>
-      <b>Ilustración 51. Barco 2</b>
+      <b>Ilustración 53. Barco 2</b>
       <br><br>
     </p>
     
@@ -686,7 +711,7 @@ Se ha dibujado a mano todos los frames para las animaciones, tanto para la anima
     <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Spritesheet final2.png">
       <br><br>
-      <b>Ilustración 52. Spritesheet Barco 2</b>
+      <b>Ilustración 54. Spritesheet Barco 2</b>
       <br><br>
     </p>
     
@@ -698,7 +723,7 @@ Se ha dibujado varios sprites para diferentes assets del juego, ya sean titulos 
     <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Cursor reloj.png">
       <br><br>
-      <b>Ilustración 39. Cursor personalizado</b>
+      <b>Ilustración 55. Cursor personalizado</b>
       <br><br>
     </p>
     
@@ -707,7 +732,7 @@ Se ha dibujado varios sprites para diferentes assets del juego, ya sean titulos 
     <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Perdedor.png">
       <br><br>
-      <b>Ilustración 40. Letras de Derrota</b>
+      <b>Ilustración 56. Letras de Derrota</b>
       <br><br>
     </p>
     
@@ -716,7 +741,7 @@ Se ha dibujado varios sprites para diferentes assets del juego, ya sean titulos 
     <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Ganador.png">
       <br><br>
-      <b>Ilustración 41. Letras de Victoria</b>
+      <b>Ilustración 57. Letras de Victoria</b>
       <br><br>
     </p>
     
@@ -725,7 +750,7 @@ Se ha dibujado varios sprites para diferentes assets del juego, ya sean titulos 
     <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Creditos.png">
       <br><br>
-      <b>Ilustración 42. Titulo Creditos 2</b>
+      <b>Ilustración 58. Titulo Creditos 2</b>
       <br><br>
     </p>
 
@@ -734,7 +759,7 @@ Se ha dibujado varios sprites para diferentes assets del juego, ya sean titulos 
     <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Ajustes.png">
       <br><br>
-      <b>Ilustración 43. Titulo Ajustes</b>
+      <b>Ilustración 59. Titulo Ajustes</b>
       <br><br>
     </p>
 
@@ -751,7 +776,7 @@ Se ha dibujado varios sprites para diferentes assets del juego, ya sean titulos 
     <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Diagrama API REST.jpg">
       <br><br>
-      <b>Ilustración 44. Diagrama API REST</b>
+      <b>Ilustración 60. Diagrama API REST</b>
       <br><br>
     </p>
 **8.  Protocolo utilizado sobre WebSockets**
