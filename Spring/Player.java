@@ -22,10 +22,3 @@ public class Player {
         return session;
     }
 }
-
-Como podría implementar las funcionalidades necesarias en el siguiente método del servidor?:
-@Override
-    protected void handleTextMessage(WebSocketSession session, TextMessage message) throws Exception {
-        //Se manejan los mensajes recibidos desde el cliente
-        String payload = message.getPayload();       
-    }
