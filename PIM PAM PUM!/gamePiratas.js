@@ -106,26 +106,24 @@ export class gamePiratas extends Phaser.Scene{
 
         //BALAS
         this.load.image('bala_pirata','resources/Piratas/Bala de cañon.png');
-        this.load.image('bala_vaquero_1','resources/Juego/Bala_Derecha.png');
-        this.load.image('bala_vaquero_2','resources/Juego/Bala_Izquierda.png');
 
         //CORAZÓN INTERFAZ
         this.load.image('corazon','resources/Juego/Corazon.png');
 
         //GATO
-        this.load.image('gato','resources/Piratas/Gato pirata.png');
+        this.load.image('gatoPirata','resources/Piratas/Gato pirata.png');
 
         //DAMAGE_BOOST
-        this.load.image('damage','resources/Piratas/Bala de cañon fuego.png');
-        this.load.image('damage_bullet_1','resources/Piratas/Bala de cañon fuego izq.png');
-        this.load.image('damage_bullet_2','resources/Piratas/Bala de cañon fuego dcha.png');
+        this.load.image('damagePirata','resources/Piratas/Bala de cañon fuego.png');
+        this.load.image('damage_bullet_1Pirata','resources/Piratas/Bala de cañon fuego izq.png');
+        this.load.image('damage_bullet_2Pirata','resources/Piratas/Bala de cañon fuego dcha.png');
 
         //AUDIO
         this.load.audio('sonidoFondoPiratas','sounds/FightPiratas.mp3');
-        this.load.audio('sonidoDisparoCan','sounds/DisparoPiratas.mp3');
+        this.load.audio('sonidoDisparo','sounds/DisparoPiratas.mp3');
 
         //BOTON PAUSA
-        this.load.image('pausa','resources/BotonPausaP.png');
+        this.load.image('pausaPiratas','resources/BotonPausaP.png');
     }
     create ()
     {
@@ -154,7 +152,7 @@ export class gamePiratas extends Phaser.Scene{
         obstaculos.create(1.8*WIDTH/3, HEIGHT/1.2, 'Isla2').setScale(0.75);
 
         //BOTON PAUSA
-        const pause_label=this.add.image(1280/2,50, 'pausa').setScale(0.25).setInteractive();
+        const pause_label=this.add.image(1280/2,50, 'pausaPiratas').setScale(0.25).setInteractive();
         pause_label.on('pointerdown', () => {
             sonidoFondo.pause();
             this.scene.switch('pausePiratas');
@@ -325,7 +323,7 @@ export class gamePiratas extends Phaser.Scene{
 
         //Sonidos
         sonidoFondo = this.sound.add('sonidoFondoPiratas');
-        sonidoDisparo = this.sound.add('sonidoDisparoCan');
+        sonidoDisparo = this.sound.add('sonidoDisparo');
         sonidoFondo.loop =true;
         
         sonidoFondo.play();
@@ -441,11 +439,11 @@ export class gamePiratas extends Phaser.Scene{
             pirata_1.setTint(0xffff00);
             if(speedup_1_conseguido===0)
             {
-                this.add.image(50,130, 'gato').setScale(2/7);
+                this.add.image(50,130, 'gatoPirata').setScale(2/7);
             }
             else
             {
-                this.add.image(50,190, 'gato').setScale(2/7);
+                this.add.image(50,190, 'gatoPirata').setScale(2/7);
             }
             speedup_1_conseguido++;
         } 
@@ -459,11 +457,11 @@ export class gamePiratas extends Phaser.Scene{
             pirata_2.setTint(0xffff00);
             if(speedup_2_conseguido===0)
             {
-                this.add.image(WIDTH-50,130, 'gato').setScale(2/7);
+                this.add.image(WIDTH-50,130, 'gatoPirata').setScale(2/7);
             }
             else
             {
-                this.add.image(WIDTH-50,190, 'gato').setScale(2/7);
+                this.add.image(WIDTH-50,190, 'gatoPirata').setScale(2/7);
             }
             speedup_2_conseguido++;
         } 
@@ -483,7 +481,7 @@ export class gamePiratas extends Phaser.Scene{
             total_balas_empleadas++;
             extra_damage_1+=5;
             damage_boost.destroy();
-            this.add.image(130,50, 'damage').setScale(2/7);
+            this.add.image(130,50, 'damagePirata').setScale(2/7);
             damage_boost_1_conseguido=true;
         } 
 
@@ -494,7 +492,7 @@ export class gamePiratas extends Phaser.Scene{
             total_balas_empleadas++;
             extra_damage_2+=5;
             damage_boost.destroy();
-            this.add.image(WIDTH-162,50, 'damage').setScale(2/7);
+            this.add.image(WIDTH-162,50, 'damagePirata').setScale(2/7);
             damage_boost_2_conseguido=true;
         } 
 
@@ -552,7 +550,7 @@ export class gamePiratas extends Phaser.Scene{
                 var escala_1=1/3;
                 if(damage_boost_1_conseguido)
                 {
-                    imagen_1='damage_bullet_1';
+                    imagen_1='damage_bullet_1Pirata';
                     escala_1=1/3;
                 }
                 var bala=balas_pirata_1.create(pirata_1.x+100,pirata_1.y,imagen_1).setScale(escala_1);
@@ -613,7 +611,7 @@ export class gamePiratas extends Phaser.Scene{
                 var escala_2=1/3;
                 if(damage_boost_2_conseguido)
                 {
-                    imagen_2='damage_bullet_2';
+                    imagen_2='damage_bullet_2Pirata';
                     escala_2=1/3;
                 }
                 var bala=balas_pirata_2.create(pirata_2.x-100,pirata_2.y,imagen_2).setScale(escala_2);
@@ -669,20 +667,20 @@ export class gamePiratas extends Phaser.Scene{
         //Comprobaremos la cantidad de balas totales empleadas para crear los objetos speedup en función de la misma
         if(total_balas_empleadas>=(Phaser.Math.Between(20, 35)) && speedup_1_mostrado===false)
         {
-            speedup.create(WIDTH/2, 1*HEIGHT/6+20, 'gato').setScale(1/2);
+            speedup.create(WIDTH/2, 1*HEIGHT/6+20, 'gatoPirata').setScale(1/2);
             speedup_1_mostrado=true;
         }
 
         if(total_balas_empleadas>=(Phaser.Math.Between(50, 65)) && speedup_2_mostrado===false)
         {
-            speedup.create(WIDTH/2, 6*HEIGHT/8, 'gato').setScale(1/2);
+            speedup.create(WIDTH/2, 6*HEIGHT/8, 'gatoPirata').setScale(1/2);
             speedup_2_mostrado=true;
         }
 
         //Comprobaremos la cantidad de balas totales empleadas para crear los objetos damage_boost en función de la misma
         if(total_balas_empleadas>=(Phaser.Math.Between(40, 55)) && damage_boost_mostrado===false)
         {
-            damage_boost.create(WIDTH/2, HEIGHT/2, 'damage').setScale(1/2);
+            damage_boost.create(WIDTH/2, HEIGHT/2, 'damagePirata').setScale(1/2);
             damage_boost_mostrado=true;
         }
     }
