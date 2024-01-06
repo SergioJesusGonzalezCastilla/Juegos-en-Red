@@ -35,6 +35,12 @@ export class Registro extends Phaser.Scene {
 		var text2 = this.add.text(980 / 2, 930 / 2, '', { fontSize: '32px', fill: '#000' }).setInteractive();
 		var text2Aux = this.add.text(5000, 5000, '', { fontSize: '32px', fill: '#000' }).setInteractive();
 
+		const informacion = this.add.text(495, 650, '', { font: '20px Courier', fill: '#5c330a' , weight: 23});
+		const informacion2 = this.add.text(495, 650, '', { font: '20px Courier', fill: '#5c330a' , weight: 23});
+
+		const error = this.add.text(495, 650, '', { font: '20px Courier', fill: '#b81414' , weight: 23});
+
+
 		fondo.on('pointerdown', () => {
 			Bool1 = false;
 			Bool2 = false;
@@ -141,6 +147,7 @@ export class Registro extends Phaser.Scene {
 				//Comprobamos que no estén vacíos dichos campos
 				if (UserName === ('') || UserPassword === ('')) {
 					console.log("Rellene todos los campos por favor");
+					informacion.text = 'Rellene todos los campos por favor'
 				}
 				else {
 					$.ajax({
@@ -152,6 +159,8 @@ export class Registro extends Phaser.Scene {
 					}).done(function(usuario) {
 						//Se indica al usuario que ha iniciado sesión correctamente
 						console.log("Ha iniciado sesión con éxito");
+						informacion2.text = 'Ha iniciado sesión con éxito'
+
 						iniciado = true;
 						console.log(usuario)
 						if (iniciado) {
@@ -164,12 +173,15 @@ export class Registro extends Phaser.Scene {
 						//En caso de error, simplemente indicamos que ha habido un error al crear al usuario
 					}).fail(function() {
 						console.log("Error al cargar el usuario");
+						error.text='Error al cargar el usuario'
 					})
 				}
 			}
 			//En caso de que no se hayan rellenado los campos, se le piden al usuario
 			else {
 				console.log("Rellene todos los campos por favor");
+				informacion.text = 'Rellene todos los campos por favor'
+
 			}
 			//En cualquier caso, hayan permqanecido activos o inactivos los campos, se borra el contenido de los mismos
 			$("#name").val('');
@@ -225,6 +237,8 @@ export class Registro extends Phaser.Scene {
 				//Comprobamos que no estén vacíos dichos campos
 				if (UserName === (vacio) || UserPassword === (vacio)) {
 					console.log("Rellene todos los campos por favor");
+					informacion.text = 'Rellene todos los campos por favor'
+
 				}
 				else {
 					$.ajax({
@@ -240,12 +254,16 @@ export class Registro extends Phaser.Scene {
 						//En caso de error, simplemente indicamos que ha habido un error al crear al usuario
 					}).fail(function() {
 						console.log("Error al crear al usuario");
+						error.text='Error al cargar el usuario'
+						
 					})
 				}
 			}
 			//En caso de que no se hayan rellenado los campos, se le piden al usuario
 			else {
 				console.log("Rellene todos los campos por favor");
+				informacion.text = 'Rellene todos los campos por favor'
+
 			}
 
 			//Una vez que se ha acabado de crear un usuario, volvemos a restaurar los valores de los campos, para que puedan volver a rellenarse
