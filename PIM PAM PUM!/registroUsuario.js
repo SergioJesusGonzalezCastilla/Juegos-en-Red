@@ -147,7 +147,7 @@ export class Registro extends Phaser.Scene {
 				//Comprobamos que no estén vacíos dichos campos
 				if (UserName === ('') || UserPassword === ('')) {
 					console.log("Rellene todos los campos por favor");
-					informacion.text = 'Rellene todos los campos por favor'
+					informacion.text = 'Rellene todos los campos'
 				}
 				else {
 					$.ajax({
@@ -159,7 +159,6 @@ export class Registro extends Phaser.Scene {
 					}).done(function(usuario) {
 						//Se indica al usuario que ha iniciado sesión correctamente
 						console.log("Ha iniciado sesión con éxito");
-						informacion2.text = 'Ha iniciado sesión con éxito'
 
 						iniciado = true;
 						console.log(usuario)
@@ -173,14 +172,14 @@ export class Registro extends Phaser.Scene {
 						//En caso de error, simplemente indicamos que ha habido un error al crear al usuario
 					}).fail(function() {
 						console.log("Error al cargar el usuario");
-						error.text='Error al cargar el usuario'
+						informacion.text='Usuario/contraseña erróneo'
 					})
 				}
 			}
 			//En caso de que no se hayan rellenado los campos, se le piden al usuario
 			else {
 				console.log("Rellene todos los campos por favor");
-				informacion.text = 'Rellene todos los campos por favor'
+				informacion.text = 'Rellene todos los campos'
 
 			}
 			//En cualquier caso, hayan permqanecido activos o inactivos los campos, se borra el contenido de los mismos
@@ -237,7 +236,7 @@ export class Registro extends Phaser.Scene {
 				//Comprobamos que no estén vacíos dichos campos
 				if (UserName === (vacio) || UserPassword === (vacio)) {
 					console.log("Rellene todos los campos por favor");
-					informacion.text = 'Rellene todos los campos por favor'
+					informacion.text = 'Rellene todos los campos'
 
 				}
 				else {
@@ -251,10 +250,11 @@ export class Registro extends Phaser.Scene {
 					}).done(function(user) {
 						console.log(user)
 						creado = true;
+						informacion.text = 'Se ha creado un usuario'
 						//En caso de error, simplemente indicamos que ha habido un error al crear al usuario
 					}).fail(function() {
 						console.log("Error al crear al usuario");
-						error.text='Error al cargar el usuario'
+						informacion.text='Error. Usuario ya existente'
 						
 					})
 				}
@@ -262,7 +262,7 @@ export class Registro extends Phaser.Scene {
 			//En caso de que no se hayan rellenado los campos, se le piden al usuario
 			else {
 				console.log("Rellene todos los campos por favor");
-				informacion.text = 'Rellene todos los campos por favor'
+				informacion.text = 'Rellene todos los campos'
 
 			}
 
