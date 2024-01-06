@@ -10,7 +10,7 @@ export class PausaPirata extends Phaser.Scene{
 
     preload(){
       //FONDO
-      this.load.image('Fondo', 'resources/pausa/PausaFondoPiratas.png');
+      this.load.image('Fondo', 'resources/pausa/PausaFondoPirata.png');
       //EFECTO SONIDO
       this.load.audio('sonidoDisparo','sounds/disparoSound.mp3')
       //BOTONES
