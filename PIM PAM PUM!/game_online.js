@@ -1006,10 +1006,8 @@ export class Game_Online extends Phaser.Scene {
 		}
 		else
 		{
-			console.log('¡Bienvenido al modo espectador!')
-			texto3=this.add.text(WIDTH/2-43,30,'ESPECTADOR');
 			this.scene.transition({
-				target: 'menu-inicio',
+				target: 'lleno',
 				duration:0,
 			});
 				sonidoFondo.stop();
