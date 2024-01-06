@@ -1,4 +1,6 @@
 var sonidoFondo;
+var sonidoFondo2;
+
 var sonidoDisparo;
 export class Mapas extends Phaser.Scene{
 
@@ -14,12 +16,16 @@ export class Mapas extends Phaser.Scene{
         .spritesheet('botonPiratas','resources/mapa/asaltoB.png',{ frameWidth: 498, frameHeight: 720 })      
         this.load.audio('sonidoFondo','sounds/BackgroundFightSound.mp3')
         this.load.audio('sonidoDisparo','sounds/disparoSound.mp3')
+        this.load.audio('sonidoFondoPiratas','sounds/FightPiratas.mp3');
+
     }
 
     create(){
 
         this.add.image(1280/2, 720/2, 'Mapas');
         sonidoFondo = this.sound.add('sonidoFondo');
+        sonidoFondo2 = this.sound.add('sonidoFondoPiratas');
+
         sonidoDisparo = this.sound.add('sonidoDisparo');
         sonidoFondo.loop = true;
 
@@ -51,10 +57,14 @@ export class Mapas extends Phaser.Scene{
         // Configura la interactividad del botón
         vaqueros.on('pointerover', () => {
             vaqueros.play('buttonHoverV4');
+            sonidoFondo.play();
+
         });
 
         vaqueros.on('pointerout', () => {
             vaqueros.play('buttonNormalV4');
+            sonidoFondo.stop();
+
         });
 
         vaqueros.on('pointerdown', () => {
@@ -101,10 +111,14 @@ export class Mapas extends Phaser.Scene{
         // Configura la interactividad del botón
         piratas.on('pointerover', () => {
             piratas.play('buttonHoverP4');
+            sonidoFondo2.play();
+
         });
 
         piratas.on('pointerout', () => {
             piratas.play('buttonNormalP4');
+            sonidoFondo2.stop();
+
         });
 
         piratas.on('pointerdown', () => {
@@ -114,7 +128,7 @@ export class Mapas extends Phaser.Scene{
                 target: 'gamePiratas',
                 duration:1000,
             });
-              sonidoFondo.stop();
+              sonidoFondo2.stop();
               sonidoDisparo.play();
         });
 
@@ -175,4 +189,5 @@ export class Mapas extends Phaser.Scene{
     }
 
 }
+
 
