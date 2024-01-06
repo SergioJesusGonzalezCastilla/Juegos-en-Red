@@ -666,7 +666,7 @@ Se ha dibujado a mano todos los frames para las animaciones, tanto para la anima
 - Spritesheet barco 1:
    
     <p align="center">
-      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Spritesheetfinal barco1 .png">
+      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Spritesheetfinal barco1.png">
       <br><br>
       <b>Ilustración 50. Spritesheet Barco 1</b>
       <br><br>
