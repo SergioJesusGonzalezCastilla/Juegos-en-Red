@@ -10,7 +10,7 @@ export class PausaPirata extends Phaser.Scene{
 
     preload(){
       //FONDO
-      this.load.image('Fondo', 'resources/pausa/PausaFondoPirata.png');
+      this.load.image('FondoPausaPiratas', 'resources/pausa/PausaFondoPirata.png');
       //EFECTO SONIDO
       this.load.audio('sonidoDisparo','sounds/disparoSound.mp3')
       //BOTONES
@@ -26,7 +26,7 @@ export class PausaPirata extends Phaser.Scene{
         var sonidoDisparo = this.sound.add('sonidoDisparo');
 
         //FONDO
-        this.add.image(1280/2, 720/2, 'Fondo'); 
+        this.add.image(1280/2, 720/2, 'FondoPausaPiratas'); 
       
         const reinicio = this.add.sprite(WIDTH/2,HEIGHT/1.5, 'restart').setInteractive();
         
