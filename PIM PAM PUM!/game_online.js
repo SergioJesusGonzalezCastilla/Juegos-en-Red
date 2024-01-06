@@ -1,4 +1,4 @@
-	import { WebSocketConfig } from './WebSocketConfig.js';
+import { WebSocketConfig } from './WebSocketConfig.js';
 
 //VARIABLE CONSTANTE DE LA VELOCIDAD DE LOS PERSONAJES FIJA
 var BASE_SPEED = 140;
@@ -1008,6 +1008,12 @@ export class Game_Online extends Phaser.Scene {
 		{
 			console.log('¡Bienvenido al modo espectador!')
 			texto3=this.add.text(WIDTH/2-43,30,'ESPECTADOR');
+			this.scene.transition({
+				target: 'menu-inicio',
+				duration:0,
+			});
+				sonidoFondo.stop();
+				this.webSocketManager.cerrarConexion();
 		}
 	}
 	gestionJuegoIniciado(datos_juego)
