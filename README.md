@@ -652,3 +652,11 @@ Se ha dibujado varios sprites para diferentes assets del juego, ya sean titulos 
       <b>Ilustración 44. Diagrama API REST</b>
       <br><br>
     </p>
+**8.  Protocolo utilizado sobre WebSockets**
+De forma resumida, podemos destacar los siguientes puntos:
+1. Cuando un usuario comienza su partida online, se crea un websocket, utilizando la siguiente dirección: "WebSocket URL:", "ws://" + location.host + "/echo?id=" + userId; todo ello por medio de la clase WebSocketConfig del servidor.
+2. Esta clase, que se encarga de toda la lógica del socket del lado del cliente, contiene una serie comportamientos del socket en caso de apertura, cierre, recepción del mensaje o error (onopen, onclose, onmessage, onerror) y unas funciones estabñecidas para mandar mensajes (sendMessage) y finalizar la conexión (cerrarConexión).
+3. En la aplicación y en el Pom, por su parte, se han introducido los cambios necesarios para soportar el protocolo.
+4. Por su parte, la lógica del servidor en relación al protocolo websocket se implementa en WebSocketHandlerPimPamPum, que posee una serie de acciones a llevar a cabo tras establecerse la conexión y cerrarse (afterConnectionEstablished y afterConnectionClosed); así como para cuando recibe un mensaje handleTextMessage, este último valiéndose del métdoo auxiliar notificarActualizacion. A la hora de mandar los menssajes a los usuarios, se presentan tres opciones: Mandárselo a si mismo, que solo se utiliza para determinar el rol del jugador; mandarselo a todos los jugadores, que se usa únicamente para determinar la inicialización del juego; o mandárselo a todos los jugadores excepto uno mismo, que se lleva a cabo en el resto de situaciones, para movimientos, disparos...
+5. Cuando un usuario recibe un mensaje, el socket le relegará al método handleWebSocketMessage del juego la ejecución de las actividades correspondientes.
+6. Este método, en función del tipo de mensaje recibido, actualizará unos datos u otros.
