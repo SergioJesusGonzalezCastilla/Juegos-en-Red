@@ -19,6 +19,8 @@ import {Opciones }from './opciones_online.js';
 import {Modificar }from './modificar.js';
 import {Game_Online }from './game_online.js';
 import {Meme }from './meme.js';
+import {LLeno }from './lleno.js';
+
  
 const WIDTH = 1280;
 const HEIGHT = 720;
@@ -28,7 +30,7 @@ const config = {
     width:WIDTH,
     height:HEIGHT,
     
-    scene:[Minicio,Meme,Modificar,ModoCliente,Registro,Ajustes,Opciones,Mapas,Seleccion,Simulador,Creditos,Game,gamePiratas,Game_Online,Pausa,PausaPirata,gameWinJ1,gameWinJ2,gameWinJ1Piratas,gameWinJ2Piratas],
+    scene:[Minicio,Meme,Modificar,ModoCliente,Registro,Ajustes,Opciones,Mapas,Seleccion,Simulador,Creditos,Game,gamePiratas,Game_Online,Pausa,PausaPirata,gameWinJ1,gameWinJ2,gameWinJ1Piratas,gameWinJ2Piratas,Lleno],
 
     physics: {
         default: 'arcade',
