@@ -239,7 +239,7 @@ En esta versión del documento de diseño, divideremos entre aquellos que ya han
 - Bala de cañón flamígera: Sustituye las balas estándar de los jugadores por balas flamígeras durante el resto de la partida, las cuales ejercen una mayor cantidad de daño sobre los personajes. En el entorno del juego se visualiza como una bala de cañon envuelta en llamas. También de esta forma se ven las nuevas balas disparadas.
 
 <p align="center">
-      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Bala de cañón fuego.png">
+      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Bala de cañon fuego.png">
       <br><br>
       <b>Ilustración 6. Potenciador "Bala de cañón flamígera" en el entorno de juego</b>
       <br><br>
