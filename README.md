@@ -236,23 +236,27 @@ En esta versión del documento de diseño, divideremos entre aquellos que ya han
   
 **Elementos implementados**
 
-- Bala de cañón flamígera: Sustituye las balas estándar de los jugadores por balas flamígeras durante el resto de la partida, las cuales ejercen una mayor cantidad de daño sobre los personajes. En el entorno del juego se visualiza como una bala de cañon envuelta en llamas. También de esta forma se ven las nuevas balas disparadas.
-
-<p align="center">
-      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Bala de cañon fuego.png">
-      <br><br>
-      <b>Ilustración 6. Potenciador "Bala de cañón flamígera" en el entorno de juego</b>
-      <br><br>
-</p>
 
 - Michipum pirata: Un pequeño gato que se ha colado en la A.I.C.A. Aumenta la velocidad de movimiento durante el resto de la partida. En el entorno de juego se presentan al usuario como una cabeza de gato con una estética adaptada al nivel en función del periodo histórico en que se ambiente. Gráficamente, se distingue al jugador que posee esta ventaja con un aura dorada a su alrededor.
 
 <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Gato pirata.png">
       <br><br>
-      <b>Ilustración 5. Potenciador "Michipum" en el entorno de juego para el escenario Piratas al abordaje</b>
+      <b>Ilustración 7. Potenciador "Michipum" en el entorno de juego para el escenario Piratas al abordaje</b>
       <br><br>
 </p>
+
+
+- Bala de cañón flamígera: Sustituye las balas estándar de los jugadores por balas flamígeras durante el resto de la partida, las cuales ejercen una mayor cantidad de daño sobre los personajes. En el entorno del juego se visualiza como una bala de cañon envuelta en llamas. También de esta forma se ven las nuevas balas disparadas.
+
+<p align="center">
+      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Bala de cañon fuego.png">
+      <br><br>
+      <b>Ilustración 8. Potenciador "Bala de cañón flamígera" en el entorno de juego</b>
+      <br><br>
+</p>
+
+
 
 **5. Interfaces**
 
@@ -265,7 +269,7 @@ En este apartado, se va a dejar evidencia de los bocetos iniciales de la interfa
 <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Boceto Menu inicio.png">
       <br><br>
-      <b>Ilustración 7. Boceto de la interfaz de menú de inicio"</b>
+      <b>Ilustración 9. Boceto de la interfaz de menú de inicio"</b>
       <br><br>
 </p>
 
@@ -274,7 +278,7 @@ En este apartado, se va a dejar evidencia de los bocetos iniciales de la interfa
 <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Boceto Interfaz Ingame.jpg">
       <br><br>
-      <b>Ilustración 8. Boceto de la interfaz Ingame"</b>
+      <b>Ilustración 10. Boceto de la interfaz Ingame"</b>
       <br><br>
 </p>
 
@@ -283,7 +287,7 @@ En este apartado, se va a dejar evidencia de los bocetos iniciales de la interfa
 <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Boceto Pausa P1.png">
       <br><br>
-      <b>Ilustración 9. Boceto de la interfaz de pausa para el jugador 1"</b>
+      <b>Ilustración 11. Boceto de la interfaz de pausa para el jugador 1"</b>
       <br><br>
 </p>
 
@@ -292,7 +296,7 @@ En este apartado, se va a dejar evidencia de los bocetos iniciales de la interfa
 <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Boceto Pausa P2.png">
       <br><br>
-      <b>Ilustración 10. Boceto de la interfaz de pausa para el jugador 2"</b>
+      <b>Ilustración 12. Boceto de la interfaz de pausa para el jugador 2"</b>
       <br><br>
 </p>
 
@@ -303,7 +307,7 @@ En este apartado, se va a dejar evidencia de los bocetos iniciales de la interfa
 <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Menu Inicio.JPG">
       <br><br>
-      <b>Ilustración 11. Interfaz del menú de inicio"</b>
+      <b>Ilustración 13. Interfaz del menú de inicio"</b>
       <br><br>
 </p>
   
@@ -312,7 +316,7 @@ En este apartado, se va a dejar evidencia de los bocetos iniciales de la interfa
 <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Interfaz créditos.JPG">
       <br><br>
-      <b>Ilustración 12. Interfaz de créditos"</b>
+      <b>Ilustración 14. Interfaz de créditos"</b>
       <br><br>
 </p>
 
@@ -321,7 +325,7 @@ En este apartado, se va a dejar evidencia de los bocetos iniciales de la interfa
 <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Interfaz de selección de modo de juego.JPG">
       <br><br>
-      <b>Ilustración 13. Interfaz de selección de modo de juego"</b>
+      <b>Ilustración 15. Interfaz de selección de modo de juego"</b>
       <br><br>
 </p>
 
@@ -330,7 +334,7 @@ En este apartado, se va a dejar evidencia de los bocetos iniciales de la interfa
 <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Interfaz Simulador.JPG">
       <br><br>
-      <b>Ilustración 14. Interfaz del tutorial/simulador"</b>
+      <b>Ilustración 16. Interfaz del tutorial/simulador"</b>
       <br><br>
 </p>
 
@@ -339,7 +343,7 @@ En este apartado, se va a dejar evidencia de los bocetos iniciales de la interfa
 <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/OnlineF.png">
       <br><br>
-      <b>Ilustración 15. Interfaz de tipo de conexión"</b>
+      <b>Ilustración 17. Interfaz de tipo de conexión"</b>
       <br><br>
 </p>
 
@@ -348,7 +352,7 @@ En este apartado, se va a dejar evidencia de los bocetos iniciales de la interfa
 <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/RegistroUsuarios.png">
       <br><br>
-      <b>Ilustración 16. Interfaz de registro de usuarios"</b>
+      <b>Ilustración 18. Interfaz de registro de usuarios"</b>
       <br><br>
 </p>
 
@@ -357,7 +361,7 @@ En este apartado, se va a dejar evidencia de los bocetos iniciales de la interfa
 <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/FondoOpciones.png">
       <br><br>
-      <b>Ilustración 17. Pantalla de Juego en línea"</b>
+      <b>Ilustración 19. Pantalla de Juego en línea"</b>
       <br><br>
 </p>
 
@@ -366,52 +370,52 @@ En este apartado, se va a dejar evidencia de los bocetos iniciales de la interfa
 <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/FondoModificarCuenta.png">
       <br><br>
-      <b>Ilustración 18. Pantalla de Modificar Cuenta"</b>
+      <b>Ilustración 20. Pantalla de Modificar Cuenta"</b>
       <br><br>
 </p>
 
-- Interfaz de selección de nivel: Permite elegir entre una variedad de niveles, aunque actualmente solo está disponible el primero de ellos. También permite volver a la pantalla de selección de modo de juego.
+- Interfaz de selección de nivel: Permite elegir entre una variedad de niveles. También permite volver a la pantalla de selección de modo de juego.
 
 <p align="center">
-      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Interfaz selección de nivel.jpeg">
+      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Pantalla de seleccion niveles.png">
       <br><br>
-      <b>Ilustración 19. Interfaz de selección de nivel"</b>
+      <b>Ilustración 21. Interfaz de selección de nivel"</b>
       <br><br>
 </p>
 
-- Escena Ingame: En esta escena es en la que se desarrolla toda la acción del juego. Existe un pequeño botón en la parte superior de la misma que permite pausar el juego, pudiendo volver a activarse el mismo sin cambios en el entorno. En función de quién gane o pierda la partida se mostará una u otra interfaz de victoria.
+- Escena Ingame nivel vaqueros: En esta escena es en la que se desarrolla toda la acción del juego. Existe un pequeño botón en la parte superior de la misma que permite pausar el juego, pudiendo volver a activarse el mismo sin cambios en el entorno. En función de quién gane o pierda la partida se mostará una u otra interfaz de victoria.
 
 <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Interfaz Ingame.jpeg">
       <br><br>
-      <b>Ilustración 20. Interfaz de la escena Ingame"</b>
+      <b>Ilustración 22. Interfaz de la escena Ingame"</b>
       <br><br>
 </p>
 
-- Interfaz de pausa: Permite parar la escena de la partida actual, sin perderse por ello el progreso en la misma. También permite reiniciar la partida o abandonar por completo este modo de juego.
+- Interfaz de pausa nivel vauqeros: Permite parar la escena de la partida actual, sin perderse por ello el progreso en la misma. También permite reiniciar la partida o abandonar por completo este modo de juego.
 
 <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Interfaz pausa.jpeg">
       <br><br>
-      <b>Ilustración 21. Interfaz de pausa"</b>
+      <b>Ilustración 23. Interfaz de pausa"</b>
       <br><br>
 </p>
 
-- Interfaz de victoria del jugador 1: Se muestra únicamente en el caso de que gane el jugador 1 y pierda el jugador 2. Permite volver al menú de inicio.
+- Interfaz de victoria del jugador 1 nivel vaqueros: Se muestra únicamente en el caso de que gane el jugador 1 y pierda el jugador 2. Permite volver al menú de inicio.
 
 <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Victoria J1.JPG">
       <br><br>
-      <b>Ilustración 22. Interfaz de victoria del jugador 1"</b>
+      <b>Ilustración 24. Interfaz de victoria del jugador 1"</b>
       <br><br>
 </p>
 
-- Interfaz de victoria del jugador 2: Se muestra únicamente en el caso de que gane el jugador 2 y pierda el jugador 3. Permite volver al menú de inicio.
+- Interfaz de victoria del jugador 2 nivel vaqueros: Se muestra únicamente en el caso de que gane el jugador 2 y pierda el jugador 3. Permite volver al menú de inicio.
 
 <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Victoria J2.JPG">
       <br><br>
-      <b>Ilustración 23. Interfaz de victoria del jugador 2"</b>
+      <b>Ilustración 25. Interfaz de victoria del jugador 2"</b>
       <br><br>
 </p>
 
@@ -420,7 +424,7 @@ En este apartado, se va a dejar evidencia de los bocetos iniciales de la interfa
 <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Interfaz Ajustes.JPG">
       <br><br>
-      <b>Ilustración 24. Interfaz de ajustes, a día de hoy con un meme."</b>
+      <b>Ilustración 26. Interfaz de ajustes, a día de hoy con un meme."</b>
       <br><br>
 </p>
 
@@ -429,7 +433,7 @@ En este apartado, se va a dejar evidencia de los bocetos iniciales de la interfa
   <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Diagramaflujo.jpg">
       <br><br>
-      <b>Ilustración 25. Diagrama de flujo"</b>
+      <b>Ilustración 27. Diagrama de flujo"</b>
       <br><br>
 </p>
 
@@ -444,11 +448,11 @@ Las referencias son claras: A la hora de establecer el estilo artístico a imple
 <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Scooby Doo.png">
       <br><br>
-      <b>Ilustración 26. Imagen de la serie animada "Scooby Doo"</b>
+      <b>Ilustración 28. Imagen de la serie animada "Scooby Doo"</b>
       <br><br>
 </p>
 
-*6.2 Escenario*
+*6.2 Escenario Vaqueros*
 
 El escenario creado esta basado en el Salvaje Oeste, siendo un pequeño pueblo con unas vias de tren en medio, además de carretas y mesas y trozos de madera por el escenario.
 Todos los elementos que hay por medio del escenario, ya sean las carretas o la mesa son protecciones para los jugadores.
@@ -457,7 +461,7 @@ Todos los elementos que hay por medio del escenario, ya sean las carretas o la m
     <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Agua sin sombra.png">
       <br><br>
-      <b>Ilustración 27. Barreño de Agua</b>
+      <b>Ilustración 29. Barreño de Agua</b>
       <br><br>
     </p>
     
@@ -466,7 +470,7 @@ Todos los elementos que hay por medio del escenario, ya sean las carretas o la m
     <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Carreta derecha sin sombra.png">
       <br><br>
-      <b>Ilustración 28. Carreta derecha</b>
+      <b>Ilustración 30. Carreta derecha</b>
       <br><br>
     </p>
     
@@ -475,7 +479,7 @@ Todos los elementos que hay por medio del escenario, ya sean las carretas o la m
     <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Carreta izzq sin sombra.png">
       <br><br>
-      <b>Ilustración 29. Carreta izquierda</b>
+      <b>Ilustración 31. Carreta izquierda</b>
       <br><br>
     </p>
     
@@ -484,7 +488,7 @@ Todos los elementos que hay por medio del escenario, ya sean las carretas o la m
     <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Mesa sin sombra.png">
       <br><br>
-      <b>Ilustración 30. Mesa</b>
+      <b>Ilustración 32. Mesa</b>
       <br><br>
     </p>
     
@@ -494,7 +498,7 @@ Cuando las protecciones son destruidas, los sprites son reemplazados por unos ig
     <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Agua rota.png">
       <br><br>
-      <b>Ilustración 31. Barreño de Agua destruido</b>
+      <b>Ilustración 33. Barreño de Agua destruido</b>
       <br><br>
     </p>
     
@@ -503,7 +507,7 @@ Cuando las protecciones son destruidas, los sprites son reemplazados por unos ig
     <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Carreta derecha rota.png">
       <br><br>
-      <b>Ilustración 32. Carreta derecha destruida</b>
+      <b>Ilustración 34. Carreta derecha destruida</b>
       <br><br>
     </p>
     
@@ -512,7 +516,7 @@ Cuando las protecciones son destruidas, los sprites son reemplazados por unos ig
     <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Carreta izq rota.png">
       <br><br>
-      <b>Ilustración 33. Carreta izquierda destruida</b>
+      <b>Ilustración 35. Carreta izquierda destruida</b>
       <br><br>
     </p>
     
@@ -521,10 +525,52 @@ Cuando las protecciones son destruidas, los sprites son reemplazados por unos ig
     <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Mesa Rota.png">
       <br><br>
-      <b>Ilustración 34. Mesa destruida</b>
+      <b>Ilustración 36. Mesa destruida</b>
       <br><br>
     </p>
+
     
+*6.2 Escenario Piratas*
+
+El escenario creado esta basado en la epoca de los piratas, siendo un mar dividido por una linea de rocas puntiagudas que romperían los barcos, además de barcos ya rotos e islas.
+Todos los elementos que hay por medio del escenario, ya sean las islas o los barcos rotos son protecciones para los jugadores.
+
+- Protección de barco roto 1:
+   
+    <p align="center">
+      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/barco izq.png">
+      <br><br>
+      <b>Ilustración 37. Barco roto 1</b>
+      <br><br>
+    </p>
+
+- Protección de barco roto 2:
+   
+    <p align="center">
+      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/barco derech.png">
+      <br><br>
+      <b>Ilustración 38. Barco roto 2</b>
+      <br><br>
+    </p>
+
+  - Protección de isla 1:
+   
+    <p align="center">
+      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/isla izq medio.png">
+      <br><br>
+      <b>Ilustración 39. Isla 1</b>
+      <br><br>
+    </p>
+
+  - Protección de isla 2:
+   
+    <p align="center">
+      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/isla derecha medio.png">
+      <br><br>
+      <b>Ilustración 40. Isla 2</b>
+      <br><br>
+    </p>
+
 
 *6.3 Personajes*
 
