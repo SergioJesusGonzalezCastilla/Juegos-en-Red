@@ -1,6 +1,9 @@
 ## ENLACE VÍDEO
 https://youtu.be/mAe3NmlAkpM
 
+## ENLACE DE LAS DIFERENTES PLATAFORMAS DONDE SE HA PUBLICADO
+Itch.io: https://sergio-gonzalez.itch.io/pim-pam-pum
+
 ## Juegos en Red
 
 Repositorio creado por estudiantes, para la asignatura de Juegos en Red del Grado en Diseño y Desarrollo de Videojuegos de la URJC (Móstoles))
@@ -818,4 +821,3 @@ De forma resumida, podemos destacar los siguientes puntos:
    - Ya no es necesario indicar el usuario a la hora de cambiar contraseña o eliminar la cuenta.
    - Todo el juego en el mismo idioma (español).
    - Mejoras gráficas en las interfaces.
-   - Subido el juego a Itch.io: https://sergio-gonzalez.itch.io/pim-pam-pum
