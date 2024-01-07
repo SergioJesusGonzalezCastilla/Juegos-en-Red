@@ -267,7 +267,7 @@ En este apartado, se va a dejar evidencia de los bocetos iniciales de la interfa
 <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Boceto Menu inicio.png">
       <br><br>
-      <b>Ilustración 9. Boceto de la interfaz de menú de inicio"</b>
+      <b>Ilustración 9. Boceto de la interfaz de menú de inicio</b>
       <br><br>
 </p>
 
@@ -276,7 +276,7 @@ En este apartado, se va a dejar evidencia de los bocetos iniciales de la interfa
 <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Boceto Interfaz Ingame.jpg">
       <br><br>
-      <b>Ilustración 10. Boceto de la interfaz Ingame"</b>
+      <b>Ilustración 10. Boceto de la interfaz Ingame</b>
       <br><br>
 </p>
 
@@ -285,7 +285,7 @@ En este apartado, se va a dejar evidencia de los bocetos iniciales de la interfa
 <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Boceto Pausa P1.png">
       <br><br>
-      <b>Ilustración 11. Boceto de la interfaz de pausa para el jugador 1"</b>
+      <b>Ilustración 11. Boceto de la interfaz de pausa para el jugador 1</b>
       <br><br>
 </p>
 
@@ -294,7 +294,7 @@ En este apartado, se va a dejar evidencia de los bocetos iniciales de la interfa
 <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Boceto Pausa P2.png">
       <br><br>
-      <b>Ilustración 12. Boceto de la interfaz de pausa para el jugador 2"</b>
+      <b>Ilustración 12. Boceto de la interfaz de pausa para el jugador 2</b>
       <br><br>
 </p>
 
@@ -305,7 +305,7 @@ En este apartado, se va a dejar evidencia de los bocetos iniciales de la interfa
 <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Menu Inicio.JPG">
       <br><br>
-      <b>Ilustración 13. Interfaz del menú de inicio"</b>
+      <b>Ilustración 13. Interfaz del menú de inicio</b>
       <br><br>
 </p>
   
@@ -314,7 +314,7 @@ En este apartado, se va a dejar evidencia de los bocetos iniciales de la interfa
 <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Interfaz créditos.JPG">
       <br><br>
-      <b>Ilustración 14. Interfaz de créditos"</b>
+      <b>Ilustración 14. Interfaz de créditos</b>
       <br><br>
 </p>
 
@@ -323,7 +323,7 @@ En este apartado, se va a dejar evidencia de los bocetos iniciales de la interfa
 <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Interfaz de selección de modo de juego.JPG">
       <br><br>
-      <b>Ilustración 15. Interfaz de selección de modo de juego"</b>
+      <b>Ilustración 15. Interfaz de selección de modo de juego</b>
       <br><br>
 </p>
 
@@ -332,7 +332,7 @@ En este apartado, se va a dejar evidencia de los bocetos iniciales de la interfa
 <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Interfaz Simulador.JPG">
       <br><br>
-      <b>Ilustración 16. Interfaz del tutorial/simulador"</b>
+      <b>Ilustración 16. Interfaz del tutorial/simulador</b>
       <br><br>
 </p>
 
@@ -341,7 +341,7 @@ En este apartado, se va a dejar evidencia de los bocetos iniciales de la interfa
 <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/OnlineF.png">
       <br><br>
-      <b>Ilustración 17. Interfaz de tipo de conexión"</b>
+      <b>Ilustración 17. Interfaz de tipo de conexión</b>
       <br><br>
 </p>
 
@@ -350,7 +350,7 @@ En este apartado, se va a dejar evidencia de los bocetos iniciales de la interfa
 <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/RegistroUsuarios.png">
       <br><br>
-      <b>Ilustración 18. Interfaz de registro de usuarios"</b>
+      <b>Ilustración 18. Interfaz de registro de usuarios</b>
       <br><br>
 </p>
 
@@ -359,7 +359,7 @@ En este apartado, se va a dejar evidencia de los bocetos iniciales de la interfa
 <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/FondoOpciones.png">
       <br><br>
-      <b>Ilustración 19. Pantalla de Juego en línea"</b>
+      <b>Ilustración 19. Pantalla de Juego en línea</b>
       <br><br>
 </p>
 
@@ -368,7 +368,7 @@ En este apartado, se va a dejar evidencia de los bocetos iniciales de la interfa
 <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/FondoModificarCuenta.png">
       <br><br>
-      <b>Ilustración 20. Pantalla de Modificar Cuenta"</b>
+      <b>Ilustración 20. Pantalla de Modificar Cuenta</b>
       <br><br>
 </p>
 
@@ -377,7 +377,7 @@ En este apartado, se va a dejar evidencia de los bocetos iniciales de la interfa
 <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Pantalla de seleccion niveles.png">
       <br><br>
-      <b>Ilustración 21. Interfaz de selección de nivel"</b>
+      <b>Ilustración 21. Interfaz de selección de nivel</b>
       <br><br>
 </p>
 
@@ -386,7 +386,7 @@ En este apartado, se va a dejar evidencia de los bocetos iniciales de la interfa
 <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Interfaz Ingame.jpeg">
       <br><br>
-      <b>Ilustración 22. Interfaz de la escena Ingame"</b>
+      <b>Ilustración 22. Interfaz de la escena Ingame</b>
       <br><br>
 </p>
 
@@ -395,7 +395,7 @@ En este apartado, se va a dejar evidencia de los bocetos iniciales de la interfa
 <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Interfaz pausa.jpeg">
       <br><br>
-      <b>Ilustración 23. Interfaz de pausa"</b>
+      <b>Ilustración 23. Interfaz de pausa</b>
       <br><br>
 </p>
 
@@ -404,7 +404,7 @@ En este apartado, se va a dejar evidencia de los bocetos iniciales de la interfa
 <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Victoria J1.JPG">
       <br><br>
-      <b>Ilustración 24. Interfaz de victoria del jugador 1"</b>
+      <b>Ilustración 24. Interfaz de victoria del jugador 1</b>
       <br><br>
 </p>
 
@@ -413,7 +413,7 @@ En este apartado, se va a dejar evidencia de los bocetos iniciales de la interfa
 <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Victoria J2.JPG">
       <br><br>
-      <b>Ilustración 25. Interfaz de victoria del jugador 2"</b>
+      <b>Ilustración 25. Interfaz de victoria del jugador 2</b>
       <br><br>
 </p>
 
@@ -428,7 +428,7 @@ En este apartado, se va a dejar evidencia de los bocetos iniciales de la interfa
 <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/GanaPirata1.png">
       <br><br>
-      <b>Ilustración 26. Interfaz de victoria del jugador 1 Piratas"</b>
+      <b>Ilustración 26. Interfaz de victoria del jugador 1 Piratas</b>
       <br><br>
 </p>
 
@@ -437,7 +437,7 @@ En este apartado, se va a dejar evidencia de los bocetos iniciales de la interfa
 <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/GanaPirata2.png">
       <br><br>
-      <b>Ilustración 27. Interfaz de victoria del jugador 2 Piratas"</b>
+      <b>Ilustración 27. Interfaz de victoria del jugador 2 Piratas</b>
       <br><br>
 </p>
 
@@ -447,7 +447,7 @@ En este apartado, se va a dejar evidencia de los bocetos iniciales de la interfa
 <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Interfaz Ajustes.JPG">
       <br><br>
-      <b>Ilustración 28. Interfaz de ajustes, a día de hoy con un meme."</b>
+      <b>Ilustración 28. Interfaz de ajustes, a día de hoy con un meme.</b>
       <br><br>
 </p>
 
@@ -456,7 +456,7 @@ En este apartado, se va a dejar evidencia de los bocetos iniciales de la interfa
   <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Diagrama Interfaces.jpg">
       <br><br>
-      <b>Ilustración 29. Diagrama de flujo"</b>
+      <b>Ilustración 29. Diagrama de flujo</b>
       <br><br>
 </p>
 
@@ -774,7 +774,7 @@ Se ha dibujado varios sprites para diferentes assets del juego, ya sean titulos 
     <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Diagrama Spring Boot.jpg">
       <br><br>
-      <b>Ilustración 60. Diagrama API REST</b>
+      <b>Ilustración 60. Diagrama API REST/Spring Boot</b>
       <br><br>
     </p>
 **8.  Protocolo utilizado sobre WebSockets**
