@@ -814,4 +814,4 @@ De forma resumida, podemos destacar los siguientes puntos:
    - Ya no es necesario indicar el usuario a la hora de cambiar contraseña o eliminar la cuenta.
    - Todo el juego en el mismo idioma (español).
    - Mejoras gráficas en las interfaces.
-   - Subido el juego a Itch.io
+   - Subido el juego a Itch.io: https://sergio-gonzalez.itch.io/pim-pam-pum
