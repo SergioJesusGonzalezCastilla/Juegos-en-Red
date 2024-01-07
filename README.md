@@ -803,7 +803,7 @@ De forma resumida, podemos destacar los siguientes puntos:
 4. Por su parte, la lógica del servidor en relación al protocolo websocket se implementa en WebSocketHandlerPimPamPum, que posee una serie de acciones a llevar a cabo tras establecerse la conexión y cerrarse (afterConnectionEstablished y afterConnectionClosed); así como para cuando recibe un mensaje handleTextMessage, este último valiéndose del métdoo auxiliar notificarActualizacion. A la hora de mandar los menssajes a los usuarios, se presentan tres opciones: Mandárselo a si mismo, que solo se utiliza para determinar el rol del jugador; mandarselo a todos los jugadores, que se usa únicamente para determinar la inicialización del juego; o mandárselo a todos los jugadores excepto uno mismo, que se lleva a cabo en el resto de situaciones, para movimientos, disparos...
 5. Cuando un usuario recibe un mensaje, el socket le relegará al método handleWebSocketMessage del juego la ejecución de las actividades correspondientes.
 6. Este método, en función del tipo de mensaje recibido, actualizará unos datos u otros.
-7. 
+   
 **9. Mejoras de la fase 5**
    - Agregado un segundo nivel, "Piratas al abordaje", con temática pirata. Cuenta, nuevamente, con assets gráficos de creación propia.
    - Añadida interfaz de ajustes.
