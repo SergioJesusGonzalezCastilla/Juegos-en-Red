@@ -12,7 +12,7 @@ export class Opciones extends Phaser.Scene {
 
 	preload() {
 
-		this.load.image('AjustesF', 'resources/opcionesOnline/FondoOpcionesF.png')
+		this.load.image('AjustesO', 'resources/opcionesOnline/FondoOpcionesF.png')
    			.spritesheet('botonJugarB','resources/opcionesOnline/jugarB.png',{ frameWidth: 966, frameHeight: 457 })
 			.spritesheet('botonModificar', 'resources/opcionesOnline/ModificarB.png', { frameWidth: 1076, frameHeight: 129 })
 		this.load.audio('sonidoDisparo', 'sounds/disparoSound.mp3')
@@ -30,7 +30,7 @@ export class Opciones extends Phaser.Scene {
 		    console.error('No se pudo obtener el nombre del usuario.');
 		}
 		
-		this.add.image(1280 / 2, 720 / 2, 'AjustesF');
+		this.add.image(1280 / 2, 720 / 2, 'AjustesO');
 		var sonidoDisparo = this.sound.add('sonidoDisparo');
 
 		const mod = this.add.sprite(641, 65, 'botonModificar').setInteractive();
