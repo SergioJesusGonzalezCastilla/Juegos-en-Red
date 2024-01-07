@@ -153,6 +153,10 @@ En lo que respecta al primer escenario, ambientado en el Salvaje Oeste, se han u
 - Música de fondo: https://www.youtube.com/watch?v=dcPxsVPoQ2E (Editado con FL Studio)
 - Disparo de bala: https://www.youtube.com/watch?v=8u1-JILEx5Y (Recortado)
 
+En lo que respecta al segundo escenario, ambientado en el Mundo Pirata, se han utilizado los siguientes recursos:
+- Música de fondo: https://www.youtube.com/watch?v=mZgm6uIrQpQ (Editado con FL Studio)
+- Disparo de bala: https://www.youtube.com/watch?v=hi14-7R55e8 (Recortado)
+
 En la pantalla de ajustes:
 - Música de fondo: https://www.youtube.com/watch?v=ZnBPzhYWlcg (Editado con FL Studio)
 
