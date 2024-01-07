@@ -2,8 +2,8 @@
 https://youtu.be/mAe3NmlAkpM
 
 ## ENLACE DE LAS DIFERENTES PLATAFORMAS DONDE SE HA PUBLICADO
-Itch.io: https://sergio-gonzalez.itch.io/pim-pam-pum
-NewGrounds: https://www.newgrounds.com/portal/view/913309
+- Itch.io: https://sergio-gonzalez.itch.io/pim-pam-pum
+- NewGrounds: https://www.newgrounds.com/portal/view/913309
 
 ## Juegos en Red
 
