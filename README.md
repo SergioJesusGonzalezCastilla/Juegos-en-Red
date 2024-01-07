@@ -451,7 +451,7 @@ En este apartado, se va a dejar evidencia de los bocetos iniciales de la interfa
 </p>
 
 
-- Interfaz de ajustes: Dado que no se ha podido desarrollar en su totalidad con las funcionalidades deseadas, se ha optado por introducir en esta escena un elemento cómico que permita obtener simultáneamente las insignias "¡Memencanta!" y "AL MÁS PELOTA"
+- Interfaz de ajustes: Dado que no se ha podido desarrollar en su totalidad con las funcionalidades deseadas, se ha optado por introducir un texto y botón orientativos que enseñarán al usuario a silenciar el sonido cuando sea posible.
 
 <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Interfaz Ajustes.JPG">
@@ -459,6 +459,8 @@ En este apartado, se va a dejar evidencia de los bocetos iniciales de la interfa
       <b>Ilustración 29. Interfaz de ajustes.</b>
       <br><br>
 </p>
+
+- Interfaz de insignia: Al hacer clic en la insignia de sheriff del menú principal se puede ver que se ha introducido en esta escena un elemento cómico que permita obtener simultáneamente las insignias "¡Memencanta!" y "AL MÁS PELOTA"
 
 <p align="center">
       <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Interfaz Meme.png">
