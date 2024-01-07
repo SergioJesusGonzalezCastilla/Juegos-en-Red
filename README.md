@@ -165,7 +165,7 @@ Sonidos que aparecen en como elementos de transición entre interfaces:
 
 *4.3 Mecánicas principales*
 
-Las mecánicas del título a presentar se pueden considerar de carácter básico a primera vista, están adaptadas para todos los usuarios que deseen familiarizarse con el entorno de juego y disfrutar de una batalla/experiencia entre dos jugadores, con la disponibilidad de ser en local o en línea. Lo más llamativo de todo el título, es la capacidad de enfrentamiento entre los jugadores, estos se moverán por todo el mapa evitando los disparos del oponente, perderá el usuario que primero que quede sin vida, para las mecánicas deberemos de separar entre el juego en local y en línea: 
+Las mecánicas del título a presentar se pueden considerar de carácter básico a primera vista, están adaptadas para todos los usuarios que deseen familiarizarse con el entorno de juego y disfrutar de una batalla/experiencia entre dos jugadores, con la disponibilidad de ser en local o en línea. Lo más llamativo de todo el título, es la capacidad de enfrentamiento entre los jugadores, estos se moverán por todo el mapa evitando los disparos del oponente, perderá el usuario que primero que quede sin vida.
 
 Para los movimientos/ataques principales de los personajes por la pantalla, se utiliza el protocolo estándar de movimiento universal. Este es considerado en el mundo videojuegos (ya que son muchos los títulos con esas características), “WASD” (teclas del teclado), esas teclas serán las destinadas para: 
 
@@ -454,7 +454,7 @@ En este apartado, se va a dejar evidencia de los bocetos iniciales de la interfa
 *5.3 Diagrama de flujo*
 
   <p align="center">
-      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Diagramaflujo.jpg">
+      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Diagrama Interfaces.jpg">
       <br><br>
       <b>Ilustración 29. Diagrama de flujo"</b>
       <br><br>
@@ -769,10 +769,10 @@ Se ha dibujado varios sprites para diferentes assets del juego, ya sean titulos 
 2 - Para iniciarlo como cliente, deberás de implementar en tu navegador (preferentemente Google Chrome, ya que ha sido el utilizado para el testeo del desarrollo) la IP que te facilitaremos en el momento (suponemos “XXXX”) y añadir la extensión siguiente = “XXXX:8080”.
 3 - Deber abrir la consola para poder ver como se modifica el registro de los usuarios.
     
-- Diagrama de clases API REST:
+- Diagrama de clases API REST y Spring Boot:
    
     <p align="center">
-      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Diagrama API REST.jpg">
+      <img src="https://github.com/SergioJesusGonzalezCastilla/Juegos-en-Red/blob/main/Archivos README/Diagrama Spring Boot.jpg">
       <br><br>
       <b>Ilustración 60. Diagrama API REST</b>
       <br><br>
